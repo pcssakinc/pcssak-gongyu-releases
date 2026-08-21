@@ -1,0 +1,102 @@
+# PCssak Gongyu 공개 릴리스 자산 계약
+
+이 문서는 `pcssakinc/pcssak-gongyu-releases`에 게시할 자산 이름과 공개 조건을 고정한다.
+현재 디렉터리는 로컬 템플릿이며 실제 저장소·릴리스가 아니다.
+
+## 1. GitHub 릴리스 상태
+
+무료 Early Access의 의미를 GitHub의 기계 판독 상태와 릴리스 제목·본문,
+`latest.json`의 `channel`에 모두 동일하게 표시한다. GitHub 릴리스는 다음 상태로
+게시해야 한다.
+
+- 태그: 제품 메타데이터와 같은 `v0.1.0` 형식
+- `draft=false`
+- `prerelease=true`
+- 제목: `PCssak Gongyu 0.1.0 — Free Early Access` 형식
+
+GitHub의 `/releases/latest`는 prerelease를 제외하므로 Gongyu 다운로드에는 사용하지 않는다.
+홈페이지, README와 `latest.json`은 모두 검증한 정확한 버전 태그 URL을 사용한다.
+
+## 2. 고정 자산 집합
+
+버전 `0.1.0`의 첫 공개 릴리스에는 아래 다섯 파일만 정확히 올린다.
+
+1. `PCssak-Gongyu-0.1.0-MPL-Sources.zip`
+2. `PCssak-Gongyu-Beta-Windows-x64-Setup.exe`
+3. `THIRD-PARTY-NOTICES.txt`
+4. `latest.json`
+5. `SHA256SUMS.txt`
+
+제품 버전이 바뀌면 첫 번째 파일명과 태그·`latest.json`의 버전만 같은 값으로 바꾼다.
+설치 파일명은 홈페이지의 고정 다운로드 계약 때문에 바꾸지 않는다. Windows x86 설치
+파일은 Windows 10 x86 Home·Pro 실기 증거 게이트가 별도로 통과하기 전까지 추가하지 않는다.
+
+Authenticode 서명과 Tauri 업데이트용 분리 서명을 이번 Early Access에는 만들지 않는다.
+따라서 `.sig`, `.msi`, 인증서 또는 개인키 파일은 릴리스 자산에 포함하면 안 된다.
+
+## 3. `latest.json` 계약
+
+`latest.json`은 `latest.schema.json`을 만족하는 PCSSAK 다운로드 메타데이터다. Tauri
+업데이트 매니페스트가 아니며 앱이 이를 서명된 자동 업데이트 정보로 처리해서는 안 된다.
+
+- `manifestKind`: `pcssak-download-metadata`
+- `channel`: `early-access`
+- `release.draft`: `false`
+- `release.prerelease`: `true`
+- 설치 파일 `authenticode`: `not-signed`
+- 설치 파일 `detachedSignature`: `null`
+- 모든 자산 URL: `releases/download/v<정확한 버전>/...` 버전 고정 URL
+- 홈페이지·README에서 매니페스트 자체를 찾는 URL도
+  `releases/download/v<정확한 버전>/latest.json` 사용
+
+JSON Schema만으로 `version`과 파일명·URL 속 버전이 서로 같은지 완전히 표현할 수 없으므로
+`scripts/verify-public-release-template.ps1`과 릴리스 자동화에서 교차 검증해야 한다.
+
+## 4. SHA-256 계약
+
+최종 이름으로 복사한 파일에서 SHA-256을 다시 계산한다. `SHA256SUMS.txt`는 소문자 64자리
+해시, ASCII 공백 두 개, 정확한 파일명과 LF 줄바꿈을 사용하고 다음 네 파일만 정렬해 담는다.
+
+1. `PCssak-Gongyu-0.1.0-MPL-Sources.zip`
+2. `PCssak-Gongyu-Beta-Windows-x64-Setup.exe`
+3. `THIRD-PARTY-NOTICES.txt`
+4. `latest.json`
+
+`SHA256SUMS.txt`가 자기 자신을 해시하게 만들면 순환 의존이 생기므로 자체 해시는 넣지 않는다.
+`latest.json`도 같은 이유로 `SHA256SUMS.txt`의 해시를 담지 않고 버전 고정 URL만 담는다.
+
+생성 순서는 다음과 같이 고정한다.
+
+1. 설치 파일, MPL ZIP, 고지문을 최종 파일명으로 복사하고 각각의 SHA-256을 계산한다.
+2. 그 세 해시와 버전 고정 URL로 `latest.json`을 만들고 스키마·교차 버전을 검증한다.
+3. 최종 `latest.json` SHA-256을 계산한다.
+4. 위 네 파일의 해시를 정해진 순서로 `SHA256SUMS.txt`에 기록한다.
+5. 업로드 직전 다섯 파일을 다시 읽어 이름·크기·해시를 확인한다.
+
+## 5. MPL-2.0 원본 계약
+
+`scripts/create-mpl-source-archive.ps1`이 현재 `Cargo.lock`, x64/i686 잠금 그래프와
+`THIRD-PARTY-NOTICES.txt`를 교차 검증하고 로컬 Cargo 레지스트리 캐시의 정확한 `.crate`
+원본으로 ZIP을 만든다. 네트워크에서 임의로 찾은 브랜치·태그·소스 저장소 ZIP으로
+대체하면 안 된다. ZIP에는 해시 기준인 `Cargo.lock`과 전체 라이선스 본문이 있는
+`THIRD-PARTY-NOTICES.txt`도 함께 넣는다. 현재 잠금 그래프의 MPL-2.0 구성요소는 다음
+다섯 개다.
+
+- `cssparser 0.36.0`
+- `cssparser-macros 0.6.1`
+- `dtoa-short 0.3.5`
+- `option-ext 0.2.0`
+- `selectors 0.36.1`
+
+버전이 달라지면 이 목록을 손으로 추정하지 말고 생성기와 고지 생성 결과를 다시 검증한다.
+
+## 6. 게시 전 차단 조건
+
+다음 중 하나라도 남으면 공개 저장소 생성·업로드·릴리스 게시를 중단한다.
+
+- 법률·개인정보 문서의 미확정 표시 또는 빈 사업자 정보
+- 필수 Windows 아이콘 규격이나 설치 제거·원복 시험 미완료
+- x64 Windows 10/11 Home·Pro 실기 설치·실행·핵심 기능·제거 증거 미완료
+- 설치 파일, `latest.json`, `SHA256SUMS.txt` 또는 MPL 원본 ZIP 해시 불일치
+- GitHub 자산 이름과 홈페이지의 버전 고정 다운로드 이름 불일치
+- 보안 제품 비활성화를 요구하는 설치 안내
