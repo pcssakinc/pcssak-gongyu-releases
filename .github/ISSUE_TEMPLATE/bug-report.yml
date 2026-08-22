@@ -1,0 +1,165 @@
+name: Bug report / 버그 제보
+description: Report a reproducible non-security PCssak Gongyu problem / 재현 가능한 일반 오류를 알려주세요
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Search existing Issues first. Never post passwords, private keys, pairing codes, real usernames, exact internal IP addresses, share names, full paths, customer files, complete network configurations or raw logs. Report an exploitable security issue privately under SECURITY.md.
+
+        기존 Issue를 먼저 검색하세요. 비밀번호·개인키·페어링 코드·실제 사용자명·정확한 내부 IP·공유명·전체 경로·고객 파일·전체 네트워크 구성·원본 로그를 올리지 마세요. 악용 가능한 보안 문제는 SECURITY.md에 따라 비공개로 제보하세요.
+  - type: input
+    id: app-version
+    attributes:
+      label: App version / 앱 버전
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: windows-edition
+    attributes:
+      label: Windows edition / Windows 에디션
+      options:
+        - Windows 11 Home x64
+        - Windows 11 Pro x64
+        - Windows 10 Home x64
+        - Windows 10 Pro x64
+        - Unsupported or unknown / 미지원 또는 모름
+    validations:
+      required: true
+  - type: input
+    id: windows-build
+    attributes:
+      label: Windows build / Windows 빌드
+      description: Enter only the safe version from winver; omit device and account names. / winver의 버전만 적고 기기명·계정명은 제외하세요.
+      placeholder: "Example / 예: 26100.x"
+  - type: dropdown
+    id: install-source
+    attributes:
+      label: Install source / 설치 출처
+      options:
+        - pcssak.com/gongyu
+        - Official pcssakinc GitHub v0.1.0 release / 공식 pcssakinc GitHub v0.1.0 릴리스
+        - Other or unknown / 기타 또는 모름
+    validations:
+      required: true
+  - type: dropdown
+    id: pc-role
+    attributes:
+      label: PC role / PC 역할
+      options:
+        - Host PC being shared or configured / 공유·설정하는 호스트 PC
+        - Connecting PC / 접속 PC
+        - Both PCs / 양쪽 PC
+        - Not applicable or unknown / 해당 없음 또는 모름
+    validations:
+      required: true
+  - type: dropdown
+    id: network-profile
+    attributes:
+      label: Host network profile / 호스트 네트워크 프로필
+      options:
+        - Private
+        - Domain
+        - Public
+        - Mixed, unknown, or query failed / 혼합·모름·조회 실패
+        - Not applicable / 해당 없음
+    validations:
+      required: true
+  - type: dropdown
+    id: network-type
+    attributes:
+      label: Network type / 네트워크 종류
+      options:
+        - Same router and physical Ethernet / 같은 공유기·유선 LAN
+        - Same router and physical Wi-Fi / 같은 공유기·Wi-Fi
+        - VPN, tunnel, routed network, or port forwarding (unsupported) / VPN·터널·라우팅·포트포워딩(미지원)
+        - Public or guest network (unsupported) / 공용·게스트 네트워크(미지원)
+        - Unknown / 모름
+    validations:
+      required: true
+  - type: dropdown
+    id: affected-step
+    attributes:
+      label: Affected step / 문제가 생긴 단계
+      options:
+        - Installation, startup, or elevation / 설치·시작·관리자 승격
+        - Automatic SMB setup or recovery / SMB 자동 설정·원복
+        - Share creation or removal / 공유 생성·해제
+        - Drive mapping or credential storage / 드라이브 매핑·자격증명 저장
+        - Pairing / 페어링
+        - SSH enable, status, or disable / SSH 켜기·상태·끄기
+        - SSH login, command, or SFTP / SSH 로그인·명령·SFTP
+        - Uninstall or leftover state / 제거·잔여 상태
+        - Interface or translation / 화면·번역
+        - Other / 기타
+    validations:
+      required: true
+  - type: dropdown
+    id: elevation
+    attributes:
+      label: Elevation state / 관리자 권한 상태
+      options:
+        - Standard user; no elevation requested / 표준 사용자·승격 요청 없음
+        - Elevation requested and approved / 승격 요청·승인
+        - Elevation requested and cancelled / 승격 요청·취소
+        - Already running as administrator / 이미 관리자 실행
+        - Unknown or not applicable / 모름·해당 없음
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened? / 어떤 문제가 생겼나요?
+      description: Describe the actual result and user impact with synthetic values. / 합성 값을 사용해 실제 결과와 영향을 적어주세요.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result / 기대한 결과
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Safest minimal reproduction steps / 가장 안전한 최소 재현 절차
+      description: Do not repeat a step that could widen access or damage data. / 접근 범위를 넓히거나 데이터를 손상할 수 있는 단계는 반복하지 마세요.
+      placeholder: |
+        1. Create a synthetic test folder...
+        2. Open PCssak Gongyu...
+        3. Select...
+        4. Observe...
+    validations:
+      required: true
+  - type: dropdown
+    id: recovery-state
+    attributes:
+      label: Change and recovery state / 변경·원복 상태
+      options:
+        - No system change started / 시스템 변경 시작 전
+        - Operation safely refused / 작업이 안전하게 거부됨
+        - Change completed and recovery succeeded / 변경 완료·원복 성공
+        - Partial or uncertain change; stopped testing / 부분·불확실 변경·시험 중단
+        - Recovery or uninstall failed / 원복·제거 실패
+        - Unknown / 모름
+    validations:
+      required: true
+  - type: textarea
+    id: safe-evidence
+    attributes:
+      label: Sanitized error or evidence / 민감정보를 제거한 오류·증거
+      description: Use a short excerpt with all identities, IPs, paths, credentials and customer data replaced. / 신원·IP·경로·자격증명·고객 자료를 바꾼 짧은 구간만 사용하세요.
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation / 확인
+      options:
+        - label: I searched existing Issues and used synthetic, non-sensitive values. / 기존 Issue를 검색했고 합성·비민감 값을 사용했습니다.
+          required: true
+        - label: I removed passwords, keys, codes, identities, exact IPs, paths, files, network details and raw logs. / 비밀번호·키·코드·신원·정확한 IP·경로·파일·네트워크 정보·원본 로그를 제거했습니다.
+          required: true
+        - label: This is not an exploitable security report. / 악용 가능한 보안 제보가 아닙니다.
+          required: true

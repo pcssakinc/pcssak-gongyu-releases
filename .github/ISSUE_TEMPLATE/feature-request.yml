@@ -1,0 +1,82 @@
+name: Feature request / 기능 제안
+description: Describe a recurring user problem before proposing a solution / 해결책보다 반복되는 문제를 먼저 알려주세요
+title: "[Feature] "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        PCssak Gongyu prioritizes narrow permissions, same-LAN boundaries, clear consent and recoverable system changes over feature count. Describe the user problem and its safety impact without posting private network or credential information.
+
+        PCssak Gongyu는 기능 수보다 제한된 권한·같은 LAN 경계·명확한 동의·원복 가능한 시스템 변경을 우선합니다. 비공개 네트워크·자격증명 정보 없이 사용자 문제와 안전 영향을 설명하세요.
+  - type: textarea
+    id: problem
+    attributes:
+      label: User problem / 사용자 문제
+      description: Who encounters the problem, during which workflow, and what is the practical impact? / 누가 어떤 작업에서 겪으며 실제 영향은 무엇인가요?
+    validations:
+      required: true
+  - type: textarea
+    id: workaround
+    attributes:
+      label: Current safe workaround / 현재의 안전한 해결 방법
+      description: How is the task handled today without weakening Windows security? / Windows 보안을 약화하지 않고 지금은 어떻게 처리하나요?
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome / 원하는 결과
+      description: Describe the completed user outcome, not only a button or implementation. / 버튼·구현 방법보다 사용자가 끝내야 하는 결과를 적어주세요.
+    validations:
+      required: true
+  - type: dropdown
+    id: workflow
+    attributes:
+      label: Main workflow / 주요 작업 흐름
+      options:
+        - Installation, first run, or language / 설치·첫 실행·언어
+        - LAN discovery and diagnostics / LAN 검색·진단
+        - SMB automatic setup and recovery / SMB 자동 설정·원복
+        - Share creation and permissions / 공유 생성·권한
+        - Drive mapping and credentials / 드라이브 매핑·자격증명
+        - Pairing / 페어링
+        - Same-LAN SSH or SFTP / 같은 LAN SSH·SFTP
+        - Uninstall and cleanup / 제거·정리
+        - Accessibility or documentation / 접근성·문서
+        - Other / 기타
+    validations:
+      required: true
+  - type: dropdown
+    id: audience
+    attributes:
+      label: Main audience / 주요 사용자
+      options:
+        - General home user / 일반 가정 사용자
+        - Small office or business / 소규모 사무실·사업장
+        - IT support or administrator / IT 지원·관리자
+        - Family or multi-PC household / 가족·다중 PC 가정
+        - Beginner / 초보자
+        - Other / 기타
+    validations:
+      required: true
+  - type: textarea
+    id: safety-privacy
+    attributes:
+      label: Safety, recovery and privacy / 안전·원복·개인정보
+      description: Could this affect privileges, firewall scope, sharing, accounts, credentials, logs, recovery, Public networks, VPNs or Internet exposure? / 권한·방화벽 범위·공유·계정·자격증명·로그·원복·Public·VPN·인터넷 노출에 영향이 있나요?
+    validations:
+      required: true
+  - type: textarea
+    id: measure
+    attributes:
+      label: How could success be verified? / 성공을 어떻게 검증할 수 있나요?
+      description: Suggest a safe, measurable result on a synthetic test setup. / 합성 시험 환경에서 안전하게 측정할 결과를 제안하세요.
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation / 확인
+      options:
+        - label: I searched existing requests and described a recurring user problem. / 기존 제안을 검색했고 반복되는 사용자 문제를 설명했습니다.
+          required: true
+        - label: I removed identities, credentials, exact IPs, share names, paths, customer files and confidential network details. / 신원·자격증명·정확한 IP·공유명·경로·고객 파일·비공개 네트워크 정보를 제거했습니다.
+          required: true

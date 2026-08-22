@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security report / 보안 제보
+    url: https://github.com/pcssakinc/pcssak-gongyu-releases/security/policy
+    about: Do not disclose exploitable details publicly. Follow SECURITY.md and report privately. / 악용 가능한 내용은 공개하지 말고 SECURITY.md에 따라 비공개로 제보하세요.
+  - name: PCssak Gongyu guide / PCssak Gongyu 사용설명서
+    url: https://pcssak.com/gongyu
+    about: Check official release status, same-LAN sharing, SSH scope and troubleshooting. / 공식 배포 상태·같은 LAN 공유·SSH 범위·오류 해결 안내를 확인하세요.
