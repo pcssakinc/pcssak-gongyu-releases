@@ -1,11 +1,18 @@
 # PCssak Gongyu 0.1.0 — Free Early Access
 
-> **Publication status — NOT RELEASED:** This is prepared GitHub Release copy, not evidence of an
-> available download. The `v0.1.0` Release and its assets do not exist yet, and the required
-> hands-on Windows x64 and same-LAN two-PC gates are incomplete. Do not publish this text or create
-> the Release until every gate in the
-> [release asset contract](RELEASE-ASSET-CONTRACT.md#6-게시-전-차단-조건) passes. After all gates
-> pass, update this status against the final bytes before publication.
+> **Free Early Access publication notice / 무료 Early Access 공개 안내:** PCSSAK은 Windows x64
+> 설치·제거 환경 전체와 같은 LAN 두 PC의 SMB·SSH 실기를 완료하지 않은 상태를 공개적으로
+> 고지하고 0.1.0 배포를 승인했습니다. 로컬 자동검사 통과는 모든 PC에서의 호환성·안전성 보증이
+> 아닙니다. 이 릴리스는 **Windows x64 전용**, **Authenticode 미서명**, **자동 업데이트 없음**
+> 상태입니다. 중요한 환경보다 민감하지 않은 시험 폴더에서 먼저 사용하고 별도 백업을 유지하세요.
+> 발견한 문제는 고정된 `v0.1.0` 자산을 교체하지 않고 후속 `0.1.1` 이상 버전에서 수정합니다.
+>
+> PCSSAK has approved 0.1.0 for public Free Early Access with the incomplete hands-on Windows x64
+> matrix and same-LAN two-PC SMB/SSH validation explicitly disclosed. Passing local automated checks
+> is not a guarantee of compatibility or safety on every PC. This release is **Windows x64 only**,
+> **not Authenticode-signed**, and has **no automatic updater**. Start with a non-sensitive test
+> folder and keep an independent backup. Reported defects will be addressed in a new `0.1.1` or
+> later release; the fixed `v0.1.0` assets will not be replaced in place.
 
 These localized summaries describe the same product and safety boundary. They do not prove that
 the installer itself offers every language below.

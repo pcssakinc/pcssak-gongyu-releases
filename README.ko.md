@@ -12,8 +12,8 @@ PCssak Gongyu는 사용자가 지시하는 Windows SMB 공유 폴더 설정, LAN
 
 ## 다운로드
 
-공개 뒤에는 위 버전 고정 릴리스 또는 [PCssak Gongyu 공식 제품 페이지](https://pcssak.co.kr/gongyu)만
-사용하세요. 첫 공개 계획에는 Windows x64 설치 파일 하나만 포함합니다.
+위 버전 고정 릴리스 또는 [PCssak Gongyu 공식 제품 페이지](https://pcssak.co.kr/gongyu)만
+사용하세요. 공개 0.1.0에는 Windows x64 설치 파일 하나만 포함합니다.
 
 - `PCssak-Gongyu-Beta-Windows-x64-Setup.exe`
 
@@ -36,10 +36,9 @@ Get-FileHash -Algorithm SHA256 '.\PCssak-Gongyu-Beta-Windows-x64-Setup.exe'
 5. 설치를 마치고 앱을 연 뒤 필요하면 설정에서 원하는 앱 언어를 선택합니다.
 6. 민감하지 않은 시험 폴더부터 시작하고 독립된 백업을 유지합니다.
 
-앱 화면은 한국어, 영어, 일본어, 중국어 간체·번체, 프랑스어, 독일어, 러시아어, 브라질
-포르투갈어와 튀르키예어 10개를 지원합니다. 정확한 설치 언어 목록과 첫 실행 전달은 최종 설치
-파일 바이트에서 검증해 버전별 릴리스 노트에 기록해야 하며, 앱 언어 목록만으로 설치기 번역을
-검증했다고 주장하지 않습니다.
+설치기와 앱은 한국어, 영어, 일본어, 중국어 간체·번체, 프랑스어, 독일어, 러시아어, 브라질
+포르투갈어와 튀르키예어 10개로 구성했습니다. 언어 선택과 첫 실행 전달은 자동검사했지만,
+Windows 언어별 전체 실기 행렬은 이번 무료 Early Access 공개 전에 완료하지 않았습니다.
 
 ## 미서명 Early Access 경계
 
@@ -138,7 +137,7 @@ Server 설치는 Windows Update·WSUS 또는 조직이 정한 원본과 통신�
 - [알려진 한계](docs/KNOWN-LIMITATIONS.ko.md)
 - [제3자 소프트웨어 고지](THIRD-PARTY-NOTICES.txt)
 - [MPL 원본 안내](docs/THIRD-PARTY-SOURCE.md)
-- [v0.1.0 릴리스 노트 준비 원문](docs/RELEASE-NOTES-v0.1.0.md)
+- [v0.1.0 릴리스 노트](docs/RELEASE-NOTES-v0.1.0.md)
 - [릴리스 자산 계약](docs/RELEASE-ASSET-CONTRACT.md)
 - [Issue·기여 원칙](CONTRIBUTING.md)
 

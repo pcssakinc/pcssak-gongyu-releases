@@ -82,7 +82,7 @@ TCP 22 규칙은 Windows의 실제 `sshd.exe`와 SSH를 켠 시점의 활성 로
 
 얼리액세스 버전에는 알려지지 않은 결함, 기능 변경, 호환성 제한이 있을 수 있습니다.
 중요 업무나 복구가 어려운 환경에서는 별도 시험 PC 또는 검증된 백업을 사용하십시오.
-0.1.0에서 공개할 설치본은 Windows 11 Home·Pro x64와 Windows 10 22H2 Home·Pro x64를
+공개하는 0.1.0 설치본은 Windows 11 Home·Pro x64와 Windows 10 22H2 Home·Pro x64를
 목표로 합니다. Windows 10 x86은 별도 후보의 실기 검증과 해시 확인이 끝나기 전에는 배포하거나
 지원한다고 표시하지 않습니다. Windows 10의 운영체제 지원 종료·ESU·LTSC 수명주기는 사용자가
 별도로 확인해야 하며, 모든 제조사 장비·보안 제품·도메인 정책·언어팩 조합을 검증했다고
@@ -222,7 +222,7 @@ channel and use only an account that is authorized to access the host.
 
 Early Access may contain unknown defects, changing functions and compatibility
 limits. Use a test computer or verified backup for critical environments. The
-planned 0.1.0 release candidate targets Windows 11 Home/Pro x64 and Windows 10
+public 0.1.0 Early Access release targets Windows 11 Home/Pro x64 and Windows 10
 22H2 Home/Pro x64. A Windows 10 x86 candidate must not be published or called
 supported until hands-on validation and hash verification are complete. Users
 must separately check Windows 10 end-of-support, ESU, and LTSC lifecycle status.

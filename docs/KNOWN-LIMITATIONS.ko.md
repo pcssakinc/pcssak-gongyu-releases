@@ -2,7 +2,7 @@
 
 [English](KNOWN-LIMITATIONS.md)
 
-이 문서는 PCssak Gongyu 0.1.0 무료 Early Access의 예정 범위를 설명합니다. 실제 제공 여부는
+이 문서는 PCssak Gongyu 0.1.0 무료 Early Access의 공개 범위를 설명합니다. 실제 제공 여부는
 버전 고정 [`v0.1.0` 릴리스](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.1.0)로만
 판단합니다. 해당 페이지에 설치 파일과 고정 자산 전체가 없다면 사용할 수 있는 공식 0.1.0
 설치 파일도 없습니다.
@@ -10,7 +10,7 @@
 ## Early Access와 설치 파일
 
 - 0.1.0은 1.0 이전 버전이며 알려지지 않은 결함이나 변경되는 동작이 있을 수 있습니다.
-- 공개 계획은 Windows x64 NSIS per-machine 설치 파일 하나이며 관리자 승격이 필요합니다.
+- 공개 0.1.0은 Windows x64 NSIS per-machine 설치 파일 하나이며 관리자 승격이 필요합니다.
 - x86 설치 파일은 게시하지 않습니다. i686 컴파일·시험은 지원 선언이 아닙니다.
 - 설치 파일에는 Authenticode 서명이 없어 알 수 없는 게시자나 SmartScreen이 나타날 수 있습니다.
 - SmartScreen, Microsoft Defender, 방화벽과 다른 보안 제품을 끄지 마세요.

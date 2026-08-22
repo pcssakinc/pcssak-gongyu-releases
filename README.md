@@ -14,8 +14,8 @@ If that page does not contain the installer and the complete fixed asset set, no
 
 ## Download
 
-After publication, use only the version-pinned release above or the official
-[PCssak Gongyu product page](https://pcssak.com/gongyu). The planned first release contains one
+Use only the version-pinned release above or the official
+[PCssak Gongyu product page](https://pcssak.com/gongyu). The public 0.1.0 release contains one
 Windows x64 installer:
 
 - `PCssak-Gongyu-Beta-Windows-x64-Setup.exe`
@@ -41,10 +41,10 @@ source, filename, size or hash differs.
 5. Finish installation, open the app and choose the preferred app language in Settings if needed.
 6. Begin with a non-sensitive test folder and keep an independent backup.
 
-The app interface supports Korean, English, Japanese, Simplified Chinese, Traditional Chinese,
-French, German, Russian, Brazilian Portuguese and Turkish. The exact installer-language list and
-first-launch handoff must be verified on the final installer bytes and will be stated in the
-version-specific release notes; the app-language list alone is not proof of installer localization.
+The installer and app are configured for Korean, English, Japanese, Simplified Chinese,
+Traditional Chinese, French, German, Russian, Brazilian Portuguese and Turkish. Automated checks
+covered the language selector and first-launch handoff, but the complete hands-on Windows language
+matrix was not completed before this Free Early Access release.
 
 ## Unsigned Early Access boundary
 
@@ -151,7 +151,7 @@ logs in a public Issue.
 - [Known Limitations](docs/KNOWN-LIMITATIONS.md)
 - [Third-Party Notices](THIRD-PARTY-NOTICES.txt)
 - [MPL source information](docs/THIRD-PARTY-SOURCE.md)
-- [Prepared v0.1.0 release notes](docs/RELEASE-NOTES-v0.1.0.md)
+- [v0.1.0 release notes](docs/RELEASE-NOTES-v0.1.0.md)
 - [Release asset contract](docs/RELEASE-ASSET-CONTRACT.md)
 - [Issue and contribution guidelines](CONTRIBUTING.md)
 

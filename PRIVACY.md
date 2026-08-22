@@ -160,17 +160,20 @@ Cloudflare의 라우팅 분석에는 발신자·수신자·제목·메시지 ID�
 삭제한 자료가 서비스 제공자의 백업에서 완전히 소거되는 시점은 Google의 실제 보존·삭제
 정책을 따릅니다.
 
-Cloudflare Email Routing은 수신 전달 서비스입니다. 도메인 주소를 사용한 발신·회신과
-SPF·DKIM·DMARC, 외부 Gmail·Outlook·Naver에서의 수신·회신 헤더는 아직 실측하지 않았습니다.
-개인 Gmail 주소가 발신자나 반송 정보에 노출되지 않는다는 실측이 끝나기 전에는 공개 배포와
-고객 회신을 시작하지 않습니다.
+Cloudflare Email Routing은 수신 전달 서비스이며 도메인 주소 발신·회신 기능을 제공하지
+않습니다. 공개 DNS에서 수신용 MX, SPF와 Cloudflare DKIM 레코드는 확인했지만 DMARC와
+도메인 발신 서비스는 구성하지 않았습니다. 이 상태는 무료 0.1.0 Early Access의 알려진 지원
+제한이며 앱의 로컬 기능 공개 자체를 금지하는 조건은 아닙니다. 운영자는 개인 Gmail 주소에서
+직접 답장하여 그 주소를 노출하지 않습니다. 인증된 도메인 발신 수단이 준비되기 전에는 이메일
+회신이 지연되거나 제공되지 않을 수 있으며 별도의 회신 SLA를 제공하지 않습니다.
 
 - Cloudflare Email Routing 안내: https://developers.cloudflare.com/email-service/get-started/route-emails/
 - Cloudflare 라우팅 분석 데이터 안내: https://developers.cloudflare.com/email-service/observability/metrics-analytics/
 - Google 개인정보처리방침: https://policies.google.com/privacy?hl=ko
 
 - 문의 메일 보관 기간: 문의 종료일부터 1년, 이후 월 1회 점검하여 삭제
-- 권리행사 처리 기간: 본인 확인이 끝난 정당한 요청은 접수일부터 10일 이내 결과 안내
+- 권리행사 처리: 본인 확인 뒤 부당한 지연 없이 처리하되, 적용 법령의 필수 기한을 따르며
+  무료 Early Access에서 별도의 일률적인 10일 회신 SLA는 제공하지 않음
 - 외부 처리 서비스: Cloudflare Email Routing과 Google Gmail
 - 이전되는 정보: 발신자·수신자 주소, 표시 이름, 제목, 본문, 첨부파일, 메시지 ID 및 처리 결과
 - 이전 목적과 방법: 이메일 전달·보관·검색·답변을 위한 인터넷 전송
@@ -189,9 +192,11 @@ SPF·DKIM·DMARC, 외부 Gmail·Outlook·Naver에서의 수신·회신 헤더는
 앱 내부 데이터는 사용자가 자신의 PC에서 직접 열람·정정·삭제할 수 있습니다. 지원 이메일로
 보낸 정보의 열람, 정정, 삭제, 처리정지 또는 동의 철회를 요청하려면 아래 연락처를 이용할 수
 있습니다. 요청자 본인 또는 적법한 대리인인지 확인하기 위해 필요한 최소 정보만 추가로 요청할
-수 있습니다. 본인 확인이 끝난 정당한 요청은 접수일부터 10일 이내에 조치 결과를 안내합니다.
-법령상 제한 또는 보존 의무 때문에 전부 이행할 수 없으면 그 범위, 이유와 이의제기 방법을 같은
-기간 안에 안내합니다.
+수 있습니다. 본인 확인이 끝난 정당한 요청은 부당한 지연 없이 처리하며, 적용 법령이 정한
+필수 처리·통지 기한이 있으면 그 기한을 따릅니다. 인증된 도메인 발신 수단이 준비되기 전에는
+개별 이메일 회신이 지연되거나 제공되지 않을 수 있고, 무료 Early Access에 별도의 일률적인
+10일 회신 SLA를 약속하지 않습니다. 법령상 제한 또는 보존 의무 때문에 전부 이행할 수 없으면
+적용 법령이 요구하는 범위에서 그 이유와 이의제기 방법을 안내합니다.
 
 - 개인정보 보호 담당 부서: PCSSAK 개인정보 보호 담당 부서
 - 이메일: privacy@pcssak.com
@@ -234,15 +239,22 @@ recipient, subject, message ID and delivery-result data for the most recent 31 d
 The private destination address is not published. A message is retained while its
 inquiry is active and for one year after closure, then reviewed and deleted monthly,
 subject to a documented legal, dispute or security-investigation exception. A verified
-request for access, correction, deletion or restriction is answered within 10 days.
-Messages must not contain unnecessary passwords, private keys or personal information.
+request for access, correction, deletion or restriction is handled without undue delay
+and within any mandatory statutory deadline. Free Early Access does not include a
+separate uniform ten-day email-response SLA. Messages must not contain unnecessary
+passwords, private keys or personal information.
 
-Cloudflare Email Routing provides inbound forwarding only. Domain sending, reply
-headers, SPF, DKIM and DMARC have not yet passed end-to-end tests. Email routing is
-handled by Cloudflare, Inc. in the United States; Cloudflare states that information is
-stored primarily in the United States and the EEA and may be transferred or accessed
-globally. Gmail is provided under the operator's account by Google LLC in the United
-States, and Google states that information may be processed on servers outside the
+Cloudflare Email Routing provides inbound forwarding only and does not provide domain
+sending or reply service. Public DNS has inbound MX, SPF and Cloudflare DKIM records,
+but no DMARC record or domain outbound provider is configured. This is a disclosed
+support limitation of free 0.1.0 Early Access, not a condition that prohibits publication
+of the app's local features. The operator does not reply directly from the private Gmail
+destination address. Until an authenticated domain outbound channel is available,
+individual email replies may be delayed or unavailable and no response SLA is offered.
+Email routing is handled by Cloudflare, Inc. in the United States; Cloudflare states that
+information is stored primarily in the United States and the EEA and may be transferred
+or accessed globally. Gmail is provided under the operator's account by Google LLC in
+the United States, and Google states that information may be processed on servers outside the
 user's country worldwide. Provider infrastructure can change, so current official
 policies remain part of the notice and material changes must be reflected here.
 
@@ -262,6 +274,6 @@ Free Early Access distribution does not guarantee compliance with every country 
 region. Mandatory local law remains unaffected. Before paid distribution begins or a
 business registration and actual transaction or processing structure are established,
 the controller identity, rights channel, processors and international transfers,
-retention, and local notices must be reviewed again. Until separate domain outbound
-mail passes end-to-end tests, the operator must not reply from the private Gmail
-destination address.
+retention, and local notices must be reviewed again. A later paid version remains
+possible only under separately disclosed prices, terms and any legally required notices;
+this Free Early Access notice does not promise that future versions will remain free.

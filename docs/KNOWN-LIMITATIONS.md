@@ -2,7 +2,7 @@
 
 [한국어](KNOWN-LIMITATIONS.ko.md)
 
-This document describes the intended PCssak Gongyu 0.1.0 Free Early Access boundary. Availability
+This document describes the public PCssak Gongyu 0.1.0 Free Early Access boundary. Availability
 is determined only by the version-pinned
 [`v0.1.0` release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.1.0).
 If that page does not provide the installer and the complete fixed asset set, there is no public
@@ -11,7 +11,8 @@ If that page does not provide the installer and the complete fixed asset set, th
 ## Early Access and installer
 
 - Version 0.1.0 is below 1.0 and can contain unknown defects or changing behavior.
-- The public plan contains one x64 NSIS per-machine installer. It requires administrator elevation.
+- The public 0.1.0 release contains one x64 NSIS per-machine installer. It requires administrator
+  elevation.
 - No x86 installer is published. An i686 compile or test result is not a support claim.
 - The installer is not Authenticode-signed and can show Unknown publisher or SmartScreen.
 - Do not disable SmartScreen, Microsoft Defender, a firewall or another security product.

@@ -33,7 +33,7 @@ exposure, do not open a public Issue. Follow [SECURITY.md](SECURITY.md).
 
 ## Support boundary
 
-- The planned public installer is x64 NSIS for Windows. An x86 installer is not published.
+- The public 0.1.0 installer is x64 NSIS for Windows. An x86 installer is not published.
 - Windows 11 Home/Pro x64 and Windows 10 22H2 Home/Pro x64 are validation targets, not a claim that
   every edition, build, device or organizational policy has completed hands-on validation.
 - Native ARM64, Windows S mode, Windows Server, macOS and Linux are not supported release targets.
@@ -72,7 +72,7 @@ exposure, do not open a public Issue. Follow [SECURITY.md](SECURITY.md).
 
 ## 지원 범위
 
-- 공개 예정 설치 파일은 Windows x64 NSIS이며 x86 설치 파일은 게시하지 않습니다.
+- 공개 0.1.0 설치 파일은 Windows x64 NSIS이며 x86 설치 파일은 게시하지 않습니다.
 - Windows 11 Home/Pro x64와 Windows 10 22H2 Home/Pro x64는 검증 목표이며, 모든 에디션·
   빌드·장치·조직 정책의 실기 완료를 의미하지 않습니다.
 - ARM64 네이티브, Windows S 모드, Windows Server, macOS와 Linux는 지원 배포 대상이 아닙니다.

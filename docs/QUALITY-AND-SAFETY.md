@@ -102,13 +102,13 @@ asset except itself, and the exact MPL-2.0 source archive is published with the 
 
 ## Verification layers
 
-The prepared 0.1.0 source state recorded the following local automated evidence before publication:
+The 0.1.0 source state recorded the following local automated evidence before release assembly:
 
-- 422 executed Rust tests passed for each x64 and i686 target, with one manual Argon2 harness
+- 425 executed Rust tests passed for each x64 and i686 target, with one manual Argon2 harness
   ignored in each normal suite;
 - strict Clippy passed for x64 and i686 with no warnings;
 - 1,180 repeated network-module tests passed;
-- 54 UI tests passed;
+- 57 UI tests passed;
 - 10 app locales contained the same 959 keys;
 - the static precheck passed 10 of 10 gates;
 - `cargo audit` reported no known vulnerability and 12 reviewed unmaintained-dependency warnings;
@@ -119,6 +119,10 @@ These results do not replace hands-on installation, elevation, reboot, recovery,
 antimalware and same-LAN two-PC tests on the exact release bytes. GitHub Actions did not execute the
 prepared source and release PRs because the account's included Actions minutes were exhausted; no
 runner-start failure is reported as a CI pass.
+
+PCSSAK approved 0.1.0 for public Free Early Access with those hands-on gaps disclosed. The missing
+evidence remains a known limitation, not a validation pass. Reproducible defects will be triaged for
+a new 0.1.1 or later release instead of replacing the fixed v0.1.0 assets.
 
 ## Compatibility claims
 
