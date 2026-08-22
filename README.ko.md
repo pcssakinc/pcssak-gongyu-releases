@@ -1,6 +1,6 @@
 # PCssak Gongyu - 공식 Windows 다운로드
 
-[English](README.md)
+**언어:** [English](README.md) · 한국어
 
 PCssak Gongyu는 사용자가 지시하는 Windows SMB 공유 폴더 설정, LAN 점검, 네트워크 드라이브
 관리, 짧은 공유 페어링과 별도로 동의한 OpenSSH Server 설정을 돕는 PCSSAK Windows 도구입니다.
