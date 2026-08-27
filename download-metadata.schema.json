@@ -1,0 +1,210 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/pcssakinc/pcssak-gongyu-releases/raw/main/download-metadata.schema.json",
+  "title": "PCssak Gongyu 사람·홈페이지용 다운로드 메타데이터",
+  "description": "Tauri 업데이트 프로토콜과 분리된 공개 다운로드·무결성·법적 원본 메타데이터",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "manifestKind",
+    "product",
+    "channel",
+    "version",
+    "sourceCommit",
+    "publishedAt",
+    "notes",
+    "release",
+    "installer",
+    "updater",
+    "integrity",
+    "thirdParty"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 2 },
+    "manifestKind": { "const": "pcssak-download-metadata" },
+    "product": { "const": "PCssak Gongyu" },
+    "channel": { "const": "early-access" },
+    "version": { "$ref": "#/$defs/version" },
+    "sourceCommit": { "$ref": "#/$defs/sourceCommit" },
+    "publishedAt": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "notes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ko", "en"],
+      "properties": {
+        "ko": { "type": "string", "minLength": 1 },
+        "en": { "type": "string", "minLength": 1 }
+      }
+    },
+    "release": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tag", "url", "title", "draft", "prerelease", "latest"],
+      "properties": {
+        "tag": {
+          "type": "string",
+          "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$"
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https://github\\.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$"
+        },
+        "title": { "const": "PCssak Gongyu 0.1.1 — Free Early Access" },
+        "draft": { "const": false },
+        "prerelease": { "const": false },
+        "latest": { "const": true }
+      }
+    },
+    "installer": {
+      "unevaluatedProperties": false,
+      "allOf": [
+        { "$ref": "#/$defs/hashedAsset" },
+        {
+          "type": "object",
+          "required": ["architecture", "size", "authenticode", "detachedSignature"],
+          "properties": {
+            "architecture": { "const": "x86_64" },
+            "fileName": { "const": "PCssak-Gongyu-Beta-Windows-x64-Setup.exe" },
+            "size": { "type": "integer", "minimum": 1, "maximum": 536870912 },
+            "authenticode": { "const": "not-signed" },
+            "detachedSignature": {
+              "unevaluatedProperties": false,
+              "allOf": [
+                { "$ref": "#/$defs/hashedAsset" },
+                {
+                  "type": "object",
+                  "properties": {
+                    "fileName": { "const": "PCssak-Gongyu-Beta-Windows-x64-Setup.exe.sig" }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "updater": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["latestManifest", "signedRelease"],
+      "properties": {
+        "latestManifest": {
+          "unevaluatedProperties": false,
+          "allOf": [
+            { "$ref": "#/$defs/hashedAsset" },
+            {
+              "type": "object",
+              "required": ["latestUrl"],
+              "properties": {
+                "fileName": { "const": "latest.json" },
+                "latestUrl": {
+                  "const": "https://github.com/pcssakinc/pcssak-gongyu-releases/releases/latest/download/latest.json"
+                }
+              }
+            }
+          ]
+        },
+        "signedRelease": {
+          "unevaluatedProperties": false,
+          "allOf": [
+            { "$ref": "#/$defs/hashedAsset" },
+            {
+              "type": "object",
+              "required": ["detachedSignature"],
+              "properties": {
+                "fileName": { "const": "UPDATE-RELEASE.json" },
+                "detachedSignature": {
+                  "unevaluatedProperties": false,
+                  "allOf": [
+                    { "$ref": "#/$defs/hashedAsset" },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "fileName": { "const": "UPDATE-RELEASE.json.sig" }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sha256SumsFileName", "sha256SumsUrl"],
+      "properties": {
+        "sha256SumsFileName": { "const": "SHA256SUMS.txt" },
+        "sha256SumsUrl": {
+          "type": "string",
+          "pattern": "^https://github\\.com/pcssakinc/pcssak-gongyu-releases/releases/download/v[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?/SHA256SUMS\\.txt$"
+        }
+      }
+    },
+    "thirdParty": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["notices", "mplSources"],
+      "properties": {
+        "notices": {
+          "unevaluatedProperties": false,
+          "allOf": [
+            { "$ref": "#/$defs/hashedAsset" },
+            {
+              "type": "object",
+              "properties": { "fileName": { "const": "THIRD-PARTY-NOTICES.txt" } }
+            }
+          ]
+        },
+        "mplSources": {
+          "unevaluatedProperties": false,
+          "allOf": [
+            { "$ref": "#/$defs/hashedAsset" },
+            {
+              "type": "object",
+              "properties": {
+                "fileName": {
+                  "type": "string",
+                  "pattern": "^PCssak-Gongyu-[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?-MPL-Sources\\.zip$"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "$defs": {
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$"
+    },
+    "sourceCommit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "hashedAsset": {
+      "type": "object",
+      "required": ["fileName", "url", "sha256"],
+      "properties": {
+        "fileName": { "type": "string", "minLength": 1, "maxLength": 180 },
+        "url": {
+          "type": "string",
+          "pattern": "^https://github\\.com/pcssakinc/pcssak-gongyu-releases/releases/download/v[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?/[^/]+$"
+        },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    }
+  }
+}
