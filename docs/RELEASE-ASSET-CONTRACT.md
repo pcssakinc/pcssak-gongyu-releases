@@ -70,9 +70,9 @@ Minisign `.pub` 본문을 정확히 한 번 Base64한 형식인지 확인한다.
 Minisign 0.12 x64와 7-Zip 26.02 x64의 `7z.exe`·`7z.dll` SHA-256은 검토한 공식 배포물 값으로
 조립기 코드에 고정한다. 호출자가 경로와 임의 해시를 함께 제출해도 고정값과 다르면 실행 전에
 거부한다. 공식 Windows `7za.exe`는 NSIS를 지원하지 않고 `7z.exe`는 인접
-`Codecs`·`Formats`를 자동 로드하므로, 사용자 쓰기 가능한 호출자 폴더나 TEMP 격리 복사본은
-해시가 같아도 실행하지 않는다. 정확한 `C:\Program Files\7-Zip\7z.exe` machine-wide 설치만
-허용하고 Program Files·7-Zip 디렉터리를 `OPEN_REPARSE_POINT` 핸들로 연다. 같은 핸들의 최종
+`Codecs`·`Formats`를 자동 로드하므로, 기본 정식 승인 경로에서는 사용자 쓰기 가능한 호출자
+폴더나 TEMP 격리 복사본을 실행하지 않는다. 정확한 `C:\Program Files\7-Zip\7z.exe`
+machine-wide 설치만 허용하고 Program Files·7-Zip 디렉터리를 `OPEN_REPARSE_POINT` 핸들로 연다. 같은 핸들의 최종
 경로·VolumeSerial/FileId·소유자·DACL을 확인하며, 현재 비관리자 토큰의 사용자 SID와 활성 그룹
 SID 어느 것에도 파일·하위 디렉터리 추가·삭제·DACL/소유자 변경 Allow 권한이 없어야 한다.
 `Codecs`·`Formats` 부재와 공식 26.02 루트 항목 집합을 실행 전후에 재검증한다. `7z.exe`와
@@ -91,7 +91,7 @@ rename/delete 차단 핸들로 실행 완료까지 고정한다. 잠근 바이�
 디렉터리이며 재분석 지점이 아님을 확인한다. GUID 최상위에서 중간·leaf 순서로 자식 생성 전에
 잠금을 취득해 junction 자체를 다른 대상으로 재지정하는 경합도 차단한다. 7-Zip에는 잠근 원본
 NSIS에서 만든 GUID 입력 스냅샷만 전달하고, `UseShellExecute=false`·보호된 작업 디렉터리·최소
-환경으로 고정한 Program Files 실행 파일을 직접 시작한다.
+환경으로 고정한 승인 실행 파일을 직접 시작한다.
 
 제품 개인키는 조립기·템플릿·공개 저장소가 생성하거나 읽지 않는다. 키 생성과 서명은 분리된
 승인 절차에서 끝나야 하며 조립기는 공개키 검증만 수행한다.
@@ -206,6 +206,17 @@ Latest read-back은 생략하지 않는다. 공개 전에는 저장소 밖
 `pcssak.v011-early-access-risk-acceptance/v1` 기록을 최종 소스·공개 저장소 커밋·설치본·
 `SHA256SUMS.txt`·`BUILD-EVIDENCE.json`·EULA·개인정보 처리방침 해시에 결속해 다시 검증한다.
 
+예외용 7-Zip은 호출자가 제공한 폴더에서 직접 실행하지 않는다. 공식 26.02 설치본과 고정
+SHA-256의 원본 `7z.exe`·`7z.dll`을 잠근 뒤, 매 실행의 새 로컬 고정 NTFS GUID 폴더에 두
+바이트를 `CreateNew`로 복사한다. `Codecs`·`Formats`는 0바이트 일반 파일로 먼저 만들고
+`OPEN_REPARSE_POINT` 읽기 공유 핸들로 목록·추출 두 프로세스가 끝날 때까지 잠가 같은 이름의
+플러그인 디렉터리 생성을 차단한다. 실행 폴더는 정확한 네 일반 파일만 허용하며 대소문자 구분
+디렉터리, 재분석 지점, 다른 파일·하위 디렉터리, 이동식·비 NTFS 드라이브를 거부한다. 원본과
+실행 복사본, 센티널의 최종 경로·FileId·해시를 각 프로세스 직전·직후에 다시 확인한다.
+임시 루트·GUID 최상위·입력·출력·실행 폴더도 열린 핸들의 최종 경로를 입력 경로와 비교해 조상
+junction·symlink·SUBST·네트워크 매핑을 실패 폐쇄하며, 실제 최종 경로의 드라이브만 고정 NTFS인지
+판정한다.
+
 코드에는 정확한 `V011EarlyAccessException`, `0.1.1`, `v0.1.1` 및 전용 확인문구를 고정하고,
 범용 건너뛰기나 빈 승인 파일을 허용하지 않는다. `0.1.2`의 첫 버전 변경에서 이 예외를 제거하고
 유예한 전체 게이트를 복원한다.
@@ -225,32 +236,45 @@ Latest read-back은 생략하지 않는다. 공개 전에는 저장소 밖
 뒤 읽기 전용 API가 `enabled=true`를 반환해야 다음 단계로 간다.
 
 1. 공식 GitHub CLI 2.96.0의 고정 SHA-256, `GitHub, Inc.` Valid Authenticode와 인증·고정
-   저장소를 확인한다. 조립 결과의 별도 승인 `Sha256SumsSha256`, 원격 `main` SHA 및 그
-   커밋의 EULA·개인정보 처리방침 바이트, 태그/Release 미존재를 확인한다. 승인 릴리스 노트는
-   원본을 잠근 상태에서 GUID 격리본으로 복사하고 파일·디렉터리 잠금과 승인 해시를 공개
-   전환까지 유지한 경로만 GitHub CLI에 전달한다.
+   저장소를 확인한다. 모든 저장소 명령은 `github.com/pcssakinc/pcssak-gongyu-releases`, 모든
+   REST 명령은 `--hostname github.com`에 고정하고, 자식 프로세스의 `GH_HOST`·`GH_REPO`도 같은
+   값으로 제한하며 프롬프트와 Enterprise 토큰 값, debug·강제 TTY·외부 pager·프록시·사용자
+   지정 TLS 인증서 환경을 차단한다.
+   GitHub CLI 구성의 `http_unix_socket`도 비어 있어야 한다. 조립 결과의 별도 승인
+   `Sha256SumsSha256`, 원격 `main` SHA 및 그 커밋의 EULA·개인정보 처리방침 바이트를 확인한다.
+   승인 릴리스 노트는 원본을 잠근 상태에서 GUID 격리본으로 복사하고 파일·디렉터리 잠금과 승인
+   해시를 공개 전환까지 유지한 경로만 GitHub CLI에 전달한다.
    원격 API를 호출하기 전에 저장소 밖의 대한민국 적격 전문가 최종 승인 JSON과 Windows 10/11
    Home·Pro x64 일회용 VM 실기 JSON을 각각 별도 승인 SHA-256으로 검증한다. 법률 증거는 승인
    소스·EULA·PRIVACY 해시에, VM 증거는 최종 설치본 SHA-256·크기 및 설치 언어/EULA·HKLM
    seed·신규/복구/업그레이드·제거 양쪽 선택·원복 실패 중단 시나리오에 결속한다. 게시기는 실제
    승인 증거를 생성하거나 완료로 추정하지 않는다.
-2. `v0.1.1`을 `draft=true`, `prerelease=false`, Free Early Access 제목으로 만든다.
+2. 태그와 Release가 모두 없으면 `v0.1.1`을 `draft=true`, `prerelease=false`, Free Early
+   Access 제목으로 만든다. 둘 다 있으면 태그 target, Release ID·태그·제목·본문·target 및 기존
+   자산 각각의 이름·`uploaded` 상태·크기·`sha256:` digest가 현재 승인 입력과 정확히 같은 Draft만
+   재개한다. 태그/Release 중 하나만 있거나 승인 밖·중복·불일치 자산이 있으면 원격을 자동 변경하지
+   않는다. 이미 정확히 공개된 9자산 Release라면 새 공개 요청 없이 최종 read-back부터 재개한다.
 3. 정확한 9자산을 GUID 격리 승인 스냅샷으로 복사하고 파일·디렉터리 잠금을 유지한 경로만
-   업로드한다. 업로드 직전·직후 해시와 Draft API의 파일명·크기·`sha256:` digest를 로컬
-   승인값과 대조한다.
+   사용한다. 새 Draft 또는 검증한 부분 Draft에서 없는 자산만 하나씩 업로드하고, 각 호출의 종료
+   코드와 무관하게 원격 파일명·`uploaded` 상태·크기·`sha256:` digest를 확인한 뒤 다음 자산으로
+   간다. 기존 자산에 `--clobber`, 삭제 또는 태그 이동을 사용하지 않는다.
 4. Draft 9자산을 새 임시 디렉터리에 다시 내려받아 모든 해시와 두 Minisign 서명을 재검증한다.
    각 검증의 공개키·서명·대상 파일과 데이터/입력 디렉터리는 실행이 끝날 때까지 잠그고 전후
    해시와 정확한 파일 집합을 다시 확인한다.
 5. 공개 직전에 Immutable Releases 활성화, 원격 `main`·법률 정본, 태그 target 및 정확한 Draft
-   9자산 digest와 메모리에 고정한 법률·VM 승인 계약을 다시 확인하고 단일 `gh release edit` 명령으로만 `draft=false`,
-   `prerelease=false`, Latest로 전환한다.
+   9자산 digest와 메모리에 고정한 법률·VM 승인 계약을 다시 확인하고 단일 `gh release edit`
+   명령으로만 `draft=false`, `prerelease=false`, Latest로 전환한다. 명령 응답이 실패하거나
+   끊겨도 성공·실패를 추정하지 않고 고정 Release ID를 반복 read-back한다. 정확한 9자산의
+   `draft=false`가 확인된 경우에만 공개 성공으로, 마지막 read-back이 정확한 `draft=true`이면
+   안전 재개 가능한 실패로 판정하며, 읽을 수 없거나 계약이 다르면 원격 상태 불명 사고로 중단한다.
 6. 공개 뒤 `immutable=true`, `gh release verify`, 각 자산의 `gh release verify-asset`, 정확한
    Latest 하나, `/releases/latest`와 `/releases/latest/download/latest.json` read-back을
    재검증한다.
 
-Draft 검증 실패 시 자동 삭제하지 않고 비공개 Draft로 남겨 조사한다. 불변 공개 전환 뒤 검증이
-실패하면 자산 삭제·교체·태그 이동·자동 롤백을 시도하지 않고 배포 사고로 중단한다. 수정은 더
-높은 새 버전으로만 수행한다.
+Draft 검증 실패 시 자동 삭제하지 않는다. 원격 Draft가 현재 승인 입력과 정확히 일치하면 같은
+입력으로 누락 자산부터 재개하고, 다르거나 상태를 확인할 수 없으면 조사한다. 불변 공개 전환 뒤
+검증이 실패하면 자산 삭제·교체·태그 이동·자동 롤백을 시도하지 않고 배포 사고로 중단한다. 수정은
+더 높은 새 버전으로만 수행한다.
 
 ## 10. 실패 폐쇄 조건
 
