@@ -7,6 +7,12 @@ Gongyu Free Early Access release. Early Access can contain undiscovered defects;
 this policy is a reporting and response boundary, not a guarantee that defects
 do not exist.
 
+For version 0.1.1 only, final external legal review and the full Windows 10/11
+Home/Pro x64 VM/LAN matrix are deferred to 0.1.2. Cryptographic update signatures,
+hashes, the fixed nine assets, and immutable-release verification remain in place,
+but 0.1.1 is not a completed compatibility or legal-review claim. Prefer a
+recoverable test system and a current backup.
+
 ### Report privately
 
 After the public repository is created, use its GitHub private vulnerability
@@ -40,6 +46,11 @@ a firewall, or another security product to bypass a warning.
 보안 제보는 공개된 최신 PCssak Gongyu 무료 Early Access 버전을 기준으로 검토합니다.
 Early Access에는 발견되지 않은 결함이 남아 있을 수 있으며, 이 정책은 제보와 대응 범위를
 정하는 문서이지 결함이 없다는 보증이 아닙니다.
+
+0.1.1에 한해 법률 전문가 최종 외부 검토와 Windows 10/11 Home·Pro x64 전체 VM·LAN 실기
+행렬을 0.1.2로 유예했습니다. 업데이트 서명·해시·고정된 9개 자산·불변 릴리스 검증은
+유지하지만, 0.1.1은 호환성 또는 법률 검토 완료를 뜻하지 않습니다. 복구 가능한 시험 환경과
+최신 백업을 우선하세요.
 
 ### 비공개 제보
 

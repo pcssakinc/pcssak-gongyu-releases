@@ -32,6 +32,14 @@ The current public installer is Windows x64 only:
 Windows x86 is not published until its separate Windows 10 x86 Home/Pro
 hands-on evidence gate passes.
 
+Version 0.1.1 is a free Early Access release intended to obtain real-world
+measurements. For this release only, final external legal review, the full
+Windows 10/11 Home/Pro x64 VM and LAN matrix, independent supply-chain approvals,
+and GitHub Actions are deferred to 0.1.2. Signatures, hashes, the exact nine
+assets, and immutable-release verification remain mandatory. This is not a claim
+of completed compatibility or legal review; test on a recoverable system with a
+backup before using it on an important PC.
+
 ## Verify before running
 
 Compare the installer SHA-256 with `SHA256SUMS.txt` from the same release:
