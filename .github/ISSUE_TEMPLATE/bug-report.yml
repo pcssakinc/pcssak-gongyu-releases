@@ -14,7 +14,7 @@ body:
     id: app-version
     attributes:
       label: App version / 앱 버전
-      placeholder: "0.1.0"
+      placeholder: "0.1.1"
     validations:
       required: true
   - type: dropdown
@@ -41,6 +41,7 @@ body:
       label: Install source / 설치 출처
       options:
         - pcssak.com/gongyu
+        - Official pcssakinc GitHub v0.1.1 release / 공식 pcssakinc GitHub v0.1.1 릴리스
         - Official pcssakinc GitHub v0.1.0 release / 공식 pcssakinc GitHub v0.1.0 릴리스
         - Other or unknown / 기타 또는 모름
     validations:
@@ -86,11 +87,12 @@ body:
       label: Affected step / 문제가 생긴 단계
       options:
         - Installation, startup, or elevation / 설치·시작·관리자 승격
+        - Signed in-app update check, download, or install / 서명된 앱 내 업데이트 확인·다운로드·설치
         - Automatic SMB setup or recovery / SMB 자동 설정·원복
         - Share creation or removal / 공유 생성·해제
         - Drive mapping or credential storage / 드라이브 매핑·자격증명 저장
         - Pairing / 페어링
-        - SSH enable, status, or disable / SSH 켜기·상태·끄기
+        - SSH setup, enable, disable, or full reset / SSH 처음 설정·켜기·끄기·완전 원복
         - SSH login, command, or SFTP / SSH 로그인·명령·SFTP
         - Uninstall or leftover state / 제거·잔여 상태
         - Interface or translation / 화면·번역
