@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/pcssakinc/pcssak-gongyu-releases/blob/main/update-release.schema.json",
+  "title": "PCssak Gongyu 서명 배포 매니페스트",
+  "description": "설치본과 앱 내 법률 정본의 신원·크기·해시·정규 URL·승인 릴리스 노트를 하나의 Minisign 서명에 묶는 계약입니다.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "product",
+    "version",
+    "tag",
+    "source_commit",
+    "installer",
+    "installer_sha256",
+    "installer_size",
+    "eula_sha256",
+    "privacy_sha256",
+    "download_url",
+    "notes",
+    "notes_sha256"
+  ],
+  "properties": {
+    "schema": { "const": "pcssak.update-release/v1" },
+    "product": { "const": "PCssak Gongyu" },
+    "version": { "const": "0.1.1" },
+    "tag": { "const": "v0.1.1" },
+    "source_commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "installer": { "const": "PCssak-Gongyu-Beta-Windows-x64-Setup.exe" },
+    "installer_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "installer_size": {
+      "description": "다운로드 Content-Length와 스트림 누적 크기를 제한하는 서명된 바이트 수입니다.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 536870912
+    },
+    "eula_sha256": {
+      "description": "이 버전에 내장한 소스 LICENSE.txt 정본의 정확한 바이트 SHA-256입니다.",
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "privacy_sha256": {
+      "description": "이 버전에 내장한 소스 PRIVACY.md 정본의 정확한 바이트 SHA-256입니다.",
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "download_url": {
+      "const": "https://github.com/pcssakinc/pcssak-gongyu-releases/releases/download/v0.1.1/PCssak-Gongyu-Beta-Windows-x64-Setup.exe"
+    },
+    "notes": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 65536
+    },
+    "notes_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

@@ -2,7 +2,7 @@
 
 | 항목 | 내용 |
 |---|---|
-| 제품 | PCssak Gongyu 0.1.0 Early Access |
+| 제품 | PCssak Gongyu 0.1.1 Early Access |
 | 제품 식별자 | `com.pcssak.gongyu` |
 | 브랜드 | PCSSAK |
 | 법적 개인정보처리자 | PCSSAK |
@@ -16,13 +16,17 @@ PCSSAK는 이 방침에서 사용하는 개인정보처리자명 겸 브랜드�
 
 ## 1. 핵심 요약
 
-앱에는 PCSSAK가 운영하는 텔레메트리, 광고, 온라인 계정, 자동 업데이트, 원격 구성 또는
-라이선스 인증 서버가 없습니다. 앱 설정과 자격증명은 사용자의 Windows PC에 저장됩니다.
+앱에는 PCSSAK가 운영하는 텔레메트리, 광고, 온라인 계정, 원격 구성 또는 라이선스 인증
+서버가 없습니다. 앱 설정과 자격증명은 사용자의 Windows PC에 저장됩니다. 자동 업데이트
+확인은 공개 GitHub Releases에서 실행당 한 번 수행하며, 사용자가 승인하기 전에는 설치하지
+않습니다.
 
 다만 “아무 네트워크 통신도 없다”는 뜻은 아닙니다. 사용자가 요청한 LAN 검색, SMB 공유,
 네트워크 드라이브, Wake-on-LAN, 공유 페어링 및 SSH는 사용자의 PC와 지정한 네트워크
 대상 사이에서 통신합니다. OpenSSH Server 온라인 설치를 선택하면 Windows가 Microsoft,
 Windows Update, WSUS 또는 조직이 설정한 기능 원본에 접속할 수 있습니다.
+앱의 업데이트 확인과 다운로드는 GitHub 및 GitHub 릴리스 자산 호스트에 접속하므로 해당
+서비스가 IP 주소, 요청 시각과 일반적인 HTTP 요청 정보를 처리할 수 있습니다.
 
 ## 2. 적용 범위
 
@@ -91,6 +95,7 @@ JSON 파일은 복구를 위해 같은 폴더의 `.corrupt-*` 보존본으로 �
 | 공유 페어링 | 사용자가 지정한 LAN 호스트의 TCP 19763 | 일회용 페어링 세션 동안 |
 | SSH | 지정한 LAN 호스트의 TCP 22, 또는 내 PC의 SSH 수신 | 사용자가 별도 동의로 SSH를 켜거나 접속할 때 |
 | OpenSSH Server 설치 | Windows Update, WSUS 또는 사용자가 지정한 오프라인 원본 | SSH 켜기에서 기능이 없고 설치 원본을 선택한 때 |
+| 앱 업데이트 확인·다운로드 | 공개 `pcssakinc/pcssak-gongyu-releases` GitHub Release와 GitHub 릴리스 자산 호스트 | 앱 시작 4초 뒤 실행당 한 번, 사용자가 수동 확인한 때, 사용자가 설치를 승인한 때 |
 
 8자리 페어링 코드는 사용자가 확인할 수 있도록 화면에 표시되고, 입력한 코드는 WebView와 로컬
 Tauri IPC 메모리를 잠시 통과합니다. JavaScript 문자열의 확정적인 메모리 소거까지 보장하지는
@@ -108,10 +113,11 @@ SMB·SSH 방화벽 규칙은 로컬 서브넷으로 제한하도록 설계되어
 도메인 정책 또는 사용자의 수동 설정에 따라 실제 도달 범위가 달라질 수 있으므로 조직
 관리자는 Windows Defender 방화벽의 최종 규칙을 확인해야 합니다.
 
-NSIS 설치본은 Microsoft WebView2 Evergreen 독립 실행형 설치 관리자를 포함하는
-`offlineInstaller` 방식을 사용합니다. 설치 파일 자체는 WebView2를 받기 위한 인터넷 연결이
-필요하지 않지만, 설치된 Evergreen Runtime의 유지·업데이트 정책은 Microsoft와 조직의
-Windows 정책에 따릅니다.
+NSIS 설치본은 WebView2를 중복 포함하지 않는 `downloadBootstrapper` 방식을 사용합니다.
+WebView2 Runtime이 이미 있으면 추가 다운로드가 없지만, 없으면 설치 과정에서 Microsoft가
+제공하는 WebView2 Runtime을 내려받습니다. 오프라인이면서 Runtime도 없는 PC에서는 설치가
+완료되지 않을 수 있습니다. 설치된 Evergreen Runtime의 유지·업데이트 정책은 Microsoft와
+조직의 Windows 정책에 따릅니다.
 
 ## 6. 보관 기간과 삭제
 
@@ -162,7 +168,7 @@ Cloudflare의 라우팅 분석에는 발신자·수신자·제목·메시지 ID�
 
 Cloudflare Email Routing은 수신 전달 서비스이며 도메인 주소 발신·회신 기능을 제공하지
 않습니다. 공개 DNS에서 수신용 MX, SPF와 Cloudflare DKIM 레코드는 확인했지만 DMARC와
-도메인 발신 서비스는 구성하지 않았습니다. 이 상태는 무료 0.1.0 Early Access의 알려진 지원
+도메인 발신 서비스는 구성하지 않았습니다. 이 상태는 무료 0.1.1 Early Access의 알려진 지원
 제한이며 앱의 로컬 기능 공개 자체를 금지하는 조건은 아닙니다. 운영자는 개인 Gmail 주소에서
 직접 답장하여 그 주소를 노출하지 않습니다. 인증된 도메인 발신 수단이 준비되기 전에는 이메일
 회신이 지연되거나 제공되지 않을 수 있으며 별도의 회신 SLA를 제공하지 않습니다.
@@ -217,12 +223,17 @@ Cloudflare Email Routing은 수신 전달 서비스이며 도메인 주소 발�
 
 ## English reference translation
 
-PCssak Gongyu 0.1.0 Early Access has no PCSSAK telemetry, advertising, online
-account, automatic updater or license server. Local settings and credentials stay
-on the user's Windows PC. User-selected LAN, SMB, Wake-on-LAN, pairing and SSH
+PCssak Gongyu 0.1.1 Early Access has no PCSSAK telemetry, advertising, online
+account, remote-configuration service or license server. Local settings and
+credentials stay on the user's Windows PC. The updater checks the public PCSSAK
+GitHub Release once per app launch and never installs without the user's approval;
+GitHub may process the IP address, request time and ordinary HTTP request data.
+User-selected LAN, SMB, Wake-on-LAN, pairing and SSH
 operations still communicate with devices chosen by the user. Online installation
 of the Windows OpenSSH optional feature may contact Microsoft, Windows Update,
-WSUS or another source configured by the organization.
+WSUS or another source configured by the organization. If WebView2 Runtime is not
+already installed, the NSIS download bootstrapper may contact Microsoft during
+installation; an existing Runtime requires no additional WebView2 download.
 
 The 8-digit pairing code is briefly present in the UI and local IPC memory, but the
 backend does not persist its OPAQUE registration state. Neither the raw code nor a
@@ -247,7 +258,7 @@ passwords, private keys or personal information.
 Cloudflare Email Routing provides inbound forwarding only and does not provide domain
 sending or reply service. Public DNS has inbound MX, SPF and Cloudflare DKIM records,
 but no DMARC record or domain outbound provider is configured. This is a disclosed
-support limitation of free 0.1.0 Early Access, not a condition that prohibits publication
+support limitation of free 0.1.1 Early Access, not a condition that prohibits publication
 of the app's local features. The operator does not reply directly from the private Gmail
 destination address. Until an authenticated domain outbound channel is available,
 individual email replies may be delayed or unavailable and no response SLA is offered.

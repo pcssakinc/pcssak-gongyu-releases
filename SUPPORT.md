@@ -1,9 +1,9 @@
 # Support / 고객지원
 
-PCssak Gongyu 0.1.0 is Free Early Access. Support has no guaranteed response or fix deadline.
+PCssak Gongyu 0.1.1 is Free Early Access. Support has no guaranteed response or fix deadline.
 Reports are prioritized by safety impact, affected users and reproducibility.
 
-PCssak Gongyu 0.1.0은 무료 Early Access입니다. 답변·수정 기한을 보장하는 지원 SLA는 없으며,
+PCssak Gongyu 0.1.1은 무료 Early Access입니다. 답변·수정 기한을 보장하는 지원 SLA는 없으며,
 안전 영향·영향받는 사용자·재현 가능성을 기준으로 우선순위를 정합니다.
 
 ## Before reporting
@@ -15,8 +15,9 @@ PCssak Gongyu 0.1.0은 무료 Early Access입니다. 답변·수정 기한을 �
    name.
 4. State whether the affected PC is the host or connecting PC, whether administrator elevation was
    used, and whether the host network profile is Private, Domain or Public.
-5. Identify the affected step: installation, startup, automatic setup, sharing, mapping, pairing,
-   SSH enable/status/disable, SSH login, SFTP, recovery or uninstall.
+5. Identify the affected step: installation, startup, signed in-app update, automatic setup,
+   sharing, mapping, pairing, SSH setup/enable/disable/full reset, SSH login, SFTP, recovery or
+   uninstall.
 6. Reproduce only with a small synthetic folder, account and filename. Do not repeat a step that
    could expand access or damage data.
 
@@ -33,7 +34,10 @@ exposure, do not open a public Issue. Follow [SECURITY.md](SECURITY.md).
 
 ## Support boundary
 
-- The public 0.1.0 installer is x64 NSIS for Windows. An x86 installer is not published.
+- The public 0.1.1 installer is x64 NSIS for Windows. An x86 installer is not published.
+- The official v0.1.1 release contains exactly the nine files in
+  [the release asset contract](docs/RELEASE-ASSET-CONTRACT.md). Stop if any asset is missing or its
+  SHA-256 differs.
 - Windows 11 Home/Pro x64 and Windows 10 22H2 Home/Pro x64 are validation targets, not a claim that
   every edition, build, device or organizational policy has completed hands-on validation.
 - Native ARM64, Windows S mode, Windows Server, macOS and Linux are not supported release targets.
@@ -42,11 +46,12 @@ exposure, do not open a public Issue. Follow [SECURITY.md](SECURITY.md).
   unsupported.
 - “Locally ready” verifies the host service, firewall and listener; it does not prove that another
   PC can log in or use SFTP.
-- MSRA screen sharing and mouse control are not included in 0.1.0. They are not the same as SSH.
+- MSRA screen sharing and mouse control are not included in 0.1.1. They are not the same as SSH.
 - The installer is not Authenticode-signed and can show Unknown publisher or SmartScreen. Do not
   disable Windows security products to install it.
-- The app has no automatic updater. Obtain later versions only from an official version-pinned
-  release.
+- The public 0.1.0 build has no in-app updater. Existing users must manually install the official
+  0.1.1 installer once. Version 0.1.1 and later can check signed in-app updates from the official
+  GitHub Release endpoint and install only after user approval.
 
 ## 이슈 등록 전 확인
 
@@ -56,8 +61,8 @@ exposure, do not open a public Issue. Follow [SECURITY.md](SECURITY.md).
 3. 기기명·계정명을 제외하고 Windows 에디션·빌드·x64 여부를 기록합니다.
 4. 문제가 생긴 PC가 호스트인지 접속 PC인지, 관리자 승격 여부와 호스트 프로필이 Private·
    Domain·Public 중 무엇인지 기록합니다.
-5. 설치·시작·자동 설정·공유·매핑·페어링·SSH 켜기/상태/끄기·로그인·SFTP·원복·제거 중
-   문제가 생긴 단계를 구분합니다.
+5. 설치·시작·서명된 앱 내 업데이트·자동 설정·공유·매핑·페어링·SSH 처음 설정/켜기/끄기/
+   완전 원복·로그인·SFTP·원복·제거 중 문제가 생긴 단계를 구분합니다.
 6. 작은 합성 폴더·계정·파일명으로만 재현하고 접근 범위 확대나 데이터 손상 가능성이 있는
    단계는 반복하지 않습니다.
 
@@ -72,7 +77,9 @@ exposure, do not open a public Issue. Follow [SECURITY.md](SECURITY.md).
 
 ## 지원 범위
 
-- 공개 0.1.0 설치 파일은 Windows x64 NSIS이며 x86 설치 파일은 게시하지 않습니다.
+- 공개 0.1.1 설치 파일은 Windows x64 NSIS이며 x86 설치 파일은 게시하지 않습니다.
+- 공식 v0.1.1 릴리스는 [릴리스 자산 계약](docs/RELEASE-ASSET-CONTRACT.md)의 정확한 9개 파일만
+  포함합니다. 하나라도 없거나 SHA-256이 다르면 중단하세요.
 - Windows 11 Home/Pro x64와 Windows 10 22H2 Home/Pro x64는 검증 목표이며, 모든 에디션·
   빌드·장치·조직 정책의 실기 완료를 의미하지 않습니다.
 - ARM64 네이티브, Windows S 모드, Windows Server, macOS와 Linux는 지원 배포 대상이 아닙니다.
@@ -80,7 +87,9 @@ exposure, do not open a public Issue. Follow [SECURITY.md](SECURITY.md).
   인터넷 직접 접속·라우터 포트포워딩은 지원하지 않습니다.
 - “로컬 준비 완료”는 호스트 서비스·방화벽·리스너 확인이며 다른 PC의 로그인·SFTP 성공 증거가
   아닙니다.
-- 화면 공유·마우스 제어용 MSRA는 0.1.0에 포함되지 않으며 SSH와 다른 기능입니다.
+- 화면 공유·마우스 제어용 MSRA는 0.1.1에 포함되지 않으며 SSH와 다른 기능입니다.
 - 설치 파일은 Authenticode 미서명이라 알 수 없는 게시자나 SmartScreen이 나타날 수 있습니다.
   설치를 위해 Windows 보안 기능을 끄지 마세요.
-- 앱은 자동 업데이트를 제공하지 않습니다. 이후 버전도 공식 버전 고정 릴리스에서 확인하세요.
+- 공개 0.1.0에는 앱 내 업데이트가 없습니다. 기존 사용자는 공식 0.1.1 설치본을 이번 한 번
+  수동 설치해야 합니다. 0.1.1 이후부터는 공식 GitHub Release에서 서명된 업데이트를 확인하고
+  사용자가 승인한 뒤에만 설치할 수 있습니다.

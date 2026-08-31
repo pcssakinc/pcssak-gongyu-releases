@@ -1,144 +1,319 @@
-# PCssak Gongyu 공개 릴리스 자산 계약
+# PCssak Gongyu 공개 릴리스·자동 업데이트 자산 계약
 
-이 문서는 `pcssakinc/pcssak-gongyu-releases`에 게시하는 자산 이름과 공개 조건을 고정한다.
-0.1.0은 실기 미완료와 무서명 위험을 숨기지 않는 무료 Early Access로 공개 승인을 받았다.
-자산 무결성·법률 정본·오픈소스 의무는 완화하지 않으며, 실기 미완료 항목은 공개 고지와 후속
-버전 개선 대상으로 관리한다.
+이 문서는 `pcssakinc/pcssak-gongyu-releases`의 무료 `v0.1.1` Early Access에 쓰는
+공개 자산, Tauri 자동 업데이트, 서명과 GitHub Release 상태를 하나의 계약으로 고정한다.
+현재 디렉터리는 공개 저장소용 소스 템플릿이며, 실제 게시 완료 여부는 GitHub의 버전 고정
+릴리스와 Latest 엔드포인트를 각각 재검증해 판단한다.
 
 ## 1. GitHub 릴리스 상태
 
-무료 Early Access의 의미를 GitHub의 기계 판독 상태와 릴리스 제목·본문,
-`latest.json`의 `channel`에 모두 동일하게 표시한다. GitHub 릴리스는 다음 상태로
-게시해야 한다.
+`v0.1.1`은 제품 성숙도를 숨기지 않도록 제목과 본문에서 **Free Early Access**라고
+표시한다. 다만 Tauri가 고정 주소에서 최신 버전을 찾게 하려면 GitHub가 프리릴리스를
+`/releases/latest`에서 제외하는 동작을 피해야 한다. 따라서 게시 상태는 다음과 같다.
 
-- 태그: 제품 메타데이터와 같은 `v0.1.0` 형식
+- 태그: `v0.1.1`
+- 제목: `PCssak Gongyu 0.1.1 — Free Early Access`
 - `draft=false`
-- `prerelease=true`
-- 제목: `PCssak Gongyu 0.1.0 — Free Early Access` 형식
+- `prerelease=false`
+- GitHub Latest 지정: `true`
 
-GitHub의 `/releases/latest`는 prerelease를 제외하므로 Gongyu 다운로드에는 사용하지 않는다.
-홈페이지, README와 `latest.json`은 모두 검증한 정확한 버전 태그 URL을 사용한다.
+Early Access라는 제품 채널과 GitHub의 `prerelease` 플래그는 같은 개념이 아니다. 홈페이지와
+사람용 다운로드는 버전 고정 URL을 사용하고, 앱의 업데이트 확인만 다음 고정 Latest 주소를
+사용한다.
 
-## 2. 고정 자산 집합
+`https://github.com/pcssakinc/pcssak-gongyu-releases/releases/latest/download/latest.json`
 
-버전 `0.1.0`의 첫 공개 릴리스에는 아래 다섯 파일만 정확히 올린다.
+공개 `0.1.0`에는 앱 내 updater가 없으므로 기존 사용자는 **이번 한 번만** 공식 `0.1.1`
+설치본을 수동으로 내려받아 설치해야 한다. `0.1.1`로 전환한 뒤부터 앱 안에서 Gongyu 전용
+공개키로 검증한 업데이트를 사용할 수 있다. 홈페이지와 릴리스 노트도 이 전환 조건을 같은
+문구로 고지한다.
 
-1. `PCssak-Gongyu-0.1.0-MPL-Sources.zip`
-2. `PCssak-Gongyu-Beta-Windows-x64-Setup.exe`
-3. `THIRD-PARTY-NOTICES.txt`
-4. `latest.json`
-5. `SHA256SUMS.txt`
+같은 태그의 게시 자산은 사후 교체하지 않는다. 코드·법률·설치본 중 하나라도 바뀌면 더 높은
+새 버전으로 다시 빌드·서명·게시한다.
 
-제품 버전이 바뀌면 첫 번째 파일명과 태그·`latest.json`의 버전만 같은 값으로 바꾼다.
-설치 파일명은 홈페이지의 고정 다운로드 계약 때문에 바꾸지 않는다. Windows x86 설치
-파일은 Windows 10 x86 Home·Pro 실기 증거 게이트가 별도로 통과하기 전까지 추가하지 않는다.
+## 2. 정확한 공개 자산 9종
 
-Authenticode 서명과 Tauri 업데이트용 분리 서명을 이번 Early Access에는 만들지 않는다.
-따라서 `.sig`, `.msi`, 인증서 또는 개인키 파일은 릴리스 자산에 포함하면 안 된다.
+`v0.1.1` Release에는 아래 아홉 파일만 정확히 올린다.
 
-## 3. `latest.json` 계약
+1. `DOWNLOAD-METADATA.json`
+2. `PCssak-Gongyu-0.1.1-MPL-Sources.zip`
+3. `PCssak-Gongyu-Beta-Windows-x64-Setup.exe`
+4. `PCssak-Gongyu-Beta-Windows-x64-Setup.exe.sig`
+5. `THIRD-PARTY-NOTICES.txt`
+6. `UPDATE-RELEASE.json`
+7. `UPDATE-RELEASE.json.sig`
+8. `latest.json`
+9. `SHA256SUMS.txt`
 
-`latest.json`은 `latest.schema.json`을 만족하는 PCSSAK 다운로드 메타데이터다. Tauri
-업데이트 매니페스트가 아니며 앱이 이를 서명된 자동 업데이트 정보로 처리해서는 안 된다.
+Windows x86 설치 파일은 Windows 10 x86 Home·Pro 실기 증거 게이트가 별도로 통과하기 전에는
+추가하지 않는다. `.msi`, 인증서, 공개키 백업, 개인키, 암호, 빌드 임시 파일도 Release 자산에
+포함하지 않는다.
 
-- `manifestKind`: `pcssak-download-metadata`
-- `channel`: `early-access`
-- `release.draft`: `false`
-- `release.prerelease`: `true`
-- 설치 파일 `authenticode`: `not-signed`
-- 설치 파일 `detachedSignature`: `null`
-- 모든 자산 URL: `releases/download/v<정확한 버전>/...` 버전 고정 URL
-- 홈페이지·README에서 매니페스트 자체를 찾는 URL도
-  `releases/download/v<정확한 버전>/latest.json` 사용
+## 3. 두 서명과 신뢰 경계
 
-JSON Schema만으로 `version`과 파일명·URL 속 버전이 서로 같은지 완전히 표현할 수 없으므로
-`scripts/verify-public-release-template.ps1`과 릴리스 자동화에서 교차 검증해야 한다.
+Tauri가 만든 `.sig`는 Minisign 서명 파일 전체를 Base64로 표현한 텍스트다. 설치본과
+`UPDATE-RELEASE.json`은 서로 다른 목적의 같은 Gongyu 전용 업데이트 키로 각각 서명한다.
+조립·게시 검증은 Minisign 0.12의 `-H`를 항상 사용해 현대 prehashed 서명만 허용하고 레거시
+서명은 같은 공개키로 유효하더라도 거부한다.
 
-## 4. SHA-256 계약
+- 설치본 `.sig`: Tauri Updater가 내려받은 설치본 바이트를 검증한다.
+- `UPDATE-RELEASE.json.sig`: 제품·버전·소스 커밋·설치본 해시·설치본 바이트 크기·내장 EULA·
+  PRIVACY 정본 해시·정규 URL·승인 릴리스 노트가 한 묶음이라는 사실을 검증하여 오래된
+  메타데이터 재사용, 법률 정본 자기불일치, 과대 다운로드, 다른 URL로의 유도를 차단한다.
 
-최종 이름으로 복사한 파일에서 SHA-256을 다시 계산한다. `SHA256SUMS.txt`는 소문자 64자리
-해시, ASCII 공백 두 개, 정확한 파일명과 LF 줄바꿈을 사용하고 다음 네 파일만 정렬해 담는다.
+조립기는 `src-tauri/tauri.conf.json`에 실제로 내장되는 Gongyu 공개키를 읽고, 공개키가
+Minisign `.pub` 본문을 정확히 한 번 Base64한 형식인지 확인한다. 이어서 신뢰한 실제
+`minisign.exe` CLI로 설치본과 `UPDATE-RELEASE.json`의 서명을 모두 암호학적으로 검증한다.
+문자열 모양만 확인하거나 다른 제품 공개키, 이중 Base64 공개키, 과거 키의 서명을 허용하지
+않는다.
 
-1. `PCssak-Gongyu-0.1.0-MPL-Sources.zip`
-2. `PCssak-Gongyu-Beta-Windows-x64-Setup.exe`
-3. `THIRD-PARTY-NOTICES.txt`
-4. `latest.json`
+Minisign 0.12 x64와 7-Zip 26.02 x64의 `7z.exe`·`7z.dll` SHA-256은 검토한 공식 배포물 값으로
+조립기 코드에 고정한다. 호출자가 경로와 임의 해시를 함께 제출해도 고정값과 다르면 실행 전에
+거부한다. 공식 Windows `7za.exe`는 NSIS를 지원하지 않고 `7z.exe`는 인접
+`Codecs`·`Formats`를 자동 로드하므로, 기본 정식 승인 경로에서는 사용자 쓰기 가능한 호출자
+폴더나 TEMP 격리 복사본을 실행하지 않는다. 정확한 `C:\Program Files\7-Zip\7z.exe`
+machine-wide 설치만 허용하고 Program Files·7-Zip 디렉터리를 `OPEN_REPARSE_POINT` 핸들로 연다. 같은 핸들의 최종
+경로·VolumeSerial/FileId·소유자·DACL을 확인하며, 현재 비관리자 토큰의 사용자 SID와 활성 그룹
+SID 어느 것에도 파일·하위 디렉터리 추가·삭제·DACL/소유자 변경 Allow 권한이 없어야 한다.
+`Codecs`·`Formats` 부재와 공식 26.02 루트 항목 집합을 실행 전후에 재검증한다. `7z.exe`와
+`7z.dll`은 쓰기·교체·삭제를 허용하지 않는 읽기 공유 핸들로 실행 종료까지 잠그며, 같은 핸들의
+해시·최종 경로·파일 ID를 재검증한다. 내부 앱은 x64 `0x8664`이고 같은 실행의 Tauri x64 빌드
+앱 SHA-256과 같아야 한다.
 
-`SHA256SUMS.txt`가 자기 자신을 해시하게 만들면 순환 의존이 생기므로 자체 해시는 넣지 않는다.
-`latest.json`도 같은 이유로 `SHA256SUMS.txt`의 해시를 담지 않고 버전 고정 URL만 담는다.
+Minisign 검증은 호출자가 제공한 공개키 경로나 임시 서명 경로를 그대로 신뢰하지 않는다. 매
+검증마다 재분석 지점이 아닌 새 GUID 데이터 디렉터리에 코드 고정 공개키와 승인 `.sig`에서
+해제한 서명, 잠근 원본 대상의 바이트 복사본만 기록하고 `target.bin`·`updater.pub`·
+`target.minisig` 정확히 세 일반 파일인지 확인한다. 공개키·디코딩 서명·격리 검증 대상·원본
+대상·원본 `.sig`는 읽기 공유 핸들로, 각 부모 데이터/입력 디렉터리는
+rename/delete 차단 핸들로 실행 완료까지 고정한다. 잠근 바이트가 승인 해시와 같은지 Minisign
+실행 직전과 직후에 다시 확인해 같은 사용자 프로세스의 공개키·서명·대상 교체를 실패 폐쇄한다.
+디렉터리 핸들은 `OPEN_REPARSE_POINT`로 열고 같은 핸들의 `FileAttributeTagInfo`에서 실제
+디렉터리이며 재분석 지점이 아님을 확인한다. GUID 최상위에서 중간·leaf 순서로 자식 생성 전에
+잠금을 취득해 junction 자체를 다른 대상으로 재지정하는 경합도 차단한다. 7-Zip에는 잠근 원본
+NSIS에서 만든 GUID 입력 스냅샷만 전달하고, `UseShellExecute=false`·보호된 작업 디렉터리·최소
+환경으로 고정한 승인 실행 파일을 직접 시작한다.
+
+제품 개인키는 조립기·템플릿·공개 저장소가 생성하거나 읽지 않는다. 키 생성과 서명은 분리된
+승인 절차에서 끝나야 하며 조립기는 공개키 검증만 수행한다.
+
+이 Tauri/Minisign 서명은 Windows 게시자 신원을 확인하는 Authenticode와 목적이 다르다.
+`v0.1.1` 설치본은 `Authenticode: not-signed`이므로 Windows가 알 수 없는 게시자 또는
+SmartScreen 평판 경고를 표시할 수 있다. 설치를 위해 SmartScreen, Microsoft Defender,
+방화벽 또는 다른 보안 제품을 끄라고 안내하지 않는다.
+
+## 4. `latest.json`: Tauri 전용 정적 업데이트 매니페스트
+
+`latest.json`은 더 이상 사람·홈페이지용 다운로드 정보가 아니다. Tauri 공식 정적 JSON
+형식만 정확히 담으며 `latest.schema.json`으로 구조를 고정한다.
+
+- `version`: `0.1.1`
+- `notes`: 사람이 승인한 릴리스 노트 원문
+- `pub_date`: 이번 조립 실행의 UTC `Z` 시각
+- `platforms.windows-x86_64.url`: 버전 고정 설치본 정규 URL
+- `platforms.windows-x86_64.signature`: 검증한 설치본 `.sig`의 한 줄 Base64 본문
+
+`latest.json`은 GitHub Latest 주소에서 제공하지만 그 안의 설치본 URL은 반드시
+`releases/download/v0.1.1/...`처럼 버전이 고정되어야 한다. Windows x86 또는 계약 밖
+플랫폼 키는 허용하지 않는다.
+
+## 5. 서명된 `UPDATE-RELEASE.json`
+
+매니페스트는 `update-release.schema.json`에 고정한 아래 열세 속성만 정확히 가진다.
+
+- `schema`: `pcssak.update-release/v1`
+- `product`: `PCssak Gongyu`
+- `version`: `0.1.1`
+- `tag`: `v0.1.1`
+- `source_commit`: 승인한 소스의 소문자 40자리 Git SHA
+- `installer`: `PCssak-Gongyu-Beta-Windows-x64-Setup.exe`
+- `installer_sha256`: 실제 설치본 SHA-256
+- `installer_size`: 실제 설치본 바이트 수인 양의 정수, 최대 536,870,912바이트(512 MiB)
+- `eula_sha256`: 이 버전 소스 `LICENSE.txt` 정본의 정확한 바이트 SHA-256
+- `privacy_sha256`: 이 버전 소스 `PRIVACY.md` 정본의 정확한 바이트 SHA-256
+- `download_url`: 같은 태그의 버전 고정 정규 설치본 URL
+- `notes`: 사람이 승인한 릴리스 노트 원문
+- `notes_sha256`: 위 노트 문자열 UTF-8 바이트의 SHA-256
+
+조립기는 매니페스트 서명을 먼저 검증한 뒤 모든 필드를 실제 입력·승인값과 교차 검증한다.
+필드가 하나라도 더 있거나 빠진 경우, 대소문자·해시·크기·URL·커밋·노트가 다른 경우에는
+출력 디렉터리를 만들기 전에 실패한다. 앱은 이 서명된 `installer_size`로 HTTP
+`Content-Length`와 실제 스트림 누적 크기를 모두 제한한다. 앱에 내장된 법률 정본 바이트가
+서명된 두 법률 해시와 다르면 앱 내 설치를 실패 폐쇄하고 공식 수동 NSIS 설치만 안내한다.
+
+## 6. `DOWNLOAD-METADATA.json`: 사람·홈페이지용 정보
+
+기존 `latest.json`의 사람용 역할은 `DOWNLOAD-METADATA.json`으로 분리한다.
+`download-metadata.schema.json` 스키마 버전 2를 사용하며 다음을 제공한다.
+
+- Free Early Access 채널, 버전, 소스 커밋, 게시 시각과 한·영 안내
+- `draft=false`, `prerelease=false`, `latest=true`, 릴리스 제목과 버전 고정 페이지
+- 설치본·설치본 서명·Tauri 매니페스트·서명된 배포 매니페스트의 이름·정규 URL·SHA-256과
+  설치본 바이트 크기
+- `SHA256SUMS.txt`, 제3자 고지와 정확한 MPL 원본 ZIP의 위치·SHA-256
+
+이 파일은 Tauri Updater 프로토콜로 해석하지 않는다. 홈페이지는 자동 업데이트용
+`latest.json`을 다운로드 카드 데이터로 재사용하지 않는다.
+
+## 7. SHA-256과 순환 참조 방지
+
+`SHA256SUMS.txt`는 소문자 64자리 해시, ASCII 공백 두 개, 정확한 파일명, 파일명 오름차순,
+LF 줄바꿈을 사용한다. 자기 자신을 제외한 나머지 여덟 자산을 모두 담는다. 따라서
+`latest.json`, 설치본 `.sig`, `UPDATE-RELEASE.json.sig`, `DOWNLOAD-METADATA.json`의 해시도
+반드시 포함된다.
+
+`SHA256SUMS.txt` 자체 해시는 사람의 최종 승인·게시 명령 입력으로 별도 기록할 수 있지만
+파일 안에는 넣지 않는다. `DOWNLOAD-METADATA.json`도 `SHA256SUMS.txt`의 해시나 자기 자신의
+해시를 넣지 않는다. 이 규칙으로 순환 참조를 만들지 않는다.
 
 생성 순서는 다음과 같이 고정한다.
 
-1. 설치 파일, MPL ZIP, 고지문을 최종 파일명으로 복사하고 각각의 SHA-256을 계산한다.
-2. 그 세 해시와 버전 고정 URL로 `latest.json`을 만들고 스키마·교차 버전을 검증한다.
-3. 최종 `latest.json` SHA-256을 계산한다.
-4. 위 네 파일의 해시를 정해진 순서로 `SHA256SUMS.txt`에 기록한다.
-5. 업로드 직전 다섯 파일을 다시 읽어 이름·크기·해시를 확인한다.
+1. 설치본·두 `.sig`·`UPDATE-RELEASE.json`·MPL ZIP·고지문 입력의 해시와 신규성을 확인한다.
+2. `BUILD-EVIDENCE.json`의 clean x64 빌드 증거와 NSIS 3.12 공식 ZIP·441개 공식 파일
+   매니페스트·두 `makensis.exe`·`nsis_tauri_utils.dll` 고정 크기/해시를 정확 스키마로 검증한다.
+   PATH Git은 금지하며 Program Files의 승인 Git for Windows 2.54.0.windows.1 x86_64에 대해
+   고정 실행 파일 크기·SHA-256·빌드 커밋·Authenticode 상태·인증서 지문과 핸들 기반
+   소유자/DACL·비재분석점·최종 경로·파일 ID를 검증한 `git_*` 8필드를 함께 요구한다.
+3. 스크립트 자체의 사전/사후 검사로 완결할 수 없는 세 경계는 저장소 밖의 별도 승인 JSON과
+   승인 SHA-256이 없으면 실패 폐쇄한다.
+   - `pcssak.build-isolation-approval/v1`: 관리자 보호 읽기 전용 승인 commit snapshot,
+     활성 토큰 비신뢰 쓰기 거부, NSIS 도구 트리 신규 child 생성 차단·매니페스트 잠금,
+     네트워크 격리, 비릴리스 프로세스 차단
+   - `pcssak.toolchain-provenance-approval/v1`: cargo·rustc·rustup·cargo-tauri의 버전,
+     경로 계약, 크기, SHA-256, 서명 상태/지문, 공식 출처 참조, 빌드 중 읽기 전용
+   - `pcssak.assembly-input-lock-approval/v1`: 실제 14입력 해시 매니페스트,
+     FileShare.Read, 동일 핸들 hash/parse/copy, FileId, reparse 거부, 조립 프로세스 격리
+   세 증거는 모두 실제 source commit과 별도 승인 `BUILD-EVIDENCE.json` SHA-256에 결속하고
+   `decision=approved`, 모든 보안 불리언 `true`, 개인정보 없음이어야 한다. 조립기와 게시기는
+   이를 생성하거나 추정하지 않으며 누락·false·해시 불일치면 출력/Draft 전에 중단한다.
+4. 제품 내장 공개키와 실제 Minisign CLI로 두 서명을 검증한다.
+5. 검증된 설치본 서명과 승인 노트로 `latest.json`을 만들고 해시한다.
+6. 앞선 해시로 `DOWNLOAD-METADATA.json`을 만들고 해시한다.
+7. 자기 자신을 제외한 여덟 자산을 `SHA256SUMS.txt`에 정렬 기록한다.
+8. 최종 출력 9종의 이름·대소문자·크기·재분석 지점·해시와 두 서명을 다시 검증한다.
 
-## 5. MPL-2.0 원본 계약
+### `v0.1.1` 무료 Early Access 일회성 예외
+
+관리자는 2026-08-28에 현재 사용이 어려운 SSH 수명주기와 설치 용량 개선을 먼저 제공하기 위해
+`v0.1.1` 무료 Early Access에만 제한된 위험 수락을 승인했다. 기본 전체 승인 경로는 그대로
+유지하지만, 이 버전의 고정 예외 경로에서는 GitHub Actions, 법률 전문가 최종 외부 검토,
+Windows 10/11 Home·Pro x64 네 VM 및 실제 LAN SSH 실기, 위 세 공급망 독립 승인을 `v0.1.2`로
+유예한다. 이 유예는 호환성 완료나 법률 적합성 확인을 뜻하지 않는다.
+
+예외 경로에서도 깨끗한 고정 소스·새 x64 빌드, 공식 고정 해시 도구, NSIS 내부 x64 payload,
+제품 공개키로 검증한 두 Minisign 서명, 설치본 크기·해시·법률 정본 해시 결속, 정확한 9자산,
+공개 저장소 법률 정본 바이트 동일성, Immutable Releases, Draft 선업로드·재다운로드·digest 및
+Latest read-back은 생략하지 않는다. 공개 전에는 저장소 밖
+`pcssak.v011-early-access-risk-acceptance/v1` 기록을 최종 소스·공개 저장소 커밋·설치본·
+`SHA256SUMS.txt`·`BUILD-EVIDENCE.json`·EULA·개인정보 처리방침 해시에 결속해 다시 검증한다.
+
+예외용 7-Zip은 호출자가 제공한 폴더에서 직접 실행하지 않는다. 공식 26.02 설치본과 고정
+SHA-256의 원본 `7z.exe`·`7z.dll`을 잠근 뒤, 매 실행의 새 로컬 고정 NTFS GUID 폴더에 두
+바이트를 `CreateNew`로 복사한다. `Codecs`·`Formats`는 0바이트 일반 파일로 먼저 만들고
+`OPEN_REPARSE_POINT` 읽기 공유 핸들로 목록·추출 두 프로세스가 끝날 때까지 잠가 같은 이름의
+플러그인 디렉터리 생성을 차단한다. 실행 폴더는 정확한 네 일반 파일만 허용하며 대소문자 구분
+디렉터리, 재분석 지점, 다른 파일·하위 디렉터리, 이동식·비 NTFS 드라이브를 거부한다. 원본과
+실행 복사본, 센티널의 최종 경로·FileId·해시를 각 프로세스 직전·직후에 다시 확인한다.
+임시 루트·GUID 최상위·입력·출력·실행 폴더도 열린 핸들의 최종 경로를 입력 경로와 비교해 조상
+junction·symlink·SUBST·네트워크 매핑을 실패 폐쇄하며, 실제 최종 경로의 드라이브만 고정 NTFS인지
+판정한다.
+
+코드에는 정확한 `V011EarlyAccessException`, `0.1.1`, `v0.1.1` 및 전용 확인문구를 고정하고,
+범용 건너뛰기나 빈 승인 파일을 허용하지 않는다. `0.1.2`의 첫 버전 변경에서 이 예외를 제거하고
+유예한 전체 게이트를 복원한다.
+
+## 8. MPL-2.0 원본 계약
 
 `scripts/create-mpl-source-archive.ps1`이 현재 `Cargo.lock`, x64/i686 잠금 그래프와
 `THIRD-PARTY-NOTICES.txt`를 교차 검증하고 로컬 Cargo 레지스트리 캐시의 정확한 `.crate`
-원본으로 ZIP을 만든다. 네트워크에서 임의로 찾은 브랜치·태그·소스 저장소 ZIP으로
-대체하면 안 된다. ZIP에는 해시 기준인 `Cargo.lock`과 전체 라이선스 본문이 있는
-`THIRD-PARTY-NOTICES.txt`도 함께 넣는다. 현재 잠금 그래프의 MPL-2.0 구성요소는 다음
-다섯 개다.
+원본으로 ZIP을 만든다. 임의의 브랜치·태그·소스 저장소 ZIP으로 대체하지 않는다. ZIP에는
+해시 기준인 `Cargo.lock`, 전체 고지문, 생성 매니페스트도 함께 둔다. 구성요소 목록은
+잠금 파일이 바뀔 수 있으므로 문서에서 손으로 고정하지 않고 생성기 결과를 기준으로 한다.
 
-- `cssparser 0.36.0`
-- `cssparser-macros 0.6.1`
-- `dtoa-short 0.3.5`
-- `option-ext 0.2.0`
-- `selectors 0.36.1`
+## 9. GitHub 원격 Draft-first 불변 게시 게이트
 
-버전이 달라지면 이 목록을 손으로 추정하지 말고 생성기와 고지 생성 결과를 다시 검증한다.
+실제 게시는 GitHub Actions 할당량과 무관한 `scripts/publish-public-release.ps1`로만 수행한다.
+스크립트가 Immutable Releases 설정을 켜지는 않는다. 관리자가 공개 저장소 설정에서 먼저 켠
+뒤 읽기 전용 API가 `enabled=true`를 반환해야 다음 단계로 간다.
 
-## 6. 공개 필수 조건과 승인된 Early Access 위험
+1. 공식 GitHub CLI 2.96.0의 고정 SHA-256, `GitHub, Inc.` Valid Authenticode와 인증·고정
+   저장소를 확인한다. 모든 저장소 명령은 `github.com/pcssakinc/pcssak-gongyu-releases`, 모든
+   REST 명령은 `--hostname github.com`에 고정하고, 자식 프로세스의 `GH_HOST`·`GH_REPO`도 같은
+   값으로 제한하며 프롬프트와 Enterprise 토큰 값, debug·강제 TTY·외부 pager·프록시·사용자
+   지정 TLS 인증서 환경을 차단한다.
+   GitHub CLI 구성의 `http_unix_socket`도 비어 있어야 한다. 조립 결과의 별도 승인
+   `Sha256SumsSha256`, 원격 `main` SHA 및 그 커밋의 EULA·개인정보 처리방침 바이트를 확인한다.
+   승인 릴리스 노트는 원본을 잠근 상태에서 GUID 격리본으로 복사하고 파일·디렉터리 잠금과 승인
+   해시를 공개 전환까지 유지한 경로만 GitHub CLI에 전달한다.
+   원격 API를 호출하기 전에 저장소 밖의 대한민국 적격 전문가 최종 승인 JSON과 Windows 10/11
+   Home·Pro x64 일회용 VM 실기 JSON을 각각 별도 승인 SHA-256으로 검증한다. 법률 증거는 승인
+   소스·EULA·PRIVACY 해시에, VM 증거는 최종 설치본 SHA-256·크기 및 설치 언어/EULA·HKLM
+   seed·신규/복구/업그레이드·제거 양쪽 선택·원복 실패 중단 시나리오에 결속한다. 게시기는 실제
+   승인 증거를 생성하거나 완료로 추정하지 않는다.
+2. 태그와 Release가 모두 없으면 `v0.1.1`을 `draft=true`, `prerelease=false`, Free Early
+   Access 제목으로 만든다. 둘 다 있으면 태그 target, Release ID·태그·제목·본문·target 및 기존
+   자산 각각의 이름·`uploaded` 상태·크기·`sha256:` digest가 현재 승인 입력과 정확히 같은 Draft만
+   재개한다. 태그/Release 중 하나만 있거나 승인 밖·중복·불일치 자산이 있으면 원격을 자동 변경하지
+   않는다. 이미 정확히 공개된 9자산 Release라면 새 공개 요청 없이 최종 read-back부터 재개한다.
+3. 정확한 9자산을 GUID 격리 승인 스냅샷으로 복사하고 파일·디렉터리 잠금을 유지한 경로만
+   사용한다. 새 Draft 또는 검증한 부분 Draft에서 없는 자산만 하나씩 업로드하고, 각 호출의 종료
+   코드와 무관하게 원격 파일명·`uploaded` 상태·크기·`sha256:` digest를 확인한 뒤 다음 자산으로
+   간다. 기존 자산에 `--clobber`, 삭제 또는 태그 이동을 사용하지 않는다.
+4. Draft 9자산을 새 임시 디렉터리에 다시 내려받아 모든 해시와 두 Minisign 서명을 재검증한다.
+   각 검증의 공개키·서명·대상 파일과 데이터/입력 디렉터리는 실행이 끝날 때까지 잠그고 전후
+   해시와 정확한 파일 집합을 다시 확인한다.
+5. 공개 직전에 Immutable Releases 활성화, 원격 `main`·법률 정본, 태그 target 및 정확한 Draft
+   9자산 digest와 메모리에 고정한 법률·VM 승인 계약을 다시 확인하고 단일 `gh release edit`
+   명령으로만 `draft=false`, `prerelease=false`, Latest로 전환한다. 명령 응답이 실패하거나
+   끊겨도 성공·실패를 추정하지 않고 고정 Release ID를 반복 read-back한다. 정확한 9자산의
+   `draft=false`가 확인된 경우에만 공개 성공으로, 마지막 read-back이 정확한 `draft=true`이면
+   안전 재개 가능한 실패로 판정하며, 읽을 수 없거나 계약이 다르면 원격 상태 불명 사고로 중단한다.
+6. 공개 뒤 `immutable=true`, `gh release verify`, 각 자산의 `gh release verify-asset`, 정확한
+   Latest 하나, `/releases/latest`와 `/releases/latest/download/latest.json` read-back을
+   재검증한다.
 
-### 6.1 완화할 수 없는 게시 조건
+Draft 검증 실패 시 자동 삭제하지 않는다. 원격 Draft가 현재 승인 입력과 정확히 일치하면 같은
+입력으로 누락 자산부터 재개하고, 다르거나 상태를 확인할 수 없으면 조사한다. 불변 공개 전환 뒤
+검증이 실패하면 자산 삭제·교체·태그 이동·자동 롤백을 시도하지 않고 배포 사고로 중단한다. 수정은
+더 높은 새 버전으로만 수행한다.
 
-다음 중 하나라도 남으면 사용자 승인 여부와 관계없이 저장소 공개 전환·자산 업로드·릴리스
-게시를 중단한다.
+## 10. 실패 폐쇄 조건
 
-- EULA·개인정보 문서의 미확정 표시, 개인 실명·물리 주소·사업자·법인 지위를 추정하는 표현,
-  또는 `PCSSAK` 제공자·운영자, `PCSSAK 개인정보 보호 담당 부서`, `support@pcssak.com`,
-  `privacy@pcssak.com` 계약 불일치
-- `EULA.md`와 설치기용 `EULA.txt`, 프로그램에 포함한 법률 문서와 공개 저장소 원본 불일치
-- 공개 README·지원·품질·알려진 한계·보안·제3자 원본·Issue 양식의 링크 또는 SSH 범위 불일치
-- 공개 설치 파일이 x64 후보가 아니거나 제품 버전·파일명·EULA·고지의 대상이 서로 다름
-- 설치 파일, `latest.json`, `SHA256SUMS.txt` 또는 MPL 원본 ZIP 해시 불일치
-- GitHub 자산 이름과 홈페이지의 버전 고정 다운로드 이름 불일치
-- 정확히 다섯 자산 중 하나라도 누락되거나 MPL 원본 묶음·제3자 고지를 설치 파일과 동시에
-  제공하지 않음
+다음 중 하나라도 발견되면 게시를 중단한다.
+
+- `draft=false`, `prerelease=false`, `Latest=true`, `v0.1.1` 또는 정확한 9자산 불일치
+- `/releases/latest/download/latest.json`이 다른 버전·프리릴리스를 가리킴
+- Gongyu 공개키 불일치·이중 인코딩·Minisign 검증 실패·다른 키 또는 과거 키의 서명
+- Minisign 검증 중 공개키·서명·대상 바이트 또는 격리 데이터 디렉터리의 정확한 파일 집합 변경
+- 설치본, 두 `.sig`, 두 매니페스트, 고지문, MPL ZIP 또는 `SHA256SUMS.txt` 해시 불일치
+- 서명된 배포 매니페스트의 제품·버전·커밋·설치본 이름·해시·크기·정규 URL·승인 노트 불일치
+- 고정하지 않은 Minisign/7-Zip, 7-Zip 격리 디렉터리의 추가 파일·재분석 지점 또는 NSIS 내부
+  x64 앱과 같은 빌드 산출물의 해시 불일치
+- 조립 결과에서 별도 승인한 `Sha256SumsSha256` 불일치, 고정하지 않은 GitHub CLI 버전·해시,
+  `GitHub, Inc.`가 아닌 Authenticode 서명 또는 공개 직전 원격 상태 변경
+- 설치본·MPL·서명 입력의 신규성, PE 형식, Authenticode 미서명 고지 또는 재분석 지점 실패
+- EULA·개인정보 처리방침 정본 바이트 불일치, 개인 Gmail·개인키·암호·인증서 노출
+- 검증되지 않은 x86 설치본이나 계약에 없는 추가 Release 자산 포함
 - 보안 제품 비활성화를 요구하는 설치 안내
 
-### 6.2 0.1.0에서 공개 승인한 미완료 항목
+x64 공개 전에는 최종 설치본의 SHA-256·크기와 소스 커밋에 결속된
+`pcssak.x64-nsis-release-validation/v1` 승인 증거가 반드시 있어야 한다. Windows 10/11
+Home·Pro x64 정확히 네 일회용 VM에서 설치 언어·EULA·HKLM 첫 실행 seed, 신규 설치·동일 버전
+복구·상위 버전 업그레이드, 제거 [예]/[아니오], 원복 실패 중단과 별도 정리 안내를 모두
+통과하지 못하면 원격 API를 호출하기 전에 공개를 차단한다. 이 필수 행렬을 통과한 뒤에도 모든
+백신·EDR·조직 정책과 도메인 이메일 발신·회신 조합까지 지원 완료로 표시하지 않으며, 미검증
+조합은 알려진 Early Access 제한으로 계속 고지한다.
 
-PCSSAK은 다음 항목을 검증 완료로 오인시키지 않고 릴리스 노트·README·알려진 한계·홈페이지에
-명시하는 조건으로 0.1.0 무료 Early Access 공개를 승인했다.
+## 11. 공개 저장소 루트 법률 문서 정본
 
-- 지원 후보 Windows Home·Pro 전체의 신규 설치·업데이트·제거·재부팅 실기 미완료
-- 같은 LAN 두 PC의 SMB·매핑·페어링·SSH 로그인·명령·SFTP·SSH 끄기 실기 미완료
-- Authenticode 코드 서명과 Tauri 자동 업데이트 서명 부재
-- GitHub 호스팅 Actions 미실행. 로컬 자동검사 결과만 존재하며 이를 CI 통과로 표시하지 않음
-- 도메인 메일의 발신·답장·외부 공급자 헤더와 DMARC 운영 검증 미완료
+GitHub Release의 위 9자산과 공개 저장소 루트 법률 문서는 서로 다른 집합이다.
 
-공개 문서는 위 항목을 호환성 또는 안전성 통과로 표현하면 안 된다. 사용자는 민감하지 않은 시험
-환경과 별도 백업을 먼저 사용하도록 안내한다. 0.1.0에서 발견한 결함은 같은 태그의 자산을 바꾸지
-않고 새 `0.1.1` 이상 태그와 새 다섯 자산으로 수정한다. 심각한 보안 결함이 확인되면 다운로드를
-즉시 중단하고 새 후보가 준비될 때까지 해당 버전을 제공하지 않는다.
+- 소스 저장소 `LICENSE.txt`가 EULA의 유일한 정본이며 공개 저장소 `EULA.txt`는 바이트 동일
+  복사본이어야 한다.
+- 소스 저장소 `PRIVACY.md`가 개인정보 처리방침의 유일한 정본이며 공개 저장소
+  `PRIVACY.md`는 바이트 동일 복사본이어야 한다.
 
-## 7. 공개 저장소 루트 법률 문서 정본
-
-GitHub Release에 올리는 위 다섯 자산과 공개 릴리스 저장소 루트의 법률 문서는 서로 다른
-집합이다. 다음 두 문서는 Release 자산 수에 추가하지 않지만 공개 저장소 루트에 반드시 둔다.
-
-- 소스 저장소 루트 `LICENSE.txt`가 EULA의 유일한 정본이며, 공개 릴리스 저장소 루트
-  `EULA.txt`는 그 파일의 바이트 동일 복사본이어야 한다.
-- 소스 저장소 루트 `PRIVACY.md`가 개인정보 처리방침의 유일한 정본이며, 공개 릴리스 저장소
-  루트 `PRIVACY.md`는 그 파일의 바이트 동일 복사본이어야 한다.
-
-복사 과정에서 줄바꿈, BOM, 공백, 제목 또는 번역을 다시 만들지 않는다. 소스 정본이 바뀌면
-공개 저장소의 두 복사본도 같은 변경에서 다시 복사하고 아래 읽기 전용 검증을 통과해야 한다.
+복사 과정에서 줄바꿈, BOM, 공백, 제목 또는 번역을 다시 만들지 않는다. 아래 읽기 전용
+검증을 통과하지 못하면 공개 저장소 병합과 Release 게시를 차단한다.
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File `
@@ -146,8 +321,5 @@ powershell -NoProfile -ExecutionPolicy Bypass -File `
   -ReleaseRepositoryRoot <공개-릴리스-저장소-루트>
 ```
 
-두 파일 중 하나라도 없거나 한 바이트라도 다르면 공개 저장소 PR 병합과 Release 게시를
-차단한다. 이 계약은 GitHub Release의 정확한 다섯 자산 계약을 여섯·일곱 자산으로 늘리지 않는다.
-
-`EULA.md`는 `EULA.txt`로 안내하는 고정 포인터만 허용한다. 별도의 약관 본문, 요약, 번역 또는
-수정본을 `EULA.md`에 두면 EULA가 둘로 갈라지므로 게시를 차단한다.
+`EULA.md`를 유지한다면 `LICENSE.txt`의 바이트 동일 복사본 또는 검증기에 고정한
+`fixed-pointer-to-EULA.txt` 포인터만 허용한다.
