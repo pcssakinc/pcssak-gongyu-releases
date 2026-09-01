@@ -7,11 +7,11 @@ Gongyu Free Early Access release. Early Access can contain undiscovered defects;
 this policy is a reporting and response boundary, not a guarantee that defects
 do not exist.
 
-For version 0.1.1 only, final external legal review and the full Windows 10/11
-Home/Pro x64 VM/LAN matrix are deferred to 0.1.2. Cryptographic update signatures,
-hashes, the fixed nine assets, and immutable-release verification remain in place,
-but 0.1.1 is not a completed compatibility or legal-review claim. Prefer a
-recoverable test system and a current backup.
+Versions from 0.1.2 up to, but not including, 0.2.0 are public Early Access.
+External legal review, the complete Windows Home/Pro and physical-LAN SSH/SFTP
+matrices, independent supply-chain review, and Authenticode are not complete.
+GitHub Actions, Tauri/Minisign signatures, SHA-256 and the exact release assets
+remain required. Prefer a recoverable test system and a current backup.
 
 ### Report privately
 
@@ -36,10 +36,14 @@ Download only from `pcssakinc/pcssak-gongyu-releases` or a version-pinned link o
 release. The Tauri updater verifies the published `.sig` with the Gongyu-specific
 Minisign public key, and the independently signed `UPDATE-RELEASE.json` binds
 release identity, installer hash and byte size, and the canonical installer URL.
-The public 0.1.0 build has no in-app updater, so install the official 0.1.1 build
-manually once before using signed in-app updates. The Early Access installer is
-still not Authenticode-signed. Do not disable SmartScreen, Microsoft Defender,
-a firewall, or another security product to bypass a warning.
+The public 0.1.0 build has no in-app updater, so install the official 0.1.2 build
+manually once before using cryptographically verified in-app updates. Public
+0.1.x Early Access installers from 0.1.2 up to, but not including, 0.2.0 do not
+carry an Authenticode publisher signature. Windows or security products may
+therefore warn about or block the file. The Tauri updater signature, independent
+Minisign signature, and SHA-256 checks remain mandatory, but they do not prove a
+Windows publisher identity. Do not disable SmartScreen, Microsoft Defender, a
+firewall, or another security product to bypass a warning.
 
 ## 한국어
 
@@ -47,9 +51,11 @@ a firewall, or another security product to bypass a warning.
 Early Access에는 발견되지 않은 결함이 남아 있을 수 있으며, 이 정책은 제보와 대응 범위를
 정하는 문서이지 결함이 없다는 보증이 아닙니다.
 
-0.1.1에 한해 법률 전문가 최종 외부 검토와 Windows 10/11 Home·Pro x64 전체 VM·LAN 실기
-행렬을 0.1.2로 유예했습니다. 업데이트 서명·해시·고정된 9개 자산·불변 릴리스 검증은
-유지하지만, 0.1.1은 호환성 또는 법률 검토 완료를 뜻하지 않습니다. 복구 가능한 시험 환경과
+0.1.2 이상 0.2.0 미만의 0.1.x는 공개 무료 Early Access입니다. 법률 전문가 최종 외부 검토,
+Windows 10/11 Home·Pro x64 전체 VM·물리 LAN SSH/SFTP 실기 행렬, 독립 공급망 검토와
+Windows 신뢰 Authenticode 서명은 아직 완료되지 않았으며 0.2.0 공개 전 필수 게이트로
+복원합니다. GitHub Actions 최종 소스 검증, Tauri 업데이트 서명, 독립 Minisign 서명,
+SHA-256과 정확한 9개 자산 검증은 0.1.x에서도 생략하지 않습니다. 복구 가능한 시험 환경과
 최신 백업을 우선하세요.
 
 ### 비공개 제보
@@ -73,6 +79,9 @@ Early Access에는 발견되지 않은 결함이 남아 있을 수 있으며, �
 릴리스의 `SHA256SUMS.txt`와 설치 파일 SHA-256을 비교하세요. Tauri Updater는 공개한
 `.sig`를 Gongyu 전용 Minisign 공개키로 검증하며, 별도로 서명한 `UPDATE-RELEASE.json`이
 릴리스 신원·설치본 해시·바이트 크기와 정규 설치본 URL을 묶습니다. 공개 0.1.0에는 앱 내
-updater가 없으므로 공식 0.1.1을 이번 한 번 수동 설치한 뒤부터 서명된 앱 내 업데이트를
-사용하세요. Early Access 설치 파일에는 여전히 Authenticode 서명이 없습니다. 경고를
-우회하려고 SmartScreen, Microsoft Defender, 방화벽 또는 다른 보안 제품을 끄지 마세요.
+updater가 없으므로 공식 0.1.2를 한 번 수동 설치한 뒤부터 암호학적으로 검증되는 앱 내 업데이트를
+사용하세요. 0.1.2 이상 0.2.0 미만의 공개 0.1.x Early Access 설치 파일에는 Authenticode
+게시자 서명이 없습니다. 따라서 Windows나 보안 제품이 경고하거나 실행을 차단할 수 있습니다.
+Tauri 업데이트 서명, 독립 Minisign 서명과 SHA-256 검증은 유지되지만 Windows 게시자 신원을
+보증하지는 않습니다.
+경고를 우회하려고 SmartScreen, Microsoft Defender, 방화벽 또는 다른 보안 제품을 끄지 마세요.

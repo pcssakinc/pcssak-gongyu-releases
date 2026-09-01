@@ -2,28 +2,29 @@
 
 [한국어 안내](README.ko.md)
 
-> This directory is the public repository contract for PCssak Gongyu `v0.1.1`
+> This directory is the public repository contract for PCssak Gongyu `v0.1.2`
 > Free Early Access. The version-pinned GitHub release and its nine verified
 > assets are the publication record.
 
 PCssak Gongyu is a Windows utility for user-directed SMB shared-folder setup,
 LAN checks, network-drive management, and separately consented SSH setup.
-Version `0.1.1` is **Free Early Access**; this describes product maturity and
+Version `0.1.2` is **Free Early Access**; this describes product maturity and
 does not promise that future versions will remain free.
 
 ## Official download and Latest update
 
 Use only the
-[official v0.1.1 release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.1.1)
+[official v0.1.2 release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.1.2)
 or a version-pinned page on [pcssak.com](https://pcssak.com/). The release title
 states Free Early Access, while GitHub uses `draft=false`, `prerelease=false`,
 and Latest so the application can check this stable endpoint:
 
 `https://github.com/pcssakinc/pcssak-gongyu-releases/releases/latest/download/latest.json`
 
-The public `0.1.0` build has no in-app updater. Existing users must manually
-install the official `0.1.1` installer **once**; signed in-app updates become
-available after that transition.
+The public `0.1.0` build has no in-app updater, so those users must manually
+install the official `0.1.2` installer once. Version `0.1.1` users follow the
+in-app update notice and, when required, transition through the official `0.1.2`
+NSIS installer. Signed in-app updates are available after that transition.
 
 The current public installer is Windows x64 only:
 
@@ -32,13 +33,16 @@ The current public installer is Windows x64 only:
 Windows x86 is not published until its separate Windows 10 x86 Home/Pro
 hands-on evidence gate passes.
 
-Version 0.1.1 is a free Early Access release intended to obtain real-world
-measurements. For this release only, final external legal review, the full
-Windows 10/11 Home/Pro x64 VM and LAN matrix, independent supply-chain approvals,
-and GitHub Actions are deferred to 0.1.2. Signatures, hashes, the exact nine
-assets, and immutable-release verification remain mandatory. This is not a claim
-of completed compatibility or legal review; test on a recoverable system with a
-backup before using it on an important PC.
+Versions from 0.1.2 up to, but not including, 0.2.0 are free Early Access
+releases intended to obtain real-world measurements. Final external legal
+review, the full Windows 10/11 Home/Pro x64 VM and physical-LAN SSH/SFTP matrix,
+independent supply-chain review, and Windows-trusted Authenticode signing are
+not complete and return as mandatory gates before 0.2.0. Final-source GitHub
+Actions, Tauri updater signing, independent Minisign signing, SHA-256 checks,
+and the exact nine-asset contract remain mandatory for every 0.1.x release.
+Early Access does not guarantee defect-free operation across every Windows and
+security-product combination; test on a recoverable system with a backup before
+using it on an important PC.
 
 ## Verify before running
 
@@ -55,10 +59,11 @@ version, source commit, installer hash, installer byte size, embedded EULA and
 privacy-policy hashes, canonical URL, and approved release notes. These signatures
 are not a Windows publisher identity.
 
-The Early Access installer remains **not-signed with Authenticode**, so Windows
-can show Unknown publisher or a Microsoft Defender SmartScreen reputation
-warning. Do not disable SmartScreen, Microsoft Defender, a firewall, or another
-security product to install it. Stop if a hash or signature differs.
+Public 0.1.x Early Access installers from 0.1.2 up to, but not including, 0.2.0
+and their bundled executables do not carry an Authenticode publisher signature.
+Windows or security products may therefore warn about or block the file. Do not
+disable SmartScreen, Microsoft Defender, a firewall, or another security product
+to install it. Stop if a hash or signature differs.
 
 ## Nine release assets
 

@@ -1,15 +1,15 @@
 ================================================================================
-PCssak Gongyu 0.1.1 Early Access
+PCssak Gongyu 0.1.x Early Access
 최종 사용자 사용권 계약 / END USER LICENSE AGREEMENT
 ================================================================================
 
 제품명 / Product             : PCssak Gongyu
-제품 버전 / Version          : 0.1.1 Early Access
+제품 버전 / Version          : 0.1.2 이상 0.2.0 미만 Early Access
 제품 식별자 / App ID         : com.pcssak.gongyu
 브랜드 / Brand               : PCSSAK
 법적 제공자 / Legal provider : PCSSAK
 문의 / Contact               : support@pcssak.com
-시행일 / Effective date      : 2026-08-15
+시행일 / Effective date      : 2026-09-01
 
 PCSSAK는 이 계약에서 사용하는 법적 제공자명 겸 브랜드명입니다. 이 표시는 PCSSAK가 법인
 또는 등록 사업자임을 주장하지 않으며, 대표자 실명·주소·사업자등록번호를 공시하는 문구가
@@ -24,9 +24,9 @@ PCSSAK는 이 계약에서 사용하는 법적 제공자명 겸 브랜드명입�
 
 1. 계약의 성립과 적용 범위
 
-이 계약은 PCssak Gongyu 0.1.1 얼리액세스 버전(이하 “프로그램”)의 설치와 사용에
-적용됩니다. 설치 화면에서 이 계약을 확인하고 동의한 뒤 설치할 수 있습니다. 동의하지
-않으면 설치하거나 사용하지 마십시오.
+이 계약은 PCssak Gongyu 0.1.2 이상 0.2.0 미만의 0.1.x 얼리액세스 버전(이하 “프로그램”)의
+설치와 사용에 적용됩니다. 설치 화면에서 이 계약을 확인하고 동의한 뒤 설치할 수 있습니다.
+동의하지 않으면 설치하거나 사용하지 마십시오.
 
 프로그램은 Windows 공유 폴더, 네트워크 드라이브, LAN 점검 및 사용자가 별도로 선택한
 OpenSSH Server 구성을 돕습니다. 관리자 권한을 사용하는 기능은 실행 전에 별도 안내와
@@ -53,9 +53,9 @@ OpenSSH Server 구성을 돕습니다. 관리자 권한을 사용하는 기능�
 프로그램 또는 PCSSAK 브랜드를 자신의 제품으로 오인시키거나, 악성 기능을 추가하거나,
 불법 접근·감시·권한 침해에 이용해서는 안 됩니다. 관계 법령이 명시적으로 허용하는 범위와
 오픈소스 구성요소가 별도로 부여한 권리는 이 조항으로 제한하지 않습니다.
-MPL-2.0 적용 구성요소의 정확한 원본 소스 묶음은 설치 파일과 같은 `v0.1.1` 릴리스의
-`PCssak-Gongyu-0.1.1-MPL-Sources.zip`으로 함께 제공합니다.
-https://github.com/pcssakinc/pcssak-gongyu-releases/releases/download/v0.1.1/PCssak-Gongyu-0.1.1-MPL-Sources.zip
+MPL-2.0 적용 구성요소의 정확한 원본 소스 묶음은 설치 파일과 같은 버전의 공식 GitHub
+Release에 `PCssak-Gongyu-<버전>-MPL-Sources.zip` 이름으로 함께 제공합니다.
+https://github.com/pcssakinc/pcssak-gongyu-releases/releases
 
 4. 사용자의 확인과 책임
 
@@ -68,10 +68,21 @@ https://github.com/pcssakinc/pcssak-gongyu-releases/releases/download/v0.1.1/PCs
 타인의 PC, 계정, 공유 또는 네트워크에는 소유자나 관리자의 권한 없이 접근하거나 변경해서는
 안 됩니다. 회사·학교 등 관리 환경에서는 조직 정책과 담당자 승인을 먼저 확인해야 합니다.
 
-0.1.1의 SSH 기능은 호스트 PC가 같은 공유기·같은 온링크 LAN의 신뢰하는 물리 Ethernet 또는
-Wi-Fi에 연결되고 Windows 네트워크 프로필이 Private 또는 Domain일 때만 지원합니다. 호스트의
-TCP 22 규칙은 Windows의 실제 `sshd.exe`와 SSH를 켠 시점의 활성 로컬 IPv4 온링크 CIDR로
-제한됩니다. Public 네트워크, VPN·터널, 인터넷 직접 접속과 라우터 포트포워딩은 지원하지
+0.1.x의 SSH 기능은 호스트 PC가 같은 공유기·같은 온링크 LAN의 신뢰하는 물리 Ethernet 또는
+Wi-Fi에 연결되고 최종 Windows 네트워크 프로필이 Private 또는 Domain일 때만 지원합니다.
+정확히 식별된 Public 물리 LAN은 사용자가 신뢰하는 집·사무실 LAN이라고 명시적으로 동의한
+경우에만 처리합니다. 앱은 해당 NetworkGuid의 복구 기록을 먼저 남기고 전 프로필 보호 차단과
+`sshd` 중지·비활성화를 확인한 뒤 그 NetworkGuid만 Private으로 전환합니다. 카페·호텔·공항·
+게스트 Wi-Fi에서는 동의하지 마십시오. 물리 LAN이나 프로필을 판정할 수 없거나 전환·검증이
+실패하면 SSH를 켜지 않고 이번 변경을 안전한 순서로 원복합니다. 원복을 모두 확인할 수 없으면
+보호 차단과 복구 기록을 유지하고 실패를 알립니다.
+
+호스트의 TCP 22 규칙은 Windows의 실제 `sshd.exe`와 SSH를 켠 시점의 활성 물리 IPv4 온링크
+CIDR로 제한됩니다. VPN·가상 어댑터는 연결된 상태로 둘 수 있지만 신뢰 범위와 허용 규칙에서
+제외됩니다. 일반 「SSH 접속 끄기」는 빠른 재사용을 위해 전환된 Private 프로필과 복구 기록을
+유지하고, 별도 「SSH 환경 완전 원복」만 기록된 NetworkGuid를 원래 Public으로 복원합니다.
+정책이나 연결 상태 때문에 복원을 확인할 수 없으면 성공으로 추정하지 않고 보호 차단과 기록을
+유지한 채 오류를 알립니다. VPN 경유 SSH, 인터넷 직접 접속과 라우터 포트포워딩은 지원하지
 않습니다. 방화벽 범위를 모든 원격 주소로 넓히거나 TCP 22를 인터넷에 노출하지 마십시오.
 
 프로그램의 “로컬 준비 완료” 표시는 호스트 내부의 서비스·방화벽·리스너 상태를 확인한
@@ -82,23 +93,26 @@ TCP 22 규칙은 Windows의 실제 `sshd.exe`와 SSH를 켠 시점의 활성 로
 
 얼리액세스 버전에는 알려지지 않은 결함, 기능 변경, 호환성 제한이 있을 수 있습니다.
 중요 업무나 복구가 어려운 환경에서는 별도 시험 PC 또는 검증된 백업을 사용하십시오.
-공개하는 0.1.1 설치본은 Windows 11 Home·Pro x64와 Windows 10 22H2 Home·Pro x64를
-목표로 합니다. Windows 10 x86은 별도 후보의 실기 검증과 해시 확인이 끝나기 전에는 배포하거나
-지원한다고 표시하지 않습니다. Windows 10의 운영체제 지원 종료·ESU·LTSC 수명주기는 사용자가
-별도로 확인해야 하며, 모든 제조사 장비·보안 제품·도메인 정책·언어팩 조합을 검증했다고
-보증하지 않습니다.
+0.1.x 후보는 Windows 11 Home·Pro x64와 Windows 10 22H2 Home·Pro x64를 목표로 하지만,
+0.2.0 전 공개 Early Access 기간에는 네 환경 전체의 설치·업데이트·제거와 물리 LAN SSH/SFTP
+실기 검증이 완료되지 않을 수 있습니다. 공개 릴리스 노트에 해당 미완료 범위를 표시합니다.
+Windows 10 x86은 별도 후보의 실기 검증과 해시 확인이 끝나기 전에는 배포하거나 지원한다고
+표시하지 않습니다. Windows 10의 운영체제 지원 종료·ESU·LTSC 수명주기는 사용자가 별도로
+확인해야 하며, 모든 제조사 장비·보안 제품·도메인 정책·언어팩 조합을 검증했다고 보증하지
+않습니다.
 
-프로그램은 실행할 때마다 한 번, 그리고 사용자가 수동으로 요청할 때 공개 PCSSAK GitHub
-Release에서 새 버전을 확인합니다. 서명된 변경 내용을 보여 주고 사용자가 승인하기 전에는
-업데이트를 설치하지 않습니다. 새 버전 설치 여부는 사용자가 결정하며, 중요한 계약 또는
-개인정보 처리 변경이 있으면 새 문서와 필요한 동의를 제공합니다.
+프로그램은 시작 약 4초 뒤와 앞선 확인이 끝난 시점부터 약 6시간마다, 그리고 사용자가 수동으로
+요청할 때 공개 PCSSAK GitHub Release에서 새 버전을 확인합니다. 서명된 변경 내용을 보여 주고
+사용자가 승인하기 전에는 업데이트를 설치하지 않습니다. 새 버전 설치 여부는 사용자가 결정하며,
+중요한 계약 또는 개인정보 처리 변경이 있으면 새 문서와 필요한 동의를 제공합니다.
 
-0.1.1 설치 파일에는 Windows Authenticode 서명이 없습니다. 따라서 Windows가 “알 수 없는
-게시자” 또는 Microsoft Defender SmartScreen 경고를 표시할 수 있습니다. 앱 내 업데이트는
-별도로 내장 공개키를 사용해 설치본 서명, 서명된 릴리스 매니페스트와 설치본 SHA-256을 모두
-검증하지만, 이 서명이 Windows의 Authenticode 게시자 신원을 만드는 것은 아닙니다. 보안 기능을
-끄거나 경고를 무조건 우회하지 마십시오. 수동 설치 전에는 공식 `v0.1.1` GitHub Release의
-고정 파일명과 `SHA256SUMS.txt`의 SHA-256이 일치하는지 확인하십시오.
+0.1.x 공개 Early Access 설치 파일에는 Windows Authenticode 게시자 서명이 없을 수 있으며,
+Microsoft Defender SmartScreen, Smart App Control, 백신·EDR 또는 조직 정책이 경고하거나
+실행을 막을 수 있습니다. 앱 내 업데이트는 별도로 내장 공개키를 사용해 설치본 서명, 서명된
+릴리스 매니페스트와 설치본 SHA-256을 모두 검증하지만, 이 서명이 Windows의 Authenticode
+게시자 신원을 만드는 것은 아닙니다. 보안 기능을 끄거나 경고를 무조건 우회하지 마십시오.
+수동 설치 전에는 실제 설치 버전과 같은 공식 GitHub Release의 고정 파일명과
+`SHA256SUMS.txt`의 SHA-256이 일치하는지 확인하십시오.
 
 6. 보증과 책임의 범위
 
@@ -161,7 +175,8 @@ English reference translation
 
 1. Agreement and scope
 
-This agreement applies to PCssak Gongyu 0.1.1 Early Access (the “Software”).
+This agreement applies to PCssak Gongyu 0.1.x Early Access versions from 0.1.2
+up to, but not including, 0.2.0 (the “Software”).
 You may install the Software only after reviewing and accepting this agreement
 in the installer. If you do not agree, do not install or use the Software.
 
@@ -194,9 +209,10 @@ Do not misrepresent the Software or the PCSSAK brand as your own product, add
 malicious functions, or use the Software for unlawful access, surveillance or
 rights violations. This does not restrict rights expressly granted by applicable
 law or by a third-party open-source license.
-The exact source archive for the MPL-2.0-covered components is published with the
-installer as `PCssak-Gongyu-0.1.1-MPL-Sources.zip` in the same `v0.1.1` release:
-https://github.com/pcssakinc/pcssak-gongyu-releases/releases/download/v0.1.1/PCssak-Gongyu-0.1.1-MPL-Sources.zip
+The exact source archive for the MPL-2.0-covered components is published in the
+official GitHub Release matching the installer version as
+`PCssak-Gongyu-<version>-MPL-Sources.zip`:
+https://github.com/pcssakinc/pcssak-gongyu-releases/releases
 
 4. Your authorization and safeguards
 
@@ -209,13 +225,28 @@ without authorization. In a managed environment, follow organizational policy.
 After installation, the EULA, privacy notice, security disclosure and third-party
 notices remain available in the `legal` folder under the installation directory.
 
-The SSH feature in version 0.1.1 is supported only when the host is connected to
-a trusted physical Ethernet or Wi-Fi on the same router and on-link LAN, and its
-Windows network profile is Private or Domain. The host's TCP 22 rule is limited
-to the real Windows `sshd.exe` process and the active local IPv4 on-link CIDR at
-the time SSH is enabled. Public networks, VPNs or tunnels, direct Internet access,
-and router port forwarding are unsupported. Do not widen the firewall scope to
-all remote addresses or expose TCP 22 to the Internet.
+The SSH feature in version 0.1.x is supported only when the host is connected to
+a trusted physical Ethernet or Wi-Fi on the same router and on-link LAN, and the
+final Windows network profile is Private or Domain. An exactly identified Public
+physical LAN is processed only after the user explicitly confirms that it is a
+trusted home or workplace LAN. The Software first records the NetworkGuid for
+recovery, verifies an all-profile protective block and a stopped, Disabled `sshd`,
+and then changes only that NetworkGuid to Private. Do not consent on café, hotel,
+airport, or guest Wi-Fi. If the physical LAN or profile cannot be determined, or
+the change or verification fails, SSH remains off and this attempt is rolled back
+in a safe order. If every rollback result cannot be verified, the protective block
+and recovery record remain and the Software reports failure.
+
+The host's TCP 22 rule is limited to the real Windows `sshd.exe` process and the
+active physical IPv4 on-link CIDR at the time SSH is enabled. VPN and virtual
+adapters may remain connected but are excluded from the trusted range and allow
+rule. Everyday “Turn SSH off” retains the converted Private profile and recovery
+record for fast reuse; only “Fully restore SSH environment” restores the recorded
+NetworkGuid to its original Public profile. If policy or connection state prevents
+a verified restoration, the Software reports an error and retains the protective
+block and record instead of assuming success. SSH over a VPN path, direct Internet
+access, and router port forwarding are unsupported. Do not widen the firewall
+scope to all remote addresses or expose TCP 22 to the Internet.
 
 “Locally ready” confirms only the host's service, firewall and listener state. It
 does not guarantee an actual SSH login, command or SFTP session from another PC.
@@ -226,24 +257,29 @@ channel and use only an account that is authorized to access the host.
 
 Early Access may contain unknown defects, changing functions and compatibility
 limits. Use a test computer or verified backup for critical environments. The
-public 0.1.1 Early Access release targets Windows 11 Home/Pro x64 and Windows 10
-22H2 Home/Pro x64. A Windows 10 x86 candidate must not be published or called
-supported until hands-on validation and hash verification are complete. Users
+0.1.x candidates target Windows 11 Home/Pro x64 and Windows 10 22H2 Home/Pro x64.
+During public Early Access before 0.2.0, the complete four-environment installation,
+update and removal matrix and the physical-LAN SSH/SFTP matrix may remain incomplete;
+each release note identifies those limitations. A Windows 10 x86 candidate must not
+be published or called supported until hands-on validation and hash verification are
+complete. Users
 must separately check Windows 10 end-of-support, ESU, and LTSC lifecycle status.
 Not every hardware, security product, domain policy, or language-pack combination
 has been validated. The Software checks the public PCSSAK GitHub Release endpoint
-once after each app launch and also when you request a check. It never installs an
-update without showing the signed release notes and obtaining your approval. You
-decide whether to download and install a later version.
+about four seconds after startup, about every six hours after the preceding check
+finishes, and when you request a check. It never installs an update without showing
+the signed release notes and obtaining your approval. You decide whether to download
+and install a later version.
 
-The version 0.1.1 installer has no Windows Authenticode signature. Windows may
-therefore show an Unknown publisher or Microsoft Defender SmartScreen warning.
-The in-app updater separately requires the embedded updater public key to verify
-the installer signature, the signed release manifest and the installer SHA-256;
-this does not create an Authenticode publisher identity for Windows. Do not disable
-security features or bypass a warning automatically. Before a manual installation,
-verify the fixed file name from the official `v0.1.1` GitHub Release and its
-SHA-256 against `SHA256SUMS.txt`.
+Public 0.1.x Early Access installers may not carry a Windows Authenticode publisher
+signature. Microsoft Defender SmartScreen, Smart App Control, antivirus or enterprise
+policy may warn or block execution. The in-app updater separately requires the
+embedded updater public key to verify the installer signature, the signed release
+manifest and the installer SHA-256; this does not create an Authenticode publisher
+identity for Windows. Do not disable security features or bypass a warning
+automatically. Before a manual installation, verify the fixed file name from the
+official GitHub Release matching the installed version and its SHA-256 against
+`SHA256SUMS.txt`.
 
 6. Warranty and liability
 

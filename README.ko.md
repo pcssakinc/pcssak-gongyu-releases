@@ -2,16 +2,16 @@
 
 [English](README.md)
 
-> 이 디렉터리는 PCssak Gongyu `v0.1.1` 무료 Early Access의 공개 저장소 계약입니다.
+> 이 디렉터리는 PCssak Gongyu `v0.1.2` 무료 Early Access의 공개 저장소 계약입니다.
 > 버전 고정 GitHub 릴리스와 검증된 자산 9종을 실제 게시 기록으로 봅니다.
 
 PCssak Gongyu는 사용자가 지시한 Windows SMB 공유 폴더 설정, LAN 점검, 네트워크 드라이브
-관리와 별도로 동의한 SSH 설정을 돕습니다. `0.1.1`은 **무료 Early Access**이며, 이는 제품
+관리와 별도로 동의한 SSH 설정을 돕습니다. `0.1.2`는 **무료 Early Access**이며, 이는 제품
 성숙도를 정직하게 표시하는 이름이지 이후 버전도 계속 무료라는 약속은 아닙니다.
 
 ## 공식 다운로드와 자동 업데이트
 
-공개 후에는 [GitHub v0.1.1 공식 릴리스](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.1.1)
+공개 후에는 [GitHub v0.1.2 공식 릴리스](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.1.2)
 또는 [pcssak.com](https://pcssak.com/)의 버전 고정 다운로드 페이지만 사용합니다. 제목에는
 Free Early Access를 명확히 유지하되 앱의 자동 업데이트가 동작하도록 GitHub 상태는
 `draft=false`, `prerelease=false`, Latest로 게시합니다.
@@ -20,9 +20,10 @@ Free Early Access를 명확히 유지하되 앱의 자동 업데이트가 동작
 
 `https://github.com/pcssakinc/pcssak-gongyu-releases/releases/latest/download/latest.json`
 
-공개 `0.1.0`에는 앱 내 자동 업데이트가 없습니다. 기존 사용자는 **이번 한 번만** 위 공식
-`0.1.1` 설치본을 수동으로 내려받아 설치해야 하며, `0.1.1` 이후부터 앱 안에서 서명된
-업데이트를 사용할 수 있습니다.
+공개 `0.1.0`에는 앱 내 자동 업데이트가 없습니다. 해당 사용자는 위 공식 `0.1.2` 설치본을
+한 번 수동으로 내려받아 직접 설치해야 합니다. `0.1.1` 사용자는 앱의 업데이트 안내에 따라
+필요하면 공식 `0.1.2` NSIS 설치본으로 전환하며, 이후부터 앱 안에서 서명된 업데이트를
+사용할 수 있습니다.
 
 현재 공개 설치본은 Windows x64 하나입니다.
 
@@ -31,10 +32,12 @@ Free Early Access를 명확히 유지하되 앱의 자동 업데이트가 동작
 Windows x86은 별도의 Windows 10 x86 Home·Pro 실기 증거 게이트를 통과하기 전에는
 공개하지 않습니다.
 
-0.1.1은 기능을 먼저 실측하기 위한 무료 Early Access입니다. 이번 한 번은 법률 전문가 최종
-외부 검토, Windows 10/11 Home·Pro x64 전체 VM·LAN 실기 행렬, 독립 공급망 승인과 GitHub
-Actions를 0.1.2로 유예했습니다. 서명·해시·정확한 9개 자산·불변 릴리스 검증은 유지하지만,
-모든 Windows 조합의 호환성이나 법률 적합성을 완료했다고 뜻하지 않습니다. 중요한 PC보다
+0.1.2 이상 0.2.0 미만의 0.1.x는 기능을 먼저 실측하기 위한 무료 Early Access입니다.
+법률 전문가 최종 외부 검토, Windows 10/11 Home·Pro x64 전체 VM·물리 LAN SSH/SFTP 실기
+행렬, 독립 공급망 검토와 Windows 신뢰 Authenticode 서명은 아직 완료되지 않았으며 0.2.0
+공개 전 필수 게이트로 복원합니다. GitHub Actions 최종 소스 검증, Tauri 업데이트 서명,
+독립 Minisign 서명, SHA-256과 정확한 9개 자산 검증은 0.1.x에서도 생략하지 않습니다.
+Early Access는 모든 Windows·보안 제품 조합의 무결함을 보증하지 않으므로 중요한 PC보다
 복구 가능한 시험 환경과 백업에서 먼저 사용하세요.
 
 ## 실행 전 무결성 확인
@@ -50,10 +53,11 @@ Get-FileHash -Algorithm SHA256 '.\PCssak-Gongyu-Beta-Windows-x64-Setup.exe'
 `UPDATE-RELEASE.json.sig`는 제품·버전·소스 커밋·설치본 해시·바이트 크기·내장 EULA·PRIVACY
 정본 해시·정규 URL·승인 릴리스 노트를 한 묶음으로 검증합니다.
 
-위 서명은 Windows 게시자 신원을 보증하는 Authenticode와 다릅니다. Early Access 설치본은
-여전히 **Authenticode not-signed**이므로 Windows에 알 수 없는 게시자 또는 Microsoft
-Defender SmartScreen 평판 경고가 나타날 수 있습니다. 설치를 위해 SmartScreen, Microsoft
-Defender, 방화벽 또는 다른 보안 제품을 끄지 마세요. 해시나 서명이 다르면 중단하세요.
+위 서명은 Windows 게시자 신원을 보증하는 Authenticode와 다릅니다. 0.1.2 이상 0.2.0 미만의
+공개 0.1.x Early Access 설치본과 내부 실행 파일에는 Authenticode 게시자 서명이 없습니다.
+따라서 Microsoft Defender SmartScreen이나 다른 보안 제품이 경고하거나 실행을 차단할 수
+있습니다. 설치를 위해 SmartScreen, Microsoft Defender, 방화벽 또는 다른 보안 제품을 끄지
+마세요. 해시나 서명이 다르면 중단하세요.
 
 ## 릴리스 자산 9종
 

@@ -23,8 +23,14 @@
   "properties": {
     "schema": { "const": "pcssak.update-release/v1" },
     "product": { "const": "PCssak Gongyu" },
-    "version": { "const": "0.1.1" },
-    "tag": { "const": "v0.1.1" },
+    "version": {
+      "type": "string",
+      "pattern": "^0\\.1\\.(?:[2-9]|[1-9][0-9]+)$"
+    },
+    "tag": {
+      "type": "string",
+      "pattern": "^v0\\.1\\.(?:[2-9]|[1-9][0-9]+)$"
+    },
     "source_commit": {
       "type": "string",
       "pattern": "^[0-9a-f]{40}$"
@@ -51,7 +57,8 @@
       "pattern": "^[0-9a-f]{64}$"
     },
     "download_url": {
-      "const": "https://github.com/pcssakinc/pcssak-gongyu-releases/releases/download/v0.1.1/PCssak-Gongyu-Beta-Windows-x64-Setup.exe"
+      "type": "string",
+      "pattern": "^https://github\\.com/pcssakinc/pcssak-gongyu-releases/releases/download/v0\\.1\\.(?:[2-9]|[1-9][0-9]+)/PCssak-Gongyu-Beta-Windows-x64-Setup\\.exe$"
     },
     "notes": {
       "type": "string",
