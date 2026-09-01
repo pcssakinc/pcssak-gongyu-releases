@@ -48,13 +48,16 @@
       "properties": {
         "tag": {
           "type": "string",
-          "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$"
+          "pattern": "^v0\\.1\\.(?:[2-9]|[1-9][0-9]+)$"
         },
         "url": {
           "type": "string",
-          "pattern": "^https://github\\.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$"
+          "pattern": "^https://github\\.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0\\.1\\.(?:[2-9]|[1-9][0-9]+)$"
         },
-        "title": { "const": "PCssak Gongyu 0.1.1 — Free Early Access" },
+        "title": {
+          "type": "string",
+          "pattern": "^PCssak Gongyu 0\\.1\\.(?:[2-9]|[1-9][0-9]+) — Free Early Access$"
+        },
         "draft": { "const": false },
         "prerelease": { "const": false },
         "latest": { "const": true }
@@ -71,7 +74,7 @@
             "architecture": { "const": "x86_64" },
             "fileName": { "const": "PCssak-Gongyu-Beta-Windows-x64-Setup.exe" },
             "size": { "type": "integer", "minimum": 1, "maximum": 536870912 },
-            "authenticode": { "const": "not-signed" },
+            "authenticode": { "enum": ["not-signed", "valid"] },
             "detachedSignature": {
               "unevaluatedProperties": false,
               "allOf": [
@@ -144,7 +147,7 @@
         "sha256SumsFileName": { "const": "SHA256SUMS.txt" },
         "sha256SumsUrl": {
           "type": "string",
-          "pattern": "^https://github\\.com/pcssakinc/pcssak-gongyu-releases/releases/download/v[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?/SHA256SUMS\\.txt$"
+          "pattern": "^https://github\\.com/pcssakinc/pcssak-gongyu-releases/releases/download/v0\\.1\\.(?:[2-9]|[1-9][0-9]+)/SHA256SUMS\\.txt$"
         }
       }
     },
@@ -172,7 +175,7 @@
               "properties": {
                 "fileName": {
                   "type": "string",
-                  "pattern": "^PCssak-Gongyu-[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?-MPL-Sources\\.zip$"
+                  "pattern": "^PCssak-Gongyu-0\\.1\\.(?:[2-9]|[1-9][0-9]+)-MPL-Sources\\.zip$"
                 }
               }
             }
@@ -184,7 +187,7 @@
   "$defs": {
     "version": {
       "type": "string",
-      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$"
+      "pattern": "^0\\.1\\.(?:[2-9]|[1-9][0-9]+)$"
     },
     "sourceCommit": {
       "type": "string",
@@ -201,7 +204,7 @@
         "fileName": { "type": "string", "minLength": 1, "maxLength": 180 },
         "url": {
           "type": "string",
-          "pattern": "^https://github\\.com/pcssakinc/pcssak-gongyu-releases/releases/download/v[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?/[^/]+$"
+          "pattern": "^https://github\\.com/pcssakinc/pcssak-gongyu-releases/releases/download/v0\\.1\\.(?:[2-9]|[1-9][0-9]+)/[^/]+$"
         },
         "sha256": { "$ref": "#/$defs/sha256" }
       }

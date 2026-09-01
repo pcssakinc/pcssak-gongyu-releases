@@ -2,13 +2,13 @@
 
 | 항목 | 내용 |
 |---|---|
-| 제품 | PCssak Gongyu 0.1.1 Early Access |
+| 제품 | PCssak Gongyu 0.1.x Early Access (0.1.2 이상 0.2.0 미만) |
 | 제품 식별자 | `com.pcssak.gongyu` |
 | 브랜드 | PCSSAK |
 | 법적 개인정보처리자 | PCSSAK |
 | 개인정보 보호 담당 부서 | PCSSAK 개인정보 보호 담당 부서 |
 | 개인정보 보호 문의 | privacy@pcssak.com |
-| 시행일 | 2026-08-15 |
+| 시행일 | 2026-09-01 |
 
 PCSSAK는 이 방침에서 사용하는 개인정보처리자명 겸 브랜드명입니다. 이 표시는 PCSSAK가
 법인 또는 등록 사업자임을 주장하거나 대표자 실명·주소·사업자등록번호를 공시하는 문구가
@@ -18,8 +18,8 @@ PCSSAK는 이 방침에서 사용하는 개인정보처리자명 겸 브랜드�
 
 앱에는 PCSSAK가 운영하는 텔레메트리, 광고, 온라인 계정, 원격 구성 또는 라이선스 인증
 서버가 없습니다. 앱 설정과 자격증명은 사용자의 Windows PC에 저장됩니다. 자동 업데이트
-확인은 공개 GitHub Releases에서 실행당 한 번 수행하며, 사용자가 승인하기 전에는 설치하지
-않습니다.
+확인은 공개 GitHub Releases에서 앱 시작 약 4초 뒤와 앞선 확인 완료 시점부터 약 6시간마다
+수행하며, 사용자가 승인하기 전에는 설치하지 않습니다. 사용자의 수동 확인은 즉시 수행합니다.
 
 다만 “아무 네트워크 통신도 없다”는 뜻은 아닙니다. 사용자가 요청한 LAN 검색, SMB 공유,
 네트워크 드라이브, Wake-on-LAN, 공유 페어링 및 SSH는 사용자의 PC와 지정한 네트워크
@@ -46,6 +46,7 @@ Windows Update, WSUS 또는 조직이 설정한 기능 원본에 접속할 수 �
 | 정보 | 목적 | 저장 위치 또는 처리 방식 | PCSSAK 서버 전송 |
 |---|---|---|---|
 | IP 주소, 호스트명, MAC 주소, 네트워크 어댑터 정보 | LAN 검색, 장치 식별, Wake-on-LAN, 접속 대상 표시 | 화면, 메모리, 즐겨찾기 및 진단 로그 | 없음 |
+| SSH에 사용한 물리 LAN의 정확한 NetworkGuid, 프로필 범주, 로컬 IPv4·온링크 범위와 적용 전 기준선 | 안전한 방화벽 범위 검증, Public→Private 전환의 정확한 원복 | `HKLM\SOFTWARE\PCSSAK\Gongyu\SSH`, Windows 방화벽·서비스 상태 | 없음 |
 | 공유 이름, 로컬 폴더 경로, UNC 경로, 드라이브 문자 | 공유 생성·표시, 매핑, 소유권 검증 | 로컬 파일, Windows 공유 설정, 레지스트리, 로그 | 없음 |
 | SMB 사용자명과 비밀번호 | 공유 인증과 선택적 자동 마운트 | DPAPI로 보호한 `vault.dat` 및 사용자가 선택한 경우 Windows 자격 증명 관리자 | 없음 |
 | 페어링 계정명, 공유명, 생성 시각, 관리 토큰 | 앱이 만든 계정·공유·권한만 안전하게 관리 | `paired_accounts.json`, Windows 계정/ACL, `HKLM\SOFTWARE\PCSSAK\Gongyu` | 없음 |
@@ -62,6 +63,12 @@ JSON 파일은 복구를 위해 같은 폴더의 `.corrupt-*` 보존본으로 �
 단계, 시작 시각과 복구 상태만 기록하며 경로·계정명·비밀번호·페어링 코드 같은 자유 형식 값은
 기록하지 않습니다. 인증된 사용자는 상태를 읽을 수 있고 Administrators와 SYSTEM만 변경할 수
 있습니다. 다른 PCSSAK 제품의 `%ProgramData%\PCSSAK` 공유 루트는 사용하거나 변경하지 않습니다.
+
+공용(Public) 물리 LAN을 신뢰한다고 동의해 SSH를 켠 경우, 앱은 이름이 아니라 정확한
+NetworkGuid를 원복 근거로 저장합니다. 일반 「SSH 접속 끄기」에서는 빠른 재사용을 위해 이
+기록과 Private 프로필을 유지하고, 「SSH 환경 완전 원복」이 Public 복원을 다시 확인한 뒤에만
+기록을 정리합니다. 판정·복원 실패 시 성공으로 추정하지 않고 기록을 보존합니다. 이 값은
+PCSSAK 서버로 전송되지 않습니다.
 
 0.1.0 이전 개발판의 로컬 폴더에만 같은 이름의 파일이 있으면 현행 파일을 덮어쓰지 않는
 안전 복사 방식으로 한 번 이전합니다. 현행 파일이 이미 있으면 현행 파일을 유지하며, 구 파일은
@@ -95,7 +102,7 @@ JSON 파일은 복구를 위해 같은 폴더의 `.corrupt-*` 보존본으로 �
 | 공유 페어링 | 사용자가 지정한 LAN 호스트의 TCP 19763 | 일회용 페어링 세션 동안 |
 | SSH | 지정한 LAN 호스트의 TCP 22, 또는 내 PC의 SSH 수신 | 사용자가 별도 동의로 SSH를 켜거나 접속할 때 |
 | OpenSSH Server 설치 | Windows Update, WSUS 또는 사용자가 지정한 오프라인 원본 | SSH 켜기에서 기능이 없고 설치 원본을 선택한 때 |
-| 앱 업데이트 확인·다운로드 | 공개 `pcssakinc/pcssak-gongyu-releases` GitHub Release와 GitHub 릴리스 자산 호스트 | 앱 시작 4초 뒤 실행당 한 번, 사용자가 수동 확인한 때, 사용자가 설치를 승인한 때 |
+| 앱 업데이트 확인·다운로드 | 공개 `pcssakinc/pcssak-gongyu-releases` GitHub Release와 GitHub 릴리스 자산 호스트 | 앱 시작 약 4초 뒤, 앞선 확인 완료부터 약 6시간마다, 사용자가 수동 확인한 때, 사용자가 설치를 승인한 때 |
 
 8자리 페어링 코드는 사용자가 확인할 수 있도록 화면에 표시되고, 입력한 코드는 WebView와 로컬
 Tauri IPC 메모리를 잠시 통과합니다. JavaScript 문자열의 확정적인 메모리 소거까지 보장하지는
@@ -109,9 +116,10 @@ AES-256-GCM 암호화·인증한 응답 안에서만 전송합니다. 코드는 
 이전 코드는 즉시 무효화됩니다. 페어링 시도는 같은 IP에서 1분에 6회, 호스트 전체에서 1분에
 12회로 제한합니다.
 
-SMB·SSH 방화벽 규칙은 로컬 서브넷으로 제한하도록 설계되어 있습니다. 라우터, VPN,
-도메인 정책 또는 사용자의 수동 설정에 따라 실제 도달 범위가 달라질 수 있으므로 조직
-관리자는 Windows Defender 방화벽의 최종 규칙을 확인해야 합니다.
+SMB·SSH 방화벽 규칙은 로컬 서브넷으로 제한하도록 설계되어 있습니다. SSH 신뢰 범위는
+활성 물리 Ethernet/Wi-Fi의 정확한 IPv4 온링크 범위이며 VPN·가상 어댑터 주소는 연결된
+상태에서도 제외합니다. 라우터, 도메인 정책 또는 사용자의 수동 설정에 따라 실제 도달 범위가
+달라질 수 있으므로 조직 관리자는 Windows Defender 방화벽의 최종 규칙을 확인해야 합니다.
 
 NSIS 설치본은 WebView2를 중복 포함하지 않는 `downloadBootstrapper` 방식을 사용합니다.
 WebView2 Runtime이 이미 있으면 추가 다운로드가 없지만, 없으면 설치 과정에서 Microsoft가
@@ -168,7 +176,7 @@ Cloudflare의 라우팅 분석에는 발신자·수신자·제목·메시지 ID�
 
 Cloudflare Email Routing은 수신 전달 서비스이며 도메인 주소 발신·회신 기능을 제공하지
 않습니다. 공개 DNS에서 수신용 MX, SPF와 Cloudflare DKIM 레코드는 확인했지만 DMARC와
-도메인 발신 서비스는 구성하지 않았습니다. 이 상태는 무료 0.1.1 Early Access의 알려진 지원
+도메인 발신 서비스는 구성하지 않았습니다. 이 상태는 무료 0.1.x Early Access의 알려진 지원
 제한이며 앱의 로컬 기능 공개 자체를 금지하는 조건은 아닙니다. 운영자는 개인 Gmail 주소에서
 직접 답장하여 그 주소를 노출하지 않습니다. 인증된 도메인 발신 수단이 준비되기 전에는 이메일
 회신이 지연되거나 제공되지 않을 수 있으며 별도의 회신 SLA를 제공하지 않습니다.
@@ -223,10 +231,11 @@ Cloudflare Email Routing은 수신 전달 서비스이며 도메인 주소 발�
 
 ## English reference translation
 
-PCssak Gongyu 0.1.1 Early Access has no PCSSAK telemetry, advertising, online
+PCssak Gongyu 0.1.x Early Access (from 0.1.2 up to, but not including, 0.2.0) has no PCSSAK telemetry, advertising, online
 account, remote-configuration service or license server. Local settings and
 credentials stay on the user's Windows PC. The updater checks the public PCSSAK
-GitHub Release once per app launch and never installs without the user's approval;
+GitHub Release about four seconds after startup and about every six hours after the
+preceding check finishes, and never installs without the user's approval;
 GitHub may process the IP address, request time and ordinary HTTP request data.
 User-selected LAN, SMB, Wake-on-LAN, pairing and SSH
 operations still communicate with devices chosen by the user. Online installation
@@ -240,6 +249,14 @@ backend does not persist its OPAQUE registration state. Neither the raw code nor
 simple code hash is logged or sent over TCP 19763. The LAN exchange uses RFC 9807
 OPAQUE messages; SMB credentials are returned only inside an AES-256-GCM protected
 response derived from the authenticated OPAQUE session key.
+
+When the user consents to enabling SSH on an exactly identified Public physical LAN,
+the Software stores that network's exact NetworkGuid, profile category, local
+IPv4/on-link scope, and pre-change baseline under
+`HKLM\SOFTWARE\PCSSAK\Gongyu\SSH`. Everyday “Turn SSH off” retains the record and
+Private profile for fast reuse. “Fully restore SSH environment” clears the record
+only after verifying restoration to Public; an unverified restoration keeps the
+record. These values are not sent to a PCSSAK server.
 
 Local files under `%LOCALAPPDATA%\PCSSAK\Gongyu\`, Windows credentials,
 shares, accounts, ACLs, startup settings and OpenSSH state are not necessarily
@@ -258,7 +275,7 @@ passwords, private keys or personal information.
 Cloudflare Email Routing provides inbound forwarding only and does not provide domain
 sending or reply service. Public DNS has inbound MX, SPF and Cloudflare DKIM records,
 but no DMARC record or domain outbound provider is configured. This is a disclosed
-support limitation of free 0.1.1 Early Access, not a condition that prohibits publication
+support limitation of free 0.1.x Early Access, not a condition that prohibits publication
 of the app's local features. The operator does not reply directly from the private Gmail
 destination address. Until an authenticated domain outbound channel is available,
 individual email replies may be delayed or unavailable and no response SLA is offered.

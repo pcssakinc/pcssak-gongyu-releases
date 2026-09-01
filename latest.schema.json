@@ -9,7 +9,7 @@
   "properties": {
     "version": {
       "type": "string",
-      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$"
+      "pattern": "^0\\.1\\.(?:[2-9]|[1-9][0-9]+)$"
     },
     "notes": {
       "type": "string",
@@ -33,7 +33,7 @@
           "properties": {
             "url": {
               "type": "string",
-              "pattern": "^https://github\\.com/pcssakinc/pcssak-gongyu-releases/releases/download/v[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?/PCssak-Gongyu-Beta-Windows-x64-Setup\\.exe$"
+              "pattern": "^https://github\\.com/pcssakinc/pcssak-gongyu-releases/releases/download/v0\\.1\\.(?:[2-9]|[1-9][0-9]+)/PCssak-Gongyu-Beta-Windows-x64-Setup\\.exe$"
             },
             "signature": {
               "type": "string",
