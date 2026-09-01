@@ -1,0 +1,15 @@
+# 공개 릴리스 정본은 운영체제와 Git 전역 설정에 관계없이 LF로 체크아웃한다.
+# 정본 검증은 바이트 단위이므로 core.autocrlf보다 저장소 정책을 우선한다.
+* text=auto eol=lf
+
+# 바이너리는 줄바꿈 변환과 텍스트 diff 대상에서 제외한다.
+*.dll binary
+*.exe binary
+*.ico binary
+*.jpeg binary
+*.jpg binary
+*.msi binary
+*.pdf binary
+*.pfx binary
+*.png binary
+*.zip binary
