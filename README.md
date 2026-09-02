@@ -2,19 +2,19 @@
 
 [한국어 안내](README.ko.md)
 
-> This directory is the public repository contract for PCssak Gongyu `v0.1.2`
+> This directory is the public repository contract for PCssak Gongyu `v0.1.3`
 > Free Early Access. The version-pinned GitHub release and its nine verified
 > assets are the publication record.
 
 PCssak Gongyu is a Windows utility for user-directed SMB shared-folder setup,
 LAN checks, network-drive management, and separately consented SSH setup.
-Version `0.1.2` is **Free Early Access**; this describes product maturity and
+Version `0.1.3` is **Free Early Access**; this describes product maturity and
 does not promise that future versions will remain free.
 
 ## Official download and Latest update
 
 Use only the
-[official v0.1.2 release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.1.2)
+[official v0.1.3 release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.1.3)
 or a version-pinned page on [pcssak.com](https://pcssak.com/). The release title
 states Free Early Access, while GitHub uses `draft=false`, `prerelease=false`,
 and Latest so the application can check this stable endpoint:
@@ -22,13 +22,13 @@ and Latest so the application can check this stable endpoint:
 `https://github.com/pcssakinc/pcssak-gongyu-releases/releases/latest/download/latest.json`
 
 The public `0.1.0` build has no in-app updater, so those users must manually
-install the official `0.1.2` installer once. Version `0.1.1` users follow the
-in-app update notice and, when required, transition through the official `0.1.2`
+install the official `0.1.3` installer once. Version `0.1.1` users follow the
+in-app update notice and, when required, transition through the official `0.1.3`
 NSIS installer. Signed in-app updates are available after that transition.
 
 The current public installer is Windows x64 only:
 
-- `PCssak-Gongyu-Beta-Windows-x64-Setup.exe`
+- `PCssak-Gongyu-0.1.3-Windows-x64-Setup.exe`
 
 Windows x86 is not published until its separate Windows 10 x86 Home/Pro
 hands-on evidence gate passes.
@@ -49,10 +49,10 @@ using it on an important PC.
 Compare the installer SHA-256 with `SHA256SUMS.txt` from the same release:
 
 ```powershell
-Get-FileHash -Algorithm SHA256 '.\PCssak-Gongyu-Beta-Windows-x64-Setup.exe'
+Get-FileHash -Algorithm SHA256 '.\PCssak-Gongyu-0.1.3-Windows-x64-Setup.exe'
 ```
 
-The release also contains `PCssak-Gongyu-Beta-Windows-x64-Setup.exe.sig`.
+The release also contains `PCssak-Gongyu-0.1.3-Windows-x64-Setup.exe.sig`.
 PCssak Gongyu verifies updater artifacts with its embedded Gongyu-specific
 Minisign public key. `UPDATE-RELEASE.json.sig` separately binds the product,
 version, source commit, installer hash, installer byte size, embedded EULA and
