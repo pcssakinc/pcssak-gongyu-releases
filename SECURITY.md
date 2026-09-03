@@ -36,7 +36,7 @@ Download only from `pcssakinc/pcssak-gongyu-releases` or a version-pinned link o
 release. The Tauri updater verifies the published `.sig` with the Gongyu-specific
 Minisign public key, and the independently signed `UPDATE-RELEASE.json` binds
 release identity, installer hash and byte size, and the canonical installer URL.
-The public 0.1.0 build has no in-app updater, so install the official 0.1.3 build
+The public 0.1.0 build has no in-app updater, so install the official 0.1.4 build
 manually once before using cryptographically verified in-app updates. Public
 0.1.x Early Access installers from 0.1.2 up to, but not including, 0.2.0 do not
 carry an Authenticode publisher signature. Windows or security products may
@@ -79,7 +79,7 @@ SHA-256과 정확한 9개 자산 검증은 0.1.x에서도 생략하지 않습니
 릴리스의 `SHA256SUMS.txt`와 설치 파일 SHA-256을 비교하세요. Tauri Updater는 공개한
 `.sig`를 Gongyu 전용 Minisign 공개키로 검증하며, 별도로 서명한 `UPDATE-RELEASE.json`이
 릴리스 신원·설치본 해시·바이트 크기와 정규 설치본 URL을 묶습니다. 공개 0.1.0에는 앱 내
-updater가 없으므로 공식 0.1.3을 한 번 수동 설치한 뒤부터 암호학적으로 검증되는 앱 내 업데이트를
+updater가 없으므로 공식 0.1.4를 한 번 수동 설치한 뒤부터 암호학적으로 검증되는 앱 내 업데이트를
 사용하세요. 0.1.2 이상 0.2.0 미만의 공개 0.1.x Early Access 설치 파일에는 Authenticode
 게시자 서명이 없습니다. 따라서 Windows나 보안 제품이 경고하거나 실행을 차단할 수 있습니다.
 Tauri 업데이트 서명, 독립 Minisign 서명과 SHA-256 검증은 유지되지만 Windows 게시자 신원을
