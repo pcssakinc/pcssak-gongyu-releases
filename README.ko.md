@@ -12,7 +12,8 @@ PCssak Gongyu는 사용자가 지시한 Windows SMB 공유 폴더 설정, LAN �
 ## 공식 다운로드와 자동 업데이트
 
 현재 `0.1.6` 설치본은 [GitHub 공식 릴리스](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.1.6)에서
-받을 수 있습니다. [공식 홈페이지](https://pcssak.com/)의 `0.1.6` 안내 반영은 진행 중입니다.
+받을 수 있습니다. [한국어 홈페이지](https://pcssak.co.kr/gongyu/download)와
+[영어 홈페이지](https://pcssak.com/gongyu/download)에도 `0.1.6` 다운로드 안내가 반영됐습니다.
 무료 Early Access이며 GitHub에는 `draft=false`, `prerelease=false`인 불변 일반 Latest 릴리스로
 공개됐습니다. 앱의 업데이트 확인 주소는 아래와 같습니다.
 

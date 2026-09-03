@@ -14,7 +14,8 @@ does not promise that future versions will remain free.
 
 The `0.1.6` installer is available from the
 [official GitHub release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.1.6).
-The `0.1.6` update to the [official website](https://pcssak.com/) is still in progress.
+The [English download page](https://pcssak.com/gongyu/download) and
+[Korean download page](https://pcssak.co.kr/gongyu/download) also list `0.1.6`.
 This Free Early Access version is published as an immutable regular GitHub release marked Latest
 with `draft=false` and `prerelease=false`. The app checks this update endpoint:
 
