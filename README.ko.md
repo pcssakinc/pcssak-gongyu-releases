@@ -2,8 +2,8 @@
 
 [English](README.md)
 
-> 이 디렉터리는 PCssak Gongyu `v0.1.6` 무료 Early Access의 공개 저장소 계약입니다.
-> 버전 고정 GitHub 릴리스와 검증된 자산 9종을 실제 게시 기록으로 봅니다.
+> PCssak Gongyu `v0.1.6` 무료 Early Access가 2026-09-03 GitHub에 공개됐습니다.
+> 실제 게시 기록은 버전 고정 GitHub 릴리스와 자산 9종을 기준으로 확인합니다.
 
 PCssak Gongyu는 사용자가 지시한 Windows SMB 공유 폴더 설정, LAN 점검, 네트워크 드라이브
 관리와 별도로 동의한 SSH 설정을 돕습니다. `0.1.6`은 **무료 Early Access**이며, 이는 제품
@@ -11,12 +11,10 @@ PCssak Gongyu는 사용자가 지시한 Windows SMB 공유 폴더 설정, LAN �
 
 ## 공식 다운로드와 자동 업데이트
 
-공개 후에는 [GitHub v0.1.6 공식 릴리스](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.1.6)
-또는 [pcssak.com](https://pcssak.com/)의 버전 고정 다운로드 페이지만 사용합니다. 제목에는
-Free Early Access를 명확히 유지하되 앱의 자동 업데이트가 동작하도록 GitHub 상태는
-`draft=false`, `prerelease=false`, Latest로 게시합니다.
-
-앱이 확인하는 주소는 다음 하나입니다.
+현재 `0.1.6` 설치본은 [GitHub 공식 릴리스](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.1.6)에서
+받을 수 있습니다. [공식 홈페이지](https://pcssak.com/)의 `0.1.6` 안내 반영은 진행 중입니다.
+무료 Early Access이며 GitHub에는 `draft=false`, `prerelease=false`인 불변 일반 Latest 릴리스로
+공개됐습니다. 앱의 업데이트 확인 주소는 아래와 같습니다.
 
 `https://github.com/pcssakinc/pcssak-gongyu-releases/releases/latest/download/latest.json`
 
@@ -31,12 +29,23 @@ Free Early Access를 명확히 유지하되 앱의 자동 업데이트가 동작
 경로·신원 호환성 문제가 확인돼 `0.1.5`는 공개하지 않았습니다. 수정 준비 동안 Latest는
 `0.1.3`으로 유지했으며 기존 불변 자산은 교체하지 않습니다. 승인된 한 대의 시험 PC에서
 켜기·끄기·재켜기·원복과 기존 설치·설정·호스트 키 보존을 확인했습니다.
-전체 Windows·두 PC SSH 실기는 미완료입니다. [버전 안내](docs/RELEASE-NOTES-v0.1.6.md)를
-확인하세요. 이 문서 자체가 새 버전의 게시 증거는 아닙니다.
+전체 Windows·두 PC SSH/SFTP 시험 행렬은 미완료입니다. [버전 안내](docs/RELEASE-NOTES-v0.1.6.md)를
+확인하세요. 게시 상태는 위 버전 고정 릴리스를 기준으로 확인합니다.
 
-공개할 설치본 대상은 Windows x64 하나입니다.
+**승인 노트 작성 이후의 추가 실측 — 2026-09-03**
 
-- `PCssak-Gongyu-0.1.6-Windows-x64-Setup.exe`
+- 한 대의 시험 PC에서 `0.1.5`→`0.1.6` 설치가 종료 코드 0, 16.452초로 완료됐습니다.
+  로그를 포함한 앱 데이터 전체 트리 비교는 일치하지 않아 모든 설정 파일의 동일 보존은
+  확정하지 않았습니다. 설치 완료와 설정 전체 보존을 구분합니다.
+- 사용자가 Windows 계정 암호를 직접 변경한 뒤 다른 PC에서 SSH 로그인에 성공했다고
+  보고했고, 서버에서도 암호 인증 성공 1건을 확인했습니다. 앱이 기존 계정 암호를 생성하거나
+  변경한 것은 아닙니다.
+- SFTP 전송·호스트 지문 대조·기존 세션 전체 종료·전체 Windows/물리 LAN 시험 행렬은
+  여전히 별도 검증 대상입니다. 이 후속 기록은 서명된 승인 노트나 기존 자산을 수정하지 않습니다.
+
+공개 설치본 대상은 Windows x64 하나입니다.
+
+- [PCssak-Gongyu-0.1.6-Windows-x64-Setup.exe](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/download/v0.1.6/PCssak-Gongyu-0.1.6-Windows-x64-Setup.exe)
 
 Windows x86은 별도의 Windows 10 x86 Home·Pro 실기 증거 게이트를 통과하기 전에는
 공개하지 않습니다.
