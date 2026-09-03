@@ -1,5 +1,9 @@
 # 알려진 한계
 
+> 아래는 0.1.1 당시의 이력 문서입니다. Public 신뢰 동의·VPN 공존·업데이트 조건의 현재
+> 안내는 [README](../README.ko.md), [고객지원](../SUPPORT.md), [보안 정책](../SECURITY.md)을
+> 우선합니다. 과거 버전의 제한이나 검증 상태를 현재 버전의 동작으로 해석하지 마세요.
+
 [English](KNOWN-LIMITATIONS.md)
 
 이 문서는 PCssak Gongyu 0.1.1 무료 Early Access의 공개 범위를 설명합니다. 실제 제공 여부는

@@ -1,5 +1,10 @@
 # Known Limitations
 
+> This is the historical 0.1.1 document. For current Public-network consent,
+> VPN coexistence, and update conditions, use [README](../README.md),
+> [Support](../SUPPORT.md), and [Security](../SECURITY.md). Do not treat the older
+> version's restrictions or validation status as current behavior.
+
 [한국어](KNOWN-LIMITATIONS.ko.md)
 
 This document describes the public PCssak Gongyu 0.1.1 Free Early Access boundary. Availability
