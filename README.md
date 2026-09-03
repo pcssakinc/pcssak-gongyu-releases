@@ -2,9 +2,8 @@
 
 [한국어 안내](README.ko.md)
 
-> This directory is the public repository contract for PCssak Gongyu `v0.1.6`
-> Free Early Access. The version-pinned GitHub release and its nine verified
-> assets are the publication record.
+> PCssak Gongyu `v0.1.6` Free Early Access was published on GitHub on 2026-09-03.
+> The version-pinned GitHub release and its nine assets are the publication record.
 
 PCssak Gongyu is a Windows utility for user-directed SMB shared-folder setup,
 LAN checks, network-drive management, and separately consented SSH setup.
@@ -13,11 +12,12 @@ does not promise that future versions will remain free.
 
 ## Official download and Latest update
 
-Use only the
-[official v0.1.6 release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.1.6)
-or a version-pinned page on [pcssak.com](https://pcssak.com/). The release title
-states Free Early Access, while GitHub uses `draft=false`, `prerelease=false`,
-and Latest so the application can check this stable endpoint:
+The `0.1.6` installer is available from the
+[official GitHub release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.1.6).
+The [English download page](https://pcssak.com/gongyu/download) and
+[Korean download page](https://pcssak.co.kr/gongyu/download) also list `0.1.6`.
+This Free Early Access version is published as an immutable regular GitHub release marked Latest
+with `draft=false` and `prerelease=false`. The app checks this update endpoint:
 
 `https://github.com/pcssakinc/pcssak-gongyu-releases/releases/latest/download/latest.json`
 
@@ -35,12 +35,25 @@ then found, so `0.1.5` was not published. Latest was kept at `0.1.3` during repa
 immutable assets are preserved. The approved local enable, disable, re-enable,
 and restore trial passed with the original installation, configuration and host keys preserved.
 The complete Windows and two-PC SSH matrices remain incomplete.
-See the [release notes](docs/RELEASE-NOTES-v0.1.6.md). This document
-is not evidence that the new version has been published.
+See the [release notes](docs/RELEASE-NOTES-v0.1.6.md). Check the version-pinned
+release linked above for the publication status.
 
-The planned public installer targets Windows x64 only:
+**Additional observations after the approved notes — 2026-09-03**
 
-- `PCssak-Gongyu-0.1.6-Windows-x64-Setup.exe`
+- On one test PC, installation from `0.1.5` to `0.1.6` completed with exit code 0
+  in 16.452 seconds. The full application-data tree comparison, including logs, did
+  not match, so byte-for-byte preservation of every settings file is not confirmed.
+  Installation completion and complete settings preservation are separate results.
+- After changing the Windows account password themselves, the user reported a
+  successful SSH login from another PC. One successful password authentication was
+  also confirmed on the server. The app did not create or change that account password.
+- SFTP transfers, host-key fingerprint comparison, termination of all existing
+  sessions, and the full Windows/physical-LAN test matrix still require separate
+  validation. This addendum does not change the signed approved notes or existing assets.
+
+The public installer targets Windows x64 only:
+
+- [PCssak-Gongyu-0.1.6-Windows-x64-Setup.exe](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/download/v0.1.6/PCssak-Gongyu-0.1.6-Windows-x64-Setup.exe)
 
 Windows x86 is not published until its separate Windows 10 x86 Home/Pro
 hands-on evidence gate passes.
