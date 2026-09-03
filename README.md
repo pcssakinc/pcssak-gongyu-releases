@@ -28,13 +28,14 @@ official interactive installer to accept changed legal documents. Version
 to check, download, verify the signature, and approve installation of the update.
 The legal documents and updater public key are unchanged.
 
-Version `0.1.6` is **in preparation, not published** for existing Microsoft OpenSSH
-reuse and rollback-identity binding. A company test PC successfully upgraded from
+Version `0.1.6` improves existing Microsoft OpenSSH reuse and rollback-identity
+binding. A company test PC successfully upgraded from
 `0.1.3` to `0.1.5`, but an existing OpenSSH path/identity compatibility failure was
-then found, so `0.1.5` was not published. Latest remains `0.1.3`; immutable assets
-are preserved. The `0.1.6` SSH implementation, regression checks, hands-on checks,
-and release remain in progress. The complete Windows and two-PC SSH matrices are
-incomplete. See the [preparation notes](docs/RELEASE-NOTES-v0.1.6.md). This document
+then found, so `0.1.5` was not published. Latest was kept at `0.1.3` during repair;
+immutable assets are preserved. The approved local enable, disable, re-enable,
+and restore trial passed with the original installation, configuration and host keys preserved.
+The complete Windows and two-PC SSH matrices remain incomplete.
+See the [release notes](docs/RELEASE-NOTES-v0.1.6.md). This document
 is not evidence that the new version has been published.
 
 The planned public installer targets Windows x64 only:
