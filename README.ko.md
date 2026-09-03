@@ -2,16 +2,16 @@
 
 [English](README.md)
 
-> 이 디렉터리는 PCssak Gongyu `v0.1.5` 무료 Early Access의 공개 저장소 계약입니다.
+> 이 디렉터리는 PCssak Gongyu `v0.1.6` 무료 Early Access의 공개 저장소 계약입니다.
 > 버전 고정 GitHub 릴리스와 검증된 자산 9종을 실제 게시 기록으로 봅니다.
 
 PCssak Gongyu는 사용자가 지시한 Windows SMB 공유 폴더 설정, LAN 점검, 네트워크 드라이브
-관리와 별도로 동의한 SSH 설정을 돕습니다. `0.1.5`는 **무료 Early Access**이며, 이는 제품
+관리와 별도로 동의한 SSH 설정을 돕습니다. `0.1.6`은 **무료 Early Access**이며, 이는 제품
 성숙도를 정직하게 표시하는 이름이지 이후 버전도 계속 무료라는 약속은 아닙니다.
 
 ## 공식 다운로드와 자동 업데이트
 
-공개 후에는 [GitHub v0.1.5 공식 릴리스](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.1.5)
+공개 후에는 [GitHub v0.1.6 공식 릴리스](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.1.6)
 또는 [pcssak.com](https://pcssak.com/)의 버전 고정 다운로드 페이지만 사용합니다. 제목에는
 Free Early Access를 명확히 유지하되 앱의 자동 업데이트가 동작하도록 GitHub 상태는
 `draft=false`, `prerelease=false`, Latest로 게시합니다.
@@ -20,21 +20,23 @@ Free Early Access를 명확히 유지하되 앱의 자동 업데이트가 동작
 
 `https://github.com/pcssakinc/pcssak-gongyu-releases/releases/latest/download/latest.json`
 
-공개 `0.1.0`에는 앱 내 자동 업데이트가 없습니다. 해당 사용자는 위 공식 `0.1.5` 설치본을
+공개 `0.1.0`에는 앱 내 자동 업데이트가 없습니다. 해당 사용자는 위 공식 `0.1.6` 설치본을
 한 번 수동으로 내려받아 직접 설치해야 합니다. `0.1.1` 사용자는 법률 정본 변경 때문에
-공식 대화형 설치기에서 새 동의가 필요할 수 있습니다. `0.1.3`·`0.1.4` 사용자는 정상 법률
+공식 대화형 설치기에서 새 동의가 필요할 수 있습니다. `0.1.3`·`0.1.4`·시험 설치 `0.1.5` 사용자는 정상 법률
 동의 기록이 남아 있으면 앱에서 새 버전을 확인하고 다운로드·서명 검증·사용자 승인 후
 업데이트하는 경로를 사용합니다. 법률 정본과 업데이트 공개키는 바꾸지 않습니다.
 
-`0.1.5`는 기존 설치 폴더를 준비하는 Windows 오류 처리 결함의 수정 버전입니다. `0.1.4`
-업데이트 중단이 보고되어 수정 준비 중에는 Latest를 `0.1.3`으로 되돌렸으며 기존 자산은
-교체하지 않았습니다. 현재 게시 여부는 위 고정 릴리스에서 확인합니다. 실제 설치·업데이트와
-두 PC SSH 전체 실기는 아직 완료되지 않았습니다. [수정 안내](docs/RELEASE-NOTES-v0.1.5.md)를
-함께 확인하세요.
+`0.1.6`은 기존 Microsoft OpenSSH 재사용과 원복 정보 결속을 수정한 버전입니다.
+회사 PC의 `0.1.3`→`0.1.5` 설치 실측은 성공했지만 이후 기존 OpenSSH의
+경로·신원 호환성 문제가 확인돼 `0.1.5`는 공개하지 않았습니다. 수정 준비 동안 Latest는
+`0.1.3`으로 유지했으며 기존 불변 자산은 교체하지 않습니다. 승인된 한 대의 시험 PC에서
+켜기·끄기·재켜기·원복과 기존 설치·설정·호스트 키 보존을 확인했습니다.
+전체 Windows·두 PC SSH 실기는 미완료입니다. [버전 안내](docs/RELEASE-NOTES-v0.1.6.md)를
+확인하세요. 이 문서 자체가 새 버전의 게시 증거는 아닙니다.
 
-현재 공개 설치본은 Windows x64 하나입니다.
+공개할 설치본 대상은 Windows x64 하나입니다.
 
-- `PCssak-Gongyu-0.1.5-Windows-x64-Setup.exe`
+- `PCssak-Gongyu-0.1.6-Windows-x64-Setup.exe`
 
 Windows x86은 별도의 Windows 10 x86 Home·Pro 실기 증거 게이트를 통과하기 전에는
 공개하지 않습니다.
@@ -52,10 +54,10 @@ Early Access는 모든 Windows·보안 제품 조합의 무결함을 보증하�
 같은 릴리스의 `SHA256SUMS.txt`와 설치본 SHA-256을 비교하세요.
 
 ```powershell
-Get-FileHash -Algorithm SHA256 '.\PCssak-Gongyu-0.1.5-Windows-x64-Setup.exe'
+Get-FileHash -Algorithm SHA256 '.\PCssak-Gongyu-0.1.6-Windows-x64-Setup.exe'
 ```
 
-릴리스에는 설치본 `PCssak-Gongyu-0.1.5-Windows-x64-Setup.exe.sig`도 포함됩니다. 앱은
+릴리스에는 설치본 `PCssak-Gongyu-0.1.6-Windows-x64-Setup.exe.sig`도 포함됩니다. 앱은
 내장한 Gongyu 전용 Minisign 공개키로 업데이트 설치본을 검증합니다. 별도의
 `UPDATE-RELEASE.json.sig`는 제품·버전·소스 커밋·설치본 해시·바이트 크기·내장 EULA·PRIVACY
 정본 해시·정규 URL·승인 릴리스 노트를 한 묶음으로 검증합니다.
