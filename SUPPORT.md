@@ -1,9 +1,9 @@
 # Support / 고객지원
 
-PCssak Gongyu 0.1.1 is Free Early Access. Support has no guaranteed response or fix deadline.
+PCssak Gongyu 0.1.x is Free Early Access. Support has no guaranteed response or fix deadline.
 Reports are prioritized by safety impact, affected users and reproducibility.
 
-PCssak Gongyu 0.1.1은 무료 Early Access입니다. 답변·수정 기한을 보장하는 지원 SLA는 없으며,
+PCssak Gongyu 0.1.x는 무료 Early Access입니다. 답변·수정 기한을 보장하는 지원 SLA는 없으며,
 안전 영향·영향받는 사용자·재현 가능성을 기준으로 우선순위를 정합니다.
 
 ## Before reporting
@@ -34,24 +34,29 @@ exposure, do not open a public Issue. Follow [SECURITY.md](SECURITY.md).
 
 ## Support boundary
 
-- The public 0.1.1 installer is x64 NSIS for Windows. An x86 installer is not published.
-- The official v0.1.1 release contains exactly the nine files in
+- The public 0.1.x installer is x64 NSIS for Windows. An x86 installer is not published.
+- Each official release contains exactly the nine files in
   [the release asset contract](docs/RELEASE-ASSET-CONTRACT.md). Stop if any asset is missing or its
   SHA-256 differs.
 - Windows 11 Home/Pro x64 and Windows 10 22H2 Home/Pro x64 are validation targets, not a claim that
   every edition, build, device or organizational policy has completed hands-on validation.
 - Native ARM64, Windows S mode, Windows Server, macOS and Linux are not supported release targets.
-- SSH setup is a core feature for a host PC on the same trusted LAN using a Private or Domain
-  profile. Public networks, VPNs or tunnels, direct Internet access and router port forwarding are
-  unsupported.
+- SSH setup uses the exact trusted physical Ethernet/Wi-Fi LAN. A reliably identified Public LAN
+  requires explicit trust consent before the app changes that network to Private. VPN software
+  may remain connected, but VPN/tunnel/virtual paths are excluded from SSH access scope. Direct
+  Internet access and router port forwarding remain unsupported; organizational policy is not bypassed.
 - “Locally ready” verifies the host service, firewall and listener; it does not prove that another
   PC can log in or use SFTP.
-- MSRA screen sharing and mouse control are not included in 0.1.1. They are not the same as SSH.
+- MSRA screen sharing and mouse control are not included. They are not the same as SSH.
 - The installer is not Authenticode-signed and can show Unknown publisher or SmartScreen. Do not
   disable Windows security products to install it.
-- The public 0.1.0 build has no in-app updater. Existing users must manually install the official
-  0.1.1 installer once. Version 0.1.1 and later can check signed in-app updates from the official
-  GitHub Release endpoint and install only after user approval.
+- The public 0.1.0 build has no in-app updater and requires one manual installation of the current
+  official installer. A 0.1.1 user may need new legal consent. Supported later versions with valid
+  consent records can check, download and verify an update in the app, then install only after approval.
+- The 0.1.5 correction targets the existing-folder preparation failure reported during 0.1.4
+  installation. This does not remove SAC blocking or establish completion of the hands-on test matrix.
+  Do not install older intermediate versions or disable security controls to work around this error.
+  See [the correction notes](docs/RELEASE-NOTES-v0.1.5.md) and [SAC guidance](SECURITY.md).
 
 ## 이슈 등록 전 확인
 
@@ -77,19 +82,25 @@ exposure, do not open a public Issue. Follow [SECURITY.md](SECURITY.md).
 
 ## 지원 범위
 
-- 공개 0.1.1 설치 파일은 Windows x64 NSIS이며 x86 설치 파일은 게시하지 않습니다.
-- 공식 v0.1.1 릴리스는 [릴리스 자산 계약](docs/RELEASE-ASSET-CONTRACT.md)의 정확한 9개 파일만
+- 공개 0.1.x 설치 파일은 Windows x64 NSIS이며 x86 설치 파일은 게시하지 않습니다.
+- 각 공식 릴리스는 [릴리스 자산 계약](docs/RELEASE-ASSET-CONTRACT.md)의 정확한 9개 파일만
   포함합니다. 하나라도 없거나 SHA-256이 다르면 중단하세요.
 - Windows 11 Home/Pro x64와 Windows 10 22H2 Home/Pro x64는 검증 목표이며, 모든 에디션·
   빌드·장치·조직 정책의 실기 완료를 의미하지 않습니다.
 - ARM64 네이티브, Windows S 모드, Windows Server, macOS와 Linux는 지원 배포 대상이 아닙니다.
-- SSH는 같은 신뢰 LAN의 Private·Domain 호스트를 위한 핵심 기능입니다. Public·VPN·터널·
-  인터넷 직접 접속·라우터 포트포워딩은 지원하지 않습니다.
+- SSH는 정확히 확인한 신뢰 물리 Ethernet·Wi-Fi LAN을 사용합니다. 식별된 Public LAN은
+  명시적 신뢰 동의 뒤 해당 네트워크만 Private으로 전환합니다. VPN 연결은 유지할 수 있으나
+  VPN·터널·가상 경로는 SSH 허용 범위에서 제외합니다. 인터넷 직접 접속·포트포워딩은
+  지원하지 않으며 조직 정책을 우회하지 않습니다.
 - “로컬 준비 완료”는 호스트 서비스·방화벽·리스너 확인이며 다른 PC의 로그인·SFTP 성공 증거가
   아닙니다.
-- 화면 공유·마우스 제어용 MSRA는 0.1.1에 포함되지 않으며 SSH와 다른 기능입니다.
+- 화면 공유·마우스 제어용 MSRA는 포함되지 않으며 SSH와 다른 기능입니다.
 - 설치 파일은 Authenticode 미서명이라 알 수 없는 게시자나 SmartScreen이 나타날 수 있습니다.
   설치를 위해 Windows 보안 기능을 끄지 마세요.
-- 공개 0.1.0에는 앱 내 업데이트가 없습니다. 기존 사용자는 공식 0.1.1 설치본을 이번 한 번
-  수동 설치해야 합니다. 0.1.1 이후부터는 공식 GitHub Release에서 서명된 업데이트를 확인하고
-  사용자가 승인한 뒤에만 설치할 수 있습니다.
+- 공개 0.1.0에는 앱 내 업데이트가 없어 현재 공식 설치본을 한 번 수동 설치해야 합니다.
+  0.1.1 사용자는 새 법률 동의가 필요할 수 있습니다. 지원되는 이후 버전에서 유효한 동의
+  기록이 있으면 앱 내 확인·다운로드·서명 검증을 거쳐 사용자 승인 뒤 설치합니다.
+- 0.1.5는 0.1.4 설치 때 보고된 기존 폴더 준비 오류의 수정 버전이며 SAC 차단 해제나
+  전체 실측 완료를 뜻하지 않습니다. 오류를 피하려고 중간 구버전을 먼저 설치하거나 보안
+  기능을 끄지 마세요. [수정 안내](docs/RELEASE-NOTES-v0.1.5.md)와 [SAC 안내](SECURITY.md)를
+  함께 확인하세요.

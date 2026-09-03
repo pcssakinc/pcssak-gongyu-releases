@@ -2,19 +2,19 @@
 
 [한국어 안내](README.ko.md)
 
-> This directory is the public repository contract for PCssak Gongyu `v0.1.4`
+> This directory is the public repository contract for PCssak Gongyu `v0.1.5`
 > Free Early Access. The version-pinned GitHub release and its nine verified
 > assets are the publication record.
 
 PCssak Gongyu is a Windows utility for user-directed SMB shared-folder setup,
 LAN checks, network-drive management, and separately consented SSH setup.
-Version `0.1.4` is **Free Early Access**; this describes product maturity and
+Version `0.1.5` is **Free Early Access**; this describes product maturity and
 does not promise that future versions will remain free.
 
 ## Official download and Latest update
 
 Use only the
-[official v0.1.4 release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.1.4)
+[official v0.1.5 release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.1.5)
 or a version-pinned page on [pcssak.com](https://pcssak.com/). The release title
 states Free Early Access, while GitHub uses `draft=false`, `prerelease=false`,
 and Latest so the application can check this stable endpoint:
@@ -22,14 +22,22 @@ and Latest so the application can check this stable endpoint:
 `https://github.com/pcssakinc/pcssak-gongyu-releases/releases/latest/download/latest.json`
 
 The public `0.1.0` build has no in-app updater, so those users must manually
-install the official `0.1.4` installer once. Version `0.1.1` users may need the
+install the official `0.1.5` installer once. Version `0.1.1` users may need the
 official interactive installer to accept changed legal documents. Version
-`0.1.3` users can update in the app when the installed legal-consent records
-remain valid. The legal documents and updater public key are unchanged.
+`0.1.3` and `0.1.4` users with valid legal-consent records use the in-app path
+to check, download, verify the signature, and approve installation of the update.
+The legal documents and updater public key are unchanged.
+
+Version `0.1.5` fixes Windows error handling when preparing an existing installation
+directory. After the reported `0.1.4` update failure, Latest was returned to `0.1.3`
+while this correction was prepared; existing assets were not replaced. Check the
+version-pinned release for publication status. The complete hands-on installation,
+update, and two-PC SSH matrices remain incomplete. See the
+[correction notes](docs/RELEASE-NOTES-v0.1.5.md).
 
 The current public installer is Windows x64 only:
 
-- `PCssak-Gongyu-0.1.4-Windows-x64-Setup.exe`
+- `PCssak-Gongyu-0.1.5-Windows-x64-Setup.exe`
 
 Windows x86 is not published until its separate Windows 10 x86 Home/Pro
 hands-on evidence gate passes.
@@ -50,10 +58,10 @@ using it on an important PC.
 Compare the installer SHA-256 with `SHA256SUMS.txt` from the same release:
 
 ```powershell
-Get-FileHash -Algorithm SHA256 '.\PCssak-Gongyu-0.1.4-Windows-x64-Setup.exe'
+Get-FileHash -Algorithm SHA256 '.\PCssak-Gongyu-0.1.5-Windows-x64-Setup.exe'
 ```
 
-The release also contains `PCssak-Gongyu-0.1.4-Windows-x64-Setup.exe.sig`.
+The release also contains `PCssak-Gongyu-0.1.5-Windows-x64-Setup.exe.sig`.
 PCssak Gongyu verifies updater artifacts with its embedded Gongyu-specific
 Minisign public key. `UPDATE-RELEASE.json.sig` separately binds the product,
 version, source commit, installer hash, installer byte size, embedded EULA and
@@ -65,6 +73,17 @@ and their bundled executables do not carry an Authenticode publisher signature.
 Windows or security products may therefore warn about or block the file. Do not
 disable SmartScreen, Microsoft Defender, a firewall, or another security product
 to install it. Stop if a hash or signature differs.
+
+Windows 11 Smart App Control (SAC) blocking is separate from this installer-directory
+defect. The app never disables SAC or other security controls automatically.
+Microsoft's [SAC FAQ](https://support.microsoft.com/en-us/Windows/Security/threat-malware-protection/smart-app-control-frequently-asked-questions)
+describes re-enablement improvements in recent updates, but we do not promise that
+every Windows build or device state allows turning it off and immediately back on.
+SAC does not offer a per-app exception. Keep protection enabled when installation
+or execution is blocked. If only the unsigned uninstaller is blocked and the user
+chooses a temporary SAC pause, this is limited to devices whose re-enablement support
+has been confirmed in advance; uninstall and immediately re-enable it. Follow the
+[conditional removal guidance](SECURITY.md); do not pause SAC when eligibility is unclear.
 
 ## Nine release assets
 

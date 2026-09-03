@@ -1,5 +1,10 @@
 # Quality and Safety
 
+> This is the historical 0.1.1 document. Current SSH behavior, update scheduling,
+> and 0.1.x release gates are described in [README](../README.md),
+> [Support](../SUPPORT.md), and [Security](../SECURITY.md). The older Actions
+> deferral or validation status is not evidence for the current version.
+
 This document describes the verification model and safety boundaries for PCssak Gongyu 0.1.1
 Free Early Access. It is evidence and operating guidance, not a guarantee that the software is
 defect-free or compatible with every computer.
