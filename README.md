@@ -2,19 +2,19 @@
 
 [한국어 안내](README.ko.md)
 
-> This directory is the public repository contract for PCssak Gongyu `v0.1.5`
+> This directory is the public repository contract for PCssak Gongyu `v0.1.6`
 > Free Early Access. The version-pinned GitHub release and its nine verified
 > assets are the publication record.
 
 PCssak Gongyu is a Windows utility for user-directed SMB shared-folder setup,
 LAN checks, network-drive management, and separately consented SSH setup.
-Version `0.1.5` is **Free Early Access**; this describes product maturity and
+Version `0.1.6` is **Free Early Access**; this describes product maturity and
 does not promise that future versions will remain free.
 
 ## Official download and Latest update
 
 Use only the
-[official v0.1.5 release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.1.5)
+[official v0.1.6 release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.1.6)
 or a version-pinned page on [pcssak.com](https://pcssak.com/). The release title
 states Free Early Access, while GitHub uses `draft=false`, `prerelease=false`,
 and Latest so the application can check this stable endpoint:
@@ -22,22 +22,24 @@ and Latest so the application can check this stable endpoint:
 `https://github.com/pcssakinc/pcssak-gongyu-releases/releases/latest/download/latest.json`
 
 The public `0.1.0` build has no in-app updater, so those users must manually
-install the official `0.1.5` installer once. Version `0.1.1` users may need the
+install the official `0.1.6` installer once. Version `0.1.1` users may need the
 official interactive installer to accept changed legal documents. Version
-`0.1.3` and `0.1.4` users with valid legal-consent records use the in-app path
+`0.1.3`, `0.1.4`, and trial-installed `0.1.5` users with valid legal-consent records use the in-app path
 to check, download, verify the signature, and approve installation of the update.
 The legal documents and updater public key are unchanged.
 
-Version `0.1.5` fixes Windows error handling when preparing an existing installation
-directory. After the reported `0.1.4` update failure, Latest was returned to `0.1.3`
-while this correction was prepared; existing assets were not replaced. Check the
-version-pinned release for publication status. The complete hands-on installation,
-update, and two-PC SSH matrices remain incomplete. See the
-[correction notes](docs/RELEASE-NOTES-v0.1.5.md).
+Version `0.1.6` is **in preparation, not published** for existing Microsoft OpenSSH
+reuse and rollback-identity binding. A company test PC successfully upgraded from
+`0.1.3` to `0.1.5`, but an existing OpenSSH path/identity compatibility failure was
+then found, so `0.1.5` was not published. Latest remains `0.1.3`; immutable assets
+are preserved. The `0.1.6` SSH implementation, regression checks, hands-on checks,
+and release remain in progress. The complete Windows and two-PC SSH matrices are
+incomplete. See the [preparation notes](docs/RELEASE-NOTES-v0.1.6.md). This document
+is not evidence that the new version has been published.
 
-The current public installer is Windows x64 only:
+The planned public installer targets Windows x64 only:
 
-- `PCssak-Gongyu-0.1.5-Windows-x64-Setup.exe`
+- `PCssak-Gongyu-0.1.6-Windows-x64-Setup.exe`
 
 Windows x86 is not published until its separate Windows 10 x86 Home/Pro
 hands-on evidence gate passes.
@@ -58,10 +60,10 @@ using it on an important PC.
 Compare the installer SHA-256 with `SHA256SUMS.txt` from the same release:
 
 ```powershell
-Get-FileHash -Algorithm SHA256 '.\PCssak-Gongyu-0.1.5-Windows-x64-Setup.exe'
+Get-FileHash -Algorithm SHA256 '.\PCssak-Gongyu-0.1.6-Windows-x64-Setup.exe'
 ```
 
-The release also contains `PCssak-Gongyu-0.1.5-Windows-x64-Setup.exe.sig`.
+The release also contains `PCssak-Gongyu-0.1.6-Windows-x64-Setup.exe.sig`.
 PCssak Gongyu verifies updater artifacts with its embedded Gongyu-specific
 Minisign public key. `UPDATE-RELEASE.json.sig` separately binds the product,
 version, source commit, installer hash, installer byte size, embedded EULA and
