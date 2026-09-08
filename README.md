@@ -2,58 +2,44 @@
 
 [한국어 안내](README.ko.md)
 
-> PCssak Gongyu `v0.1.6` Free Early Access was published on GitHub on 2026-09-03.
-> The version-pinned GitHub release and its nine assets are the publication record.
+> This directory is the public repository contract for PCssak Gongyu `v0.1.7`
+> Free Early Access. The version-pinned GitHub release and its nine verified
+> assets are the publication record.
 
 PCssak Gongyu is a Windows utility for user-directed SMB shared-folder setup,
 LAN checks, network-drive management, and separately consented SSH setup.
-Version `0.1.6` is **Free Early Access**; this describes product maturity and
+Version `0.1.7` is **Free Early Access**; this describes product maturity and
 does not promise that future versions will remain free.
 
 ## Official download and Latest update
 
-The `0.1.6` installer is available from the
-[official GitHub release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.1.6).
-The [English download page](https://pcssak.com/gongyu/download) and
-[Korean download page](https://pcssak.co.kr/gongyu/download) also list `0.1.6`.
-This Free Early Access version is published as an immutable regular GitHub release marked Latest
-with `draft=false` and `prerelease=false`. The app checks this update endpoint:
+Use only the
+[official v0.1.7 release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.1.7)
+or a version-pinned page on [pcssak.com](https://pcssak.com/). The release title
+states Free Early Access, while GitHub uses `draft=false`, `prerelease=false`,
+and Latest so the application can check this stable endpoint:
 
 `https://github.com/pcssakinc/pcssak-gongyu-releases/releases/latest/download/latest.json`
 
 The public `0.1.0` build has no in-app updater, so those users must manually
-install the official `0.1.6` installer once. Version `0.1.1` users may need the
+install the official `0.1.7` installer once. Version `0.1.1` users may need the
 official interactive installer to accept changed legal documents. Version
-`0.1.3`, `0.1.4`, and trial-installed `0.1.5` users with valid legal-consent records use the in-app path
+`0.1.3`, `0.1.4`, `0.1.6`, and trial-installed `0.1.5` users with valid legal-consent records use the in-app path
 to check, download, verify the signature, and approve installation of the update.
 The legal documents and updater public key are unchanged.
 
-Version `0.1.6` improves existing Microsoft OpenSSH reuse and rollback-identity
-binding. A company test PC successfully upgraded from
-`0.1.3` to `0.1.5`, but an existing OpenSSH path/identity compatibility failure was
-then found, so `0.1.5` was not published. Latest was kept at `0.1.3` during repair;
-immutable assets are preserved. The approved local enable, disable, re-enable,
-and restore trial passed with the original installation, configuration and host keys preserved.
-The complete Windows and two-PC SSH matrices remain incomplete.
-See the [release notes](docs/RELEASE-NOTES-v0.1.6.md). Check the version-pinned
-release linked above for the publication status.
-
-**Additional observations after the approved notes — 2026-09-03**
-
-- On one test PC, installation from `0.1.5` to `0.1.6` completed with exit code 0
-  in 16.452 seconds. The full application-data tree comparison, including logs, did
-  not match, so byte-for-byte preservation of every settings file is not confirmed.
-  Installation completion and complete settings preservation are separate results.
-- After changing the Windows account password themselves, the user reported a
-  successful SSH login from another PC. One successful password authentication was
-  also confirmed on the server. The app did not create or change that account password.
-- SFTP transfers, host-key fingerprint comparison, termination of all existing
-  sessions, and the full Windows/physical-LAN test matrix still require separate
-  validation. This addendum does not change the signed approved notes or existing assets.
+Version `0.1.7` adds a 6-digit PIN application lock, sharing of dedicated folders
+under the current user's Desktop, Documents, and Downloads, removal of ordinary
+external Windows share registrations, and clearer pairing and interrupted-operation
+guidance. Original files and permissions remain when an external share is removed.
+See the [release notes](docs/RELEASE-NOTES-v0.1.7.md) for changes and known limitations.
+The version-pinned release and its verified assets determine download availability;
+this document alone is not a publication record. Previously published immutable
+assets are preserved. The complete Windows and two-PC SSH matrices remain incomplete.
 
 The public installer targets Windows x64 only:
 
-- [PCssak-Gongyu-0.1.6-Windows-x64-Setup.exe](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/download/v0.1.6/PCssak-Gongyu-0.1.6-Windows-x64-Setup.exe)
+- `PCssak-Gongyu-0.1.7-Windows-x64-Setup.exe`
 
 Windows x86 is not published until its separate Windows 10 x86 Home/Pro
 hands-on evidence gate passes.
@@ -62,9 +48,12 @@ Versions from 0.1.2 up to, but not including, 0.2.0 are free Early Access
 releases intended to obtain real-world measurements. Final external legal
 review, the full Windows 10/11 Home/Pro x64 VM and physical-LAN SSH/SFTP matrix,
 independent supply-chain review, and Windows-trusted Authenticode signing are
-not complete and return as mandatory gates before 0.2.0. Final-source GitHub
-Actions, Tauri updater signing, independent Minisign signing, SHA-256 checks,
-and the exact nine-asset contract remain mandatory for every 0.1.x release.
+not complete and return as mandatory gates before 0.2.0. Every 0.1.x release still
+requires final-source verification through GitHub Actions or the approved local
+Windows verification process, Tauri updater signing, independent Minisign signing,
+SHA-256 checks, and the exact nine-asset contract. The local alternative is limited
+to versions from 0.1.2 up to, but not including, 0.2.0. It records actual commands,
+tool and log hashes, and results; a skipped or failed Actions run is not called a success.
 Early Access does not guarantee defect-free operation across every Windows and
 security-product combination; test on a recoverable system with a backup before
 using it on an important PC.
@@ -74,10 +63,10 @@ using it on an important PC.
 Compare the installer SHA-256 with `SHA256SUMS.txt` from the same release:
 
 ```powershell
-Get-FileHash -Algorithm SHA256 '.\PCssak-Gongyu-0.1.6-Windows-x64-Setup.exe'
+Get-FileHash -Algorithm SHA256 '.\PCssak-Gongyu-0.1.7-Windows-x64-Setup.exe'
 ```
 
-The release also contains `PCssak-Gongyu-0.1.6-Windows-x64-Setup.exe.sig`.
+The release also contains `PCssak-Gongyu-0.1.7-Windows-x64-Setup.exe.sig`.
 PCssak Gongyu verifies updater artifacts with its embedded Gongyu-specific
 Minisign public key. `UPDATE-RELEASE.json.sig` separately binds the product,
 version, source commit, installer hash, installer byte size, embedded EULA and
@@ -90,8 +79,8 @@ Windows or security products may therefore warn about or block the file. Do not
 disable SmartScreen, Microsoft Defender, a firewall, or another security product
 to install it. Stop if a hash or signature differs.
 
-Windows 11 Smart App Control (SAC) blocking is separate from this installer-directory
-defect. The app never disables SAC or other security controls automatically.
+Windows 11 Smart App Control (SAC) blocking is separate from the application's
+PIN lock and installer behavior. The app never disables SAC or other security controls automatically.
 Microsoft's [SAC FAQ](https://support.microsoft.com/en-us/Windows/Security/threat-malware-protection/smart-app-control-frequently-asked-questions)
 describes re-enablement improvements in recent updates, but we do not promise that
 every Windows build or device state allows turning it off and immediately back on.

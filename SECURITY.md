@@ -10,13 +10,18 @@ do not exist.
 Versions from 0.1.2 up to, but not including, 0.2.0 are public Early Access.
 External legal review, the complete Windows Home/Pro and physical-LAN SSH/SFTP
 matrices, independent supply-chain review, and Authenticode are not complete.
-GitHub Actions, Tauri/Minisign signatures, SHA-256 and the exact release assets
-remain required. Prefer a recoverable test system and a current backup.
+Final-source verification through GitHub Actions or the approved local Windows
+verification process, Tauri/Minisign signatures, SHA-256, and the exact release
+assets remain required. The local alternative is available only from 0.1.2 up to,
+but not including, 0.2.0; it binds actual commands, tool and log hashes, and results
+to the final source. Skipped or failed Actions runs are not recorded as successful.
+Neither path replaces hands-on Windows or two-PC SSH/SFTP testing. Prefer a
+recoverable test system and a current backup.
 
 ### Report privately
 
-After the public repository is created, use its GitHub private vulnerability
-reporting channel when available. Otherwise email `support@pcssak.com` with:
+Use the public repository's GitHub private vulnerability reporting channel when
+available. Otherwise email `support@pcssak.com` with:
 
 - the affected PCssak Gongyu version and Windows edition/build;
 - x64 architecture and whether the process was elevated;
@@ -36,7 +41,7 @@ Download only from `pcssakinc/pcssak-gongyu-releases` or a version-pinned link o
 release. The Tauri updater verifies the published `.sig` with the Gongyu-specific
 Minisign public key, and the independently signed `UPDATE-RELEASE.json` binds
 release identity, installer hash and byte size, and the canonical installer URL.
-The public 0.1.0 build has no in-app updater, so install the official 0.1.6 build
+The public 0.1.0 build has no in-app updater, so install the official 0.1.7 build
 manually once before using cryptographically verified in-app updates. Public
 0.1.x Early Access installers from 0.1.2 up to, but not including, 0.2.0 do not
 carry an Authenticode publisher signature. Windows or security products may
@@ -47,7 +52,7 @@ firewall, or another security product to bypass a warning.
 
 ### Smart App Control is a separate boundary
 
-The 0.1.6 OpenSSH compatibility work does not remove Windows 11 Smart App
+The 0.1.7 application-lock (PIN) work does not remove Windows 11 Smart App
 Control (SAC) blocking or add an Authenticode signature. The application never
 turns off SAC, Defender, SmartScreen, a firewall, or an organization's application
 control policy. Updater signatures verify release integrity, not Windows publisher
@@ -83,13 +88,16 @@ Early Access에는 발견되지 않은 결함이 남아 있을 수 있으며, �
 0.1.2 이상 0.2.0 미만의 0.1.x는 공개 무료 Early Access입니다. 법률 전문가 최종 외부 검토,
 Windows 10/11 Home·Pro x64 전체 VM·물리 LAN SSH/SFTP 실기 행렬, 독립 공급망 검토와
 Windows 신뢰 Authenticode 서명은 아직 완료되지 않았으며 0.2.0 공개 전 필수 게이트로
-복원합니다. GitHub Actions 최종 소스 검증, Tauri 업데이트 서명, 독립 Minisign 서명,
+복원합니다. GitHub Actions 또는 승인된 로컬 Windows 경로의 최종 소스 검증, Tauri 업데이트 서명, 독립 Minisign 서명,
 SHA-256과 정확한 9개 자산 검증은 0.1.x에서도 생략하지 않습니다. 복구 가능한 시험 환경과
 최신 백업을 우선하세요.
+로컬 대체는 `0.1.2 <= 버전 < 0.2.0`에서만 허용하며 실제 명령·도구·로그 해시와 결과를 최종
+소스에 결속합니다. 건너뛰거나 실패한 Actions를 성공으로 기록하지 않으며 어느 경로도 실제
+Windows·두 PC SSH/SFTP 실기를 대신하지 않습니다.
 
 ### 비공개 제보
 
-공개 저장소를 만든 뒤 GitHub 비공개 취약점 제보 기능을 사용할 수 있으면 그 채널을
+공개 저장소에서 GitHub 비공개 취약점 제보 기능을 사용할 수 있으면 그 채널을
 우선합니다. 사용할 수 없으면 `support@pcssak.com`으로 다음 내용을 보내 주세요.
 
 - 영향을 받는 PCssak Gongyu 버전과 Windows 에디션·빌드
@@ -108,7 +116,7 @@ SHA-256과 정확한 9개 자산 검증은 0.1.x에서도 생략하지 않습니
 릴리스의 `SHA256SUMS.txt`와 설치 파일 SHA-256을 비교하세요. Tauri Updater는 공개한
 `.sig`를 Gongyu 전용 Minisign 공개키로 검증하며, 별도로 서명한 `UPDATE-RELEASE.json`이
 릴리스 신원·설치본 해시·바이트 크기와 정규 설치본 URL을 묶습니다. 공개 0.1.0에는 앱 내
-updater가 없으므로 공식 0.1.6를 한 번 수동 설치한 뒤부터 암호학적으로 검증되는 앱 내 업데이트를
+updater가 없으므로 공식 0.1.7을 한 번 수동 설치한 뒤부터 암호학적으로 검증되는 앱 내 업데이트를
 사용하세요. 0.1.2 이상 0.2.0 미만의 공개 0.1.x Early Access 설치 파일에는 Authenticode
 게시자 서명이 없습니다. 따라서 Windows나 보안 제품이 경고하거나 실행을 차단할 수 있습니다.
 Tauri 업데이트 서명, 독립 Minisign 서명과 SHA-256 검증은 유지되지만 Windows 게시자 신원을
@@ -117,7 +125,7 @@ Tauri 업데이트 서명, 독립 Minisign 서명과 SHA-256 검증은 유지되
 
 ### Smart App Control은 별도의 보안 경계입니다
 
-0.1.6의 OpenSSH 호환성 수정은 Windows 11 Smart App Control(SAC) 차단 해제나
+0.1.7의 앱 잠금(PIN) 추가는 Windows 11 Smart App Control(SAC) 차단 해제나
 Authenticode 서명 추가가 아닙니다. 앱은 SAC·Defender·SmartScreen·방화벽·조직의 앱 실행
 정책을 자동 해제하지 않습니다. 업데이트 서명은 배포 파일의 무결성을 검증하며 Windows
 게시자 신뢰나 실행 허가를 대신하지 않습니다.
