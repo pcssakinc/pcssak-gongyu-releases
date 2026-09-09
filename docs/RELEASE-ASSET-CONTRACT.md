@@ -1,18 +1,18 @@
 # PCssak Gongyu 공개 릴리스·자동 업데이트 자산 계약
 
-이 문서는 `pcssakinc/pcssak-gongyu-releases`의 무료 `v0.1.8` Early Access에 쓰는
+이 문서는 `pcssakinc/pcssak-gongyu-releases`의 무료 `v0.1.9` Early Access에 쓰는
 공개 자산, Tauri 자동 업데이트, 서명과 GitHub Release 상태를 하나의 계약으로 고정한다.
 현재 디렉터리는 공개 저장소용 소스 템플릿이며, 실제 게시 완료 여부는 GitHub의 버전 고정
 릴리스와 Latest 엔드포인트를 각각 재검증해 판단한다.
 
 ## 1. GitHub 릴리스 상태
 
-`v0.1.8`는 제품 성숙도를 숨기지 않도록 제목과 본문에서 **Free Early Access**라고
+`v0.1.9`는 제품 성숙도를 숨기지 않도록 제목과 본문에서 **Free Early Access**라고
 표시한다. 다만 Tauri가 고정 주소에서 최신 버전을 찾게 하려면 GitHub가 프리릴리스를
 `/releases/latest`에서 제외하는 동작을 피해야 한다. 따라서 게시 상태는 다음과 같다.
 
-- 태그: `v0.1.8`
-- 제목: `PCssak Gongyu 0.1.8 — Free Early Access`
+- 태그: `v0.1.9`
+- 제목: `PCssak Gongyu 0.1.9 — Free Early Access`
 - `draft=false`
 - `prerelease=false`
 - GitHub Latest 지정: `true`
@@ -23,23 +23,26 @@ Early Access라는 제품 채널과 GitHub의 `prerelease` 플래그는 같은 �
 
 `https://github.com/pcssakinc/pcssak-gongyu-releases/releases/latest/download/latest.json`
 
-공개 `0.1.0`에는 앱 내 updater가 없으므로 해당 사용자는 공식 `0.1.8` 설치본을 한 번 수동으로
-내려받아 직접 설치해야 한다. `0.1.1` 사용자는 법률 정본 변경 때문에 대화형 설치기에서 새 동의가
-필요할 수 있다. `0.1.3`·`0.1.4`·`0.1.6` 사용자는 정상 법률 동의 기록이 남아 있으면 앱 안에서
-다운로드·서명 검증·사용자 승인 후 업데이트한다. 법률 정본과 업데이트 공개키는 그대로 유지한다. 홈페이지와 릴리스 노트도
-이 전환 조건을 같은 문구로 고지한다.
+업데이트 서명키 전환으로 0.1.8 이하 사용자는 공식 0.1.9 설치본을 한 번 직접 설치해야 한다.
+구형 앱은 새 공개키를 내장하지 않으므로 매니페스트의 안내를 읽기 전에 일반 서명 오류를
+표시할 수 있다. 서명 검증을 우회하거나 기존 앱이 원격 안내만으로 새 키를 신뢰한다고
+설명하지 않는다. 0.1.1~0.1.8은 기존 앱을 먼저 제거하지 않고 설정·공유·SSH·중단 기록을
+보존하며 덮어 설치한다. 0.1.0은 앱 내 updater와 덮어 설치를 지원하지 않으므로 구 버전을
+제거한 뒤 공식 설치본을 직접 설치한다. 이번 법률 정본은 그대로 유지한다. 0.1.9부터 새 키로
+서명한 후속 업데이트를 검증하고 사용자 승인 뒤 설치하며 홈페이지와 릴리스 노트도 같은
+전환 조건을 고지한다. 새 법률 동의가 필요하면 대화형 설치 경로를 유지한다.
 
 같은 태그의 게시 자산은 사후 교체하지 않는다. 코드·법률·설치본 중 하나라도 바뀌면 더 높은
 새 버전으로 다시 빌드·서명·게시한다.
 
 ## 2. 정확한 공개 자산 9종
 
-`v0.1.8` Release에는 아래 아홉 파일만 정확히 올린다.
+`v0.1.9` Release에는 아래 아홉 파일만 정확히 올린다.
 
 1. `DOWNLOAD-METADATA.json`
-2. `PCssak-Gongyu-0.1.8-MPL-Sources.zip`
-3. `PCssak-Gongyu-0.1.8-Windows-x64-Setup.exe`
-4. `PCssak-Gongyu-0.1.8-Windows-x64-Setup.exe.sig`
+2. `PCssak-Gongyu-0.1.9-MPL-Sources.zip`
+3. `PCssak-Gongyu-0.1.9-Windows-x64-Setup.exe`
+4. `PCssak-Gongyu-0.1.9-Windows-x64-Setup.exe.sig`
 5. `THIRD-PARTY-NOTICES.txt`
 6. `UPDATE-RELEASE.json`
 7. `UPDATE-RELEASE.json.sig`
@@ -68,7 +71,7 @@ Minisign `.pub` 본문을 정확히 한 번 Base64한 형식인지 확인한다.
 문자열 모양만 확인하거나 다른 제품 공개키, 이중 Base64 공개키, 과거 키의 서명을 허용하지
 않는다.
 
-Minisign 0.12 x64와 7-Zip 26.02 x64의 `7z.exe`·`7z.dll` SHA-256은 검토한 공식 배포물 값으로
+Minisign 0.12 x64와 7-Zip 26.03 x64의 `7z.exe`·`7z.dll` SHA-256은 검토한 공식 배포물 값으로
 조립기 코드에 고정한다. 호출자가 경로와 임의 해시를 함께 제출해도 고정값과 다르면 실행 전에
 거부한다. 공식 Windows `7za.exe`는 NSIS를 지원하지 않고 `7z.exe`는 인접
 `Codecs`·`Formats`를 자동 로드하므로, 기본 정식 승인 경로에서는 사용자 쓰기 가능한 호출자
@@ -76,7 +79,7 @@ Minisign 0.12 x64와 7-Zip 26.02 x64의 `7z.exe`·`7z.dll` SHA-256은 검토한 
 machine-wide 설치만 허용하고 Program Files·7-Zip 디렉터리를 `OPEN_REPARSE_POINT` 핸들로 연다. 같은 핸들의 최종
 경로·VolumeSerial/FileId·소유자·DACL을 확인하며, 현재 비관리자 토큰의 사용자 SID와 활성 그룹
 SID 어느 것에도 파일·하위 디렉터리 추가·삭제·DACL/소유자 변경 Allow 권한이 없어야 한다.
-`Codecs`·`Formats` 부재와 공식 26.02 루트 항목 집합을 실행 전후에 재검증한다. `7z.exe`와
+`Codecs`·`Formats` 부재와 공식 26.03 루트 항목 집합을 실행 전후에 재검증한다. `7z.exe`와
 `7z.dll`은 쓰기·교체·삭제를 허용하지 않는 읽기 공유 핸들로 실행 종료까지 잠그며, 같은 핸들의
 해시·최종 경로·파일 ID를 재검증한다. 내부 앱은 x64 `0x8664`여야 한다. Tauri가 NSIS 조립 전에
 공식적으로 적용하는 단일 `UNK→NSS` 3바이트 패치 외에는 같은 실행의 Tauri x64 빌드 앱과 전체
@@ -129,14 +132,14 @@ SAC·조직 정책을 자동 해제하거나 개별 앱 우회를 제공하지 �
 `latest.json`은 더 이상 사람·홈페이지용 다운로드 정보가 아니다. Tauri 공식 정적 JSON
 형식만 정확히 담으며 `latest.schema.json`으로 구조를 고정한다.
 
-- `version`: `0.1.8`
+- `version`: `0.1.9`
 - `notes`: 사람이 승인한 릴리스 노트 원문
 - `pub_date`: 이번 조립 실행의 UTC `Z` 시각
 - `platforms.windows-x86_64.url`: 버전 고정 설치본 정규 URL
 - `platforms.windows-x86_64.signature`: 검증한 설치본 `.sig`의 한 줄 Base64 본문
 
 `latest.json`은 GitHub Latest 주소에서 제공하지만 그 안의 설치본 URL은 반드시
-`releases/download/v0.1.8/...`처럼 버전이 고정되어야 한다. Windows x86 또는 계약 밖
+`releases/download/v0.1.9/...`처럼 버전이 고정되어야 한다. Windows x86 또는 계약 밖
 플랫폼 키는 허용하지 않는다.
 
 ## 5. 서명된 `UPDATE-RELEASE.json`
@@ -145,10 +148,10 @@ SAC·조직 정책을 자동 해제하거나 개별 앱 우회를 제공하지 �
 
 - `schema`: `pcssak.update-release/v1`
 - `product`: `PCssak Gongyu`
-- `version`: `0.1.8`
-- `tag`: `v0.1.8`
+- `version`: `0.1.9`
+- `tag`: `v0.1.9`
 - `source_commit`: 승인한 소스의 소문자 40자리 Git SHA
-- `installer`: `PCssak-Gongyu-0.1.8-Windows-x64-Setup.exe`
+- `installer`: `PCssak-Gongyu-0.1.9-Windows-x64-Setup.exe`
 - `installer_sha256`: 실제 설치본 SHA-256
 - `installer_size`: 실제 설치본 바이트 수인 양의 정수, 최대 536,870,912바이트(512 MiB)
 - `eula_sha256`: 이 버전 소스 `LICENSE.txt` 정본의 정확한 바이트 SHA-256
@@ -193,7 +196,7 @@ LF 줄바꿈을 사용한다. 자기 자신을 제외한 나머지 여덟 자산
 1. 설치본·두 `.sig`·`UPDATE-RELEASE.json`·MPL ZIP·고지문 입력의 해시와 신규성을 확인한다.
 2. `BUILD-EVIDENCE.json`의 clean x64 빌드 증거와 NSIS 3.12 공식 ZIP·441개 공식 파일
    매니페스트·두 `makensis.exe`·`nsis_tauri_utils.dll` 고정 크기/해시를 정확 스키마로 검증한다.
-   PATH Git은 금지하며 Program Files의 승인 Git for Windows 2.54.0.windows.1 x86_64에 대해
+   PATH Git은 금지하며 Program Files의 승인 Git for Windows 2.55.0.windows.5 x86_64에 대해
    고정 실행 파일 크기·SHA-256·빌드 커밋·Authenticode 상태·인증서 지문과 핸들 기반
    소유자/DACL·비재분석점·최종 경로·파일 ID를 검증한 `git_*` 8필드를 함께 요구한다.
 3. 엄격 경로에서는 스크립트 자체의 사전/사후 검사로 완결할 수 없는 세 공급망 경계와 후보별
@@ -273,7 +276,7 @@ Clippy, fmt·i686 check·감사·릴리스 빌드·정적·UI·MPL·고지·릴�
    언어/EULA·HKLM seed·신규/복구/업그레이드·제거 양쪽 선택·원복 실패 중단 시나리오에 결속한다.
    0.1.x `-PublicEarlyAccess`에서는 이 두 증거가 미완료임을 승인 노트에 고지하고 해당 인수를
    받지 않는다. 게시기는 실제 승인 증거를 생성하거나 완료로 추정하지 않는다.
-2. 태그와 Release가 모두 없으면 `v0.1.8`를 `draft=true`, `prerelease=false`, Free Early
+2. 태그와 Release가 모두 없으면 `v0.1.9`를 `draft=true`, `prerelease=false`, Free Early
    Access 제목으로 만든다. 둘 다 있으면 태그 target, Release ID·태그·제목·본문·target 및 기존
    자산 각각의 이름·`uploaded` 상태·크기·`sha256:` digest가 현재 승인 입력과 정확히 같은 Draft만
    재개한다. 태그/Release 중 하나만 있거나 승인 밖·중복·불일치 자산이 있으면 원격을 자동 변경하지
@@ -305,7 +308,7 @@ Draft 검증 실패 시 자동 삭제하지 않는다. 원격 Draft가 현재 �
 
 다음 중 하나라도 발견되면 게시를 중단한다.
 
-- `draft=false`, `prerelease=false`, `Latest=true`, `v0.1.8` 또는 정확한 9자산 불일치
+- `draft=false`, `prerelease=false`, `Latest=true`, `v0.1.9` 또는 정확한 9자산 불일치
 - `/releases/latest/download/latest.json`이 다른 버전·프리릴리스를 가리킴
 - Gongyu 공개키 불일치·이중 인코딩·Minisign 검증 실패·다른 키 또는 과거 키의 서명
 - Minisign 검증 중 공개키·서명·대상 바이트 또는 격리 데이터 디렉터리의 정확한 파일 집합 변경
