@@ -41,11 +41,11 @@ Download only from `pcssakinc/pcssak-gongyu-releases` or a version-pinned link o
 release. The Tauri updater verifies the published `.sig` with the Gongyu-specific
 Minisign public key, and the independently signed `UPDATE-RELEASE.json` binds
 release identity, installer hash and byte size, and the canonical installer URL.
-Version 0.2.3 keeps the 0.2.0 legal documents and updater key. Validly consented
-0.2.0, 0.2.1, and 0.2.2 installations can use verified in-app updating with user approval. Users on
+Version 0.2.4 keeps the 0.2.0 legal documents and updater key. Validly consented
+0.2.0, 0.2.1, 0.2.2, and 0.2.3 installations can use verified in-app updating with user approval. Users on
 0.1.9 still need interactive installation to review the current legal documents;
 0.1.8 or earlier also need the previously announced updater-key migration. For
-0.1.1 through 0.2.2, use protected replacement without first uninstalling the app
+0.1.1 through 0.2.3, use protected replacement without first uninstalling the app
 or deleting settings or Windows recovery records. Only 0.1.0 requires removal first.
 Public Early Access installers from 0.1.2 through 0.4.9, inclusive, do not
 carry an Authenticode publisher signature. Windows or security products may
@@ -54,14 +54,25 @@ Minisign signature, and SHA-256 checks remain mandatory, but they do not prove a
 Windows publisher identity. Do not disable SmartScreen, Microsoft Defender, a
 firewall, or another security product to bypass a warning.
 
-Version 0.2.3 makes recovery controls accessible even for interrupted SSH operations.
-Resume actions still match the recorded operation; reading a status never clears a
-journal. Consent-only physical-network reads are separate from full firewall status
-inspection. The 15-second consent, 30-second status, and 20-second UI preparation
-response bounds do not cancel or limit Windows changes. A timed-out native read keeps
-its single-flight budget until it finishes, and cancelled preparation cannot enable
-SSH on a late response. Final network identity, policy, ownership, and rollback checks
-remain required. No firewall reset, journal deletion, or security-policy bypass is used.
+Version 0.2.4 resolves package binding for inbound allow rules using effective policies
+and the Store-app network-isolation store together. A rule is excluded only when the
+observed counts, enabled states, and programs match and every matching rule is
+package-only with no program. Unmatched, unreadable, or mixed ordinary-program rules
+retain conservative blocking. Only the writable store is modified. External allow
+rules needing temporary disabling are inspected read-only before any protective rule,
+baseline record, or feature installation. A consented Public-to-Private physical-LAN
+transition may occur first; exceeding the limit prevents SSH changes and attempts to
+restore that transition. Unverified restoration retains the failure and recovery
+records. The same limit is re-checked immediately before writing, so Windows default
+rules are never disabled in bulk. A safe stop is cooperative: the signal never
+terminates work. Rollback is attempted at a safe point and is recorded as cancelled
+only when verified; unverified rollback retains interrupted-work recovery guidance.
+Interrupted-operation self-checks are
+read-only and release the block only for a fully-off or contract-complete state;
+partial, unreadable, or pending-external-rule states keep manual confirmation, and
+machine-scope releases still require administrator rights. Final network identity,
+policy, ownership, and rollback checks remain required. No firewall reset, journal
+deletion, or security-policy bypass is used.
 
 ### Smart App Control is a separate boundary
 
@@ -128,10 +139,10 @@ Windows·두 PC SSH/SFTP 실기를 대신하지 않습니다.
 `pcssakinc/pcssak-gongyu-releases` 또는 `pcssak.com`의 버전 고정 링크에서만 받고 같은
 릴리스의 `SHA256SUMS.txt`와 설치 파일 SHA-256을 비교하세요. Tauri Updater는 공개한
 `.sig`를 Gongyu 전용 Minisign 공개키로 검증하며, 별도로 서명한 `UPDATE-RELEASE.json`이
-릴리스 신원·설치본 해시·바이트 크기와 정규 설치본 URL을 묶습니다. 0.2.3은 0.2.0의 법률
-정본·업데이트 키를 유지하므로 정상 동의 기록이 있는 0.2.0·0.2.1·0.2.2는 앱 안에서 검증·사용자 승인 후
+릴리스 신원·설치본 해시·바이트 크기와 정규 설치본 URL을 묶습니다. 0.2.4는 0.2.0의 법률
+정본·업데이트 키를 유지하므로 정상 동의 기록이 있는 0.2.0·0.2.1·0.2.2·0.2.3은 앱 안에서 검증·사용자 승인 후
 업데이트할 수 있습니다. 0.1.9는 현행 법률 문서를 확인하는 대화형 설치가 필요하며 0.1.8
-이하는 앞서 고지한 키 전환도 적용됩니다. 0.1.1~0.2.2는 앱을 먼저 제거하거나 사용자 설정·
+이하는 앞서 고지한 키 전환도 적용됩니다. 0.1.1~0.2.3은 앱을 먼저 제거하거나 사용자 설정·
 Windows 복구 기록을 지우지 않고 보호 교체합니다. 0.1.0만 별도 제거 후 설치합니다.
 0.1.2 이상 0.4.9 이하의 공개 Early Access 설치 파일에는 Authenticode
 게시자 서명이 없습니다. 따라서 Windows나 보안 제품이 경고하거나 실행을 차단할 수 있습니다.
@@ -139,13 +150,22 @@ Tauri 업데이트 서명, 독립 Minisign 서명과 SHA-256 검증은 유지되
 보증하지는 않습니다.
 경고를 우회하려고 SmartScreen, Microsoft Defender, 방화벽 또는 다른 보안 제품을 끄지 마세요.
 
-0.2.3은 SSH 중단에도 복구 카드를 표시합니다. 재개는 기록된 작업 종류와 일치해야 하며
-상태 조회만으로 장부를 해제하지 않습니다. 동의용 물리망 읽기와 전체 방화벽 상태 조회를
-분리하고 동의 읽기 15초·전체 상태 읽기 30초·화면 준비 대기 20초의 응답 상한을 둡니다.
-이는 Windows 변경의 취소나 제한 시간이 아닙니다. 시간 초과 뒤 네이티브 읽기가 남으면
-끝날 때까지 단일 실행권을 보존하고, 취소된 준비의 늦은 응답으로 SSH를 켜지 않습니다.
-현재 네트워크 신원·정책·소유권·원복의 최종 검증은 그대로 요구하며 방화벽 일괄 초기화,
-장부 삭제나 보안 정책 우회로 오류를 숨기지 않습니다.
+0.2.4는 수신 허용 규칙의 패키지 결속을 실제 적용 중인 정책과 스토어 앱의 네트워크 격리
+저장소에서 함께 읽습니다. 관측한 규칙 개수·활성 상태·프로그램이 모두 대응하며 모든 대응
+규칙이 프로그램 없는 패키지 전용일 때만 감사에서 제외합니다. 대응 없음·판독 실패·일반
+프로그램 규칙 혼합은 보수적 차단을 유지합니다. 변경은 계속 변경 가능한 저장소에만 적용합니다.
+보호 차단 규칙·기준선 기록·기능 설치 전에 임시 비활성화가 필요한 외부 허용 규칙의 규모를
+읽기 전용으로 확인합니다. 공용 물리 LAN에서는 필요한 신뢰 동의와 개인 네트워크 전환 뒤
+점검하며, 상한을 넘으면 SSH 변경을 시작하지 않고 전환 원복을 시도합니다. 원복이 검증되지
+않으면 실패와 복구 기록을 유지합니다. 쓰기 직전에도 같은 상한을 다시 검사해 Windows 기본
+규칙을 대량으로 끄지 않습니다. 안전 중지는 협조적이며 작업을 강제 종료하지 않고 안전한
+지점에서 기존 원복 경로로 되돌리기를 시도합니다. 되돌림을 검증한 경우에만 취소로 기록하며,
+검증하지 못하면 중단 복구 안내를 유지합니다. 중단 기록의 자동 점검은 읽기 전용이고 완전히
+꺼진 상태나 계약대로 완료된
+상태만 차단을 해제하며, 부분 상태·판정 불가·외부 규칙 원복 대기는 수동 확인을 유지하고
+머신 범위 해제는 관리자 권한을 계속 요구합니다. 현재 네트워크 신원·정책·소유권·원복의
+최종 검증은 그대로 요구하며 방화벽 일괄 초기화, 장부 삭제나 보안 정책 우회로 오류를
+숨기지 않습니다.
 
 ### Smart App Control은 별도의 보안 경계입니다
 
