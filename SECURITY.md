@@ -41,11 +41,12 @@ Download only from `pcssakinc/pcssak-gongyu-releases` or a version-pinned link o
 release. The Tauri updater verifies the published `.sig` with the Gongyu-specific
 Minisign public key, and the independently signed `UPDATE-RELEASE.json` binds
 release identity, installer hash and byte size, and the canonical installer URL.
-The 0.2.0 legal-document changes require interactive installation with renewed
-consent, including for users on 0.1.9. Users on 0.1.8 or earlier also need the
-previously announced updater-key migration. For 0.1.1 through 0.1.9, use the
-official 0.2.0 installer over the existing app without first uninstalling it or
-deleting user settings. Only 0.1.0 requires separate removal before installation.
+Version 0.2.1 keeps the 0.2.0 legal documents and updater key. Validly consented
+0.2.0 installations can use verified in-app updating with user approval. Users on
+0.1.9 still need interactive installation to review the current legal documents;
+0.1.8 or earlier also need the previously announced updater-key migration. For
+0.1.1 through 0.2.0, use protected replacement without first uninstalling the app
+or deleting settings or Windows recovery records. Only 0.1.0 requires removal first.
 Public Early Access installers from 0.1.2 through 0.4.9, inclusive, do not
 carry an Authenticode publisher signature. Windows or security products may
 therefore warn about or block the file. The Tauri updater signature, independent
@@ -118,10 +119,11 @@ Windows·두 PC SSH/SFTP 실기를 대신하지 않습니다.
 `pcssakinc/pcssak-gongyu-releases` 또는 `pcssak.com`의 버전 고정 링크에서만 받고 같은
 릴리스의 `SHA256SUMS.txt`와 설치 파일 SHA-256을 비교하세요. Tauri Updater는 공개한
 `.sig`를 Gongyu 전용 Minisign 공개키로 검증하며, 별도로 서명한 `UPDATE-RELEASE.json`이
-릴리스 신원·설치본 해시·바이트 크기와 정규 설치본 URL을 묶습니다. 0.2.0은 법률 문서 변경으로
-0.1.9 사용자도 새 문서를 확인하는 대화형 설치가 필요합니다. 0.1.8 이하는 앞서 고지한 키
-전환 안내도 적용됩니다. 0.1.1~0.1.9는 기존 앱을 먼저 제거하거나 사용자 설정을 지우지 않고
-공식 0.2.0 설치본으로 보호 교체합니다. 0.1.0만 별도 제거 후 설치합니다.
+릴리스 신원·설치본 해시·바이트 크기와 정규 설치본 URL을 묶습니다. 0.2.1은 0.2.0의 법률
+정본·업데이트 키를 유지하므로 정상 동의 기록이 있는 0.2.0은 앱 안에서 검증·사용자 승인 후
+업데이트할 수 있습니다. 0.1.9는 현행 법률 문서를 확인하는 대화형 설치가 필요하며 0.1.8
+이하는 앞서 고지한 키 전환도 적용됩니다. 0.1.1~0.2.0은 앱을 먼저 제거하거나 사용자 설정·
+Windows 복구 기록을 지우지 않고 보호 교체합니다. 0.1.0만 별도 제거 후 설치합니다.
 0.1.2 이상 0.4.9 이하의 공개 Early Access 설치 파일에는 Authenticode
 게시자 서명이 없습니다. 따라서 Windows나 보안 제품이 경고하거나 실행을 차단할 수 있습니다.
 Tauri 업데이트 서명, 독립 Minisign 서명과 SHA-256 검증은 유지되지만 Windows 게시자 신원을
