@@ -1,18 +1,18 @@
 # PCssak Gongyu 공개 릴리스·자동 업데이트 자산 계약
 
-이 문서는 `pcssakinc/pcssak-gongyu-releases`의 무료 `v0.1.9` Early Access에 쓰는
+이 문서는 `pcssakinc/pcssak-gongyu-releases`의 무료 `v0.2.0` Early Access에 쓰는
 공개 자산, Tauri 자동 업데이트, 서명과 GitHub Release 상태를 하나의 계약으로 고정한다.
 현재 디렉터리는 공개 저장소용 소스 템플릿이며, 실제 게시 완료 여부는 GitHub의 버전 고정
 릴리스와 Latest 엔드포인트를 각각 재검증해 판단한다.
 
 ## 1. GitHub 릴리스 상태
 
-`v0.1.9`는 제품 성숙도를 숨기지 않도록 제목과 본문에서 **Free Early Access**라고
+`v0.2.0`는 제품 성숙도를 숨기지 않도록 제목과 본문에서 **Free Early Access**라고
 표시한다. 다만 Tauri가 고정 주소에서 최신 버전을 찾게 하려면 GitHub가 프리릴리스를
 `/releases/latest`에서 제외하는 동작을 피해야 한다. 따라서 게시 상태는 다음과 같다.
 
-- 태그: `v0.1.9`
-- 제목: `PCssak Gongyu 0.1.9 — Free Early Access`
+- 태그: `v0.2.0`
+- 제목: `PCssak Gongyu 0.2.0 — Free Early Access`
 - `draft=false`
 - `prerelease=false`
 - GitHub Latest 지정: `true`
@@ -23,26 +23,26 @@ Early Access라는 제품 채널과 GitHub의 `prerelease` 플래그는 같은 �
 
 `https://github.com/pcssakinc/pcssak-gongyu-releases/releases/latest/download/latest.json`
 
-업데이트 서명키 전환으로 0.1.8 이하 사용자는 공식 0.1.9 설치본을 한 번 직접 설치해야 한다.
-구형 앱은 새 공개키를 내장하지 않으므로 매니페스트의 안내를 읽기 전에 일반 서명 오류를
-표시할 수 있다. 서명 검증을 우회하거나 기존 앱이 원격 안내만으로 새 키를 신뢰한다고
-설명하지 않는다. 0.1.1~0.1.8은 기존 앱을 먼저 제거하지 않고 설정·공유·SSH·중단 기록을
-보존하며 덮어 설치한다. 0.1.0은 앱 내 updater와 덮어 설치를 지원하지 않으므로 구 버전을
-제거한 뒤 공식 설치본을 직접 설치한다. 이번 법률 정본은 그대로 유지한다. 0.1.9부터 새 키로
-서명한 후속 업데이트를 검증하고 사용자 승인 뒤 설치하며 홈페이지와 릴리스 노트도 같은
-전환 조건을 고지한다. 새 법률 동의가 필요하면 대화형 설치 경로를 유지한다.
+0.2.0은 무료 공개 범위와 시행일이 바뀌어 EULA·PRIVACY 정본 해시도 변경된다. 0.1.9 사용자는
+앱의 새 버전 확인 뒤 공식 다운로드로 이동하여 새 문서를 확인하고 대화형 설치한다. 0.1.8
+이하 앱은 현행 공개키가 없으므로 공식 설치본을 한 번 직접 실행해야 하며 구형 앱의 서명
+오류를 우회하지 않는다. 0.1.1~0.1.9는 기존 앱을 먼저 제거하거나 설정·공유·SSH·중단 기록을
+지우지 않고 덮어 설치한다. 0.1.0은 덮어 설치를 지원하지 않으므로 구 버전을 제거한 뒤 공식
+설치본을 직접 설치한다. 같은 정본과 동의 기록을 확인할 수 있는 후속 업데이트만 앱에서
+다운로드·무결성 확인·사용자 승인 뒤 적용하며, 법률 정본이 다시 바뀌면 대화형 설치로 안내한다.
+공개된 0.1.9 태그·9자산·서명·과거 릴리스 노트는 바꾸지 않는다.
 
 같은 태그의 게시 자산은 사후 교체하지 않는다. 코드·법률·설치본 중 하나라도 바뀌면 더 높은
 새 버전으로 다시 빌드·서명·게시한다.
 
 ## 2. 정확한 공개 자산 9종
 
-`v0.1.9` Release에는 아래 아홉 파일만 정확히 올린다.
+`v0.2.0` Release에는 아래 아홉 파일만 정확히 올린다.
 
 1. `DOWNLOAD-METADATA.json`
-2. `PCssak-Gongyu-0.1.9-MPL-Sources.zip`
-3. `PCssak-Gongyu-0.1.9-Windows-x64-Setup.exe`
-4. `PCssak-Gongyu-0.1.9-Windows-x64-Setup.exe.sig`
+2. `PCssak-Gongyu-0.2.0-MPL-Sources.zip`
+3. `PCssak-Gongyu-0.2.0-Windows-x64-Setup.exe`
+4. `PCssak-Gongyu-0.2.0-Windows-x64-Setup.exe.sig`
 5. `THIRD-PARTY-NOTICES.txt`
 6. `UPDATE-RELEASE.json`
 7. `UPDATE-RELEASE.json.sig`
@@ -102,13 +102,13 @@ NSIS에서 만든 GUID 입력 스냅샷만 전달하고, `UseShellExecute=false`
 승인 절차에서 끝나야 하며 조립기는 공개키 검증만 수행한다.
 
 이 Tauri/Minisign 서명은 Windows 게시자 신원을 확인하는 Authenticode와 목적이 다르다.
-`-PublicEarlyAccess`로 공개하는 0.1.2 이상 0.2.0 미만의 정확한 3요소 0.1.x 버전은 설치기와
+`-PublicEarlyAccess`로 공개하는 0.1.2 이상 0.4.9 이하의 정확한 3요소 Early Access 버전은 설치기와
 실제 NSIS에서 추출한 `pcssak-gongyu.exe`가 **둘 다 정확히** `Authenticode: not-signed`인
 경우에만 조립·게시할 수 있다. 한쪽만 서명됐거나 `UnknownError` 등 다른 상태면 혼합 후보로
 간주해 원격 호출 전에 차단한다. 릴리스 노트에는 게시자 서명 부재와 Windows·보안 제품이
-경고하거나 실행을 차단할 수 있음을 명시한다. 이 유예는 0.2.0에서 자동 만료한다.
+경고하거나 실행을 차단할 수 있음을 명시한다. 이 유예는 0.4.9 초과에서 자동 만료한다.
 
-`-PublicEarlyAccess`가 없는 엄격 경로와 0.2.0 이상에서는 설치본과 내부 앱이 Windows 신뢰
+`-PublicEarlyAccess`가 없는 엄격 경로와 0.4.9 초과에서는 설치본과 내부 앱이 Windows 신뢰
 정책에서 `Valid`이고 Code Signing EKU가 있으며, Windows가 확인하는 타임스탬프 인증서와
 Time Stamping EKU를 모두 가져야 한다. 두 파일의 signer leaf thumbprint·subject·issuer가
 정확히 같고, 저장소 밖 후보별 `candidate-leaf` 승인 JSON과 별도 승인 SHA-256에도 일치해야
@@ -132,14 +132,14 @@ SAC·조직 정책을 자동 해제하거나 개별 앱 우회를 제공하지 �
 `latest.json`은 더 이상 사람·홈페이지용 다운로드 정보가 아니다. Tauri 공식 정적 JSON
 형식만 정확히 담으며 `latest.schema.json`으로 구조를 고정한다.
 
-- `version`: `0.1.9`
+- `version`: `0.2.0`
 - `notes`: 사람이 승인한 릴리스 노트 원문
 - `pub_date`: 이번 조립 실행의 UTC `Z` 시각
 - `platforms.windows-x86_64.url`: 버전 고정 설치본 정규 URL
 - `platforms.windows-x86_64.signature`: 검증한 설치본 `.sig`의 한 줄 Base64 본문
 
 `latest.json`은 GitHub Latest 주소에서 제공하지만 그 안의 설치본 URL은 반드시
-`releases/download/v0.1.9/...`처럼 버전이 고정되어야 한다. Windows x86 또는 계약 밖
+`releases/download/v0.2.0/...`처럼 버전이 고정되어야 한다. Windows x86 또는 계약 밖
 플랫폼 키는 허용하지 않는다.
 
 ## 5. 서명된 `UPDATE-RELEASE.json`
@@ -148,10 +148,10 @@ SAC·조직 정책을 자동 해제하거나 개별 앱 우회를 제공하지 �
 
 - `schema`: `pcssak.update-release/v1`
 - `product`: `PCssak Gongyu`
-- `version`: `0.1.9`
-- `tag`: `v0.1.9`
+- `version`: `0.2.0`
+- `tag`: `v0.2.0`
 - `source_commit`: 승인한 소스의 소문자 40자리 Git SHA
-- `installer`: `PCssak-Gongyu-0.1.9-Windows-x64-Setup.exe`
+- `installer`: `PCssak-Gongyu-0.2.0-Windows-x64-Setup.exe`
 - `installer_sha256`: 실제 설치본 SHA-256
 - `installer_size`: 실제 설치본 바이트 수인 양의 정수, 최대 536,870,912바이트(512 MiB)
 - `eula_sha256`: 이 버전 소스 `LICENSE.txt` 정본의 정확한 바이트 SHA-256
@@ -201,8 +201,8 @@ LF 줄바꿈을 사용한다. 자기 자신을 제외한 나머지 여덟 자산
    소유자/DACL·비재분석점·최종 경로·파일 ID를 검증한 `git_*` 8필드를 함께 요구한다.
 3. 엄격 경로에서는 스크립트 자체의 사전/사후 검사로 완결할 수 없는 세 공급망 경계와 후보별
    Authenticode signer leaf 신원을 저장소 밖의 별도 승인 JSON과 승인 SHA-256으로 검증하며,
-   없으면 실패 폐쇄한다. 0.1.x `-PublicEarlyAccess` 경로에서는 이 외부 증거를 완료로 가장하지
-   않고 0.2.0 전 필수 작업으로 기록하며 입력 자체를 허용하지 않는다.
+   없으면 실패 폐쇄한다. 공개 Early Access `-PublicEarlyAccess` 경로에서는 이 외부 증거를 완료로 가장하지
+   않고 0.4.9 초과 공개 전 필수 작업으로 기록하며 입력 자체를 허용하지 않는다.
    - `pcssak.build-isolation-approval/v1`: 관리자 보호 읽기 전용 승인 commit snapshot,
      활성 토큰 비신뢰 쓰기 거부, NSIS 도구 트리 신규 child 생성 차단·매니페스트 잠금,
      네트워크 격리, 비릴리스 프로세스 차단
@@ -219,21 +219,21 @@ LF 줄바꿈을 사용한다. 자기 자신을 제외한 나머지 여덟 자산
 7. 자기 자신을 제외한 여덟 자산을 `SHA256SUMS.txt`에 정렬 기록한다.
 8. 최종 출력 9종의 이름·대소문자·크기·재분석 지점·해시와 두 서명을 다시 검증한다.
 
-### 0.1.x 공개 Early Access 간소화 정책
+### 공개 Early Access 간소화 정책
 
-관리자 승인에 따라 0.1.2 이상 0.2.0 미만의 정확한 3요소 0.1.x 버전은 기능 실측을 위한 공개
+관리자 승인에 따라 0.1.2 이상 0.4.9 이하의 정확한 3요소 Early Access 버전은 기능 실측을 위한 공개
 무료 Early Access 경로를 사용한다. 최종 소스의 GitHub Actions 또는 승인된 로컬 Windows 검증, Tauri 업데이트 서명, 독립
 Minisign 서명, SHA-256, MPL 원본, 법률 정본 결속과 정확한 9개 자산 검증은 생략하지 않는다.
 대한민국 적격 전문가의 최종 법률 외부 검토, Windows 10/11 Home·Pro x64 전체 VM·실제 물리
 LAN SSH/SFTP 실기, 세 공급망 독립 검토와 Windows 신뢰 Authenticode 서명은 미완료임을 공개
-고지하고 0.2.0 공개 전에 엄격 게이트로 복원한다. 스크립트는 0.2.0 이상에서 이 경로를 자동
+고지하고 0.4.9 초과 버전 공개 전에 엄격 게이트로 복원한다. 스크립트는 0.4.9 초과에서 이 경로를 자동
 거부하며, 조립기나 게시기가 미완료 항목을 승인으로 바꾸지 않는다.
 
 반복 배포는 같은 최종 소스 커밋·파이프라인 파일 해시·산출물 해시에 결속한 외부 상태 파일로
 재개한다. 검증이 끝난 동일 바이트를 다시 빌드하거나 재서명하지 않는다. Actions를 선택했을
 때만 최종 소스 SHA에 대해 한 번 디스패치하며 응답이 불확실하면 기존 실행을 먼저 조회한다.
 
-2026-09-08 승인된 로컬 경로는 `scripts/verify-local-release.ps1` 또는 단일 진입점의
+2026-09-08 승인되고 2026-09-12 범위가 연장된 로컬 경로는 `scripts/verify-local-release.ps1` 또는 단일 진입점의
 `-Stage RunLocalVerification`으로 실제 Windows 최종 검증을 수행한다. x64·i686 시험과
 Clippy, fmt·i686 check·감사·릴리스 빌드·정적·UI·MPL·고지·릴리스 계약을 포함한다.
 `LOCAL-VERIFICATION.json`은 최종 소스·고정 명령 계획·실제 도구 버전과 해시·종료 코드·로그
@@ -244,7 +244,7 @@ Clippy, fmt·i686 check·감사·릴리스 빌드·정적·UI·MPL·고지·릴�
 -ApprovedLocalVerificationEvidenceSha256 <해시>`를 지정하고 Actions ID·attempt를 생략한다.
 게시기는 Draft 생성 전과 공개 직전에 증거·로그·도구·소스를 다시 검증한다. Actions 경로와
 로컬 경로를 혼합하지 않으며 건너뛰거나 실패한 Actions를 성공으로 바꾸지 않는다.
-로컬 대체는 `0.1.2 <= 버전 < 0.2.0`에서만 허용되고 0.2.0부터 자동 차단된다. 두 경로 모두
+로컬 대체는 `0.1.2 <= 버전 <= 0.4.9`에서만 허용되고 0.4.9 초과부터 자동 차단된다. 두 경로 모두
 실제 설치·두 PC SSH/SFTP 실기를 대신하지 않으며 미완료 행렬은 공개 고지한다.
 
 ## 8. MPL-2.0 원본 계약
@@ -274,9 +274,9 @@ Clippy, fmt·i686 check·감사·릴리스 빌드·정적·UI·MPL·고지·릴�
    Windows 10/11 Home·Pro x64 일회용 VM 실기 JSON을 각각 별도 승인 SHA-256으로 검증한다.
    법률 증거는 승인 소스·EULA·PRIVACY 해시에, VM 증거는 최종 설치본 SHA-256·크기 및 설치
    언어/EULA·HKLM seed·신규/복구/업그레이드·제거 양쪽 선택·원복 실패 중단 시나리오에 결속한다.
-   0.1.x `-PublicEarlyAccess`에서는 이 두 증거가 미완료임을 승인 노트에 고지하고 해당 인수를
+   공개 Early Access `-PublicEarlyAccess`에서는 이 두 증거가 미완료임을 승인 노트에 고지하고 해당 인수를
    받지 않는다. 게시기는 실제 승인 증거를 생성하거나 완료로 추정하지 않는다.
-2. 태그와 Release가 모두 없으면 `v0.1.9`를 `draft=true`, `prerelease=false`, Free Early
+2. 태그와 Release가 모두 없으면 `v0.2.0`를 `draft=true`, `prerelease=false`, Free Early
    Access 제목으로 만든다. 둘 다 있으면 태그 target, Release ID·태그·제목·본문·target 및 기존
    자산 각각의 이름·`uploaded` 상태·크기·`sha256:` digest가 현재 승인 입력과 정확히 같은 Draft만
    재개한다. 태그/Release 중 하나만 있거나 승인 밖·중복·불일치 자산이 있으면 원격을 자동 변경하지
@@ -308,7 +308,7 @@ Draft 검증 실패 시 자동 삭제하지 않는다. 원격 Draft가 현재 �
 
 다음 중 하나라도 발견되면 게시를 중단한다.
 
-- `draft=false`, `prerelease=false`, `Latest=true`, `v0.1.9` 또는 정확한 9자산 불일치
+- `draft=false`, `prerelease=false`, `Latest=true`, `v0.2.0` 또는 정확한 9자산 불일치
 - `/releases/latest/download/latest.json`이 다른 버전·프리릴리스를 가리킴
 - Gongyu 공개키 불일치·이중 인코딩·Minisign 검증 실패·다른 키 또는 과거 키의 서명
 - Minisign 검증 중 공개키·서명·대상 바이트 또는 격리 데이터 디렉터리의 정확한 파일 집합 변경
@@ -319,7 +319,7 @@ Draft 검증 실패 시 자동 삭제하지 않는다. 원격 Draft가 현재 �
 - 조립 결과에서 별도 승인한 `Sha256SumsSha256` 불일치, 고정하지 않은 GitHub CLI 버전·해시,
   `GitHub, Inc.`가 아닌 Authenticode 서명 또는 공개 직전 원격 상태 변경
 - 설치본·MPL·서명 입력의 PE 형식 또는 재분석 지점 검증 실패, 엄격 경로의 Authenticode
-  Valid·Code Signing EKU·타임스탬프 계약 실패, 0.1.x `-PublicEarlyAccess` 경로에서 설치기와
+  Valid·Code Signing EKU·타임스탬프 계약 실패, 공개 Early Access `-PublicEarlyAccess` 경로에서 설치기와
   내부 앱의 정확한 `not-signed` 쌍 불일치
 - EULA·개인정보 처리방침 정본 바이트 불일치, 개인 Gmail·개인키·암호·인증서 노출
 - 검증되지 않은 x86 설치본이나 계약에 없는 추가 Release 자산 포함
@@ -329,8 +329,8 @@ Draft 검증 실패 시 자동 삭제하지 않는다. 원격 Draft가 현재 �
 `pcssak.x64-nsis-release-validation/v1` 승인 증거가 반드시 있어야 한다. Windows 10/11
 Home·Pro x64 정확히 네 일회용 VM에서 설치 언어·EULA·HKLM 첫 실행 seed, 신규 설치·동일 버전
 복구·상위 버전 업그레이드, 제거 [예]/[아니오], 원복 실패 중단과 별도 정리 안내를 모두 통과하지
-못하면 원격 API를 호출하기 전에 공개를 차단한다. 0.1.x `-PublicEarlyAccess`에서는 이 행렬이
-미완료임을 릴리스 노트에 공개하고 0.2.0 전 필수 작업으로 남긴다. 어느 경로에서도 모든 백신·
+못하면 원격 API를 호출하기 전에 공개를 차단한다. 공개 Early Access `-PublicEarlyAccess`에서는 이 행렬이
+미완료임을 릴리스 노트에 공개하고 0.4.9 초과 공개 전 필수 작업으로 남긴다. 어느 경로에서도 모든 백신·
 EDR·조직 정책과 도메인 이메일 발신·회신 조합까지 지원 완료로 표시하지 않으며, 미검증 조합은
 알려진 Early Access 제한으로 계속 고지한다.
 

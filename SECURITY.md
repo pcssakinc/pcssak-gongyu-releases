@@ -7,13 +7,13 @@ Gongyu Free Early Access release. Early Access can contain undiscovered defects;
 this policy is a reporting and response boundary, not a guarantee that defects
 do not exist.
 
-Versions from 0.1.2 up to, but not including, 0.2.0 are public Early Access.
+Versions from 0.1.2 through 0.4.9, inclusive, are public Early Access.
 External legal review, the complete Windows Home/Pro and physical-LAN SSH/SFTP
 matrices, independent supply-chain review, and Authenticode are not complete.
 Final-source verification through GitHub Actions or the approved local Windows
 verification process, Tauri/Minisign signatures, SHA-256, and the exact release
-assets remain required. The local alternative is available only from 0.1.2 up to,
-but not including, 0.2.0; it binds actual commands, tool and log hashes, and results
+assets remain required. The local alternative is available only from 0.1.2 through
+0.4.9, inclusive; it binds actual commands, tool and log hashes, and results
 to the final source. Skipped or failed Actions runs are not recorded as successful.
 Neither path replaces hands-on Windows or two-PC SSH/SFTP testing. Prefer a
 recoverable test system and a current backup.
@@ -41,9 +41,12 @@ Download only from `pcssakinc/pcssak-gongyu-releases` or a version-pinned link o
 release. The Tauri updater verifies the published `.sig` with the Gongyu-specific
 Minisign public key, and the independently signed `UPDATE-RELEASE.json` binds
 release identity, installer hash and byte size, and the canonical installer URL.
-The public 0.1.0 build has no in-app updater, so install the official 0.1.7 build
-manually once before using cryptographically verified in-app updates. Public
-0.1.x Early Access installers from 0.1.2 up to, but not including, 0.2.0 do not
+The 0.2.0 legal-document changes require interactive installation with renewed
+consent, including for users on 0.1.9. Users on 0.1.8 or earlier also need the
+previously announced updater-key migration. For 0.1.1 through 0.1.9, use the
+official 0.2.0 installer over the existing app without first uninstalling it or
+deleting user settings. Only 0.1.0 requires separate removal before installation.
+Public Early Access installers from 0.1.2 through 0.4.9, inclusive, do not
 carry an Authenticode publisher signature. Windows or security products may
 therefore warn about or block the file. The Tauri updater signature, independent
 Minisign signature, and SHA-256 checks remain mandatory, but they do not prove a
@@ -85,13 +88,13 @@ policy. The app never changes those controls or SAC automatically.
 Early Access에는 발견되지 않은 결함이 남아 있을 수 있으며, 이 정책은 제보와 대응 범위를
 정하는 문서이지 결함이 없다는 보증이 아닙니다.
 
-0.1.2 이상 0.2.0 미만의 0.1.x는 공개 무료 Early Access입니다. 법률 전문가 최종 외부 검토,
+0.1.2 이상 0.4.9 이하 버전은 공개 무료 Early Access입니다. 법률 전문가 최종 외부 검토,
 Windows 10/11 Home·Pro x64 전체 VM·물리 LAN SSH/SFTP 실기 행렬, 독립 공급망 검토와
-Windows 신뢰 Authenticode 서명은 아직 완료되지 않았으며 0.2.0 공개 전 필수 게이트로
-복원합니다. GitHub Actions 또는 승인된 로컬 Windows 경로의 최종 소스 검증, Tauri 업데이트 서명, 독립 Minisign 서명,
-SHA-256과 정확한 9개 자산 검증은 0.1.x에서도 생략하지 않습니다. 복구 가능한 시험 환경과
+Windows 신뢰 Authenticode 서명은 아직 완료되지 않았습니다. 이 상태를 고지하고 배포 후
+실측을 진행합니다. GitHub Actions 또는 승인된 로컬 Windows 경로의 최종 소스 검증, Tauri 업데이트 서명, 독립 Minisign 서명,
+SHA-256과 정확한 9개 자산 검증은 공개 Early Access에서도 생략하지 않습니다. 복구 가능한 시험 환경과
 최신 백업을 우선하세요.
-로컬 대체는 `0.1.2 <= 버전 < 0.2.0`에서만 허용하며 실제 명령·도구·로그 해시와 결과를 최종
+로컬 대체는 `0.1.2 <= 버전 <= 0.4.9`에서만 허용하며 실제 명령·도구·로그 해시와 결과를 최종
 소스에 결속합니다. 건너뛰거나 실패한 Actions를 성공으로 기록하지 않으며 어느 경로도 실제
 Windows·두 PC SSH/SFTP 실기를 대신하지 않습니다.
 
@@ -115,9 +118,11 @@ Windows·두 PC SSH/SFTP 실기를 대신하지 않습니다.
 `pcssakinc/pcssak-gongyu-releases` 또는 `pcssak.com`의 버전 고정 링크에서만 받고 같은
 릴리스의 `SHA256SUMS.txt`와 설치 파일 SHA-256을 비교하세요. Tauri Updater는 공개한
 `.sig`를 Gongyu 전용 Minisign 공개키로 검증하며, 별도로 서명한 `UPDATE-RELEASE.json`이
-릴리스 신원·설치본 해시·바이트 크기와 정규 설치본 URL을 묶습니다. 공개 0.1.0에는 앱 내
-updater가 없으므로 공식 0.1.7을 한 번 수동 설치한 뒤부터 암호학적으로 검증되는 앱 내 업데이트를
-사용하세요. 0.1.2 이상 0.2.0 미만의 공개 0.1.x Early Access 설치 파일에는 Authenticode
+릴리스 신원·설치본 해시·바이트 크기와 정규 설치본 URL을 묶습니다. 0.2.0은 법률 문서 변경으로
+0.1.9 사용자도 새 문서를 확인하는 대화형 설치가 필요합니다. 0.1.8 이하는 앞서 고지한 키
+전환 안내도 적용됩니다. 0.1.1~0.1.9는 기존 앱을 먼저 제거하거나 사용자 설정을 지우지 않고
+공식 0.2.0 설치본으로 보호 교체합니다. 0.1.0만 별도 제거 후 설치합니다.
+0.1.2 이상 0.4.9 이하의 공개 Early Access 설치 파일에는 Authenticode
 게시자 서명이 없습니다. 따라서 Windows나 보안 제품이 경고하거나 실행을 차단할 수 있습니다.
 Tauri 업데이트 서명, 독립 Minisign 서명과 SHA-256 검증은 유지되지만 Windows 게시자 신원을
 보증하지는 않습니다.

@@ -34,7 +34,8 @@ exposure, do not open a public Issue. Follow [SECURITY.md](SECURITY.md).
 
 ## Support boundary
 
-- The public 0.1.x installer is x64 NSIS for Windows. An x86 installer is not published.
+- Public free Early Access through 0.4.9 uses an x64 NSIS installer for Windows.
+  An x86 installer is not published.
 - Each official release contains exactly the nine files in
   [the release asset contract](docs/RELEASE-ASSET-CONTRACT.md). Stop if any asset is missing or its
   SHA-256 differs.
@@ -50,9 +51,16 @@ exposure, do not open a public Issue. Follow [SECURITY.md](SECURITY.md).
 - MSRA screen sharing and mouse control are not included. They are not the same as SSH.
 - The installer is not Authenticode-signed and can show Unknown publisher or SmartScreen. Do not
   disable Windows security products to install it.
-- The public 0.1.0 build has no in-app updater and requires one manual installation of the current
-  official installer. A 0.1.1 user may need new legal consent. Supported later versions with valid
-  consent records can check, download and verify an update in the app, then install only after approval.
+- For 0.2.0, users on 0.1.9 also need interactive installation because the legal-document scope
+  and effective date changed. Users on 0.1.8 or earlier additionally need the previously announced
+  updater-key migration. Run the official 0.2.0 installer once; do not bypass an old app's signature error.
+- For 0.1.1 through 0.1.9, install over the existing app without first uninstalling it or deleting
+  settings, sharing records, SSH configuration, or interrupted-operation records. Only 0.1.0
+  requires separate removal before installation. Do not delete recovery records or mix version files
+  to repair an already damaged installation; contact support instead.
+- Later updates may be checked, downloaded, verified, and installed after approval in the app when
+  the accepted legal documents are unchanged and the consent record is valid. New legal documents
+  require renewed consent through interactive installation. See [the 0.2.0 notes](docs/RELEASE-NOTES-v0.2.0.md).
 - The 0.1.5 correction targets the existing-folder preparation failure reported during 0.1.4
   installation. This does not remove SAC blocking or establish completion of the hands-on test matrix.
   Do not install older intermediate versions or disable security controls to work around this error.
@@ -82,7 +90,8 @@ exposure, do not open a public Issue. Follow [SECURITY.md](SECURITY.md).
 
 ## 지원 범위
 
-- 공개 0.1.x 설치 파일은 Windows x64 NSIS이며 x86 설치 파일은 게시하지 않습니다.
+- 0.4.9까지의 공개 무료 Early Access 설치 파일은 Windows x64 NSIS이며 x86 설치 파일은
+  게시하지 않습니다.
 - 각 공식 릴리스는 [릴리스 자산 계약](docs/RELEASE-ASSET-CONTRACT.md)의 정확한 9개 파일만
   포함합니다. 하나라도 없거나 SHA-256이 다르면 중단하세요.
 - Windows 11 Home/Pro x64와 Windows 10 22H2 Home/Pro x64는 검증 목표이며, 모든 에디션·
@@ -97,9 +106,15 @@ exposure, do not open a public Issue. Follow [SECURITY.md](SECURITY.md).
 - 화면 공유·마우스 제어용 MSRA는 포함되지 않으며 SSH와 다른 기능입니다.
 - 설치 파일은 Authenticode 미서명이라 알 수 없는 게시자나 SmartScreen이 나타날 수 있습니다.
   설치를 위해 Windows 보안 기능을 끄지 마세요.
-- 공개 0.1.0에는 앱 내 업데이트가 없어 현재 공식 설치본을 한 번 수동 설치해야 합니다.
-  0.1.1 사용자는 새 법률 동의가 필요할 수 있습니다. 지원되는 이후 버전에서 유효한 동의
-  기록이 있으면 앱 내 확인·다운로드·서명 검증을 거쳐 사용자 승인 뒤 설치합니다.
+- 0.2.0은 법률 문서의 적용 범위와 시행일이 바뀌므로 0.1.9 사용자도 새 문서를 확인하는
+  대화형 설치가 필요합니다. 0.1.8 이하는 앞서 고지한 업데이트 키 전환도 필요합니다.
+  공식 0.2.0 설치본을 한 번 직접 실행하고, 구형 앱의 서명 오류를 우회하지 마세요.
+- 0.1.1~0.1.9는 기존 앱을 먼저 제거하거나 설정·공유 장부·SSH 설정·중단 기록을 지우지
+  않고 덮어 설치합니다. 0.1.0만 별도 제거 후 설치합니다. 이미 손상된 설치를 복구하려고
+  기록을 임의 삭제하거나 서로 다른 버전의 파일을 섞지 말고 지원에 문의하세요.
+- 후속 업데이트는 동의한 법률 정본이 그대로이고 동의 기록이 유효하면 앱에서 확인·다운로드·
+  검증하고 사용자 승인 뒤 설치합니다. 법률 정본이 바뀌면 다시 대화형 설치에서 동의합니다.
+  [0.2.0 안내](docs/RELEASE-NOTES-v0.2.0.md)를 함께 확인하세요.
 - 0.1.5는 0.1.4 설치 때 보고된 기존 폴더 준비 오류의 수정 버전이며 SAC 차단 해제나
   전체 실측 완료를 뜻하지 않습니다. 오류를 피하려고 중간 구버전을 먼저 설치하거나 보안
   기능을 끄지 마세요. [수정 안내](docs/RELEASE-NOTES-v0.1.5.md)와 [SAC 안내](SECURITY.md)를
