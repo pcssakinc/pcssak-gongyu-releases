@@ -1,9 +1,9 @@
 # Support / 고객지원
 
-PCssak Gongyu 0.1.x is Free Early Access. Support has no guaranteed response or fix deadline.
+PCssak Gongyu 0.1.2 through 0.4.9 is Free Early Access. Support has no guaranteed response or fix deadline.
 Reports are prioritized by safety impact, affected users and reproducibility.
 
-PCssak Gongyu 0.1.x는 무료 Early Access입니다. 답변·수정 기한을 보장하는 지원 SLA는 없으며,
+PCssak Gongyu 0.1.2~0.4.9는 무료 Early Access입니다. 답변·수정 기한을 보장하는 지원 SLA는 없으며,
 안전 영향·영향받는 사용자·재현 가능성을 기준으로 우선순위를 정합니다.
 
 ## Before reporting
@@ -51,16 +51,20 @@ exposure, do not open a public Issue. Follow [SECURITY.md](SECURITY.md).
 - MSRA screen sharing and mouse control are not included. They are not the same as SSH.
 - The installer is not Authenticode-signed and can show Unknown publisher or SmartScreen. Do not
   disable Windows security products to install it.
-- For 0.2.0, users on 0.1.9 also need interactive installation because the legal-document scope
-  and effective date changed. Users on 0.1.8 or earlier additionally need the previously announced
-  updater-key migration. Run the official 0.2.0 installer once; do not bypass an old app's signature error.
-- For 0.1.1 through 0.1.9, install over the existing app without first uninstalling it or deleting
+- Version 0.2.1 keeps the 0.2.0 legal documents and updater key. Users on 0.2.0 with valid legal
+  consent can check, download, verify, and approve the update in the app. Users on 0.1.9 still need
+  interactive installation to review the current legal documents. Users on 0.1.8 or earlier also
+  need the previously announced updater-key migration. Run the official 0.2.1 installer once for
+  those manual transitions; do not bypass an old app's signature error.
+- For 0.1.1 through 0.2.0, install over the existing app without first uninstalling it or deleting
   settings, sharing records, SSH configuration, or interrupted-operation records. Only 0.1.0
   requires separate removal before installation. Do not delete recovery records or mix version files
-  to repair an already damaged installation; contact support instead.
+  to repair an already damaged installation; contact support instead. If the app was already
+  removed, use the official installer without manually deleting retained Windows recovery records.
 - Later updates may be checked, downloaded, verified, and installed after approval in the app when
   the accepted legal documents are unchanged and the consent record is valid. New legal documents
-  require renewed consent through interactive installation. See [the 0.2.0 notes](docs/RELEASE-NOTES-v0.2.0.md).
+  require renewed consent through interactive installation. See [the 0.2.1 notes](docs/RELEASE-NOTES-v0.2.1.md).
+  The version-pinned release and its nine verified assets, not this preparation document, establish availability.
 - The 0.1.5 correction targets the existing-folder preparation failure reported during 0.1.4
   installation. This does not remove SAC blocking or establish completion of the hands-on test matrix.
   Do not install older intermediate versions or disable security controls to work around this error.
@@ -106,15 +110,18 @@ exposure, do not open a public Issue. Follow [SECURITY.md](SECURITY.md).
 - 화면 공유·마우스 제어용 MSRA는 포함되지 않으며 SSH와 다른 기능입니다.
 - 설치 파일은 Authenticode 미서명이라 알 수 없는 게시자나 SmartScreen이 나타날 수 있습니다.
   설치를 위해 Windows 보안 기능을 끄지 마세요.
-- 0.2.0은 법률 문서의 적용 범위와 시행일이 바뀌므로 0.1.9 사용자도 새 문서를 확인하는
-  대화형 설치가 필요합니다. 0.1.8 이하는 앞서 고지한 업데이트 키 전환도 필요합니다.
-  공식 0.2.0 설치본을 한 번 직접 실행하고, 구형 앱의 서명 오류를 우회하지 마세요.
-- 0.1.1~0.1.9는 기존 앱을 먼저 제거하거나 설정·공유 장부·SSH 설정·중단 기록을 지우지
+- 0.2.1은 0.2.0의 법률 정본·업데이트 키를 유지합니다. 정상 법률 동의 기록이 있는 0.2.0은
+  앱에서 확인·다운로드·검증·사용자 승인 후 업데이트할 수 있습니다. 0.1.9는 현행 문서를
+  확인하는 대화형 설치가 필요하며, 0.1.8 이하는 앞서 고지한 업데이트 키 전환도 필요합니다.
+  이 수동 전환 대상은 공식 0.2.1 설치본을 한 번 직접 실행하고 구형 앱의 서명 오류를 우회하지 마세요.
+- 0.1.1~0.2.0은 기존 앱을 먼저 제거하거나 설정·공유 장부·SSH 설정·중단 기록을 지우지
   않고 덮어 설치합니다. 0.1.0만 별도 제거 후 설치합니다. 이미 손상된 설치를 복구하려고
-  기록을 임의 삭제하거나 서로 다른 버전의 파일을 섞지 말고 지원에 문의하세요.
+  기록을 임의 삭제하거나 서로 다른 버전의 파일을 섞지 말고 지원에 문의하세요. 이미 앱을
+  제거했다면 남은 Windows 복구 기록을 임의 삭제하지 않고 공식 설치본을 사용하세요.
 - 후속 업데이트는 동의한 법률 정본이 그대로이고 동의 기록이 유효하면 앱에서 확인·다운로드·
   검증하고 사용자 승인 뒤 설치합니다. 법률 정본이 바뀌면 다시 대화형 설치에서 동의합니다.
-  [0.2.0 안내](docs/RELEASE-NOTES-v0.2.0.md)를 함께 확인하세요.
+  [0.2.1 안내](docs/RELEASE-NOTES-v0.2.1.md)를 함께 확인하세요. 실제 제공 여부는 이 준비 문서가
+  아니라 버전 고정 릴리스와 검증된 9자산으로 판단합니다.
 - 0.1.5는 0.1.4 설치 때 보고된 기존 폴더 준비 오류의 수정 버전이며 SAC 차단 해제나
   전체 실측 완료를 뜻하지 않습니다. 오류를 피하려고 중간 구버전을 먼저 설치하거나 보안
   기능을 끄지 마세요. [수정 안내](docs/RELEASE-NOTES-v0.1.5.md)와 [SAC 안내](SECURITY.md)를
