@@ -41,11 +41,11 @@ Download only from `pcssakinc/pcssak-gongyu-releases` or a version-pinned link o
 release. The Tauri updater verifies the published `.sig` with the Gongyu-specific
 Minisign public key, and the independently signed `UPDATE-RELEASE.json` binds
 release identity, installer hash and byte size, and the canonical installer URL.
-Version 0.2.6 keeps the 0.2.0 legal documents and updater key. Validly consented
-0.2.0, 0.2.1, 0.2.2, 0.2.3, 0.2.4, and 0.2.5 installations can use verified in-app updating with user approval. Users on
+Version 0.2.7 keeps the 0.2.0 legal documents and updater key. Validly consented
+0.2.0, 0.2.1, 0.2.2, 0.2.3, 0.2.4, 0.2.5, and 0.2.6 installations can use verified in-app updating with user approval. Users on
 0.1.9 still need interactive installation to review the current legal documents;
 0.1.8 or earlier also need the previously announced updater-key migration. For
-0.1.1 through 0.2.5, use protected replacement without first uninstalling the app
+0.1.1 through 0.2.6, use protected replacement without first uninstalling the app
 or deleting settings or Windows recovery records. Only 0.1.0 requires removal first.
 Public Early Access installers from 0.1.2 through 0.4.9, inclusive, do not
 carry an Authenticode publisher signature. Windows or security products may
@@ -139,10 +139,10 @@ Windows·두 PC SSH/SFTP 실기를 대신하지 않습니다.
 `pcssakinc/pcssak-gongyu-releases` 또는 `pcssak.com`의 버전 고정 링크에서만 받고 같은
 릴리스의 `SHA256SUMS.txt`와 설치 파일 SHA-256을 비교하세요. Tauri Updater는 공개한
 `.sig`를 Gongyu 전용 Minisign 공개키로 검증하며, 별도로 서명한 `UPDATE-RELEASE.json`이
-릴리스 신원·설치본 해시·바이트 크기와 정규 설치본 URL을 묶습니다. 0.2.6은 0.2.0의 법률
-정본·업데이트 키를 유지하므로 정상 동의 기록이 있는 0.2.0·0.2.1·0.2.2·0.2.3·0.2.4·0.2.5는 앱 안에서 검증·사용자 승인 후
+릴리스 신원·설치본 해시·바이트 크기와 정규 설치본 URL을 묶습니다. 0.2.7은 0.2.0의 법률
+정본·업데이트 키를 유지하므로 정상 동의 기록이 있는 0.2.0·0.2.1·0.2.2·0.2.3·0.2.4·0.2.5·0.2.6은 앱 안에서 검증·사용자 승인 후
 업데이트할 수 있습니다. 0.1.9는 현행 법률 문서를 확인하는 대화형 설치가 필요하며 0.1.8
-이하는 앞서 고지한 키 전환도 적용됩니다. 0.1.1~0.2.5는 앱을 먼저 제거하거나 사용자 설정·
+이하는 앞서 고지한 키 전환도 적용됩니다. 0.1.1~0.2.6은 앱을 먼저 제거하거나 사용자 설정·
 Windows 복구 기록을 지우지 않고 보호 교체합니다. 0.1.0만 별도 제거 후 설치합니다.
 0.1.2 이상 0.4.9 이하의 공개 Early Access 설치 파일에는 Authenticode
 게시자 서명이 없습니다. 따라서 Windows나 보안 제품이 경고하거나 실행을 차단할 수 있습니다.
@@ -232,3 +232,23 @@ Automatic setup verifies original-state records before changes and records new n
 by GUID. Prior terminal history is retained within 32 entries and 128 KiB, with more specific early
 progress and diagnostic codes. Existing user SSH settings and rule-change limits remain protected.
 Successful SSH access on the reporting PC has not yet been verified.
+
+## 0.2.7 규칙 비교와 기존 수동 SSH의 첫 시작
+
+0.2.7은 Windows가 같은 방화벽 규칙을 서로 다르게 표시하여 켜기 준비가 막히던 비교를 보완합니다. 경로·포트·프로필의 비교값만 정리하고 원본 정책과 복구 장부는 바꾸지 않습니다. 관리 구분은 PCSSAK 소유 규칙 세 이름만 조회하며, 공유 관리 계정이 없는 기존 수동 SSH는 첫 시작 전 설정 파일이 없어도 시작을 요청할 수 있습니다. 시작 유형·기존 설정은 보존하고 규칙 식별 진단을 일곱 갈래로 구분합니다. 실제 두 PC의 설치·SSH 접속 성공은 아직 확인하지 못했습니다.
+
+숫자 포트 구간의 순서·중복·겹침, 경로 구분자와 실제 Windows 루트의 검증된 별칭,
+전체 프로필 표기를 비교할 때만 통일합니다. 다른 프로그램·다른 포트나 불명확한 별칭을
+같다고 추측하지 않습니다. 실제 OS 식별자와 원본 정책 해시를 사용한 변경·원복 검증,
+외부 규칙 임시 변경 상한 4개, 패키지 결속·중복·조회 실패 차단은 유지합니다.
+
+기존 수동 SSH는 사용 안 함 시작 유형을 바꾸지 않습니다. 공유 관리 계정이 있는 경우에는
+기존 SSH 차단 설정을 확인하고 서비스 시작이 끝날 때까지 해당 파일의 보호를 유지합니다.
+계정 조회 실패를 계정 없음으로 취급하지 않습니다. 기존 관리·복구 기록이 있으면 기존
+PCSSAK 관리 경로를 사용하며, 단순 존재 분류로 설정의 안전성을 보증하지 않습니다.
+
+0.1.1~0.2.6은 먼저 제거하지 않고 0.2.7 설치기의 보호 교체를 사용합니다. 정상 법률 동의
+기록이 있는 0.2.0~0.2.6은 검증·사용자 승인 후 앱 내 업데이트를 사용할 수 있습니다.
+법률 정본·업데이트 공개키는 유지합니다. 실기·게시자 서명 미완료 고지도 유지합니다.
+
+Version 0.2.7 fixes comparisons that could block SSH preparation when Windows represents the same firewall rule differently. Only comparison values for paths, ports and profiles are normalized; original policies and recovery records remain unchanged. Ownership detection queries only three PCSSAK rule names. An existing manual SSH installation without managed sharing accounts can request its first start before its configuration file exists. Startup policy and existing settings are preserved, and identity diagnostics distinguish seven stages. Installation and successful SSH access between two PCs remain unverified.
