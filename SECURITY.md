@@ -41,11 +41,11 @@ Download only from `pcssakinc/pcssak-gongyu-releases` or a version-pinned link o
 release. The Tauri updater verifies the published `.sig` with the Gongyu-specific
 Minisign public key, and the independently signed `UPDATE-RELEASE.json` binds
 release identity, installer hash and byte size, and the canonical installer URL.
-Version 0.2.4 keeps the 0.2.0 legal documents and updater key. Validly consented
-0.2.0, 0.2.1, 0.2.2, and 0.2.3 installations can use verified in-app updating with user approval. Users on
+Version 0.2.5 keeps the 0.2.0 legal documents and updater key. Validly consented
+0.2.0, 0.2.1, 0.2.2, 0.2.3, and 0.2.4 installations can use verified in-app updating with user approval. Users on
 0.1.9 still need interactive installation to review the current legal documents;
 0.1.8 or earlier also need the previously announced updater-key migration. For
-0.1.1 through 0.2.3, use protected replacement without first uninstalling the app
+0.1.1 through 0.2.4, use protected replacement without first uninstalling the app
 or deleting settings or Windows recovery records. Only 0.1.0 requires removal first.
 Public Early Access installers from 0.1.2 through 0.4.9, inclusive, do not
 carry an Authenticode publisher signature. Windows or security products may
@@ -54,7 +54,7 @@ Minisign signature, and SHA-256 checks remain mandatory, but they do not prove a
 Windows publisher identity. Do not disable SmartScreen, Microsoft Defender, a
 firewall, or another security product to bypass a warning.
 
-Version 0.2.4 resolves package binding for inbound allow rules using effective policies
+Version 0.2.5 resolves package binding for inbound allow rules using effective policies
 and the Store-app network-isolation store together. A rule is excluded only when the
 observed counts, enabled states, and programs match and every matching rule is
 package-only with no program. Unmatched, unreadable, or mixed ordinary-program rules
@@ -139,10 +139,10 @@ Windows·두 PC SSH/SFTP 실기를 대신하지 않습니다.
 `pcssakinc/pcssak-gongyu-releases` 또는 `pcssak.com`의 버전 고정 링크에서만 받고 같은
 릴리스의 `SHA256SUMS.txt`와 설치 파일 SHA-256을 비교하세요. Tauri Updater는 공개한
 `.sig`를 Gongyu 전용 Minisign 공개키로 검증하며, 별도로 서명한 `UPDATE-RELEASE.json`이
-릴리스 신원·설치본 해시·바이트 크기와 정규 설치본 URL을 묶습니다. 0.2.4는 0.2.0의 법률
-정본·업데이트 키를 유지하므로 정상 동의 기록이 있는 0.2.0·0.2.1·0.2.2·0.2.3은 앱 안에서 검증·사용자 승인 후
+릴리스 신원·설치본 해시·바이트 크기와 정규 설치본 URL을 묶습니다. 0.2.5는 0.2.0의 법률
+정본·업데이트 키를 유지하므로 정상 동의 기록이 있는 0.2.0·0.2.1·0.2.2·0.2.3·0.2.4는 앱 안에서 검증·사용자 승인 후
 업데이트할 수 있습니다. 0.1.9는 현행 법률 문서를 확인하는 대화형 설치가 필요하며 0.1.8
-이하는 앞서 고지한 키 전환도 적용됩니다. 0.1.1~0.2.3은 앱을 먼저 제거하거나 사용자 설정·
+이하는 앞서 고지한 키 전환도 적용됩니다. 0.1.1~0.2.4는 앱을 먼저 제거하거나 사용자 설정·
 Windows 복구 기록을 지우지 않고 보호 교체합니다. 0.1.0만 별도 제거 후 설치합니다.
 0.1.2 이상 0.4.9 이하의 공개 Early Access 설치 파일에는 Authenticode
 게시자 서명이 없습니다. 따라서 Windows나 보안 제품이 경고하거나 실행을 차단할 수 있습니다.
@@ -150,7 +150,7 @@ Tauri 업데이트 서명, 독립 Minisign 서명과 SHA-256 검증은 유지되
 보증하지는 않습니다.
 경고를 우회하려고 SmartScreen, Microsoft Defender, 방화벽 또는 다른 보안 제품을 끄지 마세요.
 
-0.2.4는 수신 허용 규칙의 패키지 결속을 실제 적용 중인 정책과 스토어 앱의 네트워크 격리
+0.2.5는 수신 허용 규칙의 패키지 결속을 실제 적용 중인 정책과 스토어 앱의 네트워크 격리
 저장소에서 함께 읽습니다. 관측한 규칙 개수·활성 상태·프로그램이 모두 대응하며 모든 대응
 규칙이 프로그램 없는 패키지 전용일 때만 감사에서 제외합니다. 대응 없음·판독 실패·일반
 프로그램 규칙 혼합은 보수적 차단을 유지합니다. 변경은 계속 변경 가능한 저장소에만 적용합니다.
@@ -192,3 +192,21 @@ Windows 초기화 없이 재활성화가 가능하다고 사전에 확인했을 
 진행합니다. 다시 켤 수 없다면 추가 시험을 중단하고 지원을 요청하세요. 이는 Defender·
 SmartScreen·방화벽·조직 정책의 해제를 허용하지 않으며 앱은 어떤 보안 기능도 자동 변경하지
 않습니다.
+
+## 0.2.5 기존 SSH 보존과 조회 오류 수정
+
+Version 0.2.5 fixes a firewall query error that could misclassify Store-app rules and
+block starting an already installed SSH server. Preflight and application use the
+same exact rule-identity plan while retaining the temporary-change limit and recovery
+verification. An existing SSH installation with no PCSSAK management footprint uses
+separate service-only start/stop controls. Installation, firewall rules, SSH settings,
+and the startup policy are preserved; its existing network exposure is not described
+as PCSSAK same-LAN protection. Recovery buttons and rule-list guidance are also fixed.
+
+0.2.5는 이미 설치된 SSH를 다시 켤 때 스토어 앱 규칙을 충돌로 오판하던 조회 오류를 수정합니다.
+방화벽 사전 점검과 실제 적용이 같은 고유 규칙 ID 계획을 사용하며, 기존 임시 변경 상한과
+원복 검증을 유지합니다. PCSSAK 관리 흔적이 없는 기존 SSH는 별도 서비스 시작·중지로
+다루며 설치·방화벽·SSH 설정·자동 시작 유형을 보존합니다. 기존 설정의 네트워크 노출 범위를
+PCSSAK의 같은 LAN 보호로 표시하지 않습니다. 중단 복구 버튼과 오류 목록 안내도 수정합니다.
+
+외부 서비스 전용 제어는 자동 시작 유형을 바꾸지 않습니다. 기존 사용 안 함 정책이면 시작을 거부하고, 기존 설치·인증·방화벽을 초기화하지 않습니다. 네트워크 원복 기록이나 PCSSAK 관리 흔적이 남으면 기존 관리·복구 경로를 유지합니다.
