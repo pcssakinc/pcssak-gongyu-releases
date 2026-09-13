@@ -41,11 +41,11 @@ Download only from `pcssakinc/pcssak-gongyu-releases` or a version-pinned link o
 release. The Tauri updater verifies the published `.sig` with the Gongyu-specific
 Minisign public key, and the independently signed `UPDATE-RELEASE.json` binds
 release identity, installer hash and byte size, and the canonical installer URL.
-Version 0.2.5 keeps the 0.2.0 legal documents and updater key. Validly consented
-0.2.0, 0.2.1, 0.2.2, 0.2.3, and 0.2.4 installations can use verified in-app updating with user approval. Users on
+Version 0.2.6 keeps the 0.2.0 legal documents and updater key. Validly consented
+0.2.0, 0.2.1, 0.2.2, 0.2.3, 0.2.4, and 0.2.5 installations can use verified in-app updating with user approval. Users on
 0.1.9 still need interactive installation to review the current legal documents;
 0.1.8 or earlier also need the previously announced updater-key migration. For
-0.1.1 through 0.2.4, use protected replacement without first uninstalling the app
+0.1.1 through 0.2.5, use protected replacement without first uninstalling the app
 or deleting settings or Windows recovery records. Only 0.1.0 requires removal first.
 Public Early Access installers from 0.1.2 through 0.4.9, inclusive, do not
 carry an Authenticode publisher signature. Windows or security products may
@@ -139,10 +139,10 @@ Windows·두 PC SSH/SFTP 실기를 대신하지 않습니다.
 `pcssakinc/pcssak-gongyu-releases` 또는 `pcssak.com`의 버전 고정 링크에서만 받고 같은
 릴리스의 `SHA256SUMS.txt`와 설치 파일 SHA-256을 비교하세요. Tauri Updater는 공개한
 `.sig`를 Gongyu 전용 Minisign 공개키로 검증하며, 별도로 서명한 `UPDATE-RELEASE.json`이
-릴리스 신원·설치본 해시·바이트 크기와 정규 설치본 URL을 묶습니다. 0.2.5는 0.2.0의 법률
-정본·업데이트 키를 유지하므로 정상 동의 기록이 있는 0.2.0·0.2.1·0.2.2·0.2.3·0.2.4는 앱 안에서 검증·사용자 승인 후
+릴리스 신원·설치본 해시·바이트 크기와 정규 설치본 URL을 묶습니다. 0.2.6은 0.2.0의 법률
+정본·업데이트 키를 유지하므로 정상 동의 기록이 있는 0.2.0·0.2.1·0.2.2·0.2.3·0.2.4·0.2.5는 앱 안에서 검증·사용자 승인 후
 업데이트할 수 있습니다. 0.1.9는 현행 법률 문서를 확인하는 대화형 설치가 필요하며 0.1.8
-이하는 앞서 고지한 키 전환도 적용됩니다. 0.1.1~0.2.4는 앱을 먼저 제거하거나 사용자 설정·
+이하는 앞서 고지한 키 전환도 적용됩니다. 0.1.1~0.2.5는 앱을 먼저 제거하거나 사용자 설정·
 Windows 복구 기록을 지우지 않고 보호 교체합니다. 0.1.0만 별도 제거 후 설치합니다.
 0.1.2 이상 0.4.9 이하의 공개 Early Access 설치 파일에는 Authenticode
 게시자 서명이 없습니다. 따라서 Windows나 보안 제품이 경고하거나 실행을 차단할 수 있습니다.
@@ -210,3 +210,25 @@ as PCSSAK same-LAN protection. Recovery buttons and rule-list guidance are also 
 PCSSAK의 같은 LAN 보호로 표시하지 않습니다. 중단 복구 버튼과 오류 목록 안내도 수정합니다.
 
 외부 서비스 전용 제어는 자동 시작 유형을 바꾸지 않습니다. 기존 사용 안 함 정책이면 시작을 거부하고, 기존 설치·인증·방화벽을 초기화하지 않습니다. 네트워크 원복 기록이나 PCSSAK 관리 흔적이 남으면 기존 관리·복구 경로를 유지합니다.
+
+## 0.2.6 변경 전 기록과 구형 기록 호환성
+
+0.2.6은 구형 SSH 방화벽 복구 기록의 사전 검사 호환성을 수정합니다. 구형 원문과 이번
+호출 전 상태를 보존하여 이후 실패의 원복에도 사용합니다. 자동 설정은 원래 상태 기록을
+확인한 뒤 변경하며 새 네트워크 전환은 GUID로 기록합니다. 이전 작업 이력은 최대 32건·128KiB로
+보존하고 첫 단계의 세부 진행과 진단 코드를 구분합니다. 기존 사용자 SSH 설치·설정 보존과
+규칙 변경 상한은 유지합니다. 제보 PC의 실제 접속 성공은 아직 확인하지 못했습니다.
+
+신규 자동 네트워크 전환은 GUID와 원래 상태를 기록·재조회한 뒤 적용합니다. 기록 부재와
+판독 실패를 구분하며 손상된 원복 기록은 성공으로 지우지 않습니다. 과거 종료 이력은
+참고용이며 현재 복구 권한이나 안전 상태를 추정하는 근거로 사용하지 않습니다.
+
+0.1.1~0.2.5는 먼저 제거하지 않고 0.2.6 설치기의 보호 교체를 사용합니다. 정상 법률 동의
+기록이 있는 0.2.0~0.2.5는 검증과 사용자 승인 후 앱 내 업데이트를 사용할 수 있습니다.
+
+Version 0.2.6 restores preflight compatibility with older SSH firewall recovery records.
+It preserves the old record and the verified state before the current call for later rollback.
+Automatic setup verifies original-state records before changes and records new network transitions
+by GUID. Prior terminal history is retained within 32 entries and 128 KiB, with more specific early
+progress and diagnostic codes. Existing user SSH settings and rule-change limits remain protected.
+Successful SSH access on the reporting PC has not yet been verified.
