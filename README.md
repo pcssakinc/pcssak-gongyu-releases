@@ -2,47 +2,47 @@
 
 [한국어 안내](README.ko.md)
 
-> This directory is the public repository contract for PCssak Gongyu `v0.2.7`
+> This directory is the public repository contract for PCssak Gongyu `v0.2.8`
 > Free Early Access. The version-pinned GitHub release and its nine verified
 > assets are the publication record.
 
 PCssak Gongyu is a Windows utility for user-directed SMB shared-folder setup,
 LAN checks, network-drive management, and separately consented SSH setup.
-Version `0.2.7` is **Free Early Access**; this describes product maturity and
+Version `0.2.8` is **Free Early Access**; this describes product maturity and
 does not promise that future versions will remain free.
 
 ## Official download and Latest update
 
 Use only the
-[official v0.2.7 release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.2.7)
+[official v0.2.8 release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.2.8)
 or a version-pinned page on [pcssak.com](https://pcssak.com/). The release title
 states Free Early Access, while GitHub uses `draft=false`, `prerelease=false`,
 and Latest so the application can check this stable endpoint:
 
 `https://github.com/pcssakinc/pcssak-gongyu-releases/releases/latest/download/latest.json`
 
-**Users on 0.2.0, 0.2.1, 0.2.2, 0.2.3, 0.2.4, 0.2.5, or 0.2.6 with valid legal-consent records can check for 0.2.7 in the app,
+**Users on 0.2.0, 0.2.1, 0.2.2, 0.2.3, 0.2.4, 0.2.5, 0.2.6, or 0.2.7 with valid legal-consent records can check for 0.2.8 in the app,
 download and verify it, then approve installation.** The legal documents and updater
 public key are unchanged in this patch. Users on 0.1.9 run the official installer
 interactively to review the current legal documents. Users on 0.1.8 or earlier also
 need a one-time manual installation because of the previous updater-key transition.
 
-For 0.1.1 through 0.2.6, do not uninstall first or delete settings, sharing records,
+For 0.1.1 through 0.2.7, do not uninstall first or delete settings, sharing records,
 SSH configuration, or interrupted-operation records. Protected replacement preserves
 user settings without launching the old uninstaller. If the app was already removed,
 use the new installer without manually deleting Windows recovery records. Only
 0.1.0 requires removal before installing the official release. Missing consent or
 damaged installation records require the interactive installation path.
 
-Version 0.2.7 fixes comparisons that could block SSH preparation when Windows represents the same firewall rule differently. Only comparison values for paths, ports and profiles are normalized; original policies and recovery records remain unchanged. Ownership detection queries only three PCSSAK rule names. An existing manual SSH installation without managed sharing accounts can request its first start before its configuration file exists. Startup policy and existing settings are preserved, and identity diagnostics distinguish seven stages. Installation and successful SSH access between two PCs remain unverified.
-See the [release notes](docs/RELEASE-NOTES-v0.2.7.md) for details.
+Version 0.2.8 improves classification when firewall rules restricted to store or packaged apps appear among general SSH conflict candidates. An empty SID is not sufficient to classify a rule: package family name (PFN), exact Windows rule ID and original policy must match before an app-only rule is excluded. General rules sharing the same name remain separate. Existing SSH installations, settings, recovery records and original hash formats are preserved, as is the four-rule temporary-change limit. Five or more actual general conflict rules still prevent automatic handling. The development PC has no such PFN rules; real PFN-environment, two-PC installation and SSH connection tests remain unverified.
+See the [release notes](docs/RELEASE-NOTES-v0.2.8.md) for details.
 This document and automated tests do not establish successful SSH connections,
 installation, or reboot persistence on every PC. Existing immutable assets are
 preserved. The full Windows and two-PC SSH matrices remain incomplete.
 
 The public installer targets Windows x64 only:
 
-- `PCssak-Gongyu-0.2.7-Windows-x64-Setup.exe`
+- `PCssak-Gongyu-0.2.8-Windows-x64-Setup.exe`
 
 Windows x86 is not published until its separate Windows 10 x86 Home/Pro
 hands-on evidence gate passes.
@@ -66,10 +66,10 @@ using it on an important PC.
 Compare the installer SHA-256 with `SHA256SUMS.txt` from the same release:
 
 ```powershell
-Get-FileHash -Algorithm SHA256 '.\PCssak-Gongyu-0.2.7-Windows-x64-Setup.exe'
+Get-FileHash -Algorithm SHA256 '.\PCssak-Gongyu-0.2.8-Windows-x64-Setup.exe'
 ```
 
-The release also contains `PCssak-Gongyu-0.2.7-Windows-x64-Setup.exe.sig`.
+The release also contains `PCssak-Gongyu-0.2.8-Windows-x64-Setup.exe.sig`.
 PCssak Gongyu verifies updater artifacts with its embedded Gongyu-specific
 Minisign public key. `UPDATE-RELEASE.json.sig` separately binds the product,
 version, source commit, installer hash, installer byte size, embedded EULA and
