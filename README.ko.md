@@ -2,16 +2,16 @@
 
 [English](README.md)
 
-> 이 디렉터리는 PCssak Gongyu `v0.2.6` 무료 Early Access의 공개 저장소 계약입니다.
+> 이 디렉터리는 PCssak Gongyu `v0.2.7` 무료 Early Access의 공개 저장소 계약입니다.
 > 버전 고정 GitHub 릴리스와 검증된 자산 9종을 실제 게시 기록으로 봅니다.
 
 PCssak Gongyu는 사용자가 지시한 Windows SMB 공유 폴더 설정, LAN 점검, 네트워크 드라이브
-관리와 별도로 동의한 SSH 설정을 돕습니다. `0.2.6`는 **무료 Early Access**이며, 이는 제품
+관리와 별도로 동의한 SSH 설정을 돕습니다. 이번 `0.2.7` 버전은 **무료 Early Access**이며, 이는 제품
 성숙도를 정직하게 표시하는 이름이지 이후 버전도 계속 무료라는 약속은 아닙니다.
 
 ## 공식 다운로드와 자동 업데이트
 
-공개 후에는 [GitHub v0.2.6 공식 릴리스](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.2.6)
+공개 후에는 [GitHub v0.2.7 공식 릴리스](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.2.7)
 또는 [pcssak.com](https://pcssak.com/)의 버전 고정 다운로드 페이지만 사용합니다. 제목에는
 Free Early Access를 명확히 유지하되 앱의 자동 업데이트가 동작하도록 GitHub 상태는
 `draft=false`, `prerelease=false`, Latest로 게시합니다.
@@ -20,29 +20,25 @@ Free Early Access를 명확히 유지하되 앱의 자동 업데이트가 동작
 
 `https://github.com/pcssakinc/pcssak-gongyu-releases/releases/latest/download/latest.json`
 
-정상 법률 동의 기록이 남은 **0.2.0·0.2.1·0.2.2·0.2.3·0.2.4·0.2.5 사용자는 앱 안에서 0.2.6를 확인하고 다운로드·검증·
+정상 법률 동의 기록이 남은 **0.2.0·0.2.1·0.2.2·0.2.3·0.2.4·0.2.5·0.2.6 사용자는 앱 안에서 0.2.7을 확인하고 다운로드·검증·
 사용자 승인 후 업데이트**할 수 있습니다. 이번에는 법률 정본과 업데이트 공개키를 바꾸지 않습니다.
 0.1.9는 현행 법률 문서 확인을 위해 공식 설치본을 직접 실행하며, 0.1.8 이하는 이전
 업데이트 공개키 전환 때문에 공식 설치본을 한 번 직접 실행해야 합니다.
 
-0.1.1~0.2.5은 설정·공유 장부·SSH 설정·중단 기록을 지우거나 기존 앱을 먼저 제거하지
+0.1.1~0.2.6은 설정·공유 장부·SSH 설정·중단 기록을 지우거나 기존 앱을 먼저 제거하지
 않고 보호 교체합니다. 구 제거기는 실행하지 않습니다. 이미 제거했다면 새 설치본을 사용하되
 남은 Windows 복구 기록은 임의로 지우지 마세요. 0.1.0만 별도 제거 후 공식 설치본을
 직접 설치합니다. 기록이 손상됐거나 새 동의가 필요하면 대화형 설치로 안내합니다.
 
-0.2.6은 구형 SSH 방화벽 복구 기록의 사전 검사 호환성을 수정합니다. 구형 원문과 이번
-호출 전 상태를 보존하여 이후 실패의 원복에도 사용합니다. 자동 설정은 원래 상태 기록을
-확인한 뒤 변경하며 새 네트워크 전환은 GUID로 기록합니다. 이전 작업 이력은 최대 32건·128KiB로
-보존하고 첫 단계의 세부 진행과 진단 코드를 구분합니다. 기존 사용자 SSH 설치·설정 보존과
-규칙 변경 상한은 유지합니다. 제보 PC의 실제 접속 성공은 아직 확인하지 못했습니다.
-상세 변경과 검증 범위는 [릴리스 노트](docs/RELEASE-NOTES-v0.2.6.md)를 확인하세요.
+0.2.7은 Windows가 같은 방화벽 규칙을 서로 다르게 표시하여 켜기 준비가 막히던 비교를 보완합니다. 경로·포트·프로필의 비교값만 정리하고 원본 정책과 복구 장부는 바꾸지 않습니다. 관리 구분은 PCSSAK 소유 규칙 세 이름만 조회하며, 공유 관리 계정이 없는 기존 수동 SSH는 첫 시작 전 설정 파일이 없어도 시작을 요청할 수 있습니다. 시작 유형·기존 설정은 보존하고 규칙 식별 진단을 일곱 갈래로 구분합니다. 실제 두 PC의 설치·SSH 접속 성공은 아직 확인하지 못했습니다.
+상세 변경과 검증 범위는 [릴리스 노트](docs/RELEASE-NOTES-v0.2.7.md)를 확인하세요.
 실제 제공 여부는 버전 고정 릴리스와 검증된 9자산으로 판단합니다. 이 문서나 자동 시험
 통과는 모든 PC의 SSH 접속·설치·재부팅 성공을 뜻하지 않습니다. 기존 불변 자산은 보존하고
 전체 Windows·두 PC SSH 실기는 계속 미완료로 고지합니다.
 
 공개 설치본 대상은 Windows x64 하나입니다.
 
-- `PCssak-Gongyu-0.2.6-Windows-x64-Setup.exe`
+- `PCssak-Gongyu-0.2.7-Windows-x64-Setup.exe`
 
 Windows x86은 별도의 Windows 10 x86 Home·Pro 실기 증거 게이트를 통과하기 전에는
 공개하지 않습니다.
@@ -62,10 +58,10 @@ Early Access는 모든 Windows·보안 제품 조합의 무결함을 보증하�
 같은 릴리스의 `SHA256SUMS.txt`와 설치본 SHA-256을 비교하세요.
 
 ```powershell
-Get-FileHash -Algorithm SHA256 '.\PCssak-Gongyu-0.2.6-Windows-x64-Setup.exe'
+Get-FileHash -Algorithm SHA256 '.\PCssak-Gongyu-0.2.7-Windows-x64-Setup.exe'
 ```
 
-릴리스에는 설치본 `PCssak-Gongyu-0.2.6-Windows-x64-Setup.exe.sig`도 포함됩니다. 앱은
+릴리스에는 설치본 `PCssak-Gongyu-0.2.7-Windows-x64-Setup.exe.sig`도 포함됩니다. 앱은
 내장한 Gongyu 전용 Minisign 공개키로 업데이트 설치본을 검증합니다. 별도의
 `UPDATE-RELEASE.json.sig`는 제품·버전·소스 커밋·설치본 해시·바이트 크기·내장 EULA·PRIVACY
 정본 해시·정규 URL·승인 릴리스 노트를 한 묶음으로 검증합니다.
