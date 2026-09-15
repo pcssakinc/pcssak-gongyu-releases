@@ -6,37 +6,41 @@ Reports are prioritized by safety impact, affected users and reproducibility.
 PCssak Gongyu 0.1.2~0.4.9는 무료 Early Access입니다. 답변·수정 기한을 보장하는 지원 SLA는 없으며,
 안전 영향·영향받는 사용자·재현 가능성을 기준으로 우선순위를 정합니다.
 
-현재 공개 최신판은 0.3.2이며 직전 공개판은 0.2.8입니다. 0.2.9·0.3.0·0.3.1은 비공개
-시험본이었습니다. 0.3.2의 불변 일반 릴리스·Latest와 정확한 9자산의 공개 판독을 마쳤습니다.
-The current public version is 0.3.2; the previous public version was 0.2.8. Versions 0.2.9,
-0.3.0, and 0.3.1 were unpublished builds. The immutable normal 0.3.2 release, Latest, and
+현재 공개 최신판은 0.3.3이며 직전 공개판은 0.3.2입니다. 0.2.9·0.3.0·0.3.1은 비공개
+시험본이었습니다. 0.3.3의 불변 일반 릴리스·Latest와 정확한 9자산의 공개 판독을 마쳤습니다.
+The current public version is 0.3.3; the previous public version was 0.3.2. Versions 0.2.9,
+0.3.0, and 0.3.1 were unpublished builds. The immutable normal 0.3.3 release, Latest, and
 its exact nine assets have passed public readback verification.
 
-## 0.3.3 공개 준비와 검증 범위 / 0.3.3 preparation and verification scope
+## 0.3.3 공개와 검증 범위 / 0.3.3 publication and verification scope
 
-0.3.3 문서는 결과 재조회·기존 기록 대조·재부팅 및 설치 진행 안내의 보완 범위를
-설명합니다. 소스 `6529e249`의 로컬 14단계는 Rust x64·i686 각각 956개·UI 436개를
-포함해 통과했습니다. 출시용 문서 정리 후 최종 소스에는 검증을 다시 결속합니다.
-[0.3.3 변경일기](docs/RELEASE-NOTES-v0.3.3.md)의 실기 범위는 읽기 전용 관측까지이며
-실제 설치·SSH 전환·접속은 `NOT_RUN`입니다. 이 기록은 설치본·두 서명·9자산·공개·
-홈페이지 검증을 대신하지 않습니다. 아래 0.3.2의 실패와 기록 보존 안내는 유지합니다.
+[0.3.3 공식 릴리스](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.3.3)는
+2026-09-15 13:46:27 UTC에 공개했습니다. 최종 소스 `33cf1849`의 로컬 14단계는
+Rust x64·i686 각각 956개·UI 436개를 포함해 통과했고, 공개 후 인증 없는 재다운로드에서
+9자산·두 서명·세 스키마·MPL 원본과 이전 0.3.2 보존을 확인했습니다.
+[0.3.3 변경일기](docs/RELEASE-NOTES-v0.3.3.md)의 실제 PC 검증 범위는 읽기 전용
+관측까지입니다. 설치·SSH 전환·접속은 `NOT_RUN`이며 공개가 해당 PC의 복구 성공을
+뜻하지 않습니다. 홈페이지 운영 검증은 별도이며 최종 결과는 후속 날짜별 기록에서
+확인합니다. 아래 0.3.2 실패 기록도 유지합니다.
 
-The 0.3.3 documents describe the read-back, existing-record comparison, restart and
-installation-progress changes. Source `6529e249` passed 14 local steps, including 956
-Rust tests on each of x64/i686 and 436 UI tests. The final source needs verification
-bound again after release-document changes. The [0.3.3 notes](docs/RELEASE-NOTES-v0.3.3.md)
-record read-only observation; installation, live SSH transitions and access are `NOT_RUN`.
-This does not establish installer, signature, nine-asset, publication or website checks.
-The 0.3.2 failure and record-preservation guidance below remain in place.
+The [official 0.3.3 release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.3.3)
+was published on 2026-09-15 at 13:46:27 UTC. Final source `33cf1849` passed 14 local steps,
+including 956 Rust tests on each of x64/i686 and 436 UI tests. Anonymous public readback
+verified nine assets, two signatures, three schemas, MPL originals and preservation of 0.3.2.
+The [0.3.3 notes](docs/RELEASE-NOTES-v0.3.3.md) record read-only PC observation; installation,
+live SSH transitions and access are `NOT_RUN`. Publication does not establish recovery on
+the affected PC. Website operational validation is separate; its final result belongs in
+the dated follow-up records. The 0.3.2
+failure and record-preservation guidance below remain available.
 
-## Current 0.3.2 SSH issue / 현재 0.3.2 SSH 문제
+## Reported 0.3.2 SSH issue / 0.3.2에서 확인한 SSH 문제
 
 On 2026-09-15 at 21:02 KST, a user test recognized an existing SSH installation,
 then failed at 84% during firewall-rule processing with `native_method_output_null`
 and `HRESULT=0`. Rollback verification remained incomplete, and the next enable
 attempt stopped at 2% with `LEGACY-RECOVERY`. This is an observed failure, not a
-confirmed root cause or a successful rollback. Investigation and correction are in
-progress; recovery on the affected PC has not been verified. Passing automated
+successful rollback. Version 0.3.3 adds checked read-back and address-comparison fixes;
+recovery on the affected PC has not been verified. Passing automated
 tests and public asset checks does not resolve this hands-on report.
 
 For this symptom, stop repeated enable or recovery attempts and keep the app,
@@ -44,26 +48,28 @@ settings and recovery records intact while waiting for verified support guidance
 Do not delete journals, manually reset firewall rules, mix installation files or
 disable Windows security controls. Contact `support@pcssak.com` with the version,
 stage and the short error identifiers above; do not send raw logs or private paths,
-accounts or network details. The 0.3.2 homepage rollout is paused, with the homepage
-still showing 0.2.8. This does not establish that downgrading would repair the state.
+accounts or network details. The 0.3.2 homepage rollout was paused with the homepage
+kept on 0.2.8 at that time. This does not establish that downgrading would repair the state.
 
 2026-09-15 21:02 KST 사용자 실기에서는 기존 SSH 설치를 인식한 뒤 방화벽 규칙 처리
 84%에서 `native_method_output_null`, `HRESULT=0`으로 실패했습니다. 실패 후 원복 검증은
 미완료이며 다음 켜기는 2%에서 `LEGACY-RECOVERY`로 중단됐습니다. 관측한 실패를 알리는
-것이며 상세 원인이나 원복 성공을 확정한 내용이 아닙니다. 조사·수정 중이고 해당 PC의
-복구는 검증하지 못했습니다. 자동 시험·공개 자산 검증 통과는 이 실기 제보의 해결 증거가 아닙니다.
+것이며 원복 성공을 확정한 내용이 아닙니다. 0.3.3에 결과 재조회·주소 비교 보완을 넣었지만
+해당 PC의 복구는 검증하지 못했습니다. 자동 시험·공개 자산 검증은 실기 해결의 증거가 아닙니다.
 
 이 증상이 있으면 켜기·복구를 반복하지 말고 앱·설정·복구 기록을 보존한 채 검증된 지원
 안내를 기다리세요. 장부 삭제·방화벽 규칙 수동 초기화·설치 파일 혼용·Windows 보안 해제로
 우회하지 마세요. `support@pcssak.com`에는 버전·발생 단계·위의 짧은 오류 식별자만 먼저
 전달하고 원본 로그·개인 경로·계정·네트워크 정보를 보내지 마세요. 홈페이지의 0.3.2
-전환은 보류하고 기존 0.2.8을 유지합니다. 구버전 설치로 복구된다는 뜻이 아닙니다.
+전환은 당시 보류하고 기존 0.2.8을 유지했습니다. 구버전 설치로 복구된다는 뜻이 아닙니다.
 
 아래 일반 재개 안내보다 이 문제의 현재 보류 안내를 우선합니다. 기존 불변 릴리스·태그·
-다운로드 자산·승인 노트는 보존하며 수정판의 검증·공개 상태는 별도 안내합니다.
+다운로드 자산·승인 노트는 보존합니다. 0.3.3의 검증·공개는 위 절과
+[공개 마감 기록](WORKLOG_2026-09-15_V0.3.3_PUBLIC_CLOSEOUT.md)에서 확인합니다.
 For this issue, the current pause guidance takes precedence over the general resume
 guidance below. Immutable releases, tags, assets and approved notes are preserved;
-any corrected release and its verification will be announced separately.
+the 0.3.3 verification and publication are recorded above and in the
+[publication closeout](WORKLOG_2026-09-15_V0.3.3_PUBLIC_CLOSEOUT.md).
 
 ## Before reporting
 
@@ -122,13 +128,13 @@ exposure, do not open a public Issue. Follow [SECURITY.md](SECURITY.md).
 - MSRA screen sharing and mouse control are not included. They are not the same as SSH.
 - The installer is not Authenticode-signed and can show Unknown publisher or SmartScreen. Do not
   disable Windows security products to install it.
-- Version 0.3.2 keeps the 0.2.0 legal documents and updater key. Users on public 0.2.0 through
-  0.2.8 or unpublished 0.2.9, 0.3.0, and 0.3.1 with valid legal consent can check, download,
-  verify, and approve the update in the app after the signed 0.3.2 assets are published. Users on 0.1.9 still need
+- Version 0.3.3 keeps the 0.2.0 legal documents and updater key. Users on public 0.2.0 through
+  0.2.8, public 0.3.2 or unpublished 0.2.9, 0.3.0, and 0.3.1 with valid legal consent can check,
+  download, verify, and approve the published 0.3.3 update in the app. Users on 0.1.9 still need
   interactive installation to review the current legal documents. Users on 0.1.8 or earlier also
-  need the previously announced updater-key migration. Run the official 0.3.2 installer once for
+  need the previously announced updater-key migration. Run the official 0.3.3 installer once for
   those manual transitions; do not bypass an old app's signature error.
-- For 0.1.1 through 0.3.1, install over the existing app without first uninstalling it or deleting
+- For 0.1.1 through 0.3.2, install over the existing app without first uninstalling it or deleting
   settings, sharing records, SSH configuration, or interrupted-operation records. Only 0.1.0
   requires separate removal before installation. Do not delete recovery records or mix version files
   to repair an already damaged installation; contact support instead. If the app was already
@@ -154,8 +160,8 @@ exposure, do not open a public Issue. Follow [SECURITY.md](SECURITY.md).
   already started.
 - Later updates may be checked, downloaded, verified, and installed after approval in the app when
   the accepted legal documents are unchanged and the consent record is valid. New legal documents
-  require renewed consent through interactive installation. See [the 0.3.2 notes](docs/RELEASE-NOTES-v0.3.2.md).
-  The version-pinned release and its nine verified assets, not this preparation document, establish availability.
+  require renewed consent through interactive installation. See [the 0.3.3 notes](docs/RELEASE-NOTES-v0.3.3.md).
+  The version-pinned release and its nine verified assets establish availability.
 - The 0.1.5 correction targets the existing-folder preparation failure reported during 0.1.4
   installation. This does not remove SAC blocking or establish completion of the hands-on test matrix.
   Do not install older intermediate versions or disable security controls to work around this error.
@@ -211,12 +217,12 @@ exposure, do not open a public Issue. Follow [SECURITY.md](SECURITY.md).
 - 화면 공유·마우스 제어용 MSRA는 포함되지 않으며 SSH와 다른 기능입니다.
 - 설치 파일은 Authenticode 미서명이라 알 수 없는 게시자나 SmartScreen이 나타날 수 있습니다.
   설치를 위해 Windows 보안 기능을 끄지 마세요.
-- 이번 0.3.2 버전은 0.2.0의 법률 정본·업데이트 키를 유지합니다. 정상 법률 동의 기록이 있는
-  공개 0.2.0~0.2.8과 비공개 0.2.9·0.3.0·0.3.1 사용자는 서명된 0.3.2 자산이 공개된 뒤
+- 이번 0.3.3 버전은 0.2.0의 법률 정본·업데이트 키를 유지합니다. 정상 법률 동의 기록이 있는
+  공개 0.2.0~0.2.8·0.3.2와 비공개 0.2.9·0.3.0·0.3.1 사용자는 공개된 0.3.3 자산을
   앱에서 확인·다운로드·검증·사용자 승인 후 업데이트할 수 있습니다. 0.1.9는 현행 문서를
   확인하는 대화형 설치가 필요하며, 0.1.8 이하는 앞서 고지한 업데이트 키 전환도 필요합니다.
-  이 수동 전환 대상은 공식 0.3.2 설치본을 한 번 직접 실행하고 구형 앱의 서명 오류를 우회하지 마세요.
-- 0.1.1~0.3.1 사용자는 기존 앱을 먼저 제거하거나 설정·공유 장부·SSH 설정·중단 기록을 지우지
+  이 수동 전환 대상은 공식 0.3.3 설치본을 한 번 직접 실행하고 구형 앱의 서명 오류를 우회하지 마세요.
+- 0.1.1~0.3.2 사용자는 기존 앱을 먼저 제거하거나 설정·공유 장부·SSH 설정·중단 기록을 지우지
   않고 덮어 설치합니다. 0.1.0만 별도 제거 후 설치합니다. 이미 손상된 설치를 복구하려고
   기록을 임의 삭제하거나 서로 다른 버전의 파일을 섞지 말고 지원에 문의하세요. 이미 앱을
   제거했다면 남은 Windows 복구 기록을 임의 삭제하지 않고 공식 설치본을 사용하세요.
@@ -238,16 +244,16 @@ exposure, do not open a public Issue. Follow [SECURITY.md](SECURITY.md).
   변경의 취소로 해석하지 않습니다.
 - 후속 업데이트는 동의한 법률 정본이 그대로이고 동의 기록이 유효하면 앱에서 확인·다운로드·
   검증하고 사용자 승인 뒤 설치합니다. 법률 정본이 바뀌면 다시 대화형 설치에서 동의합니다.
-  [0.3.2 안내](docs/RELEASE-NOTES-v0.3.2.md)를 함께 확인하세요. 실제 제공 여부는 이 준비 문서가
-  아니라 버전 고정 릴리스와 검증된 9자산으로 판단합니다.
+  [0.3.3 안내](docs/RELEASE-NOTES-v0.3.3.md)를 함께 확인하세요. 실제 제공 여부는
+  버전 고정 릴리스와 검증된 9자산으로 판단합니다.
 - 0.1.5는 0.1.4 설치 때 보고된 기존 폴더 준비 오류의 수정 버전이며 SAC 차단 해제나
   전체 실측 완료를 뜻하지 않습니다. 오류를 피하려고 중간 구버전을 먼저 설치하거나 보안
   기능을 끄지 마세요. [수정 안내](docs/RELEASE-NOTES-v0.1.5.md)와 [SAC 안내](SECURITY.md)를
   함께 확인하세요.
 
-## 0.3.3 공개 후 이행 계약 — 아직 실행하지 않는 후보 안내
+## 0.3.3 공개 후 이행 계약
 
-실제 서명 자산이 공개된 뒤 정상 법률 동의가 있는 공개 0.2.0~0.2.8·0.3.2 및
+서명 자산이 공개됐으며 정상 법률 동의가 있는 공개 0.2.0~0.2.8·0.3.2 및
 비공개 0.2.9·0.3.0·0.3.1에서 앱 업데이트를 확인할 수 있습니다. 0.1.1~0.3.2는
 설정·공유·SSH·중단 기록을 보존하는 보호 교체 대상입니다. 0.1.9의 법률 문서 확인,
 0.1.8 이하의 공개키 전환, 0.1.0의 별도 제거 예외는 위 기존 안내와 같습니다.
