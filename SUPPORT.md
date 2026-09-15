@@ -6,10 +6,11 @@ Reports are prioritized by safety impact, affected users and reproducibility.
 PCssak Gongyu 0.1.2~0.4.9는 무료 Early Access입니다. 답변·수정 기한을 보장하는 지원 SLA는 없으며,
 안전 영향·영향받는 사용자·재현 가능성을 기준으로 우선순위를 정합니다.
 
-현재 공개 최신판은 0.2.8이며 0.2.9·0.3.0·0.3.1은 비공개 시험본입니다. 아래 0.3.2
-안내는 공개 준비 계약이며 실제 제공 여부는 검증된 버전 고정 릴리스로 확인합니다.
-The current public version is 0.2.8. Versions 0.2.9, 0.3.0, and 0.3.1 were unpublished builds.
-The 0.3.2 guidance below is a preparation contract; verified publication establishes availability.
+현재 공개 최신판은 0.3.2이며 직전 공개판은 0.2.8입니다. 0.2.9·0.3.0·0.3.1은 비공개
+시험본이었습니다. 0.3.2의 불변 일반 릴리스·Latest와 정확한 9자산의 공개 판독을 마쳤습니다.
+The current public version is 0.3.2; the previous public version was 0.2.8. Versions 0.2.9,
+0.3.0, and 0.3.1 were unpublished builds. The immutable normal 0.3.2 release, Latest, and
+its exact nine assets have passed public readback verification.
 
 ## Before reporting
 

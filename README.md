@@ -11,9 +11,21 @@ LAN checks, network-drive management, and separately consented SSH setup.
 Version `0.3.2` is **Free Early Access**; this describes product maturity and
 does not promise that future versions will remain free.
 
-## Candidate status
+## Published release
 
-Version 0.3.2 has passed development regressions; final-source and publication validation are still pending. The current public release remains 0.2.8. Versions 0.2.9, 0.3.0 and 0.3.1 were unpublished test builds. The links and asset names below describe the planned 0.3.2 contract and become available only after publication. No signing or public-readback success is claimed here.
+Version 0.3.2 was published on 2026-09-15 at 11:56:37 UTC as an immutable normal
+Free Early Access release and is the verified GitHub Latest (Release ID `389103774`).
+The approved final source passed all 14 local verification steps. Anonymous readback
+verified all nine assets, both update signatures, three schemas, the notes/legal/source
+binding, the five original MPL components, and preservation of the previous 0.2.8 release.
+Versions 0.2.9, 0.3.0 and 0.3.1 were unpublished test builds; 0.2.8 was the previous public release.
+
+The installer is 3,797,928 bytes; SHA-256:
+`bbc1073117c350c8416e0f09c363b41376dbbb052c6ff76e22392877bbf524f9`.
+See the [publication record](https://github.com/pcssakinc/pcssak-gongyu-releases/blob/main/WORKLOG_2026-09-15_V0.3.2_PUBLIC_RELEASE_CLOSEOUT.md)
+for the source, immutable tag target, and verification evidence. Homepage deployment
+and validation are tracked separately; this GitHub publication does not establish
+successful installation, firewall recovery, SSH/SFTP, or reboot behavior on the reported PC.
 
 ## Official download and Latest update
 

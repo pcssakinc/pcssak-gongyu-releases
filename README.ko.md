@@ -9,13 +9,23 @@ PCssak Gongyu는 사용자가 지시한 Windows SMB 공유 폴더 설정, LAN �
 관리와 별도로 동의한 SSH 설정을 돕습니다. 이번 `0.3.2` 버전은 **무료 Early Access**이며, 이는 제품
 성숙도를 정직하게 표시하는 이름이지 이후 버전도 계속 무료라는 약속은 아닙니다.
 
-## 준비 상태
+## 공개 상태
 
-0.3.2는 개발 회귀를 통과했으며 최종 소스·공개 검증을 앞둔 후보입니다. 현재 공개 최신판은 0.2.8이며 0.2.9·0.3.0·0.3.1은 비공개 시험본입니다. 아래 링크·파일명은 0.3.2 공개 계약이며 실제 게시 이후에 제공됩니다. 현재 서명·익명 공개 검증이나 실제 복구 성공을 완료로 표시하지 않습니다.
+0.3.2는 2026-09-15 20:56:37 KST에 무료 Early Access의 불변 일반 릴리스로 공개됐으며,
+GitHub Latest로 확인했습니다. Release ID는 `389103774`입니다. 승인한 최종 소스의
+로컬 14단계를 모두 통과했고, 인증 없는 공개 판독에서 정확한 9자산·업데이트 서명 2개·
+스키마 3개·노트/법률/소스 결속·MPL 원본 5개와 이전 0.2.8 보존을 확인했습니다.
+직전 공개판은 0.2.8이며 0.2.9·0.3.0·0.3.1은 비공개 시험본이었습니다.
+
+설치본은 3,797,928바이트이며 SHA-256은 다음과 같습니다.
+`bbc1073117c350c8416e0f09c363b41376dbbb052c6ff76e22392877bbf524f9`
+소스·불변 태그 대상·검증 근거는 [공개 마감 기록](https://github.com/pcssakinc/pcssak-gongyu-releases/blob/main/WORKLOG_2026-09-15_V0.3.2_PUBLIC_RELEASE_CLOSEOUT.md)을
+따릅니다. 홈페이지 배포·검증은 별도 기록하며 이 GitHub 공개를 제보 PC의 실제 설치·
+방화벽 복구·SSH/SFTP·재부팅 성공으로 해석하지 않습니다.
 
 ## 공식 다운로드와 자동 업데이트
 
-공개 후에는 [GitHub v0.3.2 공식 릴리스](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.3.2)
+[GitHub v0.3.2 공식 릴리스](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.3.2)
 또는 [pcssak.com](https://pcssak.com/)의 버전 고정 다운로드 페이지만 사용합니다. 제목에는
 Free Early Access를 명확히 유지하되 앱의 자동 업데이트가 동작하도록 GitHub 상태는
 `draft=false`, `prerelease=false`, Latest로 게시합니다.
