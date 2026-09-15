@@ -233,9 +233,15 @@ by GUID. Prior terminal history is retained within 32 entries and 128 KiB, with 
 progress and diagnostic codes. Existing user SSH settings and rule-change limits remain protected.
 Successful SSH access on the reporting PC has not yet been verified.
 
-## 0.3.2 후보 준비와 기존 SSH 보존
+## 0.3.2 공개 상태와 기존 SSH 보존
 
-현재 공개 최신판은 0.2.8입니다. 0.2.9·0.3.0·0.3.1은 비공개 시험본이며 0.3.2의 개발 회귀는 통과했으며 최종 검증은 별도 진행합니다. The current public version is 0.2.8; 0.2.9, 0.3.0 and 0.3.1 were unpublished builds. Version 0.3.2 passed development regressions; final validation remains separate.
+현재 공개 최신판은 0.3.2이며 직전 공개판은 0.2.8입니다. 0.2.9·0.3.0·0.3.1은 비공개
+시험본이었습니다. 최종 소스 14단계와 불변 일반 Latest·9자산·두 서명의 공개 검증을
+마쳤으며 실제 PC 복구·연결 성공과는 구분합니다. The current public version is 0.3.2;
+the previous public version was 0.2.8. Versions 0.2.9, 0.3.0 and 0.3.1 were unpublished builds.
+The final source passed 14 verification steps, and public readback verified the immutable
+normal Latest release, nine assets and both signatures. Actual PC recovery and connectivity
+remain separate, unverified checks.
 
 0.3.2는 이전 방화벽 기록 복구의 결과 판독과 진행 안내를 보완했습니다. 원래 WMI 상태 코드·출력 객체·메서드 반환값과 실제 규칙 상태를 구분하고, 불확실한 결과를 성공으로 바꾸거나 같은 변경 명령을 자동 반복하지 않습니다. 복구의 실제 단계·처리 건수·경과 시간을 표시하며 시작부터 후속 상태 조회가 끝날 때까지 중복 요청을 막습니다. 화면 취소는 실제 작업 취소가 아니며 실제 종료까지 기다립니다. 중복 읽기를 줄여도 변경 전후의 필수 확인은 유지합니다. 복구 원문과 부분 진행 기록, 기존 SSH 설치·설정과 일반 규칙 변경 상한 4개를 보존합니다. 비공개 0.2.9·0.3.0·0.3.1의 방화벽 형식 호환·기록 복구·SSH 보존형 제거·서비스 및 재부팅 안내·통신 라이브러리 보완도 누적합니다. 개발 회귀는 통과했으며 최종 14단계와 공개 검증은 별도 기록합니다. 회사 PC의 실제 복구·SSH·공유 성공은 아직 확인하지 않았습니다.
 
