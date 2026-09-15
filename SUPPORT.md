@@ -6,6 +6,11 @@ Reports are prioritized by safety impact, affected users and reproducibility.
 PCssak Gongyu 0.1.2~0.4.9는 무료 Early Access입니다. 답변·수정 기한을 보장하는 지원 SLA는 없으며,
 안전 영향·영향받는 사용자·재현 가능성을 기준으로 우선순위를 정합니다.
 
+현재 공개 최신판은 0.2.8이며 0.2.9·0.3.0·0.3.1은 비공개 시험본입니다. 아래 0.3.2
+안내는 공개 준비 계약이며 실제 제공 여부는 검증된 버전 고정 릴리스로 확인합니다.
+The current public version is 0.2.8. Versions 0.2.9, 0.3.0, and 0.3.1 were unpublished builds.
+The 0.3.2 guidance below is a preparation contract; verified publication establishes availability.
+
 ## Before reporting
 
 1. Confirm the exact app version and that the installer came from the official version-pinned
@@ -16,7 +21,7 @@ PCssak Gongyu 0.1.2~0.4.9는 무료 Early Access입니다. 답변·수정 기한
 4. State whether the affected PC is the host or connecting PC, whether administrator elevation was
    used, and whether the host network profile is Private, Domain or Public.
 5. Identify the affected step: installation, startup, signed in-app update, automatic setup,
-   sharing, mapping, pairing, PCSSAK-managed SSH setup/enable/disable/full reset, existing SSH
+   sharing, mapping, pairing, PCSSAK-managed SSH setup/enable/disable/full restore, existing SSH
    service start/stop, SSH login, SFTP, recovery or
    uninstall.
 6. Reproduce only with a small synthetic folder, account and filename. Do not repeat a step that
@@ -63,13 +68,13 @@ exposure, do not open a public Issue. Follow [SECURITY.md](SECURITY.md).
 - MSRA screen sharing and mouse control are not included. They are not the same as SSH.
 - The installer is not Authenticode-signed and can show Unknown publisher or SmartScreen. Do not
   disable Windows security products to install it.
-- Version 0.2.8 keeps the 0.2.0 legal documents and updater key. Users on 0.2.0, 0.2.1, 0.2.2,
-  0.2.3, 0.2.4, 0.2.5, 0.2.6, or 0.2.7 with valid legal consent can check, download, verify, and approve the update in
-  the app. Users on 0.1.9 still need
+- Version 0.3.2 keeps the 0.2.0 legal documents and updater key. Users on public 0.2.0 through
+  0.2.8 or unpublished 0.2.9, 0.3.0, and 0.3.1 with valid legal consent can check, download,
+  verify, and approve the update in the app after the signed 0.3.2 assets are published. Users on 0.1.9 still need
   interactive installation to review the current legal documents. Users on 0.1.8 or earlier also
-  need the previously announced updater-key migration. Run the official 0.2.8 installer once for
+  need the previously announced updater-key migration. Run the official 0.3.2 installer once for
   those manual transitions; do not bypass an old app's signature error.
-- For 0.1.1 through 0.2.7, install over the existing app without first uninstalling it or deleting
+- For 0.1.1 through 0.3.1, install over the existing app without first uninstalling it or deleting
   settings, sharing records, SSH configuration, or interrupted-operation records. Only 0.1.0
   requires separate removal before installation. Do not delete recovery records or mix version files
   to repair an already damaged installation; contact support instead. If the app was already
@@ -78,6 +83,16 @@ exposure, do not open a public Issue. Follow [SECURITY.md](SECURITY.md).
   inspection reads the actual state and releases the block only after verifying a consistent
   completed or fully off state. Otherwise keep the records and use the matching SSH resume,
   retry, or administrator guidance. Reinstalling does not justify deleting recovery records.
+- The dedicated older firewall-record recovery keeps original records, unresolved entries, and
+  partial progress, and resumes only the plan the user approved. Ordinary SSH enable or automatic
+  inspection does not complete this recovery. Screen cancellation or its 610-second wait limit
+  does not cancel the actual worker. Stage n/m counts are not an overall success percentage.
+  Duplicate requests remain blocked through the follow-up SSH status read; recovery does not
+  automatically start SSH. An error may follow a partial change, so keep the records.
+- Uninstall sharing cleanup removes tracked sharing, member connections, and recorded SMB settings
+  while preserving SSH, network profiles, and their recovery records. User files are not deleted;
+  local app-data removal is a separate choice. Save open files first. On failure, preserve the app
+  and records and resume the same cleanup choice; full SSH restoration is a separate operation.
 - Safe stop during an active PCSSAK-managed SSH change sends a cooperative request. It does not
   force Windows operations to terminate. DISM installation can finish before the next safe checkpoint;
   cancellation is reported only after rollback is verified. An operation already in final
@@ -85,7 +100,7 @@ exposure, do not open a public Issue. Follow [SECURITY.md](SECURITY.md).
   already started.
 - Later updates may be checked, downloaded, verified, and installed after approval in the app when
   the accepted legal documents are unchanged and the consent record is valid. New legal documents
-  require renewed consent through interactive installation. See [the 0.2.8 notes](docs/RELEASE-NOTES-v0.2.8.md).
+  require renewed consent through interactive installation. See [the 0.3.2 notes](docs/RELEASE-NOTES-v0.3.2.md).
   The version-pinned release and its nine verified assets, not this preparation document, establish availability.
 - The 0.1.5 correction targets the existing-folder preparation failure reported during 0.1.4
   installation. This does not remove SAC blocking or establish completion of the hands-on test matrix.
@@ -142,25 +157,34 @@ exposure, do not open a public Issue. Follow [SECURITY.md](SECURITY.md).
 - 화면 공유·마우스 제어용 MSRA는 포함되지 않으며 SSH와 다른 기능입니다.
 - 설치 파일은 Authenticode 미서명이라 알 수 없는 게시자나 SmartScreen이 나타날 수 있습니다.
   설치를 위해 Windows 보안 기능을 끄지 마세요.
-- 이번 0.2.8 버전은 0.2.0의 법률 정본·업데이트 키를 유지합니다. 정상 법률 동의 기록이 있는
-  0.2.0·0.2.1·0.2.2·0.2.3·0.2.4·0.2.5·0.2.6·0.2.7 사용자는
+- 이번 0.3.2 버전은 0.2.0의 법률 정본·업데이트 키를 유지합니다. 정상 법률 동의 기록이 있는
+  공개 0.2.0~0.2.8과 비공개 0.2.9·0.3.0·0.3.1 사용자는 서명된 0.3.2 자산이 공개된 뒤
   앱에서 확인·다운로드·검증·사용자 승인 후 업데이트할 수 있습니다. 0.1.9는 현행 문서를
   확인하는 대화형 설치가 필요하며, 0.1.8 이하는 앞서 고지한 업데이트 키 전환도 필요합니다.
-  이 수동 전환 대상은 공식 0.2.8 설치본을 한 번 직접 실행하고 구형 앱의 서명 오류를 우회하지 마세요.
-- 0.1.1~0.2.7 사용자는 기존 앱을 먼저 제거하거나 설정·공유 장부·SSH 설정·중단 기록을 지우지
+  이 수동 전환 대상은 공식 0.3.2 설치본을 한 번 직접 실행하고 구형 앱의 서명 오류를 우회하지 마세요.
+- 0.1.1~0.3.1 사용자는 기존 앱을 먼저 제거하거나 설정·공유 장부·SSH 설정·중단 기록을 지우지
   않고 덮어 설치합니다. 0.1.0만 별도 제거 후 설치합니다. 이미 손상된 설치를 복구하려고
   기록을 임의 삭제하거나 서로 다른 버전의 파일을 섞지 말고 지원에 문의하세요. 이미 앱을
   제거했다면 남은 Windows 복구 기록을 임의 삭제하지 않고 공식 설치본을 사용하세요.
 - 중단 기록은 설정 복구 카드에서 확인하세요. 자동 점검이 제공되는 경우 실제 상태를 읽고
   일관된 완료 또는 완전히 꺼진 상태가 검증된 경우에만 차단을 해제합니다. 그 밖에는 기록을
   보존하고 해당 SSH 재개·재조회·관리자 안내를 따르세요. 재설치했다고 복구 기록을 지우지 마세요.
+- 전용 「이전 방화벽 기록 복구」는 원문·미해결 항목·부분 진행을 보존하고 사용자가 승인한
+  계획만 이어갑니다. 일반 SSH 켜기나 자동 점검으로 이 복구를 완료 처리하지 않습니다.
+  조회 화면 취소나 610초 대기 상한은 실제 작업 취소가 아니며 단계 n/m은 전체 성공률이
+  아닙니다. 후속 SSH 상태 판독까지 중복 요청을 막고 복구 후 SSH를 자동으로 켜지 않습니다.
+  일부 변경 뒤 오류가 날 수도 있으므로 기록을 보존하세요.
+- 제거의 공유 정리는 추적한 공유·회원 연결·기록된 SMB 설정을 정리하면서 SSH·네트워크
+  프로필과 해당 원복 기록을 보존합니다. 사용자 파일은 삭제하지 않으며 로컬 앱 데이터
+  삭제는 별도 선택입니다. 열린 파일을 먼저 저장하세요. 실패하면 앱과 기록을 보존하고
+  같은 정리 선택으로 이어가며 SSH 완전 원복은 별도 기능입니다.
 - PCSSAK 관리형 SSH 변경 중 안전 중지는 협조적 요청이며 Windows 작업을 강제 종료하지 않습니다. DISM
   설치는 끝난 뒤 다음 안전 지점에서 중지를 반영하고, 원복이 검증된 경우에만 취소로 표시합니다.
   마지막 검증 단계에서는 그대로 완료될 수도 있습니다. 준비 취소를 이미 시작한 Windows
   변경의 취소로 해석하지 않습니다.
 - 후속 업데이트는 동의한 법률 정본이 그대로이고 동의 기록이 유효하면 앱에서 확인·다운로드·
   검증하고 사용자 승인 뒤 설치합니다. 법률 정본이 바뀌면 다시 대화형 설치에서 동의합니다.
-  [0.2.8 안내](docs/RELEASE-NOTES-v0.2.8.md)를 함께 확인하세요. 실제 제공 여부는 이 준비 문서가
+  [0.3.2 안내](docs/RELEASE-NOTES-v0.3.2.md)를 함께 확인하세요. 실제 제공 여부는 이 준비 문서가
   아니라 버전 고정 릴리스와 검증된 9자산으로 판단합니다.
 - 0.1.5는 0.1.4 설치 때 보고된 기존 폴더 준비 오류의 수정 버전이며 SAC 차단 해제나
   전체 실측 완료를 뜻하지 않습니다. 오류를 피하려고 중간 구버전을 먼저 설치하거나 보안

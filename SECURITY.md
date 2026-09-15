@@ -41,7 +41,7 @@ Download only from `pcssakinc/pcssak-gongyu-releases` or a version-pinned link o
 release. The Tauri updater verifies the published `.sig` with the Gongyu-specific
 Minisign public key, and the independently signed `UPDATE-RELEASE.json` binds
 release identity, installer hash and byte size, and the canonical installer URL.
-Version 0.2.8 keeps the 0.2.0 legal documents and updater key. Validly consented
+Version 0.3.2 keeps the 0.2.0 legal documents and updater key. Validly consented
 0.2.0, 0.2.1, 0.2.2, 0.2.3, 0.2.4, 0.2.5, 0.2.6, and 0.2.7 installations can use verified in-app updating with user approval. Users on
 0.1.9 still need interactive installation to review the current legal documents;
 0.1.8 or earlier also need the previously announced updater-key migration. For
@@ -139,10 +139,10 @@ Windows·두 PC SSH/SFTP 실기를 대신하지 않습니다.
 `pcssakinc/pcssak-gongyu-releases` 또는 `pcssak.com`의 버전 고정 링크에서만 받고 같은
 릴리스의 `SHA256SUMS.txt`와 설치 파일 SHA-256을 비교하세요. Tauri Updater는 공개한
 `.sig`를 Gongyu 전용 Minisign 공개키로 검증하며, 별도로 서명한 `UPDATE-RELEASE.json`이
-릴리스 신원·설치본 해시·바이트 크기와 정규 설치본 URL을 묶습니다. 0.2.8은 0.2.0의 법률
+릴리스 신원·설치본 해시·바이트 크기와 정규 설치본 URL을 묶습니다. 0.3.2는 0.2.0의 법률
 정본·업데이트 키를 유지하므로 정상 동의 기록이 있는 0.2.0·0.2.1·0.2.2·0.2.3·0.2.4·0.2.5·0.2.6·0.2.7은 앱 안에서 검증·사용자 승인 후
 업데이트할 수 있습니다. 0.1.9는 현행 법률 문서를 확인하는 대화형 설치가 필요하며 0.1.8
-이하는 앞서 고지한 키 전환도 적용됩니다. 0.1.1~0.2.7은 앱을 먼저 제거하거나 사용자 설정·
+이하는 앞서 고지한 키 전환도 적용됩니다. 0.1.1~0.3.1은 앱을 먼저 제거하거나 사용자 설정·
 Windows 복구 기록을 지우지 않고 보호 교체합니다. 0.1.0만 별도 제거 후 설치합니다.
 0.1.2 이상 0.4.9 이하의 공개 Early Access 설치 파일에는 Authenticode
 게시자 서명이 없습니다. 따라서 Windows나 보안 제품이 경고하거나 실행을 차단할 수 있습니다.
@@ -233,9 +233,11 @@ by GUID. Prior terminal history is retained within 32 entries and 128 KiB, with 
 progress and diagnostic codes. Existing user SSH settings and rule-change limits remain protected.
 Successful SSH access on the reporting PC has not yet been verified.
 
-## 0.2.8 패키지 규칙 판별과 기존 SSH 보존
+## 0.3.2 후보 준비와 기존 SSH 보존
 
-0.2.8은 스토어·패키지 앱에만 적용되는 방화벽 규칙이 일반 SSH 충돌 후보에 섞이던 판별을 보완합니다. SID가 비어 있어도 패키지 이름(PFN)·실제 Windows 규칙 ID·원문 정책을 정확히 대조한 경우에만 앱 전용 규칙을 제외하며, 같은 이름의 일반 규칙은 별도로 유지합니다. 기존 SSH 설치·설정·복구 기록과 원본 해시 형식, 일반 규칙의 임시 변경 상한 4개는 유지합니다. 실제 일반 충돌 규칙이 5개 이상이면 자동 처리는 계속 제한됩니다. 현재 개발 PC에는 해당 PFN 규칙이 없어 실제 PFN 환경과 두 PC 설치·SSH 접속 성공은 아직 확인하지 못했습니다.
+현재 공개 최신판은 0.2.8입니다. 0.2.9·0.3.0·0.3.1은 비공개 시험본이며 0.3.2의 개발 회귀는 통과했으며 최종 검증은 별도 진행합니다. The current public version is 0.2.8; 0.2.9, 0.3.0 and 0.3.1 were unpublished builds. Version 0.3.2 passed development regressions; final validation remains separate.
+
+0.3.2는 이전 방화벽 기록 복구의 결과 판독과 진행 안내를 보완했습니다. 원래 WMI 상태 코드·출력 객체·메서드 반환값과 실제 규칙 상태를 구분하고, 불확실한 결과를 성공으로 바꾸거나 같은 변경 명령을 자동 반복하지 않습니다. 복구의 실제 단계·처리 건수·경과 시간을 표시하며 시작부터 후속 상태 조회가 끝날 때까지 중복 요청을 막습니다. 화면 취소는 실제 작업 취소가 아니며 실제 종료까지 기다립니다. 중복 읽기를 줄여도 변경 전후의 필수 확인은 유지합니다. 복구 원문과 부분 진행 기록, 기존 SSH 설치·설정과 일반 규칙 변경 상한 4개를 보존합니다. 비공개 0.2.9·0.3.0·0.3.1의 방화벽 형식 호환·기록 복구·SSH 보존형 제거·서비스 및 재부팅 안내·통신 라이브러리 보완도 누적합니다. 개발 회귀는 통과했으며 최종 14단계와 공개 검증은 별도 기록합니다. 회사 PC의 실제 복구·SSH·공유 성공은 아직 확인하지 않았습니다.
 
 숫자 포트 구간의 순서·중복·겹침, 경로 구분자와 실제 Windows 루트의 검증된 별칭,
 전체 프로필 표기를 비교할 때만 통일합니다. 다른 프로그램·다른 포트나 불명확한 별칭을
@@ -247,8 +249,8 @@ Successful SSH access on the reporting PC has not yet been verified.
 계정 조회 실패를 계정 없음으로 취급하지 않습니다. 기존 관리·복구 기록이 있으면 기존
 PCSSAK 관리 경로를 사용하며, 단순 존재 분류로 설정의 안전성을 보증하지 않습니다.
 
-0.1.1~0.2.7은 먼저 제거하지 않고 0.2.8 설치기의 보호 교체를 사용합니다. 정상 법률 동의
-기록이 있는 0.2.0~0.2.7은 검증·사용자 승인 후 앱 내 업데이트를 사용할 수 있습니다.
+0.1.1~0.3.1은 먼저 제거하지 않고 0.3.2 설치기의 보호 교체를 사용합니다. 정상 법률 동의
+기록이 있는 0.2.0~0.3.1은 검증·사용자 승인 후 앱 내 업데이트를 사용할 수 있습니다.
 법률 정본·업데이트 공개키는 유지합니다. 실기·게시자 서명 미완료 고지도 유지합니다.
 
-Version 0.2.8 improves classification when firewall rules restricted to store or packaged apps appear among general SSH conflict candidates. An empty SID is not sufficient to classify a rule: package family name (PFN), exact Windows rule ID and original policy must match before an app-only rule is excluded. General rules sharing the same name remain separate. Existing SSH installations, settings, recovery records and original hash formats are preserved, as is the four-rule temporary-change limit. Five or more actual general conflict rules still prevent automatic handling. The development PC has no such PFN rules; real PFN-environment, two-PC installation and SSH connection tests remain unverified.
+Version 0.3.2 improves result handling and progress feedback for older firewall-record recovery. Original WMI status, output objects, method return values and observed rule state are checked separately; uncertain results are not treated as success and do not automatically repeat a change request. The UI shows actual stages, processed counts and elapsed time, and prevents duplicate requests from the start through the follow-up status read. Cancelling the screen does not cancel the worker; requests remain blocked until it finishes. Redundant reads are reduced while required checks before and after changes remain. Original records, partial progress, existing SSH installations and settings, and the four-rule limit are preserved. Unpublished 0.2.9, 0.3.0 and 0.3.1 changes to firewall formats, record recovery, SSH-preserving removal, service and restart guidance, and communication security are included. Development regressions passed; final 14-step and public verification results are recorded separately. Actual recovery, SSH and sharing success on the reported office PC remains unverified.

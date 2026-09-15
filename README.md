@@ -2,47 +2,51 @@
 
 [한국어 안내](README.ko.md)
 
-> This directory is the public repository contract for PCssak Gongyu `v0.2.8`
+> This directory is the public repository contract for PCssak Gongyu `v0.3.2`
 > Free Early Access. The version-pinned GitHub release and its nine verified
 > assets are the publication record.
 
 PCssak Gongyu is a Windows utility for user-directed SMB shared-folder setup,
 LAN checks, network-drive management, and separately consented SSH setup.
-Version `0.2.8` is **Free Early Access**; this describes product maturity and
+Version `0.3.2` is **Free Early Access**; this describes product maturity and
 does not promise that future versions will remain free.
+
+## Candidate status
+
+Version 0.3.2 has passed development regressions; final-source and publication validation are still pending. The current public release remains 0.2.8. Versions 0.2.9, 0.3.0 and 0.3.1 were unpublished test builds. The links and asset names below describe the planned 0.3.2 contract and become available only after publication. No signing or public-readback success is claimed here.
 
 ## Official download and Latest update
 
 Use only the
-[official v0.2.8 release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.2.8)
+[official v0.3.2 release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.3.2)
 or a version-pinned page on [pcssak.com](https://pcssak.com/). The release title
 states Free Early Access, while GitHub uses `draft=false`, `prerelease=false`,
 and Latest so the application can check this stable endpoint:
 
 `https://github.com/pcssakinc/pcssak-gongyu-releases/releases/latest/download/latest.json`
 
-**Users on 0.2.0, 0.2.1, 0.2.2, 0.2.3, 0.2.4, 0.2.5, 0.2.6, or 0.2.7 with valid legal-consent records can check for 0.2.8 in the app,
+**Users on 0.2.0, 0.2.1, 0.2.2, 0.2.3, 0.2.4, 0.2.5, 0.2.6, 0.2.7, 0.2.8, or an unpublished 0.2.9, 0.3.0 or 0.3.1 build with valid legal-consent records can check for 0.3.2 in the app,
 download and verify it, then approve installation.** The legal documents and updater
 public key are unchanged in this patch. Users on 0.1.9 run the official installer
 interactively to review the current legal documents. Users on 0.1.8 or earlier also
 need a one-time manual installation because of the previous updater-key transition.
 
-For 0.1.1 through 0.2.7, do not uninstall first or delete settings, sharing records,
+For 0.1.1 through 0.3.1, do not uninstall first or delete settings, sharing records,
 SSH configuration, or interrupted-operation records. Protected replacement preserves
 user settings without launching the old uninstaller. If the app was already removed,
 use the new installer without manually deleting Windows recovery records. Only
 0.1.0 requires removal before installing the official release. Missing consent or
 damaged installation records require the interactive installation path.
 
-Version 0.2.8 improves classification when firewall rules restricted to store or packaged apps appear among general SSH conflict candidates. An empty SID is not sufficient to classify a rule: package family name (PFN), exact Windows rule ID and original policy must match before an app-only rule is excluded. General rules sharing the same name remain separate. Existing SSH installations, settings, recovery records and original hash formats are preserved, as is the four-rule temporary-change limit. Five or more actual general conflict rules still prevent automatic handling. The development PC has no such PFN rules; real PFN-environment, two-PC installation and SSH connection tests remain unverified.
-See the [release notes](docs/RELEASE-NOTES-v0.2.8.md) for details.
+Version 0.3.2 improves result handling and progress feedback for older firewall-record recovery. Original WMI status, output objects, method return values and observed rule state are checked separately; uncertain results are not treated as success and do not automatically repeat a change request. The UI shows actual stages, processed counts and elapsed time, and prevents duplicate requests from the start through the follow-up status read. Cancelling the screen does not cancel the worker; requests remain blocked until it finishes. Redundant reads are reduced while required checks before and after changes remain. Original records, partial progress, existing SSH installations and settings, and the four-rule limit are preserved. Unpublished 0.2.9, 0.3.0 and 0.3.1 changes to firewall formats, record recovery, SSH-preserving removal, service and restart guidance, and communication security are included. Development regressions passed; final 14-step and public verification results are recorded separately. Actual recovery, SSH and sharing success on the reported office PC remains unverified.
+See the [release notes](docs/RELEASE-NOTES-v0.3.2.md) for details.
 This document and automated tests do not establish successful SSH connections,
 installation, or reboot persistence on every PC. Existing immutable assets are
 preserved. The full Windows and two-PC SSH matrices remain incomplete.
 
 The public installer targets Windows x64 only:
 
-- `PCssak-Gongyu-0.2.8-Windows-x64-Setup.exe`
+- `PCssak-Gongyu-0.3.2-Windows-x64-Setup.exe`
 
 Windows x86 is not published until its separate Windows 10 x86 Home/Pro
 hands-on evidence gate passes.
@@ -66,10 +70,10 @@ using it on an important PC.
 Compare the installer SHA-256 with `SHA256SUMS.txt` from the same release:
 
 ```powershell
-Get-FileHash -Algorithm SHA256 '.\PCssak-Gongyu-0.2.8-Windows-x64-Setup.exe'
+Get-FileHash -Algorithm SHA256 '.\PCssak-Gongyu-0.3.2-Windows-x64-Setup.exe'
 ```
 
-The release also contains `PCssak-Gongyu-0.2.8-Windows-x64-Setup.exe.sig`.
+The release also contains `PCssak-Gongyu-0.3.2-Windows-x64-Setup.exe.sig`.
 PCssak Gongyu verifies updater artifacts with its embedded Gongyu-specific
 Minisign public key. `UPDATE-RELEASE.json.sig` separately binds the product,
 version, source commit, installer hash, installer byte size, embedded EULA and
