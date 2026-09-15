@@ -41,11 +41,11 @@ Download only from `pcssakinc/pcssak-gongyu-releases` or a version-pinned link o
 release. The Tauri updater verifies the published `.sig` with the Gongyu-specific
 Minisign public key, and the independently signed `UPDATE-RELEASE.json` binds
 release identity, installer hash and byte size, and the canonical installer URL.
-Version 0.3.2 keeps the 0.2.0 legal documents and updater key. Validly consented
-0.2.0, 0.2.1, 0.2.2, 0.2.3, 0.2.4, 0.2.5, 0.2.6, and 0.2.7 installations can use verified in-app updating with user approval. Users on
+Version 0.3.3 keeps the 0.2.0 legal documents and updater key. Validly consented
+public 0.2.0 through 0.2.8 and 0.3.2, plus unpublished 0.2.9, 0.3.0 and 0.3.1 installations can use verified in-app updating with user approval after publication. Users on
 0.1.9 still need interactive installation to review the current legal documents;
 0.1.8 or earlier also need the previously announced updater-key migration. For
-0.1.1 through 0.2.7, use protected replacement without first uninstalling the app
+0.1.1 through 0.3.2, use protected replacement without first uninstalling the app
 or deleting settings or Windows recovery records. Only 0.1.0 requires removal first.
 Public Early Access installers from 0.1.2 through 0.4.9, inclusive, do not
 carry an Authenticode publisher signature. Windows or security products may
@@ -139,10 +139,11 @@ Windows·두 PC SSH/SFTP 실기를 대신하지 않습니다.
 `pcssakinc/pcssak-gongyu-releases` 또는 `pcssak.com`의 버전 고정 링크에서만 받고 같은
 릴리스의 `SHA256SUMS.txt`와 설치 파일 SHA-256을 비교하세요. Tauri Updater는 공개한
 `.sig`를 Gongyu 전용 Minisign 공개키로 검증하며, 별도로 서명한 `UPDATE-RELEASE.json`이
-릴리스 신원·설치본 해시·바이트 크기와 정규 설치본 URL을 묶습니다. 0.3.2는 0.2.0의 법률
-정본·업데이트 키를 유지하므로 정상 동의 기록이 있는 0.2.0·0.2.1·0.2.2·0.2.3·0.2.4·0.2.5·0.2.6·0.2.7은 앱 안에서 검증·사용자 승인 후
-업데이트할 수 있습니다. 0.1.9는 현행 법률 문서를 확인하는 대화형 설치가 필요하며 0.1.8
-이하는 앞서 고지한 키 전환도 적용됩니다. 0.1.1~0.3.1은 앱을 먼저 제거하거나 사용자 설정·
+릴리스 신원·설치본 해시·바이트 크기와 정규 설치본 URL을 묶습니다. 이번 0.3.3 버전은 0.2.0의 법률
+정본·업데이트 키를 유지하므로 정상 동의 기록이 있는 공개 0.2.0~0.2.8·0.3.2 및 비공개
+0.2.9·0.3.0·0.3.1 사용자는 실제 공개 후 앱 안에서 검증·사용자 승인 뒤 업데이트할 수 있습니다.
+0.1.9는 현행 법률 문서를 확인하는 대화형 설치가 필요하며 0.1.8
+이하는 앞서 고지한 키 전환도 적용됩니다. 0.1.1~0.3.2 사용자는 앱을 먼저 제거하거나 사용자 설정·
 Windows 복구 기록을 지우지 않고 보호 교체합니다. 0.1.0만 별도 제거 후 설치합니다.
 0.1.2 이상 0.4.9 이하의 공개 Early Access 설치 파일에는 Authenticode
 게시자 서명이 없습니다. 따라서 Windows나 보안 제품이 경고하거나 실행을 차단할 수 있습니다.
@@ -233,17 +234,15 @@ by GUID. Prior terminal history is retained within 32 entries and 128 KiB, with 
 progress and diagnostic codes. Existing user SSH settings and rule-change limits remain protected.
 Successful SSH access on the reporting PC has not yet been verified.
 
-## 0.3.2 공개 상태와 기존 SSH 보존
+## 0.3.3 검증 기준과 기존 SSH 보존
 
-현재 공개 최신판은 0.3.2이며 직전 공개판은 0.2.8입니다. 0.2.9·0.3.0·0.3.1은 비공개
-시험본이었습니다. 최종 소스 14단계와 불변 일반 Latest·9자산·두 서명의 공개 검증을
-마쳤으며 실제 PC 복구·연결 성공과는 구분합니다. The current public version is 0.3.2;
-the previous public version was 0.2.8. Versions 0.2.9, 0.3.0 and 0.3.1 were unpublished builds.
-The final source passed 14 verification steps, and public readback verified the immutable
-normal Latest release, nine assets and both signatures. Actual PC recovery and connectivity
-remain separate, unverified checks.
+0.3.3은 공개 0.3.2에서 확인한 SSH 실패 경계를 보완하는 무료 Early Access입니다. 0.2.9·0.3.0·0.3.1은 비공개 시험본이었습니다. 제공 여부는 버전 고정 GitHub 릴리스와 검증된 9자산을 기준으로 확인하며, 홈페이지에서도 같은 버전·파일 해시가 일치하는지 확인합니다. 게시 전에는 최종 소스 검증·설치본 대조·두 업데이트 서명·9자산 검증이 필요하고 게시 뒤 공개 파일을 다시 확인합니다. 자동 검사 결과와 실제 PC의 설치·복구·SSH 접속 결과는 구분하며, 이 문서만으로 게시나 실기 성공을 주장하지 않습니다.
 
-0.3.2는 이전 방화벽 기록 복구의 결과 판독과 진행 안내를 보완했습니다. 원래 WMI 상태 코드·출력 객체·메서드 반환값과 실제 규칙 상태를 구분하고, 불확실한 결과를 성공으로 바꾸거나 같은 변경 명령을 자동 반복하지 않습니다. 복구의 실제 단계·처리 건수·경과 시간을 표시하며 시작부터 후속 상태 조회가 끝날 때까지 중복 요청을 막습니다. 화면 취소는 실제 작업 취소가 아니며 실제 종료까지 기다립니다. 중복 읽기를 줄여도 변경 전후의 필수 확인은 유지합니다. 복구 원문과 부분 진행 기록, 기존 SSH 설치·설정과 일반 규칙 변경 상한 4개를 보존합니다. 비공개 0.2.9·0.3.0·0.3.1의 방화벽 형식 호환·기록 복구·SSH 보존형 제거·서비스 및 재부팅 안내·통신 라이브러리 보완도 누적합니다. 개발 회귀는 통과했으며 최종 14단계와 공개 검증은 별도 기록합니다. 회사 PC의 실제 복구·SSH·공유 성공은 아직 확인하지 않았습니다.
+Version 0.3.3 is Free Early Access addressing verified failure boundaries in the SSH flow of public version 0.3.2. Versions 0.2.9, 0.3.0 and 0.3.1 were unpublished test builds. Availability is established by the version-pinned GitHub release and its nine verified assets; the website must identify the same version and file hashes. Publication requires final-source validation, installer verification, both update signatures and all nine assets, followed by public read-back. Automated checks are separate from installation, recovery and SSH access on real PCs; this document alone does not establish publication or successful real-device testing.
+
+0.3.3은 공개 0.3.2에서 확인한 SSH 실패 경계를 보완합니다. 방화벽 Enable/Disable 요청은 한 번만 보내고 완료 상태를 확인합니다. 출력 객체가 없는 경우에도 성공을 추측하지 않고 정확한 규칙 ID·전체 정책·목표 활성 상태를 다시 읽어 검증하며, 명시적 오류는 계속 거부합니다. 동일한 단일 주소의 /128 표기와 시작·끝 주소가 같은 구간 표기는 비교할 때만 동등하게 취급하고 기존 V4 원문과 해시를 보존합니다. 복구가 0/3에서 실패해도 종료 실패를 표시하고, 변경 전 오류·복구 조회·적용 오류는 고정 진단 코드로 구분해 남깁니다. 기존 SSH 설치·설정·복구 장부와 일반 규칙 변경 상한 4개는 유지합니다. 개발 검사와 읽기 전용 계획 확인은 실제 복구·SSH 접속 성공의 증거가 아닙니다.
+
+OpenSSH 설치 후 재부팅을 기다리는 상태는 전체 100%·모든 단계 완료·접속 성공으로 표시하지 않습니다. 설치 단계 종료와 SSH 설정 미완료를 알리고 재부팅 뒤 SSH 켜기를 다시 실행해 나머지 설정을 마무리하도록 안내합니다. 보호 차단 규칙 삭제 뒤에도 정확한 부재만 완료로 인정하며 조회 오류나 남은 규칙을 삭제 성공으로 바꾸지 않습니다. 두 변경의 개발 검증은 실제 재부팅·복구·접속 성공과 구분합니다.
 
 숫자 포트 구간의 순서·중복·겹침, 경로 구분자와 실제 Windows 루트의 검증된 별칭,
 전체 프로필 표기를 비교할 때만 통일합니다. 다른 프로그램·다른 포트나 불명확한 별칭을
@@ -255,8 +254,10 @@ remain separate, unverified checks.
 계정 조회 실패를 계정 없음으로 취급하지 않습니다. 기존 관리·복구 기록이 있으면 기존
 PCSSAK 관리 경로를 사용하며, 단순 존재 분류로 설정의 안전성을 보증하지 않습니다.
 
-0.1.1~0.3.1은 먼저 제거하지 않고 0.3.2 설치기의 보호 교체를 사용합니다. 정상 법률 동의
-기록이 있는 0.2.0~0.3.1은 검증·사용자 승인 후 앱 내 업데이트를 사용할 수 있습니다.
+0.1.1~0.3.2은 먼저 제거하지 않고 0.3.3 설치기의 보호 교체를 사용합니다. 정상 법률 동의
+기록이 있는 공개 0.2.0~0.2.8·0.3.2 및 비공개 0.2.9·0.3.0·0.3.1은 실제 공개 후 검증·사용자 승인 후 앱 내 업데이트를 사용할 수 있습니다.
 법률 정본·업데이트 공개키는 유지합니다. 실기·게시자 서명 미완료 고지도 유지합니다.
 
-Version 0.3.2 improves result handling and progress feedback for older firewall-record recovery. Original WMI status, output objects, method return values and observed rule state are checked separately; uncertain results are not treated as success and do not automatically repeat a change request. The UI shows actual stages, processed counts and elapsed time, and prevents duplicate requests from the start through the follow-up status read. Cancelling the screen does not cancel the worker; requests remain blocked until it finishes. Redundant reads are reduced while required checks before and after changes remain. Original records, partial progress, existing SSH installations and settings, and the four-rule limit are preserved. Unpublished 0.2.9, 0.3.0 and 0.3.1 changes to firewall formats, record recovery, SSH-preserving removal, service and restart guidance, and communication security are included. Development regressions passed; final 14-step and public verification results are recorded separately. Actual recovery, SSH and sharing success on the reported office PC remains unverified.
+Version 0.3.3 addresses verified failure boundaries in the SSH flow of public version 0.3.2. Each firewall Enable/Disable request is sent once and completion is checked. Missing output is not assumed to mean success: the exact rule ID, full policy and target enabled state must be read back; explicit errors remain rejected. Equivalent /128 single-address and equal-endpoint range representations are compared without rewriting the original V4 record or hash. A failure at 0/3 shows a failed terminal state, and pre-change, recovery-preview and apply errors receive separate fixed diagnostic codes. Existing SSH installations, settings, recovery records and the four-rule limit remain protected. Development checks and read-only plan validation do not establish successful recovery or SSH access.
+
+A restart pending after OpenSSH installation no longer displays overall 100%, all stages complete or connection success. It identifies installation as finished but SSH setup as incomplete, with the remaining setup completed by running SSH enable again after restart. After removing a protective block rule, only confirmed absence counts as complete; query errors or remaining rules are not reported as successful removal. Development validation of these changes is separate from successful restart, recovery or connection on a real PC.

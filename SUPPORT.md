@@ -12,6 +12,23 @@ The current public version is 0.3.2; the previous public version was 0.2.8. Vers
 0.3.0, and 0.3.1 were unpublished builds. The immutable normal 0.3.2 release, Latest, and
 its exact nine assets have passed public readback verification.
 
+## 0.3.3 공개 준비와 검증 범위 / 0.3.3 preparation and verification scope
+
+0.3.3 문서는 결과 재조회·기존 기록 대조·재부팅 및 설치 진행 안내의 보완 범위를
+설명합니다. 소스 `6529e249`의 로컬 14단계는 Rust x64·i686 각각 956개·UI 436개를
+포함해 통과했습니다. 출시용 문서 정리 후 최종 소스에는 검증을 다시 결속합니다.
+[0.3.3 변경일기](docs/RELEASE-NOTES-v0.3.3.md)의 실기 범위는 읽기 전용 관측까지이며
+실제 설치·SSH 전환·접속은 `NOT_RUN`입니다. 이 기록은 설치본·두 서명·9자산·공개·
+홈페이지 검증을 대신하지 않습니다. 아래 0.3.2의 실패와 기록 보존 안내는 유지합니다.
+
+The 0.3.3 documents describe the read-back, existing-record comparison, restart and
+installation-progress changes. Source `6529e249` passed 14 local steps, including 956
+Rust tests on each of x64/i686 and 436 UI tests. The final source needs verification
+bound again after release-document changes. The [0.3.3 notes](docs/RELEASE-NOTES-v0.3.3.md)
+record read-only observation; installation, live SSH transitions and access are `NOT_RUN`.
+This does not establish installer, signature, nine-asset, publication or website checks.
+The 0.3.2 failure and record-preservation guidance below remain in place.
+
 ## Current 0.3.2 SSH issue / 현재 0.3.2 SSH 문제
 
 On 2026-09-15 at 21:02 KST, a user test recognized an existing SSH installation,
@@ -227,3 +244,11 @@ exposure, do not open a public Issue. Follow [SECURITY.md](SECURITY.md).
   전체 실측 완료를 뜻하지 않습니다. 오류를 피하려고 중간 구버전을 먼저 설치하거나 보안
   기능을 끄지 마세요. [수정 안내](docs/RELEASE-NOTES-v0.1.5.md)와 [SAC 안내](SECURITY.md)를
   함께 확인하세요.
+
+## 0.3.3 공개 후 이행 계약 — 아직 실행하지 않는 후보 안내
+
+실제 서명 자산이 공개된 뒤 정상 법률 동의가 있는 공개 0.2.0~0.2.8·0.3.2 및
+비공개 0.2.9·0.3.0·0.3.1에서 앱 업데이트를 확인할 수 있습니다. 0.1.1~0.3.2는
+설정·공유·SSH·중단 기록을 보존하는 보호 교체 대상입니다. 0.1.9의 법률 문서 확인,
+0.1.8 이하의 공개키 전환, 0.1.0의 별도 제거 예외는 위 기존 안내와 같습니다.
+현재 문제를 해결하려고 시험본을 혼용하거나 기존 앱·복구 기록을 먼저 지우지 마세요.
