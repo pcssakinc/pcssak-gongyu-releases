@@ -12,6 +12,42 @@ The current public version is 0.3.2; the previous public version was 0.2.8. Vers
 0.3.0, and 0.3.1 were unpublished builds. The immutable normal 0.3.2 release, Latest, and
 its exact nine assets have passed public readback verification.
 
+## Current 0.3.2 SSH issue / 현재 0.3.2 SSH 문제
+
+On 2026-09-15 at 21:02 KST, a user test recognized an existing SSH installation,
+then failed at 84% during firewall-rule processing with `native_method_output_null`
+and `HRESULT=0`. Rollback verification remained incomplete, and the next enable
+attempt stopped at 2% with `LEGACY-RECOVERY`. This is an observed failure, not a
+confirmed root cause or a successful rollback. Investigation and correction are in
+progress; recovery on the affected PC has not been verified. Passing automated
+tests and public asset checks does not resolve this hands-on report.
+
+For this symptom, stop repeated enable or recovery attempts and keep the app,
+settings and recovery records intact while waiting for verified support guidance.
+Do not delete journals, manually reset firewall rules, mix installation files or
+disable Windows security controls. Contact `support@pcssak.com` with the version,
+stage and the short error identifiers above; do not send raw logs or private paths,
+accounts or network details. The 0.3.2 homepage rollout is paused, with the homepage
+still showing 0.2.8. This does not establish that downgrading would repair the state.
+
+2026-09-15 21:02 KST 사용자 실기에서는 기존 SSH 설치를 인식한 뒤 방화벽 규칙 처리
+84%에서 `native_method_output_null`, `HRESULT=0`으로 실패했습니다. 실패 후 원복 검증은
+미완료이며 다음 켜기는 2%에서 `LEGACY-RECOVERY`로 중단됐습니다. 관측한 실패를 알리는
+것이며 상세 원인이나 원복 성공을 확정한 내용이 아닙니다. 조사·수정 중이고 해당 PC의
+복구는 검증하지 못했습니다. 자동 시험·공개 자산 검증 통과는 이 실기 제보의 해결 증거가 아닙니다.
+
+이 증상이 있으면 켜기·복구를 반복하지 말고 앱·설정·복구 기록을 보존한 채 검증된 지원
+안내를 기다리세요. 장부 삭제·방화벽 규칙 수동 초기화·설치 파일 혼용·Windows 보안 해제로
+우회하지 마세요. `support@pcssak.com`에는 버전·발생 단계·위의 짧은 오류 식별자만 먼저
+전달하고 원본 로그·개인 경로·계정·네트워크 정보를 보내지 마세요. 홈페이지의 0.3.2
+전환은 보류하고 기존 0.2.8을 유지합니다. 구버전 설치로 복구된다는 뜻이 아닙니다.
+
+아래 일반 재개 안내보다 이 문제의 현재 보류 안내를 우선합니다. 기존 불변 릴리스·태그·
+다운로드 자산·승인 노트는 보존하며 수정판의 검증·공개 상태는 별도 안내합니다.
+For this issue, the current pause guidance takes precedence over the general resume
+guidance below. Immutable releases, tags, assets and approved notes are preserved;
+any corrected release and its verification will be announced separately.
+
 ## Before reporting
 
 1. Confirm the exact app version and that the installer came from the official version-pinned

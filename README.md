@@ -11,6 +11,22 @@ LAN checks, network-drive management, and separately consented SSH setup.
 Version `0.3.2` is **Free Early Access**; this describes product maturity and
 does not promise that future versions will remain free.
 
+## Known SSH issue — 2026-09-15
+
+At 21:02 KST, a user test of the published 0.3.2 build recognized an existing SSH
+installation but failed at 84% during firewall-rule processing with
+`native_method_output_null` and `HRESULT=0`. Rollback verification did not complete;
+a subsequent enable attempt stopped at 2% with `LEGACY-RECOVERY`. A zero HRESULT
+does not establish that the operation or rollback succeeded.
+
+The issue is under investigation and correction; a fix on the affected PC is not
+confirmed. Local automated checks and successful release-asset verification are
+not evidence that this hands-on failure is resolved. Homepage deployment of 0.3.2
+is on hold and the homepage remains on 0.2.8; this is not a downgrade recommendation.
+If you encounter this issue, stop repeating SSH enable/recovery attempts, preserve
+the app and recovery records, and follow the [current support guidance](SUPPORT.md).
+Do not delete recovery records or manually reset firewall rules to bypass the block.
+
 ## Published release
 
 Version 0.3.2 was published on 2026-09-15 at 11:56:37 UTC as an immutable normal
