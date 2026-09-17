@@ -2,53 +2,53 @@
 
 [한국어 안내](README.ko.md)
 
-> This directory is the public repository contract for PCssak Gongyu `v0.3.3`
+> This directory is the public repository contract for PCssak Gongyu `v0.3.4`
 > Free Early Access. The version-pinned GitHub release and its nine verified
 > assets are the publication record.
 
 PCssak Gongyu is a Windows utility for user-directed SMB shared-folder setup,
 LAN checks, network-drive management, and separately consented SSH setup.
-Version `0.3.3` is **Free Early Access**; this describes product maturity and
+Version `0.3.4` is **Free Early Access**; this describes product maturity and
 does not promise that future versions will remain free.
 
 ## Release and verification requirements
 
-Version 0.3.3 is Free Early Access addressing verified failure boundaries in the SSH flow of public version 0.3.2. Versions 0.2.9, 0.3.0 and 0.3.1 were unpublished test builds. Availability is established by the version-pinned GitHub release and its nine verified assets; the website must identify the same version and file hashes. Publication requires final-source validation, installer verification, both update signatures and all nine assets, followed by public read-back. Automated checks are separate from installation, recovery and SSH access on real PCs; this document alone does not establish publication or successful real-device testing.
+Version 0.3.4 is Free Early Access improving recovery comparisons, rejection of incomplete COM enumeration and provider diagnostics after public version 0.3.3. Versions 0.2.9, 0.3.0 and 0.3.1 were unpublished test builds. Availability is established by the version-pinned GitHub release and its nine verified assets; the website must identify the same version and file hashes. Publication requires final-source validation, installer verification, both update signatures and all nine assets, followed by public read-back. Automated checks are separate from installation, recovery and SSH access on real PCs; this document alone does not establish publication or successful real-device testing.
 
 ## Official download and Latest update
 
 After verified publication, use only the
-[official v0.3.3 release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.3.3)
+[official v0.3.4 release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.3.4)
 or a version-pinned page on [pcssak.com](https://pcssak.com/). The release title
 states Free Early Access, while GitHub uses `draft=false`, `prerelease=false`,
 and Latest so the application can check this stable endpoint:
 
 `https://github.com/pcssakinc/pcssak-gongyu-releases/releases/latest/download/latest.json`
 
-**Users on 0.2.0, 0.2.1, 0.2.2, 0.2.3, 0.2.4, 0.2.5, 0.2.6, 0.2.7, 0.2.8, 0.3.2, or an unpublished 0.2.9, 0.3.0 or 0.3.1 build with valid legal-consent records can check for 0.3.3 after its verified publication in the app,
+**Users on 0.2.0, 0.2.1, 0.2.2, 0.2.3, 0.2.4, 0.2.5, 0.2.6, 0.2.7, 0.2.8, 0.3.2, 0.3.3, or an unpublished 0.2.9, 0.3.0 or 0.3.1 build with valid legal-consent records can check for 0.3.4 after its verified publication in the app,
 download and verify it, then approve installation.** The legal documents and updater
 public key are unchanged in this patch. Users on 0.1.9 run the official installer
 interactively to review the current legal documents. Users on 0.1.8 or earlier also
 need a one-time manual installation because of the previous updater-key transition.
 
-For 0.1.1 through 0.3.2, do not uninstall first or delete settings, sharing records,
+For 0.1.1 through 0.3.3, do not uninstall first or delete settings, sharing records,
 SSH configuration, or interrupted-operation records. Protected replacement preserves
 user settings without launching the old uninstaller. If the app was already removed,
 use the new installer without manually deleting Windows recovery records. Only
 0.1.0 requires removal before installing the official release. Missing consent or
 damaged installation records require the interactive installation path.
 
-Version 0.3.3 addresses verified failure boundaries in the SSH flow of public version 0.3.2. Each firewall Enable/Disable request is sent once and completion is checked. Missing output is not assumed to mean success: the exact rule ID, full policy and target enabled state must be read back; explicit errors remain rejected. Equivalent /128 single-address and equal-endpoint range representations are compared without rewriting the original V4 record or hash. A failure at 0/3 shows a failed terminal state, and pre-change, recovery-preview and apply errors receive separate fixed diagnostic codes. Existing SSH installations, settings, recovery records and the four-rule limit remain protected. Development checks and read-only plan validation do not establish successful recovery or SSH access.
+Version 0.3.4 distinguishes failures in legacy firewall recovery and corrects comparisons that could reject the same rules solely because their observation order changed. Stored originals and approval hashes remain unchanged while rule identity sets, policies, enabled states and baselines are checked separately. Equivalent V4 representations are normalized only for comparison; actual identity, policy or enabled-state changes and ambiguous matches remain rejected. Failed COM item conversion now stops incomplete enumeration instead of silently omitting a rule. Five actual provider stages identify connection, rule enumeration, rule-property reads, policy-store queries and detailed policy-property reads, with fixed diagnostic codes and privacy-preserving elapsed-time traces. Existing SSH installations, settings, recovery records and the four-rule limit remain protected. Successful real-PC recovery, two-PC SSH/SFTP and reboot persistence have not yet been verified.
 
 A restart pending after OpenSSH installation no longer displays overall 100%, all stages complete or connection success. It identifies installation as finished but SSH setup as incomplete, with the remaining setup completed by running SSH enable again after restart. After removing a protective block rule, only confirmed absence counts as complete; query errors or remaining rules are not reported as successful removal. Development validation of these changes is separate from successful restart, recovery or connection on a real PC.
-See the [release notes](docs/RELEASE-NOTES-v0.3.3.md) for details.
+See the [release notes](docs/RELEASE-NOTES-v0.3.4.md) for details.
 This document and automated tests do not establish successful SSH connections,
 installation, or reboot persistence on every PC. Existing immutable assets are
 preserved. The full Windows and two-PC SSH matrices remain incomplete.
 
 The public installer targets Windows x64 only:
 
-- `PCssak-Gongyu-0.3.3-Windows-x64-Setup.exe`
+- `PCssak-Gongyu-0.3.4-Windows-x64-Setup.exe`
 
 Windows x86 is not published until its separate Windows 10 x86 Home/Pro
 hands-on evidence gate passes.
@@ -72,10 +72,10 @@ using it on an important PC.
 Compare the installer SHA-256 with `SHA256SUMS.txt` from the same release:
 
 ```powershell
-Get-FileHash -Algorithm SHA256 '.\PCssak-Gongyu-0.3.3-Windows-x64-Setup.exe'
+Get-FileHash -Algorithm SHA256 '.\PCssak-Gongyu-0.3.4-Windows-x64-Setup.exe'
 ```
 
-The release also contains `PCssak-Gongyu-0.3.3-Windows-x64-Setup.exe.sig`.
+The release also contains `PCssak-Gongyu-0.3.4-Windows-x64-Setup.exe.sig`.
 PCssak Gongyu verifies updater artifacts with its embedded Gongyu-specific
 Minisign public key. `UPDATE-RELEASE.json.sig` separately binds the product,
 version, source commit, installer hash, installer byte size, embedded EULA and
