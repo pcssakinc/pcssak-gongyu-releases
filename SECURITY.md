@@ -41,11 +41,11 @@ Download only from `pcssakinc/pcssak-gongyu-releases` or a version-pinned link o
 release. The Tauri updater verifies the published `.sig` with the Gongyu-specific
 Minisign public key, and the independently signed `UPDATE-RELEASE.json` binds
 release identity, installer hash and byte size, and the canonical installer URL.
-Version 0.3.3 keeps the 0.2.0 legal documents and updater key. Validly consented
-public 0.2.0 through 0.2.8 and 0.3.2, plus unpublished 0.2.9, 0.3.0 and 0.3.1 installations can use verified in-app updating with user approval after publication. Users on
+Version 0.3.4 keeps the 0.2.0 legal documents and updater key. Validly consented
+public 0.2.0 through 0.2.8, 0.3.2 and 0.3.3, plus unpublished 0.2.9, 0.3.0 and 0.3.1 installations can use verified in-app updating with user approval after publication. Users on
 0.1.9 still need interactive installation to review the current legal documents;
 0.1.8 or earlier also need the previously announced updater-key migration. For
-0.1.1 through 0.3.2, use protected replacement without first uninstalling the app
+0.1.1 through 0.3.3, use protected replacement without first uninstalling the app
 or deleting settings or Windows recovery records. Only 0.1.0 requires removal first.
 Public Early Access installers from 0.1.2 through 0.4.9, inclusive, do not
 carry an Authenticode publisher signature. Windows or security products may
@@ -139,11 +139,11 @@ Windows·두 PC SSH/SFTP 실기를 대신하지 않습니다.
 `pcssakinc/pcssak-gongyu-releases` 또는 `pcssak.com`의 버전 고정 링크에서만 받고 같은
 릴리스의 `SHA256SUMS.txt`와 설치 파일 SHA-256을 비교하세요. Tauri Updater는 공개한
 `.sig`를 Gongyu 전용 Minisign 공개키로 검증하며, 별도로 서명한 `UPDATE-RELEASE.json`이
-릴리스 신원·설치본 해시·바이트 크기와 정규 설치본 URL을 묶습니다. 이번 0.3.3 버전은 0.2.0의 법률
-정본·업데이트 키를 유지하므로 정상 동의 기록이 있는 공개 0.2.0~0.2.8·0.3.2 및 비공개
+릴리스 신원·설치본 해시·바이트 크기와 정규 설치본 URL을 묶습니다. 이번 0.3.4 버전은 0.2.0의 법률
+정본·업데이트 키를 유지하므로 정상 동의 기록이 있는 공개 0.2.0~0.2.8·0.3.2·0.3.3 및 비공개
 0.2.9·0.3.0·0.3.1 사용자는 실제 공개 후 앱 안에서 검증·사용자 승인 뒤 업데이트할 수 있습니다.
 0.1.9는 현행 법률 문서를 확인하는 대화형 설치가 필요하며 0.1.8
-이하는 앞서 고지한 키 전환도 적용됩니다. 0.1.1~0.3.2 사용자는 앱을 먼저 제거하거나 사용자 설정·
+이하는 앞서 고지한 키 전환도 적용됩니다. 0.1.1~0.3.3 사용자는 앱을 먼저 제거하거나 사용자 설정·
 Windows 복구 기록을 지우지 않고 보호 교체합니다. 0.1.0만 별도 제거 후 설치합니다.
 0.1.2 이상 0.4.9 이하의 공개 Early Access 설치 파일에는 Authenticode
 게시자 서명이 없습니다. 따라서 Windows나 보안 제품이 경고하거나 실행을 차단할 수 있습니다.
@@ -234,13 +234,13 @@ by GUID. Prior terminal history is retained within 32 entries and 128 KiB, with 
 progress and diagnostic codes. Existing user SSH settings and rule-change limits remain protected.
 Successful SSH access on the reporting PC has not yet been verified.
 
-## 0.3.3 검증 기준과 기존 SSH 보존
+## 0.3.4 검증 기준과 기존 SSH 보존
 
-0.3.3은 공개 0.3.2에서 확인한 SSH 실패 경계를 보완하는 무료 Early Access입니다. 0.2.9·0.3.0·0.3.1은 비공개 시험본이었습니다. 제공 여부는 버전 고정 GitHub 릴리스와 검증된 9자산을 기준으로 확인하며, 홈페이지에서도 같은 버전·파일 해시가 일치하는지 확인합니다. 게시 전에는 최종 소스 검증·설치본 대조·두 업데이트 서명·9자산 검증이 필요하고 게시 뒤 공개 파일을 다시 확인합니다. 자동 검사 결과와 실제 PC의 설치·복구·SSH 접속 결과는 구분하며, 이 문서만으로 게시나 실기 성공을 주장하지 않습니다.
+0.3.4는 공개 0.3.3 이후의 복구 비교·COM 열거 누락 차단·제공자 진단을 보완하는 무료 Early Access입니다. 0.2.9·0.3.0·0.3.1은 비공개 시험본이었습니다. 제공 여부는 버전 고정 GitHub 릴리스와 검증된 9자산을 기준으로 확인하며, 홈페이지에서도 같은 버전·파일 해시가 일치하는지 확인합니다. 게시 전에는 최종 소스 검증·설치본 대조·두 업데이트 서명·9자산 검증이 필요하고 게시 뒤 공개 파일을 다시 확인합니다. 자동 검사 결과와 실제 PC의 설치·복구·SSH 접속 결과는 구분하며, 이 문서만으로 게시나 실기 성공을 주장하지 않습니다.
 
-Version 0.3.3 is Free Early Access addressing verified failure boundaries in the SSH flow of public version 0.3.2. Versions 0.2.9, 0.3.0 and 0.3.1 were unpublished test builds. Availability is established by the version-pinned GitHub release and its nine verified assets; the website must identify the same version and file hashes. Publication requires final-source validation, installer verification, both update signatures and all nine assets, followed by public read-back. Automated checks are separate from installation, recovery and SSH access on real PCs; this document alone does not establish publication or successful real-device testing.
+Version 0.3.4 is Free Early Access improving recovery comparisons, rejection of incomplete COM enumeration and provider diagnostics after public version 0.3.3. Versions 0.2.9, 0.3.0 and 0.3.1 were unpublished test builds. Availability is established by the version-pinned GitHub release and its nine verified assets; the website must identify the same version and file hashes. Publication requires final-source validation, installer verification, both update signatures and all nine assets, followed by public read-back. Automated checks are separate from installation, recovery and SSH access on real PCs; this document alone does not establish publication or successful real-device testing.
 
-0.3.3은 공개 0.3.2에서 확인한 SSH 실패 경계를 보완합니다. 방화벽 Enable/Disable 요청은 한 번만 보내고 완료 상태를 확인합니다. 출력 객체가 없는 경우에도 성공을 추측하지 않고 정확한 규칙 ID·전체 정책·목표 활성 상태를 다시 읽어 검증하며, 명시적 오류는 계속 거부합니다. 동일한 단일 주소의 /128 표기와 시작·끝 주소가 같은 구간 표기는 비교할 때만 동등하게 취급하고 기존 V4 원문과 해시를 보존합니다. 복구가 0/3에서 실패해도 종료 실패를 표시하고, 변경 전 오류·복구 조회·적용 오류는 고정 진단 코드로 구분해 남깁니다. 기존 SSH 설치·설정·복구 장부와 일반 규칙 변경 상한 4개는 유지합니다. 개발 검사와 읽기 전용 계획 확인은 실제 복구·SSH 접속 성공의 증거가 아닙니다.
+0.3.4는 이전 방화벽 기록 복구가 멈추는 경계를 더 정확히 구분하고, 같은 규칙이 조회 순서만 바뀌어 복구를 막던 비교를 보완합니다. 저장된 원문과 승인 해시는 그대로 두고 규칙 ID 집합·정책·활성 상태·기준선을 각각 대조합니다. V4 기록의 동일한 표현은 비교할 때만 정규화하며, 실제 ID·정책·활성 상태 변화와 모호한 대응은 계속 거부합니다. COM 열거에서 항목 변환 실패를 조용히 건너뛰지 않고 불완전한 COM 목록을 오류로 처리합니다. 화면에는 제공자 연결·규칙 목록·규칙 속성·정책 저장소·정책 상세 속성의 다섯 실제 단계를 표시하고, 고정 진단 코드와 비민감 경과 시간으로 실패 위치를 구분합니다. 기존 SSH 설치·설정·복구 장부와 일반 규칙 변경 상한 4개를 유지하며, 실제 복구·두 PC SSH/SFTP·재부팅 성공은 아직 확인하지 못했습니다.
 
 OpenSSH 설치 후 재부팅을 기다리는 상태는 전체 100%·모든 단계 완료·접속 성공으로 표시하지 않습니다. 설치 단계 종료와 SSH 설정 미완료를 알리고 재부팅 뒤 SSH 켜기를 다시 실행해 나머지 설정을 마무리하도록 안내합니다. 보호 차단 규칙 삭제 뒤에도 정확한 부재만 완료로 인정하며 조회 오류나 남은 규칙을 삭제 성공으로 바꾸지 않습니다. 두 변경의 개발 검증은 실제 재부팅·복구·접속 성공과 구분합니다.
 
@@ -254,10 +254,10 @@ OpenSSH 설치 후 재부팅을 기다리는 상태는 전체 100%·모든 단�
 계정 조회 실패를 계정 없음으로 취급하지 않습니다. 기존 관리·복구 기록이 있으면 기존
 PCSSAK 관리 경로를 사용하며, 단순 존재 분류로 설정의 안전성을 보증하지 않습니다.
 
-0.1.1~0.3.2은 먼저 제거하지 않고 0.3.3 설치기의 보호 교체를 사용합니다. 정상 법률 동의
-기록이 있는 공개 0.2.0~0.2.8·0.3.2 및 비공개 0.2.9·0.3.0·0.3.1은 실제 공개 후 검증·사용자 승인 후 앱 내 업데이트를 사용할 수 있습니다.
+0.1.1~0.3.3은 먼저 제거하지 않고 0.3.4 설치기의 보호 교체를 사용합니다. 정상 법률 동의
+기록이 있는 공개 0.2.0~0.2.8·0.3.2·0.3.3 및 비공개 0.2.9·0.3.0·0.3.1은 실제 공개 후 검증·사용자 승인 후 앱 내 업데이트를 사용할 수 있습니다.
 법률 정본·업데이트 공개키는 유지합니다. 실기·게시자 서명 미완료 고지도 유지합니다.
 
-Version 0.3.3 addresses verified failure boundaries in the SSH flow of public version 0.3.2. Each firewall Enable/Disable request is sent once and completion is checked. Missing output is not assumed to mean success: the exact rule ID, full policy and target enabled state must be read back; explicit errors remain rejected. Equivalent /128 single-address and equal-endpoint range representations are compared without rewriting the original V4 record or hash. A failure at 0/3 shows a failed terminal state, and pre-change, recovery-preview and apply errors receive separate fixed diagnostic codes. Existing SSH installations, settings, recovery records and the four-rule limit remain protected. Development checks and read-only plan validation do not establish successful recovery or SSH access.
+Version 0.3.4 distinguishes failures in legacy firewall recovery and corrects comparisons that could reject the same rules solely because their observation order changed. Stored originals and approval hashes remain unchanged while rule identity sets, policies, enabled states and baselines are checked separately. Equivalent V4 representations are normalized only for comparison; actual identity, policy or enabled-state changes and ambiguous matches remain rejected. Failed COM item conversion now stops incomplete enumeration instead of silently omitting a rule. Five actual provider stages identify connection, rule enumeration, rule-property reads, policy-store queries and detailed policy-property reads, with fixed diagnostic codes and privacy-preserving elapsed-time traces. Existing SSH installations, settings, recovery records and the four-rule limit remain protected. Successful real-PC recovery, two-PC SSH/SFTP and reboot persistence have not yet been verified.
 
 A restart pending after OpenSSH installation no longer displays overall 100%, all stages complete or connection success. It identifies installation as finished but SSH setup as incomplete, with the remaining setup completed by running SSH enable again after restart. After removing a protective block rule, only confirmed absence counts as complete; query errors or remaining rules are not reported as successful removal. Development validation of these changes is separate from successful restart, recovery or connection on a real PC.

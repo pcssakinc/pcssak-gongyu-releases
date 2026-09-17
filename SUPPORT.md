@@ -6,11 +6,15 @@ Reports are prioritized by safety impact, affected users and reproducibility.
 PCssak Gongyu 0.1.2~0.4.9는 무료 Early Access입니다. 답변·수정 기한을 보장하는 지원 SLA는 없으며,
 안전 영향·영향받는 사용자·재현 가능성을 기준으로 우선순위를 정합니다.
 
-현재 공개 최신판은 0.3.3이며 직전 공개판은 0.3.2입니다. 0.2.9·0.3.0·0.3.1은 비공개
-시험본이었습니다. 0.3.3의 불변 일반 릴리스·Latest와 정확한 9자산의 공개 판독을 마쳤습니다.
-The current public version is 0.3.3; the previous public version was 0.3.2. Versions 0.2.9,
-0.3.0, and 0.3.1 were unpublished builds. The immutable normal 0.3.3 release, Latest, and
-its exact nine assets have passed public readback verification.
+0.3.4는 기존 복구 기록을 보존하는 비교 개선, COM 열거 누락 차단, 제공자 단계 관측을
+보완합니다. 실제 제공 여부는 [일반 최신 릴리스](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/latest)와
+버전 고정 9자산으로 확인하세요. 이 안내와 [0.3.4 변경일기](docs/RELEASE-NOTES-v0.3.4.md)는
+게시·실제 PC 복구 성공의 증거가 아닙니다. 0.2.9·0.3.0·0.3.1은 비공개 시험본이었습니다.
+
+자동 검사, 공개 파일 검증, 실제 설치·복구·SSH/SFTP 접속은 서로 다른 검증입니다.
+0.3.4의 실제 설치·복구·두 PC 접속·재부팅 시험은 `NOT_RUN`이며 아래 실패 이력은 유지합니다.
+반복 실패 시 버전·마지막 단계·짧은 진단 코드만 문의하고 원본 로그·주소·계정·경로는 보내지 마세요.
+앱·설정·복구 기록을 보존하고 방화벽 초기화나 보안 해제로 우회하지 마세요.
 
 ## 0.3.3 공개와 검증 범위 / 0.3.3 publication and verification scope
 
