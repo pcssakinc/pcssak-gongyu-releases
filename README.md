@@ -2,6 +2,13 @@
 
 [한국어 안내](README.ko.md)
 
+> **0.3.5 known issues, reported after publication:** SSH enabling was reported to succeed.
+> Disabling can report an incomplete result even when the service is stopped and automatic
+> startup is disabled, because restoration of older external firewall records fails.
+> Full restoration can also fail with `SSH-FW/IDENTITY-MATCH-TARGET`.
+> These issues are recorded for 0.3.6; they are **not fixed in 0.3.5**.
+> See the [publication verification and known issues](docs/RELEASE-v0.3.5-VERIFICATION.md).
+
 > This directory is the public repository contract for PCssak Gongyu `v0.3.5`
 > Free Early Access. The version-pinned GitHub release and its nine verified
 > assets are the publication record.
