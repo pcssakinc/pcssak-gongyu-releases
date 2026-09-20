@@ -1,5 +1,5 @@
 ================================================================================
-PCssak Gongyu 0.3.6
+PCssak Gongyu 0.3.7
 THIRD-PARTY SOFTWARE NOTICES / 제3자 소프트웨어 고지
 ================================================================================
 
@@ -9,10 +9,10 @@ cargo-about로 분석해 생성했습니다. 알 수 없는 저작권자를 임�
 대상: x86_64-pc-windows-msvc, i686-pc-windows-msvc
 범위: 직접·전이·빌드 의존성 포함, 개발 전용 의존성 제외
 생성 도구: cargo-about 0.9.1
-Cargo.lock SHA-256: BA368568B6ECBB4C4A0AAEC8DBE84D3446CAE47FB7F1FC205CBD6BB7DE548583
+Cargo.lock SHA-256: 57552171BE9BDF54A81ADBD59B760FEEDE25738D0CBF1B94AF9E0CC26611AB0A
 고지 대상 Rust 패키지: 326개
-MPL-2.0 구성요소 원본 소스 묶음: PCssak-Gongyu-0.3.6-MPL-Sources.zip
-다운로드: https://github.com/pcssakinc/pcssak-gongyu-releases/releases/download/v0.3.6/PCssak-Gongyu-0.3.6-MPL-Sources.zip
+MPL-2.0 구성요소 원본 소스 묶음: PCssak-Gongyu-0.3.7-MPL-Sources.zip
+다운로드: https://github.com/pcssakinc/pcssak-gongyu-releases/releases/download/v0.3.7/PCssak-Gongyu-0.3.7-MPL-Sources.zip
 MPL-2.0 source archive for the covered components must be published with this exact release.
 
 주의: 자동 분석은 각 패키지가 제공한 메타데이터와 파일을 근거로 하며, 개별
