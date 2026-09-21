@@ -1,6 +1,6 @@
 # PCssak Gongyu 릴리스
 
-[English](README.md)
+**언어:** [English](README.md) · 한국어
 
 > 이 디렉터리는 PCssak Gongyu `v0.3.8` 무료 Early Access의 공개 저장소 계약입니다.
 > 게시 여부는 공개 릴리스의 실제 자산과 검증 기록으로 확인합니다.
