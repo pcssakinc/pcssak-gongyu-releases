@@ -1,7 +1,7 @@
 # Security Policy / 보안 정책
 
-> 0.3.8 무료 Early Access의 게시 여부는 공개 릴리스의 실제 자산과 검증 기록으로 확인합니다. 후속 설치본의 실제 복구·SSH 전환 시험은 NOT_RUN입니다.
-> Publication of 0.3.8 Free Early Access is established by the actual release assets and verification record. Hands-on recovery and SSH transition testing of the revised installer is NOT_RUN.
+> 공개 최신판은 0.3.8 무료 Early Access입니다. 0.3.9의 새 업데이트 서명키 안내는 준비 중이며, 설치본·두 서명·9자산·GitHub 게시 완료를 뜻하지 않습니다.
+> The latest published release is 0.3.8 Free Early Access. The v0.3.9 updater-key guidance is in preparation; its installer, two signatures, nine assets, and GitHub publication are not established.
 
 ## English
 
@@ -52,6 +52,20 @@ public 0.2.0 through 0.2.8 and 0.3.2 through 0.3.7, plus unpublished 0.2.9, 0.3.
 or deleting settings or Windows recovery records. Only 0.1.0 requires removal first.
 The 0.3.7-to-0.3.8 path and interrupted-replacement regressions are implemented;
 hands-on replacement and removal with the final installer are NOT_RUN.
+
+For the planned v0.3.9 key transition, apps through v0.3.8 cannot verify or
+install v0.3.9 through the in-app updater because they do not contain the new
+public key. Do not bypass a signature error. After the official v0.3.9 release
+is published and verified, obtain its installer directly from the version-pinned
+release or official website, compare its SHA-256 with that release's
+`SHA256SUMS.txt`, and run it interactively. Versions 0.1.1 through 0.3.8 use
+protected replacement without uninstalling first or deleting settings, sharing
+records, SSH configuration, or interrupted-operation records. Remove v0.1.0
+before direct installation. The legal documents remain unchanged; only later
+versions signed with the new key can use in-app updating after v0.3.9 is
+installed. These instructions do not establish that v0.3.9 has been published
+or tested on physical PCs.
+
 Public Early Access installers from 0.1.2 through 0.4.9, inclusive, do not
 carry an Authenticode publisher signature. Windows or security products may
 therefore warn about or block the file. The Tauri updater signature, independent
@@ -151,6 +165,17 @@ Windows·두 PC SSH/SFTP 실기를 대신하지 않습니다.
 0.1.9는 현행 법률 문서를 확인하는 대화형 설치가 필요하며 0.1.8
 이하는 앞서 고지한 키 전환도 적용됩니다. 0.1.1~0.3.7 사용자는 앱을 먼저 제거하거나 사용자 설정·
 Windows 복구 기록을 지우지 않고 보호 교체합니다. 0.1.0만 별도 제거 후 설치합니다.
+
+0.3.9에서는 업데이트 서명키를 바꿀 예정입니다. 0.3.8 이하 앱에는 새 공개키가 없어
+앱 안에서 0.3.9를 검증하거나 설치할 수 없습니다. 서명 오류를 우회하지 마세요.
+공식 0.3.9 릴리스와 검증 결과가 공개된 뒤에만 버전 고정 릴리스 또는 공식 홈페이지에서
+설치본을 직접 내려받아 같은 릴리스의 `SHA256SUMS.txt`와 SHA-256을 대조하고
+대화형으로 설치하세요. 0.1.1~0.3.8은 기존 앱을 먼저 제거하거나 설정·공유 장부·
+SSH 설정·중단 기록을 지우지 않고 보호 덮어 설치합니다. 0.1.0은 구 버전을 제거한
+뒤 직접 설치합니다. 법률 정본은 유지하며, 0.3.9 설치 후 새 키로 서명한 후속 버전만
+앱 내 업데이트로 검증할 수 있습니다. 이 안내는 0.3.9 공개나 실제 PC 실기의
+완료 근거가 아닙니다.
+
 0.1.2 이상 0.4.9 이하의 공개 Early Access 설치 파일에는 Authenticode
 게시자 서명이 없습니다. 따라서 Windows나 보안 제품이 경고하거나 실행을 차단할 수 있습니다.
 Tauri 업데이트 서명, 독립 Minisign 서명과 SHA-256 검증은 유지되지만 Windows 게시자 신원을
