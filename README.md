@@ -2,17 +2,36 @@
 
 [한국어 안내](README.ko.md)
 
-> This directory is the public repository contract for PCssak Gongyu `v0.3.8`
-> Free Early Access. Publication is established by the actual release assets and verification record.
-> The version-pinned GitHub release and its nine verified
-> assets are the publication record.
+> The latest published release remains PCssak Gongyu `v0.3.8` Free Early Access.
+> `v0.3.9` documentation is being prepared; this page does not establish that its
+> installer, signatures, nine assets, or GitHub release have been published.
 
 PCssak Gongyu is a Windows utility for user-directed SMB shared-folder setup,
 LAN checks, network-drive management, and separately consented SSH setup.
 Version `0.3.8` is **Free Early Access**; this describes product maturity and
 does not promise that future versions will remain free.
 
-## Release and verification requirements
+## Preparing v0.3.9: updater-key transition
+
+The [v0.3.9 release notes](docs/RELEASE-NOTES-v0.3.9.md) describe the planned
+release and its remaining verification. The updater signing key changes in
+v0.3.9. Apps through v0.3.8 do not contain the new public key and cannot
+verify or install v0.3.9 through the in-app updater. A signature error in an
+older app is not a reason to bypass signature checking.
+
+Only after the official v0.3.9 release and its checks are published, download
+its installer directly from the version-pinned GitHub release or the official
+website, compare its SHA-256 with that release's `SHA256SUMS.txt`, and run the
+installer interactively. For versions 0.1.1 through 0.3.8, install it over the
+existing app without uninstalling first or deleting settings, sharing records,
+SSH configuration, or interrupted-operation records. Version 0.1.0 requires
+removal before a direct installation. The legal documents remain unchanged.
+Only later releases signed with the new key can be verified through the in-app
+updater after v0.3.9 is installed. Installation, the two update signatures,
+the exact nine assets, publication, and hands-on SSH/SFTP testing of v0.3.9
+remain separate checks; none is established by this documentation preparation.
+
+## Published v0.3.8 release and verification requirements
 
 Version 0.3.8 addresses repeated legacy firewall recovery blocks and lost responses
 from slow reads reported with public 0.3.7. The first 0.3.8 candidate failed a real-PC
@@ -64,7 +83,7 @@ verifies current state. A safe stop waits for the current Windows call and the
 item's restore, verification and progress recording to finish; it is not forced
 termination or proof that full restoration succeeded.
 
-## Official download and Latest update
+## Published v0.3.8 download and updater
 
 After verified publication, use only the
 [official v0.3.8 release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.3.8)
