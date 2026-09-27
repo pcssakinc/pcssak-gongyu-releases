@@ -2,34 +2,41 @@
 
 [한국어 안내](README.ko.md)
 
-> The latest published release remains PCssak Gongyu `v0.3.8` Free Early Access.
-> `v0.3.9` documentation is being prepared; this page does not establish that its
-> installer, signatures, nine assets, or GitHub release have been published.
+> The latest published release is PCssak Gongyu `v0.3.9` Free Early Access.
+> Its immutable GitHub release has exactly nine verified assets. Hands-on
+> installation, reboot, and two-PC SSH/SFTP testing of v0.3.9 remain **NOT_RUN**.
 
 PCssak Gongyu is a Windows utility for user-directed SMB shared-folder setup,
 LAN checks, network-drive management, and separately consented SSH setup.
-Version `0.3.8` is **Free Early Access**; this describes product maturity and
+Version `0.3.9` is **Free Early Access**; this describes product maturity and
 does not promise that future versions will remain free.
 
-## Preparing v0.3.9: updater-key transition
+## Published v0.3.9: updater-key transition
 
-The [v0.3.9 release notes](docs/RELEASE-NOTES-v0.3.9.md) describe the planned
-release and its remaining verification. The updater signing key changes in
-v0.3.9. Apps through v0.3.8 do not contain the new public key and cannot
-verify or install v0.3.9 through the in-app updater. A signature error in an
-older app is not a reason to bypass signature checking.
+The [official v0.3.9 release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.3.9)
+was published as the general immutable Latest release with exactly nine assets.
+The final application source is `9289d65bc673e9284fb05e48c570fc8888976b71`;
+the release tag points to public-document commit
+`18f4e0d85747435b0e2d30af243913d376e63054`. Final-source Windows local
+verification passed 14 stages. The two update signatures and all nine assets
+passed public verification and unauthenticated download checks. The x64 installer
+is 3,952,660 bytes with SHA-256
+`7dd66a5654df728e6b40b705490bfdd0ca381cde7815ad545e8555b9fdaa9644`.
+See the [v0.3.9 release notes](docs/RELEASE-NOTES-v0.3.9.md) and
+[publication record](WORKLOG_2026-09-27_V0.3.9_PUBLIC_RELEASE_CLOSEOUT.md).
 
-Only after the official v0.3.9 release and its checks are published, download
-its installer directly from the version-pinned GitHub release or the official
-website, compare its SHA-256 with that release's `SHA256SUMS.txt`, and run the
-installer interactively. For versions 0.1.1 through 0.3.8, install it over the
-existing app without uninstalling first or deleting settings, sharing records,
-SSH configuration, or interrupted-operation records. Version 0.1.0 requires
-removal before a direct installation. The legal documents remain unchanged.
-Only later releases signed with the new key can be verified through the in-app
-updater after v0.3.9 is installed. Installation, the two update signatures,
-the exact nine assets, publication, and hands-on SSH/SFTP testing of v0.3.9
-remain separate checks; none is established by this documentation preparation.
+The updater signing key changed in v0.3.9. Apps through v0.3.8 do not contain
+the new public key and cannot verify or install v0.3.9 through the in-app
+updater. Download the installer directly from the version-pinned official
+release, compare its SHA-256 with that release's `SHA256SUMS.txt`, and run it
+interactively. For versions 0.1.1 through 0.3.8, install it over the existing
+app without uninstalling first or deleting settings, sharing records, SSH
+configuration, or interrupted-operation records. Version 0.1.0 requires removal
+before direct installation. Do not bypass a signature error in an older app.
+The legal documents remain unchanged. Only later releases signed with the new
+key can use in-app updating after v0.3.9 is installed. The v0.3.9 installer and
+bundled executable have no Windows Authenticode publisher signature; hands-on
+installation, reboot, recovery, and two-PC SSH/SFTP testing are **NOT_RUN**.
 
 ## Published v0.3.8 release and verification requirements
 
@@ -85,17 +92,19 @@ termination or proof that full restoration succeeded.
 
 ## Published v0.3.8 download and updater
 
-After verified publication, use only the
+For the historical v0.3.8 release, use the
 [official v0.3.8 release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.3.8)
-or a version-pinned page on [pcssak.com](https://pcssak.com/). The release title
-states Free Early Access, while GitHub uses `draft=false`, `prerelease=false`,
-and Latest so the application can check this stable endpoint:
+for its own assets. Its Free Early Access title used `draft=false` and
+`prerelease=false`; the Latest endpoint now resolves to v0.3.9:
 
 `https://github.com/pcssakinc/pcssak-gongyu-releases/releases/latest/download/latest.json`
 
-**Users on 0.2.0, 0.2.1, 0.2.2, 0.2.3, 0.2.4, 0.2.5, 0.2.6, 0.2.7, 0.2.8, 0.3.2, 0.3.3, 0.3.4, 0.3.5, 0.3.6, 0.3.7, or an unpublished 0.2.9, 0.3.0 or 0.3.1 build with valid legal-consent records can check for 0.3.8 after its verified publication in the app,
-download and verify it, then approve installation.** The legal documents and updater
-public key are unchanged in this patch. Users on 0.1.9 run the official installer
+At the time of v0.3.8 publication, **users on 0.2.0, 0.2.1, 0.2.2, 0.2.3,
+0.2.4, 0.2.5, 0.2.6, 0.2.7, 0.2.8, 0.3.2, 0.3.3, 0.3.4, 0.3.5, 0.3.6,
+0.3.7, or an unpublished 0.2.9, 0.3.0 or 0.3.1 build with valid legal-consent
+records could check for 0.3.8 in the app, download and verify it, then approve
+installation.** The legal documents and updater public key were unchanged in
+that patch. Users on 0.1.9 ran the official installer
 interactively to review the current legal documents. Users on 0.1.8 or earlier also
 need a one-time manual installation because of the previous updater-key transition.
 
@@ -124,7 +133,7 @@ preserved. The full Windows and two-PC SSH matrices remain incomplete.
 
 The public installer targets Windows x64 only:
 
-- `PCssak-Gongyu-0.3.8-Windows-x64-Setup.exe`
+- `PCssak-Gongyu-0.3.9-Windows-x64-Setup.exe`
 
 Windows x86 is not published until its separate Windows 10 x86 Home/Pro
 hands-on evidence gate passes.
@@ -148,10 +157,10 @@ using it on an important PC.
 Compare the installer SHA-256 with `SHA256SUMS.txt` from the same release:
 
 ```powershell
-Get-FileHash -Algorithm SHA256 '.\PCssak-Gongyu-0.3.8-Windows-x64-Setup.exe'
+Get-FileHash -Algorithm SHA256 '.\PCssak-Gongyu-0.3.9-Windows-x64-Setup.exe'
 ```
 
-The release also contains `PCssak-Gongyu-0.3.8-Windows-x64-Setup.exe.sig`.
+The release also contains `PCssak-Gongyu-0.3.9-Windows-x64-Setup.exe.sig`.
 PCssak Gongyu verifies updater artifacts with its embedded Gongyu-specific
 Minisign public key. `UPDATE-RELEASE.json.sig` separately binds the product,
 version, source commit, installer hash, installer byte size, embedded EULA and
