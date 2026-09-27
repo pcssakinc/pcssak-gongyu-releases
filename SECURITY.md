@@ -1,7 +1,7 @@
 # Security Policy / 보안 정책
 
-> 공개 최신판은 0.3.8 무료 Early Access입니다. 0.3.9의 새 업데이트 서명키 안내는 준비 중이며, 설치본·두 서명·9자산·GitHub 게시 완료를 뜻하지 않습니다.
-> The latest published release is 0.3.8 Free Early Access. The v0.3.9 updater-key guidance is in preparation; its installer, two signatures, nine assets, and GitHub publication are not established.
+> 공개 최신판은 0.3.9 무료 Early Access입니다. 일반 불변 Latest 릴리스의 9자산과 두 업데이트 서명을 검증했습니다. 실제 Windows 설치·두 PC SSH/SFTP 실기는 **NOT_RUN**입니다.
+> The latest published release is 0.3.9 Free Early Access. Its general immutable Latest release has nine verified assets and two update signatures. Hands-on Windows installation and two-PC SSH/SFTP testing are **NOT_RUN**.
 
 ## English
 
@@ -44,8 +44,8 @@ Download only from `pcssakinc/pcssak-gongyu-releases` or a version-pinned link o
 release. The Tauri updater verifies the published `.sig` with the Gongyu-specific
 Minisign public key, and the independently signed `UPDATE-RELEASE.json` binds
 release identity, installer hash and byte size, and the canonical installer URL.
-Version 0.3.8 keeps the 0.2.0 legal documents and updater key. Validly consented
-public 0.2.0 through 0.2.8 and 0.3.2 through 0.3.7, plus unpublished 0.2.9, 0.3.0 and 0.3.1 installations can use verified in-app updating with user approval after publication. Users on
+Historically, version 0.3.8 kept the 0.2.0 legal documents and updater key. Validly consented
+public 0.2.0 through 0.2.8 and 0.3.2 through 0.3.7, plus unpublished 0.2.9, 0.3.0 and 0.3.1 installations could use verified in-app updating with user approval after that publication. Users on
 0.1.9 still need interactive installation to review the current legal documents;
 0.1.8 or earlier also need the previously announced updater-key migration. For
 0.1.1 through 0.3.7, use protected replacement without first uninstalling the app
@@ -53,18 +53,22 @@ or deleting settings or Windows recovery records. Only 0.1.0 requires removal fi
 The 0.3.7-to-0.3.8 path and interrupted-replacement regressions are implemented;
 hands-on replacement and removal with the final installer are NOT_RUN.
 
-For the planned v0.3.9 key transition, apps through v0.3.8 cannot verify or
+For the published v0.3.9 key transition, apps through v0.3.8 cannot verify or
 install v0.3.9 through the in-app updater because they do not contain the new
-public key. Do not bypass a signature error. After the official v0.3.9 release
-is published and verified, obtain its installer directly from the version-pinned
-release or official website, compare its SHA-256 with that release's
+public key. Do not bypass a signature error. Obtain the installer directly from
+the [official version-pinned release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.3.9),
+compare its SHA-256 with that release's
 `SHA256SUMS.txt`, and run it interactively. Versions 0.1.1 through 0.3.8 use
 protected replacement without uninstalling first or deleting settings, sharing
 records, SSH configuration, or interrupted-operation records. Remove v0.1.0
 before direct installation. The legal documents remain unchanged; only later
 versions signed with the new key can use in-app updating after v0.3.9 is
-installed. These instructions do not establish that v0.3.9 has been published
-or tested on physical PCs.
+installed. The published x64 installer is 3,952,660 bytes with SHA-256
+`7dd66a5654df728e6b40b705490bfdd0ca381cde7815ad545e8555b9fdaa9644`.
+It has no Windows Authenticode publisher signature. The final-source Windows
+local verification, two update signatures, nine assets, and anonymous public
+download checks passed; physical-PC installation and two-PC SSH/SFTP testing
+remain **NOT_RUN**.
 
 Public Early Access installers from 0.1.2 through 0.4.9, inclusive, do not
 carry an Authenticode publisher signature. Windows or security products may
@@ -159,22 +163,25 @@ Windows·두 PC SSH/SFTP 실기를 대신하지 않습니다.
 `pcssakinc/pcssak-gongyu-releases` 또는 `pcssak.com`의 버전 고정 링크에서만 받고 같은
 릴리스의 `SHA256SUMS.txt`와 설치 파일 SHA-256을 비교하세요. Tauri Updater는 공개한
 `.sig`를 Gongyu 전용 Minisign 공개키로 검증하며, 별도로 서명한 `UPDATE-RELEASE.json`이
-릴리스 신원·설치본 해시·바이트 크기와 정규 설치본 URL을 묶습니다. 이번 0.3.8 버전은 0.2.0의 법률
-정본·업데이트 키를 유지하므로 정상 동의 기록이 있는 공개 0.2.0~0.2.8·0.3.2~0.3.7 및 비공개
-0.2.9·0.3.0·0.3.1 사용자는 실제 공개 후 앱 안에서 검증·사용자 승인 뒤 업데이트할 수 있습니다.
+릴리스 신원·설치본 해시·바이트 크기와 정규 설치본 URL을 묶습니다. 과거 0.3.8은 0.2.0의 법률
+정본·업데이트 키를 유지했으므로 당시 정상 동의 기록이 있는 공개 0.2.0~0.2.8·0.3.2~0.3.7 및 비공개
+0.2.9·0.3.0·0.3.1 사용자는 앱 안에서 검증·사용자 승인 뒤 업데이트할 수 있었습니다.
 0.1.9는 현행 법률 문서를 확인하는 대화형 설치가 필요하며 0.1.8
 이하는 앞서 고지한 키 전환도 적용됩니다. 0.1.1~0.3.7 사용자는 앱을 먼저 제거하거나 사용자 설정·
 Windows 복구 기록을 지우지 않고 보호 교체합니다. 0.1.0만 별도 제거 후 설치합니다.
 
-0.3.9에서는 업데이트 서명키를 바꿀 예정입니다. 0.3.8 이하 앱에는 새 공개키가 없어
+공개 0.3.9에서 업데이트 서명키가 바뀌었습니다. 0.3.8 이하 앱에는 새 공개키가 없어
 앱 안에서 0.3.9를 검증하거나 설치할 수 없습니다. 서명 오류를 우회하지 마세요.
-공식 0.3.9 릴리스와 검증 결과가 공개된 뒤에만 버전 고정 릴리스 또는 공식 홈페이지에서
+[공식 v0.3.9 버전 고정 릴리스](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.3.9)에서
 설치본을 직접 내려받아 같은 릴리스의 `SHA256SUMS.txt`와 SHA-256을 대조하고
 대화형으로 설치하세요. 0.1.1~0.3.8은 기존 앱을 먼저 제거하거나 설정·공유 장부·
 SSH 설정·중단 기록을 지우지 않고 보호 덮어 설치합니다. 0.1.0은 구 버전을 제거한
 뒤 직접 설치합니다. 법률 정본은 유지하며, 0.3.9 설치 후 새 키로 서명한 후속 버전만
-앱 내 업데이트로 검증할 수 있습니다. 이 안내는 0.3.9 공개나 실제 PC 실기의
-완료 근거가 아닙니다.
+앱 내 업데이트로 검증할 수 있습니다. 공개 x64 설치본은 3,952,660바이트이며
+SHA-256은 `7dd66a5654df728e6b40b705490bfdd0ca381cde7815ad545e8555b9fdaa9644`입니다.
+Windows Authenticode 게시자 서명은 없습니다. 최종 소스의 Windows 로컬 검증,
+두 업데이트 서명·9자산·인증 없는 공개 다운로드 검증은 통과했지만 실제 PC 설치와
+두 PC SSH/SFTP 실기는 **NOT_RUN**입니다.
 
 0.1.2 이상 0.4.9 이하의 공개 Early Access 설치 파일에는 Authenticode
 게시자 서명이 없습니다. 따라서 Windows나 보안 제품이 경고하거나 실행을 차단할 수 있습니다.
