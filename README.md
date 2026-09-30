@@ -2,165 +2,91 @@
 
 [한국어 안내](README.ko.md)
 
-> The latest published release is PCssak Gongyu `v0.3.9` Free Early Access.
-> Its immutable GitHub release has exactly nine verified assets. Hands-on
-> installation, reboot, and two-PC SSH/SFTP testing of v0.3.9 remain **NOT_RUN**.
+> This directory is the public repository contract for PCssak Gongyu v0.4.0 Free Early Access.
+> Publication is established by the actual immutable release and nine verified assets.
 
-PCssak Gongyu is a Windows utility for user-directed SMB shared-folder setup,
-LAN checks, network-drive management, and separately consented SSH setup.
-Version `0.3.9` is **Free Early Access**; this describes product maturity and
-does not promise that future versions will remain free.
+PCssak Gongyu is a Windows utility for user-directed SMB sharing, LAN checks,
+network-drive management and separately consented SSH setup. Free Early Access
+describes the maturity of this version, not a promise about future pricing.
 
-## Published v0.3.9: updater-key transition
+## What changed in 0.4.0
 
-The [official v0.3.9 release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.3.9)
-was published as the general immutable Latest release with exactly nine assets.
-The final application source is `9289d65bc673e9284fb05e48c570fc8888976b71`;
-the release tag points to public-document commit
-`18f4e0d85747435b0e2d30af243913d376e63054`. Final-source Windows local
-verification passed 14 stages. The two update signatures and all nine assets
-passed public verification and unauthenticated download checks. The x64 installer
-is 3,952,660 bytes with SHA-256
-`7dd66a5654df728e6b40b705490bfdd0ca381cde7815ad545e8555b9fdaa9644`.
-See the [v0.3.9 release notes](docs/RELEASE-NOTES-v0.3.9.md) and
-[publication record](WORKLOG_2026-09-27_V0.3.9_PUBLIC_RELEASE_CLOSEOUT.md).
+The regular SSH screen offers enable, disable and restoration of this app's SSH
+settings. Legacy firewall-record preview and recovery buttons, their settings
+navigation and automatic V4/V5 recovery before regular operations are retired.
+WebView permission for the five related commands is removed. Current LAN-rule
+ownership, service baselines and protected restoration records remain preserved;
+removing a screen does not delete a journal or declare recovery complete.
 
-The updater signing key changed in v0.3.9. Apps through v0.3.8 do not contain
-the new public key and cannot verify or install v0.3.9 through the in-app
-updater. Download the installer directly from the version-pinned official
-release, compare its SHA-256 with that release's `SHA256SUMS.txt`, and run it
-interactively. For versions 0.1.1 through 0.3.8, install it over the existing
-app without uninstalling first or deleting settings, sharing records, SSH
-configuration, or interrupted-operation records. Version 0.1.0 requires removal
-before direct installation. Do not bypass a signature error in an older app.
-The legal documents remain unchanged. Only later releases signed with the new
-key can use in-app updating after v0.3.9 is installed. The v0.3.9 installer and
-bundled executable have no Windows Authenticode publisher signature; hands-on
-installation, reboot, recovery, and two-PC SSH/SFTP testing are **NOT_RUN**.
+Settings show language, Windows startup, theme, updates and application lock
+first, followed by expandable data management, troubleshooting and advanced
+settings. Interrupted-operation guidance remains outside those sections. Backup,
+overwrite and deletion confirmations remain, including the need to re-enter
+passwords on another PC or Windows account. Guidance covers all ten UI languages.
 
-## Published v0.3.8 release and verification requirements
+The protected partial-restoration limits introduced in 0.3.9 remain. App-owned
+settings may be cleaned only when protected records and exact non-overlapping
+targets establish independent external recovery. Original service restoration,
+OpenSSH removal, Public-profile restoration and release of protective blocking
+may remain deferred. Damaged, overlapping or unreadable state is not success.
+The LAN-shield verdict remains limited to verified policy, authentication and
+interface state, without guaranteeing precedence over organization policy.
+Other programs' and Windows' allow rules are not arbitrarily changed. Stopping
+the service does not prove that all authenticated SSH sessions have ended.
 
-Version 0.3.8 addresses repeated legacy firewall recovery blocks and lost responses
-from slow reads reported with public 0.3.7. The first 0.3.8 candidate failed a real-PC
-trial with long waits and blocked window closing; that failure remains part of the
-record. The subsequent implementation also fixes recovery finalization and cancelled
-preparation responses. Hands-on installation, upgrade, SSH enable, disable, re-enable
-and reboot testing of this revision is **NOT_RUN**. Development tests are distinct
-from final-source validation, the installer, both update signatures, all nine assets
-and public read-back. Versions 0.2.9, 0.3.0 and 0.3.1 were unpublished test builds;
-earlier automated results do not establish that this revision solves the real-PC problem.
+Hands-on 0.4.0 installation, upgrade, removal, reboot persistence, two-PC SSH/SFTP
+and full restoration are NOT_RUN. Experience with one PC on an earlier release
+is not evidence for this installer. The full Windows Home/Pro matrix, external
+legal review, independent supply-chain review and Authenticode remain incomplete.
+Development tests, final-source verification, both update signatures, nine assets
+and public read-back are separate gates. See the [release notes](docs/RELEASE-NOTES-v0.4.0.md).
 
-The main SSH button reuses an existing OpenSSH service, including a user-installed
-service. Enable sets it to Automatic and Running; disable stops it and sets Disabled.
-Original installation ownership, settings, keys and the first recorded service state
-remain preserved. A new installation without pending recovery follows the normal
-installation path. These implemented service settings do not establish successful
-reboot persistence on the reporting PC.
+## Official download and Latest update
 
-An independent legacy recovery can remain pending while normal enable or disable
-proceeds only when the SSH service and current SSH settings already exist, its
-protected approval and progress records validate, and its targets do not overlap
-the currently managed SSH rules. This preserves the original recovery without
-completing or deleting it; explicit recovery remains available in Details. Missing
-or damaged evidence, pending exact-ID recovery, overlapping targets, old settings
-alone, or no installed SSH service prevent this separation. The button does not
-repeatedly force full legacy recovery when these conditions fail. Interrupted SSH
-setup or restoration itself still requires recovery of the same parent operation;
-completing a child recovery does not finalize that parent.
-The exception does not remove recovery gates for sharing, full restoration or removal.
-
-Recovery comparison separates the originally approved targets from observation-only
-candidates. Only after proving an original retained rule ID is absent can a new
-handoff record pass that original ID to V5 archiving while preserving the original
-journal, approval digest and completed list. A current rule with the same name is
-not a replacement; restoration duties for surviving targets remain. Recovery handoff
-schema 3 and operation journal version 3 are separate compatibility boundaries.
-After writing these records, use the same updated application line to resume;
-do not delete records or downgrade to bypass a block.
-
-If protected recovery completed but its operation did not finalize, explicit recovery
-checks the same operation, approved plan, current exact targets and archived originals
-before retrying finalization. Older unbound records require separate confirmation and
-are recorded as manually confirmed, not as proof of past successful restoration.
-Startup and button reads share one actual response, including a late final result.
-Cancellation, app lock, another operation or a changed plan stops preparation; an
-obsolete response cannot overwrite newer state. A slow display-only read after a
-completed mutation no longer holds that completed action open. The next preparation
-verifies current state. A safe stop waits for the current Windows call and the
-item's restore, verification and progress recording to finish; it is not forced
-termination or proof that full restoration succeeded.
-
-## Published v0.3.8 download and updater
-
-For the historical v0.3.8 release, use the
-[official v0.3.8 release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.3.8)
-for its own assets. Its Free Early Access title used `draft=false` and
-`prerelease=false`; the Latest endpoint now resolves to v0.3.9:
+After verified publication, use only the
+[official v0.4.0 release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.4.0)
+or a version-pinned page on [pcssak.com](https://pcssak.com/). The title states
+Free Early Access; GitHub uses `draft=false`, `prerelease=false` and Latest.
+The application's fixed update endpoint is:
 
 `https://github.com/pcssakinc/pcssak-gongyu-releases/releases/latest/download/latest.json`
 
-At the time of v0.3.8 publication, **users on 0.2.0, 0.2.1, 0.2.2, 0.2.3,
-0.2.4, 0.2.5, 0.2.6, 0.2.7, 0.2.8, 0.3.2, 0.3.3, 0.3.4, 0.3.5, 0.3.6,
-0.3.7, or an unpublished 0.2.9, 0.3.0 or 0.3.1 build with valid legal-consent
-records could check for 0.3.8 in the app, download and verify it, then approve
-installation.** The legal documents and updater public key were unchanged in
-that patch. Users on 0.1.9 ran the official installer
-interactively to review the current legal documents. Users on 0.1.8 or earlier also
-need a one-time manual installation because of the previous updater-key transition.
+The legal documents and **0.3.9 updater public key** are unchanged. **0.3.9 users
+with valid legal-consent records can download, verify and approve the update in
+the app after verified 0.4.0 publication. Users on 0.3.8 or earlier lack the current
+key and must download the official installer once, compare its SHA-256 with the
+published list and run it interactively.** Do not bypass signature errors.
 
-The 0.3.7-to-0.3.8 protected replacement path and interrupted-replacement regressions
-are implemented. Hands-on replacement and removal with the final installer are NOT_RUN.
-For 0.1.1 through 0.3.7, do not uninstall first or delete settings, sharing records,
-SSH configuration, or interrupted-operation records. Protected replacement preserves
-user settings without launching the old uninstaller. If the app was already removed,
-use the new installer without manually deleting Windows recovery records. Only
-0.1.0 requires removal before installing the official release. Missing consent or
-damaged installation records require the interactive installation path.
+For 0.1.1 through 0.3.9, use protected replacement without uninstalling first or
+deleting settings, sharing records, SSH configuration or interrupted-operation
+records. The old uninstaller is not launched. Even after prior removal, do not
+manually delete Windows recovery records. Only 0.1.0 requires removal before
+installing the official release. Missing consent or damaged records require
+interactive installation. Hands-on replacement and removal are NOT_RUN.
+Do not force a downgrade during interrupted recovery.
 
-Quick disable is judged by removal of the PCSSAK allow rule, verification that the service is stopped with start type Disabled, and verified blocking. It does not restore legacy external rules: original journals are preserved and pending restoration is shown separately. If full restoration cannot verify external recovery, it defers restarting the original service, restoring automatic start, removing the OpenSSH capability and releasing protective blocking. Only a partial result with reverified safety can proceed through an ordinary retry; unverified safety still requires interrupted-operation recovery. Stopping the service does not prove that every already authenticated SSH session has ended. Exact SCM STOPPED state is required instead of treating starting, stopping or paused services as fully stopped. Quick disable, partial restoration, V5 archiving and unresolved outcomes have distinct guidance in all ten languages.
+An OpenSSH installation awaiting reboot is not successful access or overall
+completion; run SSH enable after reboot to finish setup. Updating does not turn
+on SSH or complete legacy firewall recovery. The public installer is x64 only:
 
-The V5 flow verifies an exact rule ID is absent twice, then archives the original in administrator-protected storage only after explicit user approval matching the preview digest. Existing targets, policy changes, duplicate matches and query failures are not treated as missing rules; their originals are preserved. Interrupted archiving resumes from the existing record, and concurrent changes after approval stop the operation. Archiving neither changes or recreates a Windows firewall rule nor completes full restoration. Older interrupted records lead to the next recovery step appropriate to their operation; journal deletion, firewall resets and disabling security software are not bypasses.
+- `PCssak-Gongyu-0.4.0-Windows-x64-Setup.exe`
 
-The five PCSSAK-owned LAN-shield block rules introduced in 0.3.5 remain in place. Enable and quick disable do not arbitrarily modify other programs' or Windows' own allow rules. Safety is limited to verified policy applicability, no authentication bypass and no excluded interfaces; organization-policy effects are not guaranteed. Existing user-installed OpenSSH and settings remain preserved. Service registration is distinct from capability installation, and a pending installation reboot is neither overall 100% completion nor successful access: run SSH enable again after reboot. A local sshd banner response does not verify another PC's access or packet filtering.
-
-The existing LAN-shield verdict is limited to verified local-policy applicability, no detected authentication bypass, and no excluded interfaces. Unknown policy, authentication or interface state is not treated as safe, and the app does not claim unconditional precedence over organization policy. The external-rule list uses its safe appearance only when both the shield and the overall safety verdict are true. A completed recovery card is hidden only when the protected completed record, archive, public finalization and all four current journal locations agree; unresolved originals remain protected. Earlier address-property tests on transient COM objects do not establish this revision's actual rule registration, packet blocking or successful access. Final recovery and access on the reporting PC and the full two-PC matrix remain unverified.
-
-A restart pending after OpenSSH installation no longer displays overall 100%, all stages complete or connection success. It identifies installation as finished but SSH setup as incomplete, with the remaining setup completed by running SSH enable again after restart. After removing a protective block rule, only confirmed absence counts as complete; query errors or remaining rules are not reported as successful removal. Development validation of these changes is separate from successful restart, recovery or connection on a real PC.
-See the [release notes](docs/RELEASE-NOTES-v0.3.8.md) for details.
-This document and automated tests do not establish successful SSH connections,
-installation, or reboot persistence on every PC. Existing immutable assets are
-preserved. The full Windows and two-PC SSH matrices remain incomplete.
-
-The public installer targets Windows x64 only:
-
-- `PCssak-Gongyu-0.3.9-Windows-x64-Setup.exe`
-
-Windows x86 is not published until its separate Windows 10 x86 Home/Pro
-hands-on evidence gate passes.
-
-Versions from 0.1.2 through 0.4.9, inclusive, are free Early Access
-releases intended to obtain real-world measurements. Final external legal
-review, the full Windows 10/11 Home/Pro x64 VM and physical-LAN SSH/SFTP matrix,
-independent supply-chain review, and Windows-trusted Authenticode signing are
-not complete and are disclosed while post-release testing continues. Each release still
-requires final-source verification through GitHub Actions or the approved local
-Windows verification process, Tauri updater signing, independent Minisign signing,
-SHA-256 checks, and the exact nine-asset contract. The local alternative is limited
-to versions from 0.1.2 through 0.4.9, inclusive. It records actual commands,
-tool and log hashes, and results; a skipped or failed Actions run is not called a success.
-Early Access does not guarantee defect-free operation across every Windows and
-security-product combination; test on a recoverable system with a backup before
-using it on an important PC.
+Windows x86 is not published before separate Windows 10 x86 Home/Pro hands-on
+evidence passes. Versions from 0.1.2 through 0.4.9 are free Early Access. Final-source
+verification, Tauri/Minisign signing, SHA-256 and the exact nine assets remain
+required. The approved local Windows alternative records actual commands, tool
+and log hashes and results; failed Actions are not called successful. Use a
+recoverable test PC, current backup and active security software.
 
 ## Verify before running
 
 Compare the installer SHA-256 with `SHA256SUMS.txt` from the same release:
 
 ```powershell
-Get-FileHash -Algorithm SHA256 '.\PCssak-Gongyu-0.3.9-Windows-x64-Setup.exe'
+Get-FileHash -Algorithm SHA256 '.\PCssak-Gongyu-0.4.0-Windows-x64-Setup.exe'
 ```
 
-The release also contains `PCssak-Gongyu-0.3.9-Windows-x64-Setup.exe.sig`.
+The release also contains `PCssak-Gongyu-0.4.0-Windows-x64-Setup.exe.sig`.
 PCssak Gongyu verifies updater artifacts with its embedded Gongyu-specific
 Minisign public key. `UPDATE-RELEASE.json.sig` separately binds the product,
 version, source commit, installer hash, installer byte size, embedded EULA and

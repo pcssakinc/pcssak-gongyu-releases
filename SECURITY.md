@@ -1,7 +1,7 @@
 # Security Policy / 보안 정책
 
-> 공개 최신판은 0.3.9 무료 Early Access입니다. 일반 불변 Latest 릴리스의 9자산과 두 업데이트 서명을 검증했습니다. 실제 Windows 설치·두 PC SSH/SFTP 실기는 **NOT_RUN**입니다.
-> The latest published release is 0.3.9 Free Early Access. Its general immutable Latest release has nine verified assets and two update signatures. Hands-on Windows installation and two-PC SSH/SFTP testing are **NOT_RUN**.
+> 0.4.0 무료 Early Access의 게시 여부는 공개 릴리스의 실제 자산과 검증 기록으로 확인합니다. 새 설치본의 실제 복구·SSH 전환 시험은 NOT_RUN입니다.
+> Publication of 0.4.0 Free Early Access is established by the actual release assets and verification record. Hands-on recovery and SSH transition testing of the new installer is NOT_RUN.
 
 ## English
 
@@ -20,6 +20,18 @@ assets remain required. The local alternative is available only from 0.1.2 throu
 to the final source. Skipped or failed Actions runs are not recorded as successful.
 Neither path replaces hands-on Windows or two-PC SSH/SFTP testing. Prefer a
 recoverable test system and a current backup.
+
+Version 0.4.0 retires legacy firewall-record preview and recovery screens,
+their settings navigation, automatic V4/V5 recovery before regular SSH operations
+and WebView permission for the five related commands. Current LAN-rule ownership,
+service baselines and protected restoration records remain. Screen removal does
+not delete journals, release safety guards or declare recovery complete.
+The partial-restoration limits introduced in 0.3.9 remain: protected records and
+exact non-overlapping targets are required, while external recovery, original
+service restoration, OpenSSH removal, Public-profile rollback and release of
+protective blocking may remain deferred. Damaged or uncertain state stops the
+operation. Hands-on 0.4.0 installation, reboot, two-PC SSH/SFTP and full restoration
+are NOT_RUN; earlier one-PC observations do not verify this installer.
 
 ### Report privately
 
@@ -44,32 +56,15 @@ Download only from `pcssakinc/pcssak-gongyu-releases` or a version-pinned link o
 release. The Tauri updater verifies the published `.sig` with the Gongyu-specific
 Minisign public key, and the independently signed `UPDATE-RELEASE.json` binds
 release identity, installer hash and byte size, and the canonical installer URL.
-Historically, version 0.3.8 kept the 0.2.0 legal documents and updater key. Validly consented
-public 0.2.0 through 0.2.8 and 0.3.2 through 0.3.7, plus unpublished 0.2.9, 0.3.0 and 0.3.1 installations could use verified in-app updating with user approval after that publication. Users on
-0.1.9 still need interactive installation to review the current legal documents;
-0.1.8 or earlier also need the previously announced updater-key migration. For
-0.1.1 through 0.3.7, use protected replacement without first uninstalling the app
-or deleting settings or Windows recovery records. Only 0.1.0 requires removal first.
-The 0.3.7-to-0.3.8 path and interrupted-replacement regressions are implemented;
-hands-on replacement and removal with the final installer are NOT_RUN.
-
-For the published v0.3.9 key transition, apps through v0.3.8 cannot verify or
-install v0.3.9 through the in-app updater because they do not contain the new
-public key. Do not bypass a signature error. Obtain the installer directly from
-the [official version-pinned release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.3.9),
-compare its SHA-256 with that release's
-`SHA256SUMS.txt`, and run it interactively. Versions 0.1.1 through 0.3.8 use
-protected replacement without uninstalling first or deleting settings, sharing
-records, SSH configuration, or interrupted-operation records. Remove v0.1.0
-before direct installation. The legal documents remain unchanged; only later
-versions signed with the new key can use in-app updating after v0.3.9 is
-installed. The published x64 installer is 3,952,660 bytes with SHA-256
-`7dd66a5654df728e6b40b705490bfdd0ca381cde7815ad545e8555b9fdaa9644`.
-It has no Windows Authenticode publisher signature. The final-source Windows
-local verification, two update signatures, nine assets, and anonymous public
-download checks passed; physical-PC installation and two-PC SSH/SFTP testing
-remain **NOT_RUN**.
-
+Version 0.4.0 keeps the legal documents and updater public key from 0.3.9.
+After verified publication, 0.3.9 users with valid consent records can download,
+verify signatures and approve installation in the app. Users on 0.3.8 or earlier
+lack the current key and must download the official installer, compare its
+SHA-256 with the published list and run it interactively. Signature checks must
+not be bypassed. For 0.1.1 through 0.3.9, use protected replacement without
+uninstalling first or deleting settings or Windows recovery records. Only 0.1.0
+requires removal first. Hands-on protected replacement and removal with the
+final installer are NOT_RUN.
 Public Early Access installers from 0.1.2 through 0.4.9, inclusive, do not
 carry an Authenticode publisher signature. Windows or security products may
 therefore warn about or block the file. The Tauri updater signature, independent
@@ -129,6 +124,15 @@ policy. The app never changes those controls or SAC automatically.
 
 ## 한국어
 
+0.4.0에서는 과거 방화벽 기록 조회·복구 화면, 설정 이동 경로, 일반 SSH 조작 전
+구형 V4·V5 복구 자동 실행과 관련 명령 다섯 개의 WebView 권한을 퇴역합니다.
+현재 LAN 규칙 소유권·서비스 기준선·우리 설정 원복 보호 기록은 유지합니다. 화면
+제거를 원본 삭제·보호 해제·복구 완료로 처리하지 않습니다. 0.3.9의 부분 원복 한계도
+유지합니다. 보호 원문과 정확한 대상 비중첩을 확인할 때만 진행하며 외부 복구·
+원래 서비스 상태·OpenSSH 기능·Public 프로필 원복·보호 차단 해제는 보류될 수 있습니다.
+손상되거나 읽을 수 없는 상태를 성공으로 표시하지 않습니다. 0.4.0 설치·재부팅·
+두 PC SSH/SFTP·완전 원복 실기는 NOT_RUN이고 기존 한 PC 경험은 이번 설치본의 증거가 아닙니다.
+
 보안 제보는 공개된 최신 PCssak Gongyu 무료 Early Access 버전을 기준으로 검토합니다.
 Early Access에는 발견되지 않은 결함이 남아 있을 수 있으며, 이 정책은 제보와 대응 범위를
 정하는 문서이지 결함이 없다는 보증이 아닙니다.
@@ -163,26 +167,13 @@ Windows·두 PC SSH/SFTP 실기를 대신하지 않습니다.
 `pcssakinc/pcssak-gongyu-releases` 또는 `pcssak.com`의 버전 고정 링크에서만 받고 같은
 릴리스의 `SHA256SUMS.txt`와 설치 파일 SHA-256을 비교하세요. Tauri Updater는 공개한
 `.sig`를 Gongyu 전용 Minisign 공개키로 검증하며, 별도로 서명한 `UPDATE-RELEASE.json`이
-릴리스 신원·설치본 해시·바이트 크기와 정규 설치본 URL을 묶습니다. 과거 0.3.8은 0.2.0의 법률
-정본·업데이트 키를 유지했으므로 당시 정상 동의 기록이 있는 공개 0.2.0~0.2.8·0.3.2~0.3.7 및 비공개
-0.2.9·0.3.0·0.3.1 사용자는 앱 안에서 검증·사용자 승인 뒤 업데이트할 수 있었습니다.
-0.1.9는 현행 법률 문서를 확인하는 대화형 설치가 필요하며 0.1.8
-이하는 앞서 고지한 키 전환도 적용됩니다. 0.1.1~0.3.7 사용자는 앱을 먼저 제거하거나 사용자 설정·
-Windows 복구 기록을 지우지 않고 보호 교체합니다. 0.1.0만 별도 제거 후 설치합니다.
-
-공개 0.3.9에서 업데이트 서명키가 바뀌었습니다. 0.3.8 이하 앱에는 새 공개키가 없어
-앱 안에서 0.3.9를 검증하거나 설치할 수 없습니다. 서명 오류를 우회하지 마세요.
-[공식 v0.3.9 버전 고정 릴리스](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.3.9)에서
-설치본을 직접 내려받아 같은 릴리스의 `SHA256SUMS.txt`와 SHA-256을 대조하고
-대화형으로 설치하세요. 0.1.1~0.3.8은 기존 앱을 먼저 제거하거나 설정·공유 장부·
-SSH 설정·중단 기록을 지우지 않고 보호 덮어 설치합니다. 0.1.0은 구 버전을 제거한
-뒤 직접 설치합니다. 법률 정본은 유지하며, 0.3.9 설치 후 새 키로 서명한 후속 버전만
-앱 내 업데이트로 검증할 수 있습니다. 공개 x64 설치본은 3,952,660바이트이며
-SHA-256은 `7dd66a5654df728e6b40b705490bfdd0ca381cde7815ad545e8555b9fdaa9644`입니다.
-Windows Authenticode 게시자 서명은 없습니다. 최종 소스의 Windows 로컬 검증,
-두 업데이트 서명·9자산·인증 없는 공개 다운로드 검증은 통과했지만 실제 PC 설치와
-두 PC SSH/SFTP 실기는 **NOT_RUN**입니다.
-
+릴리스 신원·설치본 해시·바이트 크기와 정규 설치본 URL을 묶습니다. 0.4.0은 0.3.9의
+법률 정본·업데이트 공개키를 유지합니다. 정상 동의 기록이 있는 0.3.9 사용자는 실제
+공개 후 앱에서 다운로드·서명 검증·사용자 승인으로 업데이트할 수 있습니다. 0.3.8
+이하는 현행 공개키가 없으므로 공식 설치본을 직접 내려받아 공개 SHA-256과 대조한 뒤
+대화형으로 설치합니다. 서명 검증을 우회하지 마세요. 0.1.1~0.3.9는 먼저 앱을 제거하거나
+설정·공유 장부·SSH 설정·중단 기록을 지우지 않고 보호 교체합니다. 0.1.0만 구 버전
+제거 후 직접 설치합니다. 최종 설치본의 실제 보호 교체·제거 실기는 NOT_RUN입니다.
 0.1.2 이상 0.4.9 이하의 공개 Early Access 설치 파일에는 Authenticode
 게시자 서명이 없습니다. 따라서 Windows나 보안 제품이 경고하거나 실행을 차단할 수 있습니다.
 Tauri 업데이트 서명, 독립 Minisign 서명과 SHA-256 검증은 유지되지만 Windows 게시자 신원을
@@ -272,7 +263,11 @@ by GUID. Prior terminal history is retained within 32 entries and 128 KiB, with 
 progress and diagnostic codes. Existing user SSH settings and rule-change limits remain protected.
 Successful SSH access on the reporting PC has not yet been verified.
 
-## 0.3.8 검증 기준과 기존 SSH 보존
+## 0.3.8 검증 기준과 기존 SSH 보존 — 당시 버전 기록
+
+이 절의 상세 복구·V5 보관·취소 화면은 당시 구현 기록입니다. 0.4.0에서는 해당 화면과
+WebView 호출 권한을 퇴역했으므로 현재 버튼의 사용 안내로 적용하지 않습니다. 과거 기록을
+지우거나 복구를 완료로 처리하지 않으며 남은 보호 경계는 유지합니다.
 
 0.3.8은 공개 0.3.7에서 반복된 구형 방화벽 복구 차단과 긴 조회의 응답 유실을 보완한 무료
 Early Access입니다. 첫 0.3.8 후보의 긴 대기·창 닫기 차단 실패는 그대로 보존하며, 후속 구현과
