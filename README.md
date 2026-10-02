@@ -2,27 +2,27 @@
 
 [한국어 안내](README.ko.md)
 
-> This directory is the public repository contract for PCssak Gongyu v0.4.0 Free Early Access.
+> This directory is the public repository contract for PCssak Gongyu v0.4.1 Free Early Access.
 > Publication is established by the actual immutable release and nine verified assets.
 
 PCssak Gongyu is a Windows utility for user-directed SMB sharing, LAN checks,
 network-drive management and separately consented SSH setup. Free Early Access
 describes the maturity of this version, not a promise about future pricing.
 
-## What changed in 0.4.0
+## What changed in 0.4.1
 
-The regular SSH screen offers enable, disable and restoration of this app's SSH
-settings. Legacy firewall-record preview and recovery buttons, their settings
-navigation and automatic V4/V5 recovery before regular operations are retired.
-WebView permission for the five related commands is removed. Current LAN-rule
-ownership, service baselines and protected restoration records remain preserved;
-removing a screen does not delete a journal or declare recovery complete.
+Sharing connection checks preserve seven underlying failure reasons and bind the
+approved network identity and returned scope to the same observation. Recovery
+cards in Settings separate status, actions and explanations. Physical-LAN checks,
+verification before and after changes, and user confirmation remain required.
+VPN and virtual adapters are not trusted automatically. The reported remote
+server's exact environment and failure remain unconfirmed; this release does not
+claim expanded Windows Server or virtual-LAN support or hands-on success.
 
-Settings show language, Windows startup, theme, updates and application lock
-first, followed by expandable data management, troubleshooting and advanced
-settings. Interrupted-operation guidance remains outside those sections. Backup,
-overwrite and deletion confirmations remain, including the need to re-enter
-passwords on another PC or Windows account. Guidance covers all ten UI languages.
+The regular SSH controls and Settings categories introduced in 0.4.0 remain.
+Retired legacy firewall-recovery screens are not reopened, and protected records
+are not deleted. Restore, overwrite and deletion confirmations remain, as does
+the possible need to re-enter passwords on another PC or Windows account.
 
 The protected partial-restoration limits introduced in 0.3.9 remain. App-owned
 settings may be cleaned only when protected records and exact non-overlapping
@@ -34,30 +34,30 @@ interface state, without guaranteeing precedence over organization policy.
 Other programs' and Windows' allow rules are not arbitrarily changed. Stopping
 the service does not prove that all authenticated SSH sessions have ended.
 
-Hands-on 0.4.0 installation, upgrade, removal, reboot persistence, two-PC SSH/SFTP
+Hands-on 0.4.1 installation, upgrade, removal, reboot persistence, two-PC SSH/SFTP
 and full restoration are NOT_RUN. Experience with one PC on an earlier release
 is not evidence for this installer. The full Windows Home/Pro matrix, external
 legal review, independent supply-chain review and Authenticode remain incomplete.
 Development tests, final-source verification, both update signatures, nine assets
-and public read-back are separate gates. See the [release notes](docs/RELEASE-NOTES-v0.4.0.md).
+and public read-back are separate gates. See the [release notes](docs/RELEASE-NOTES-v0.4.1.md).
 
 ## Official download and Latest update
 
 After verified publication, use only the
-[official v0.4.0 release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.4.0)
+[official v0.4.1 release](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.4.1)
 or a version-pinned page on [pcssak.com](https://pcssak.com/). The title states
 Free Early Access; GitHub uses `draft=false`, `prerelease=false` and Latest.
 The application's fixed update endpoint is:
 
 `https://github.com/pcssakinc/pcssak-gongyu-releases/releases/latest/download/latest.json`
 
-The legal documents and **0.3.9 updater public key** are unchanged. **0.3.9 users
+The legal documents and **0.3.9 updater public key** are unchanged. **0.3.9 and 0.4.0 users
 with valid legal-consent records can download, verify and approve the update in
-the app after verified 0.4.0 publication. Users on 0.3.8 or earlier lack the current
+the app after verified 0.4.1 publication. Users on 0.3.8 or earlier lack the current
 key and must download the official installer once, compare its SHA-256 with the
 published list and run it interactively.** Do not bypass signature errors.
 
-For 0.1.1 through 0.3.9, use protected replacement without uninstalling first or
+For 0.1.1 through 0.4.0, use protected replacement without uninstalling first or
 deleting settings, sharing records, SSH configuration or interrupted-operation
 records. The old uninstaller is not launched. Even after prior removal, do not
 manually delete Windows recovery records. Only 0.1.0 requires removal before
@@ -69,7 +69,7 @@ An OpenSSH installation awaiting reboot is not successful access or overall
 completion; run SSH enable after reboot to finish setup. Updating does not turn
 on SSH or complete legacy firewall recovery. The public installer is x64 only:
 
-- `PCssak-Gongyu-0.4.0-Windows-x64-Setup.exe`
+- `PCssak-Gongyu-0.4.1-Windows-x64-Setup.exe`
 
 Windows x86 is not published before separate Windows 10 x86 Home/Pro hands-on
 evidence passes. Versions from 0.1.2 through 0.4.9 are free Early Access. Final-source
@@ -83,10 +83,10 @@ recoverable test PC, current backup and active security software.
 Compare the installer SHA-256 with `SHA256SUMS.txt` from the same release:
 
 ```powershell
-Get-FileHash -Algorithm SHA256 '.\PCssak-Gongyu-0.4.0-Windows-x64-Setup.exe'
+Get-FileHash -Algorithm SHA256 '.\PCssak-Gongyu-0.4.1-Windows-x64-Setup.exe'
 ```
 
-The release also contains `PCssak-Gongyu-0.4.0-Windows-x64-Setup.exe.sig`.
+The release also contains `PCssak-Gongyu-0.4.1-Windows-x64-Setup.exe.sig`.
 PCssak Gongyu verifies updater artifacts with its embedded Gongyu-specific
 Minisign public key. `UPDATE-RELEASE.json.sig` separately binds the product,
 version, source commit, installer hash, installer byte size, embedded EULA and
