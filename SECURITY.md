@@ -1,7 +1,7 @@
 # Security Policy / 보안 정책
 
-> 0.4.0 무료 Early Access의 게시 여부는 공개 릴리스의 실제 자산과 검증 기록으로 확인합니다. 새 설치본의 실제 복구·SSH 전환 시험은 NOT_RUN입니다.
-> Publication of 0.4.0 Free Early Access is established by the actual release assets and verification record. Hands-on recovery and SSH transition testing of the new installer is NOT_RUN.
+> 0.4.1 무료 Early Access의 게시 여부는 공개 릴리스의 실제 자산과 검증 기록으로 확인합니다. 새 설치본의 실제 복구·SSH 전환 시험은 NOT_RUN입니다.
+> Publication of 0.4.1 Free Early Access is established by the actual release assets and verification record. Hands-on recovery and SSH transition testing of the new installer is NOT_RUN.
 
 ## English
 
@@ -21,16 +21,24 @@ to the final source. Skipped or failed Actions runs are not recorded as successf
 Neither path replaces hands-on Windows or two-PC SSH/SFTP testing. Prefer a
 recoverable test system and a current backup.
 
-Version 0.4.0 retires legacy firewall-record preview and recovery screens,
-their settings navigation, automatic V4/V5 recovery before regular SSH operations
-and WebView permission for the five related commands. Current LAN-rule ownership,
-service baselines and protected restoration records remain. Screen removal does
-not delete journals, release safety guards or declare recovery complete.
+Sharing connection checks preserve seven underlying failure reasons and bind the
+approved network identity and returned scope to the same observation. Recovery
+cards in Settings separate status, actions and explanations. Physical-LAN checks,
+verification before and after changes, and user confirmation remain required.
+VPN and virtual adapters are not trusted automatically. The reported remote
+server's exact environment and failure remain unconfirmed; this release does not
+claim expanded Windows Server or virtual-LAN support or hands-on success.
+
+The regular SSH controls and Settings categories introduced in 0.4.0 remain.
+Retired legacy firewall-recovery screens are not reopened, and protected records
+are not deleted. Restore, overwrite and deletion confirmations remain, as does
+the possible need to re-enter passwords on another PC or Windows account.
+
 The partial-restoration limits introduced in 0.3.9 remain: protected records and
 exact non-overlapping targets are required, while external recovery, original
 service restoration, OpenSSH removal, Public-profile rollback and release of
 protective blocking may remain deferred. Damaged or uncertain state stops the
-operation. Hands-on 0.4.0 installation, reboot, two-PC SSH/SFTP and full restoration
+operation. Hands-on 0.4.1 installation, reboot, two-PC SSH/SFTP and full restoration
 are NOT_RUN; earlier one-PC observations do not verify this installer.
 
 ### Report privately
@@ -56,12 +64,12 @@ Download only from `pcssakinc/pcssak-gongyu-releases` or a version-pinned link o
 release. The Tauri updater verifies the published `.sig` with the Gongyu-specific
 Minisign public key, and the independently signed `UPDATE-RELEASE.json` binds
 release identity, installer hash and byte size, and the canonical installer URL.
-Version 0.4.0 keeps the legal documents and updater public key from 0.3.9.
-After verified publication, 0.3.9 users with valid consent records can download,
+Version 0.4.1 keeps the legal documents and updater public key from 0.3.9.
+After verified publication, 0.3.9 and 0.4.0 users with valid consent records can download,
 verify signatures and approve installation in the app. Users on 0.3.8 or earlier
 lack the current key and must download the official installer, compare its
 SHA-256 with the published list and run it interactively. Signature checks must
-not be bypassed. For 0.1.1 through 0.3.9, use protected replacement without
+not be bypassed. For 0.1.1 through 0.4.0, use protected replacement without
 uninstalling first or deleting settings or Windows recovery records. Only 0.1.0
 requires removal first. Hands-on protected replacement and removal with the
 final installer are NOT_RUN.
@@ -124,13 +132,20 @@ policy. The app never changes those controls or SAC automatically.
 
 ## 한국어
 
-0.4.0에서는 과거 방화벽 기록 조회·복구 화면, 설정 이동 경로, 일반 SSH 조작 전
-구형 V4·V5 복구 자동 실행과 관련 명령 다섯 개의 WebView 권한을 퇴역합니다.
-현재 LAN 규칙 소유권·서비스 기준선·우리 설정 원복 보호 기록은 유지합니다. 화면
-제거를 원본 삭제·보호 해제·복구 완료로 처리하지 않습니다. 0.3.9의 부분 원복 한계도
+공유 연결 확인에서 일곱 하위 원인을 보존하고 신뢰 동의한 네트워크 식별자와
+반환 범위를 같은 조회 결과에 묶습니다. 설정 복구 카드는 상태·조작·설명을 구분해
+정리합니다. 물리 LAN 검증, 적용 전후 재검증과 사용자 확인은 유지하며 VPN·가상
+어댑터를 자동으로 신뢰하지 않습니다. 원격 서버의 정확한 환경과 실패 원인은 아직
+미확인이고 Windows Server·가상 LAN 지원 확대나 실기 성공을 약속하지 않습니다.
+
+0.4.0에서 정리한 일반 SSH 조작과 설정 분류를 유지합니다. 퇴역한 과거 방화벽
+복구 화면을 다시 열거나 보호 기록을 지우지 않습니다. 복원·덮어쓰기·삭제 확인과
+다른 PC나 Windows 계정에서 비밀번호 재입력이 필요할 수 있다는 제한도 유지합니다.
+
+0.3.9의 부분 원복 한계도
 유지합니다. 보호 원문과 정확한 대상 비중첩을 확인할 때만 진행하며 외부 복구·
 원래 서비스 상태·OpenSSH 기능·Public 프로필 원복·보호 차단 해제는 보류될 수 있습니다.
-손상되거나 읽을 수 없는 상태를 성공으로 표시하지 않습니다. 0.4.0 설치·재부팅·
+손상되거나 읽을 수 없는 상태를 성공으로 표시하지 않습니다. 0.4.1 설치·재부팅·
 두 PC SSH/SFTP·완전 원복 실기는 NOT_RUN이고 기존 한 PC 경험은 이번 설치본의 증거가 아닙니다.
 
 보안 제보는 공개된 최신 PCssak Gongyu 무료 Early Access 버전을 기준으로 검토합니다.
@@ -167,11 +182,11 @@ Windows·두 PC SSH/SFTP 실기를 대신하지 않습니다.
 `pcssakinc/pcssak-gongyu-releases` 또는 `pcssak.com`의 버전 고정 링크에서만 받고 같은
 릴리스의 `SHA256SUMS.txt`와 설치 파일 SHA-256을 비교하세요. Tauri Updater는 공개한
 `.sig`를 Gongyu 전용 Minisign 공개키로 검증하며, 별도로 서명한 `UPDATE-RELEASE.json`이
-릴리스 신원·설치본 해시·바이트 크기와 정규 설치본 URL을 묶습니다. 0.4.0은 0.3.9의
-법률 정본·업데이트 공개키를 유지합니다. 정상 동의 기록이 있는 0.3.9 사용자는 실제
+릴리스 신원·설치본 해시·바이트 크기와 정규 설치본 URL을 묶습니다. 0.4.1은 0.3.9의
+법률 정본·업데이트 공개키를 유지합니다. 정상 동의 기록이 있는 0.3.9·0.4.0 사용자는 실제
 공개 후 앱에서 다운로드·서명 검증·사용자 승인으로 업데이트할 수 있습니다. 0.3.8
 이하는 현행 공개키가 없으므로 공식 설치본을 직접 내려받아 공개 SHA-256과 대조한 뒤
-대화형으로 설치합니다. 서명 검증을 우회하지 마세요. 0.1.1~0.3.9는 먼저 앱을 제거하거나
+대화형으로 설치합니다. 서명 검증을 우회하지 마세요. 0.1.1~0.4.0은 먼저 앱을 제거하거나
 설정·공유 장부·SSH 설정·중단 기록을 지우지 않고 보호 교체합니다. 0.1.0만 구 버전
 제거 후 직접 설치합니다. 최종 설치본의 실제 보호 교체·제거 실기는 NOT_RUN입니다.
 0.1.2 이상 0.4.9 이하의 공개 Early Access 설치 파일에는 Authenticode
