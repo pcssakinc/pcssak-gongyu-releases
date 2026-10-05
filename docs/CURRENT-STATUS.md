@@ -1,5 +1,52 @@
 # 공유 공개 배포 현재 상태
 
+## 0.4.2 불변 Latest·아홉 자산·홈페이지 운영 마감 (2026-10-05)
+
+[공식 v0.4.2](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.4.2)는
+ID `403285039`, 실제 게시 `2026-10-05T00:56:49Z`(09:56:49 KST), 일반 불변 Latest다.
+`draft=false`·`prerelease=false`·`immutable=true`, Latest의 같은 ID와 정확한 아홉 자산을
+확인했다. 설치본은 `PCssak-Gongyu-0.4.2-Windows-x64-Setup.exe`, 3,944,901바이트이며
+SHA-256은 `2708bce3f8cbec360f94fa46b47e0f8b2e9101780a5dba4ed7b0c34632e7ad5f`다.
+
+앱 빌드 소스와 비공개 원격 `v0.4.2` 태그 대상은
+`98ddd346b3abc1fa779ec8aad5a486f9f493b348`이다. 공개 태그의
+`bf779fc7586079a7360691de3907705dc31ca765`와 구분한다. 소스 main의 과거 0.3.8을
+최신 앱 정본으로 사용하지 않는다. 같은 소스의 승인된 로컬 Windows 14단계가 모두
+통과했고 검증 증거 SHA-256은
+`bd38527e4e0dc02cc2ecf02230982d32c66b0426654e36531d3ace40ebb41842`다.
+이 기록은 GitHub Actions 성공이나 현장 실측을 대신하지 않는다.
+
+공식 게시기는 종료 0이며 별도 인증 없는 공개 GET도 9/9의 실제 바이트·크기·해시가
+조립본과 GitHub digest에 일치했다. Latest 고정 `latest.json`은 0.4.2이며 승인 노트
+원문 바이트가 같고 두 업데이트 서명도 기존 공개키로 각각 검증했다. 0.3.9의 법률
+정본·공개키와 0.4.1 사용자의 설정·장부·SSH·중단 기록 보호를 유지한다.
+
+홈페이지 [PR #155](https://github.com/pcssakinc/homepage/pull/155)는 승인 병합됐다.
+운영 main `06cc1c837f762801e6d56d40469898c0cc52bdb9`와 CI 검증 후보
+`cdf20b8427b56b9d415e25f2e057c00ef730c336`은 같은 트리를 가진다.
+[자체 Linux CI 37250500177](https://github.com/pcssakinc/homepage/actions/runs/37250500177)의
+15단계와 미리보기 14/14 판독이 통과했다.
+[Cloudflare 운영 확인 111579324312](https://github.com/pcssakinc/homepage/runs/111579324312)는
+같은 운영 main에서 `2026-10-05T01:24:30Z`(10:24:30 KST)에 성공했다. 빌드는
+`8593c421-8814-41ad-91c0-4b360d3158f4`, 배포 버전은
+`d0e512c5-84be-48ce-a09e-e38ae775536c`다. 실제 운영 pcssak.com·pcssak.co.kr의 공유
+10언어 소개와 한·영 다운로드·가이드 총 14 GET도 모두 통과·실패 0이다.
+보안 헤더·안내·링크·설치본 크기·SHA 계약을 확인하고 같은 운영 main·트리·성공 배포와
+결속했다. 운영 출처 증거 SHA-256은
+`5cb4da943f612a0967e7140aae7ef356a7e5216edf3a8c57a867c22496a4215f`다.
+**앱 공개·공유 홈페이지 운영 배포는 완료**했으며 다른 제품·전체 사이트 항목은
+기존 기록의 범위를 따른다.
+실제 설치·업그레이드·제거·재부팅·두 물리 PC SSH/SFTP·VPN 공존·
+완전 원복·회사 PC/서버 재현·Windows 10/11 Home·Pro x64 전체 행렬은 **NOT_RUN**이다.
+외부 법률·전체 Windows 행렬·물리 LAN 행렬·독립 공급망 승인·Windows Authenticode와
+타임스탬프의 Early Access 다섯 관문도 미완료다. 과거 방화벽 복원이나 모든 SSH 동작의
+22배 향상, 문제 회사 PC 해결을 완료로 표시하지 않는다.
+
+[새 앱 공개 마감 일지](../WORKLOG_2026-10-05_V0.4.2_PUBLICATION_CLOSEOUT.md)에 아홉 자산의
+실제 값과 확인 범위를 기록한다. 아래 준비 절은 게시 전의 역사 기록으로 보존하며
+현재 앱 공개 상태는 이 상단 절을 따른다. 회사 실측 후의 추가 수정은 0.4.3 이상으로
+기록하고 이미 불변 공개한 0.4.2 태그·자산·서명·승인 노트는 바꾸지 않는다.
+
 ## 0.4.2 공개 문서 준비 — 최종 배포 관문 전 (2026-10-05)
 
 관리자는 보존한 0.4.2 후보에 비공개 최적화 저장소의 PCSSAK 브랜드 정체성을 참고하여
