@@ -1,14 +1,19 @@
 # PCssak Gongyu 공개 릴리스·자동 업데이트 자산 계약
 
-## 0.4.1 배포 파일 계약과 검증 범위
+## 0.4.2 배포 파일 계약과 검증 범위
 
-0.4.1은 공유 연결의 일곱 하위 원인을 보존하고 신뢰 동의한 네트워크 식별자와
+0.4.2는 브랜드 화면·버튼 경계·고대비 초점, 자동설정의 물리 LAN 기준, 유한 재시도,
+조건부 보조 판독과 내장 설명을 보완한다. 정확 ID 원복과 변경 전후 개별 검증은
+유지하며 과거 외부 기록 복원 해결이나 SSH 전체 속도 개선으로 표시하지 않는다.
+직전 0.4.1 보호 교체 분기를 네 진입 경로에 연결하고 기존 파일·설정·기록을 보존한다.
+
+0.4.2는 공유 연결의 일곱 하위 원인을 보존하고 신뢰 동의한 네트워크 식별자와
 반환 범위를 같은 조회 결과에 묶으며 설정 복구 카드의 정보를 정리한다. 물리 LAN
 검증·변경 전후 검증과 보호 기록은 유지한다. 원격 서버의 정확한 환경과 원인은
 미확인이며 Windows Server·가상 LAN 지원 확대를 뜻하지 않는다. 0.4.0에서 퇴역한
 과거 복구 화면을 다시 열지 않고 0.3.9의 부분 원복 한계를 유지한다. 외부 복구·
 원래 서비스 상태·OpenSSH 기능·Public 프로필·보호 차단 해제는 보류될 수 있다.
-0.4.1 설치·재부팅·두 PC SSH/SFTP·완전 원복과 원격 서버 재현 실기는 NOT_RUN이다.
+0.4.2 설치·재부팅·두 PC SSH/SFTP·완전 원복과 원격 서버 재현 실기는 NOT_RUN이다.
 
 기존 법률 정본·업데이트 공개키의 두 서명, 최종 소스 SHA, 정확한 아홉 자산,
 고정 URL과 공개 판독 계약을 유지합니다. 실제 설치본 크기·해시·게시 시각은
@@ -16,19 +21,19 @@
 이 문서의 버전 예약 자체는 서명·게시·실기 성공을 뜻하지 않습니다.
 ## 공개 후보의 계약
 
-이 문서는 `pcssakinc/pcssak-gongyu-releases`의 무료 `v0.4.1` Early Access에 쓰는
+이 문서는 `pcssakinc/pcssak-gongyu-releases`의 무료 `v0.4.2` Early Access에 쓰는
 공개 자산, Tauri 자동 업데이트, 서명과 GitHub Release 상태를 하나의 계약으로 고정한다.
 현재 디렉터리는 공개 저장소용 소스 템플릿이며, 실제 게시 완료 여부는 GitHub의 버전 고정
 릴리스와 Latest 엔드포인트를 각각 재검증해 판단한다.
 
 ## 1. GitHub 릴리스 상태
 
-`v0.4.1`은 제품 성숙도를 숨기지 않도록 제목과 본문에서 **Free Early Access**라고
+`v0.4.2`은 제품 성숙도를 숨기지 않도록 제목과 본문에서 **Free Early Access**라고
 표시한다. 다만 Tauri가 고정 주소에서 최신 버전을 찾게 하려면 GitHub가 프리릴리스를
 `/releases/latest`에서 제외하는 동작을 피해야 한다. 따라서 게시 상태는 다음과 같다.
 
-- 태그: `v0.4.1`
-- 제목: `PCssak Gongyu 0.4.1 — Free Early Access`
+- 태그: `v0.4.2`
+- 제목: `PCssak Gongyu 0.4.2 — Free Early Access`
 - `draft=false`
 - `prerelease=false`
 - GitHub Latest 지정: `true`
@@ -39,10 +44,10 @@ Early Access라는 제품 채널과 GitHub의 `prerelease` 플래그는 같은 �
 
 `https://github.com/pcssakinc/pcssak-gongyu-releases/releases/latest/download/latest.json`
 
-0.4.1은 0.3.9의 법률 정본·업데이트 공개키를 그대로 사용한다. 정상 동의 기록이 남은
-0.3.9·0.4.0 사용자는 실제 공개 후 앱에서 다운로드·서명 검증·사용자 승인 뒤 적용한다. 0.3.8
+0.4.2는 0.3.9의 법률 정본·업데이트 공개키를 그대로 사용한다. 정상 동의 기록이 남은
+0.3.9·0.4.0·0.4.1 사용자는 실제 공개 후 앱에서 다운로드·서명 검증·사용자 승인 뒤 적용한다. 0.3.8
 이하 앱에는 현행 공개키가 없으므로 공식 설치본을 직접 내려받아 공개 SHA-256과 대조하고
-대화형으로 설치한다. 서명 오류를 우회하지 않는다. 0.1.1~0.4.0은 기존 앱을 먼저 제거하거나
+대화형으로 설치한다. 서명 오류를 우회하지 않는다. 0.1.1~0.4.1은 기존 앱을 먼저 제거하거나
 설정·공유·SSH·중단 기록을 지우지 않고 보호 교체한다. 이미 제거한 경우에도 Windows
 복구 근거를 임의로 삭제하지 않는다. 0.1.0만 별도 제거 후 직접 설치한다. 법률 정본이
 다시 바뀌면 대화형 설치로 안내한다. 기존 공개 태그·9자산·서명·노트는 바꾸지 않는다.
@@ -52,12 +57,12 @@ Early Access라는 제품 채널과 GitHub의 `prerelease` 플래그는 같은 �
 
 ## 2. 정확한 공개 자산 9종
 
-`v0.4.1` Release에는 아래 아홉 파일만 정확히 올린다.
+`v0.4.2` Release에는 아래 아홉 파일만 정확히 올린다.
 
 1. `DOWNLOAD-METADATA.json`
-2. `PCssak-Gongyu-0.4.1-MPL-Sources.zip`
-3. `PCssak-Gongyu-0.4.1-Windows-x64-Setup.exe`
-4. `PCssak-Gongyu-0.4.1-Windows-x64-Setup.exe.sig`
+2. `PCssak-Gongyu-0.4.2-MPL-Sources.zip`
+3. `PCssak-Gongyu-0.4.2-Windows-x64-Setup.exe`
+4. `PCssak-Gongyu-0.4.2-Windows-x64-Setup.exe.sig`
 5. `THIRD-PARTY-NOTICES.txt`
 6. `UPDATE-RELEASE.json`
 7. `UPDATE-RELEASE.json.sig`
@@ -147,14 +152,14 @@ SAC·조직 정책을 자동 해제하거나 개별 앱 우회를 제공하지 �
 `latest.json`은 더 이상 사람·홈페이지용 다운로드 정보가 아니다. Tauri 공식 정적 JSON
 형식만 정확히 담으며 `latest.schema.json`으로 구조를 고정한다.
 
-- `version`: `0.4.1`
+- `version`: `0.4.2`
 - `notes`: 사람이 승인한 릴리스 노트 원문
 - `pub_date`: 이번 조립 실행의 UTC `Z` 시각
 - `platforms.windows-x86_64.url`: 버전 고정 설치본 정규 URL
 - `platforms.windows-x86_64.signature`: 검증한 설치본 `.sig`의 한 줄 Base64 본문
 
 `latest.json`은 GitHub Latest 주소에서 제공하지만 그 안의 설치본 URL은 반드시
-`releases/download/v0.4.1/...`처럼 버전이 고정되어야 한다. Windows x86 또는 계약 밖
+`releases/download/v0.4.2/...`처럼 버전이 고정되어야 한다. Windows x86 또는 계약 밖
 플랫폼 키는 허용하지 않는다.
 
 ## 5. 서명된 `UPDATE-RELEASE.json`
@@ -163,10 +168,10 @@ SAC·조직 정책을 자동 해제하거나 개별 앱 우회를 제공하지 �
 
 - `schema`: `pcssak.update-release/v1`
 - `product`: `PCssak Gongyu`
-- `version`: `0.4.1`
-- `tag`: `v0.4.1`
+- `version`: `0.4.2`
+- `tag`: `v0.4.2`
 - `source_commit`: 승인한 소스의 소문자 40자리 Git SHA
-- `installer`: `PCssak-Gongyu-0.4.1-Windows-x64-Setup.exe`
+- `installer`: `PCssak-Gongyu-0.4.2-Windows-x64-Setup.exe`
 - `installer_sha256`: 실제 설치본 SHA-256
 - `installer_size`: 실제 설치본 바이트 수인 양의 정수, 최대 536,870,912바이트(512 MiB)
 - `eula_sha256`: 이 버전 소스 `LICENSE.txt` 정본의 정확한 바이트 SHA-256
@@ -297,7 +302,7 @@ Clippy, fmt·i686 check·감사·릴리스 빌드·정적·UI·MPL·고지·릴�
    언어/EULA·HKLM seed·신규/복구/업그레이드·제거 양쪽 선택·원복 실패 중단 시나리오에 결속한다.
    공개 Early Access `-PublicEarlyAccess`에서는 이 두 증거가 미완료임을 승인 노트에 고지하고 해당 인수를
    받지 않는다. 게시기는 실제 승인 증거를 생성하거나 완료로 추정하지 않는다.
-2. 태그와 Release가 모두 없으면 `v0.4.1`를 `draft=true`, `prerelease=false`, Free Early
+2. 태그와 Release가 모두 없으면 `v0.4.2`를 `draft=true`, `prerelease=false`, Free Early
    Access 제목으로 만든다. 둘 다 있으면 태그 target, Release ID·태그·제목·본문·target 및 기존
    자산 각각의 이름·`uploaded` 상태·크기·`sha256:` digest가 현재 승인 입력과 정확히 같은 Draft만
    재개한다. 태그/Release 중 하나만 있거나 승인 밖·중복·불일치 자산이 있으면 원격을 자동 변경하지
@@ -329,7 +334,7 @@ Draft 검증 실패 시 자동 삭제하지 않는다. 원격 Draft가 현재 �
 
 다음 중 하나라도 발견되면 게시를 중단한다.
 
-- `draft=false`, `prerelease=false`, `Latest=true`, `v0.4.1` 또는 정확한 9자산 불일치
+- `draft=false`, `prerelease=false`, `Latest=true`, `v0.4.2` 또는 정확한 9자산 불일치
 - `/releases/latest/download/latest.json`이 다른 버전·프리릴리스를 가리킴
 - Gongyu 공개키 불일치·이중 인코딩·Minisign 검증 실패·다른 키 또는 과거 키의 서명
 - Minisign 검증 중 공개키·서명·대상 바이트 또는 격리 데이터 디렉터리의 정확한 파일 집합 변경
