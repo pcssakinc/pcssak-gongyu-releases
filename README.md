@@ -1,6 +1,6 @@
 # PCssak Gongyu Releases
 
-[한국어 안내](README.ko.md)
+**Languages:** English · [한국어](README.ko.md)
 
 > This directory is the public repository contract for PCssak Gongyu v0.4.2 Free Early Access.
 > Publication is established by the actual immutable release and nine verified assets.
