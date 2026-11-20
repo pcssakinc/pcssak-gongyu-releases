@@ -2,6 +2,15 @@
 
 [한국어 안내](README.ko.md)
 
+## PCssak Gongyu 0.4.9
+
+Free manual download for Windows x64. No account, payment or product key is required.
+
+[Download for Windows x64](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/download/v0.4.9/PCssak-Gongyu-0.4.9-Windows-x64-Setup.exe) · [Checksums, changes and installation instructions](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.4.9)
+
+<details>
+<summary>Previous signed update channel · 0.4.2</summary>
+
 > This directory is the public repository contract for PCssak Gongyu v0.4.2 Free Early Access.
 > Publication is established by the actual immutable release and nine verified assets.
 
@@ -147,3 +156,5 @@ Read [`SECURITY.md`](SECURITY.md) before reporting a vulnerability. For normal
 support, contact `support@pcssak.com`. Never attach passwords, private keys,
 recovery codes, access tokens, personal documents, or an unredacted network
 configuration to a public issue.
+
+</details>

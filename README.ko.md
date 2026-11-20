@@ -2,6 +2,15 @@
 
 [English](README.md)
 
+## PCssak Gongyu 0.4.9
+
+Windows x64용 무료 수동 설치판입니다. 계정이나 제품 키 없이 공식 설치 파일을 내려받아 사용하세요.
+
+[Windows x64 설치 파일](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/download/v0.4.9/PCssak-Gongyu-0.4.9-Windows-x64-Setup.exe) · [해시·변경 사항·설치 안내](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.4.9)
+
+<details>
+<summary>이전 자동 업데이트 배포판 0.4.2 안내</summary>
+
 > 이 디렉터리는 PCssak Gongyu v0.4.2 무료 Early Access의 공개 저장소 계약입니다.
 > 게시 완료는 불변 릴리스와 검증된 아홉 자산의 실제 공개 기록으로 판단합니다.
 
@@ -126,3 +135,5 @@ Windows 11의 Smart App Control(SAC) 차단은 앱의 PIN 잠금·설치 동작�
 보안 취약점은 먼저 [`SECURITY.md`](SECURITY.md)를 확인하세요. 일반 문의는
 `support@pcssak.com`으로 받습니다. 공개 이슈에 암호, 개인키, 복구 코드, 접근 토큰,
 개인 문서 또는 가리지 않은 네트워크 설정을 첨부하지 마세요.
+
+</details>

@@ -1,7 +1,10 @@
 # Security Policy / 보안 정책
 
-> 0.4.2 무료 Early Access의 게시 여부는 공개 릴리스의 실제 자산과 검증 기록으로 확인합니다. 새 설치본의 실제 복구·SSH 전환 시험은 NOT_RUN입니다.
-> Publication of 0.4.2 Free Early Access is established by the actual release assets and verification record. Hands-on recovery and SSH transition testing of the new installer is NOT_RUN.
+## 0.4.9 수동 설치 / Manual installation
+
+0.4.9는 공식 고정 릴리스의 Windows x64 설치 파일을 직접 내려받는 무료 사전 공개판입니다. 같은 릴리스의 SHA256SUMS.txt로 파일을 확인하세요. Windows 게시자 서명과 앱 내 업데이트 서명은 제공하지 않습니다. Windows 보호 기능을 유지하세요. 아래 서명 업데이트 안내는 기존 0.4.2 채널에 적용됩니다.
+
+For the free 0.4.9 manual release, download the Windows x64 installer from the fixed release and compare it with SHA256SUMS.txt from that release. Windows publisher signing and in-app update signatures are unavailable for this installer. Keep Windows protections enabled. The signed update process described below continues to apply to the existing 0.4.2 channel.
 
 ## English
 
