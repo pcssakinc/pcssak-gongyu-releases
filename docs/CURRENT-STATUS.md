@@ -1,5 +1,9 @@
 # 공유 공개 배포 현재 상태
 
+## 2026-11-20 · 0.4.9 무료 수동 설치판 공개
+
+Windows x64용 무료 설치 파일과 SHA-256 목록, MPL 소스, 제3자 고지를 공개했다. 비로그인 다운로드 파일의 SHA-256을 확인했다. 기존 앱 내 자동 업데이트는 0.4.2다. 실제 설치와 두 PC 연결 시험은 남아 있다. [0.4.9 변경일기](RELEASE-NOTES-v0.4.9.md) · [공개 릴리스](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.4.9)
+
 ## 0.4.2 불변 Latest·아홉 자산·홈페이지 운영 마감 (2026-10-05)
 
 [공식 v0.4.2](https://github.com/pcssakinc/pcssak-gongyu-releases/releases/tag/v0.4.2)는
